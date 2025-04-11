@@ -30,6 +30,7 @@ endif()
 # Project options
 option(WXT_AUTO_USING_3RD_LIBS "If the option is OFF, using 3rd source always" ON)
 option(WXT_PORTABLE_EDITION "Portable edition" ON)
+option(WXT_DAILY_BUILD "Daily build" OFF)
 if(WXT_PORTABLE_EDITION)
   add_compile_definitions(WXT_PORTABLE_EDITION)
 endif()
