@@ -1,4 +1,4 @@
-﻿set(packet_name "wxWidgets-3.2.8")
+﻿set(packet_name "wxWidgets-3.2.7")
 
 set(wxWidget_LIBS ${CMAKE_SOURCE_DIR}/libs/${CMAKE_BUILD_TYPE}/${packet_name})
 if(EXISTS ${wxWidget_LIBS})
