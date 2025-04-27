@@ -15,7 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get instal
     libfuse2 \
     build-essential \
     libfuse-dev
-RUN export apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # CMake
 RUN wget https://cmake.org/files/v3.30/cmake-3.30.8-linux-x86_64.sh
