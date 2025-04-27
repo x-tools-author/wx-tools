@@ -174,12 +174,7 @@ void SocketBaseUi::InitClientInfoTextCtrl(int row, wxWindow *parent)
                                           "0.0.0.0:0",
                                           wxDefaultPosition,
                                           wxDefaultSize,
-#if defined(__LINUX__)
-                                          wxTE_READONLY | ~wxTE_PASSWORD);
-#else
-                                          wxTE_READONLY);
-#endif
-    m_clientInfoTextCtrl->SetWindowStyleFlag(wxALIGN_CENTER);
+                                          wxTE_READONLY | wxTE_CENTRE);
     Add(label, wxGBPosition(row, 0), wxGBSpan(1, 1), wxALIGN_CENTER_VERTICAL | wxALL, 0);
     Add(m_clientInfoTextCtrl, wxGBPosition(row, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
 }
