@@ -1,5 +1,6 @@
 ﻿name: build-windows
 on:
+  workflow_dispatch: # Enables manually
   schedule:
     - cron: '0 0 * * *'
 # on:
