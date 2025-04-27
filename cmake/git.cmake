@@ -17,7 +17,6 @@ function(wxt_git_get_latest_tag working_dir prefix)
   set(date_version "v${current_year}.${current_month}.${current_day}")
 
   if(NOT git_tags)
-    x_update_date_version()
     set(${prefix}_GIT_TAG
         "${date_version}"
         CACHE STRING "Latest git tag" FORCE)
