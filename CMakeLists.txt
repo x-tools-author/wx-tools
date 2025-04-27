@@ -11,9 +11,14 @@ endif()
 
 # cmake-format: off
 if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Release" AND MSVC)
+  set(BUILD_SHARED_LIBS OFF CACHE BOOL "Reset option" FORCE)
   set(wxBUILD_SHARED OFF CACHE BOOL "Build wxWidgets as shared libraries" FORCE)
   set(wxBUILD_USE_STATIC_RUNTIME ON CACHE BOOL "Build static runtime" FORCE)
   set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+elseif(LINUX)
+  set(BUILD_SHARED_LIBS OFF CACHE BOOL "Reset option" FORCE)
+  set(wxBUILD_SHARED OFF CACHE BOOL "Build wxWidgets as shared libraries" FORCE)
+  set(wxBUILD_USE_STATIC_RUNTIME ON CACHE BOOL "Build static runtime" FORCE)
 endif()
 # cmake-format: on
 

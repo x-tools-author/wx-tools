@@ -3,7 +3,6 @@
 # cmake-format: off
 set(WITH_GFLAGS OFF)
 set(BUILD_TESTING OFF)
-set(BUILD_SHARED_LIBS OFF CACHE BOOL "Reset option" FORCE)
 set(WITH_TOOLS OFF CACHE BOOL "Reset option" FORCE)
 # cmake-format: on
 

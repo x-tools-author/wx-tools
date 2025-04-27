@@ -5,6 +5,7 @@ if(EXISTS ${wxWidget_LIBS})
   set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${wxWidget_LIBS})
   find_package(wxWidgets QUIET COMPONENTS core base aui)
   include(${wxWidgets_USE_FILE})
+  include_directories(${wxWidget_LIBS}/include/wx-3.2)
   message(STATUS "wxWidgets found in ${wxWidgets_INCLUDE_DIRS}")
 else()
   # Extract the wxWidgets packet
