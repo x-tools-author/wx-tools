@@ -19,10 +19,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: build for linux
+      - name: Build for linux
         run: |
-          git config --global user.name "${{github.actor}}"
-          git config --global user.email "x-tools@outlook.com
           git fetch --tags
           docker pull ${{ env.DOCKER_IMAGE }}
           docker run --rm --privileged -v ${{ github.workspace }}:/workspace ${{ env.DOCKER_IMAGE }} /bin/bash -c "\
