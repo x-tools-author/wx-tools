@@ -10,8 +10,18 @@ function(wxt_git_get_latest_tag working_dir prefix)
     OUTPUT_STRIP_TRAILING_WHITESPACE)
 
   if(NOT git_tags)
-    add_compile_definitions(${prefix}_GIT_TAG="9.9.9")
-    message("No tags found.")
+    # Such as 25.2.5
+    string(TIMESTAMP current_year "%Y")
+    string(TIMESTAMP current_month "%m")
+    string(TIMESTAMP current_day "%d")
+    math(EXPR current_month "${current_month} + 0")
+    math(EXPR current_day "${current_day} + 0")
+    set(target_version "v${current_year}.${current_month}.${current_day}")
+    # string(TIMESTAMP target_version "%y.%m.%d")
+    set(GIT_LATEST_TAG ${target_version})
+    set(${prefix}_GIT_TAG
+        "${GIT_LATEST_TAG}"
+        CACHE STRING "Latest git tag" FORCE)
     return()
   endif()
 
