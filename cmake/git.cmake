@@ -8,16 +8,16 @@ function(wxt_git_get_latest_tag working_dir prefix)
     OUTPUT_VARIABLE git_tags
     OUTPUT_STRIP_TRAILING_WHITESPACE)
 
-  # date_version: v2025.04.27
+  # date_version: such as 2025.04.27
   # cmake-format: off
   string(TIMESTAMP current_year "%Y")
   string(TIMESTAMP current_month "%m")
   string(TIMESTAMP current_day "%d")
   math(EXPR current_month "${current_month} + 0")
   math(EXPR current_day "${current_day} + 0")
-  set(date_version "v${current_year}.${current_month}.${current_day}")
+  set(date_version "${current_year}.${current_month}.${current_day}")
   set(${prefix}_GIT_TAG "${date_version}" CACHE STRING "Latest git tag" FORCE)
-  add_compile_definitions(${prefix}_GIT_TAG=${date_version})
+  add_compile_definitions(${prefix}_GIT_TAG="${date_version}")
   # cmake-format: on
 
   if(NOT git_tags)
@@ -40,7 +40,7 @@ function(wxt_git_get_latest_tag working_dir prefix)
   # cmake-format: off
   message("Latest git tag: ${git_latest_tag}")
   set(${prefix}_GIT_TAG ${git_latest_tag} CACHE STRING "Latest git tag" FORCE)
-  add_compile_definitions(${prefix}_GIT_TAG=${git_latest_tag})
+  add_compile_definitions(${prefix}_GIT_TAG="${git_latest_tag}")
   # cmake-format: on
 endfunction()
 
