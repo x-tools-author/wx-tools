@@ -26,13 +26,15 @@ jobs:
           cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
       - name: Upload Release Asset for Ubuntu
         run: |
+            echo "---------------------------------------------------------------------------------"
             ls -l
             cd build/deb/wxTools
+            echo "---------------------------------------------------------------------------------"
             ls -l
             for file in *.deb; do
               new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux-v\2-\3/")
               mv "$file" "$new_name"
             done
             ls -l
-            find . -name "*.deb" -exec echo ${{ github.ref_name }} {} \;
-            find . -name "*.AppImage" -exec echo ${{ github.ref_name }} {} \;
+            find . -name "*.deb" -exec echo "Deb found: ${{ github.ref_name }}" {} \;
+            find . -name "*.AppImage" -exec echo "AppImage found: ${{ github.ref_name }}" {} \;
