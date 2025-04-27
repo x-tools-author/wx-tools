@@ -35,6 +35,7 @@ jobs:
               new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux-v\2-\3/")
               mv "$file" "$new_name"
             done
+            echo "---------------------------------------------------------------------------------"
             ls -l
             find . -name "*.deb" -exec echo "Deb found: ${{ github.ref_name }}" {} \;
             find . -name "*.AppImage" -exec echo "AppImage found: ${{ github.ref_name }}" {} \;
