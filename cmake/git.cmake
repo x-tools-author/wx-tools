@@ -1,7 +1,6 @@
 # * Get the last tag.
 # * git tag -d v1.0.0
 # * git push github :refs/tags/v1.0.0
-
 function(wxt_git_get_latest_tag working_dir prefix)
   execute_process(
     COMMAND git tag
@@ -9,25 +8,23 @@ function(wxt_git_get_latest_tag working_dir prefix)
     OUTPUT_VARIABLE git_tags
     OUTPUT_STRIP_TRAILING_WHITESPACE)
 
+  # date_version: v2025.04.27
+  string(TIMESTAMP current_year "%Y")
+  string(TIMESTAMP current_month "%m")
+  string(TIMESTAMP current_day "%d")
+  math(EXPR current_month "${current_month} + 0")
+  math(EXPR current_day "${current_day} + 0")
+  set(date_version "v${current_year}.${current_month}.${current_day}")
+
   if(NOT git_tags)
-    # Such as 25.2.5
-    string(TIMESTAMP current_year "%Y")
-    string(TIMESTAMP current_month "%m")
-    string(TIMESTAMP current_day "%d")
-    math(EXPR current_month "${current_month} + 0")
-    math(EXPR current_day "${current_day} + 0")
-    set(target_version "v${current_year}.${current_month}.${current_day}")
-    # string(TIMESTAMP target_version "%y.%m.%d")
-    set(GIT_LATEST_TAG ${target_version})
+    x_update_date_version()
     set(${prefix}_GIT_TAG
-        "${GIT_LATEST_TAG}"
+        "${date_version}"
         CACHE STRING "Latest git tag" FORCE)
     return()
   endif()
 
-  if(WIN32)
-    string(REPLACE "\r" "" git_tags ${git_tags})
-  endif()
+  string(REPLACE "\r" "" git_tags ${git_tags})
   string(REPLACE "\n" ";" git_tags ${git_tags})
   message("Tags found: ${git_tags}")
   list(LENGTH git_tags git_tags_count)
@@ -37,15 +34,7 @@ function(wxt_git_get_latest_tag working_dir prefix)
     list(GET git_tags -1 GIT_LATEST_TAG)
   endif()
   if(${GIT_LATEST_TAG} STREQUAL "" OR ${GIT_LATEST_TAG} STREQUAL "continuous")
-    # Such as 25.2.5
-    string(TIMESTAMP current_year "%Y")
-    string(TIMESTAMP current_month "%m")
-    string(TIMESTAMP current_day "%d")
-    math(EXPR current_month "${current_month} + 0")
-    math(EXPR current_day "${current_day} + 0")
-    set(target_version "v${current_year}.${current_month}.${current_day}")
-    # string(TIMESTAMP target_version "%y.%m.%d")
-    set(GIT_LATEST_TAG ${target_version})
+    set(GIT_LATEST_TAG ${date_version})
   endif()
   message("Latest git tag: ${GIT_LATEST_TAG}")
   set(${prefix}_GIT_TAG
