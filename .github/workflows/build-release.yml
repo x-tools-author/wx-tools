@@ -5,7 +5,8 @@ on:
       - 'v*'
 
 env:
-    GH_TOKEN: ${{ github.token }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  DOCKER_IMAGE: ghcr.io/x-tools-author/wx-tools-ubuntu-20.04:x86_64
 
 jobs:
   update-release:
@@ -58,12 +59,9 @@ jobs:
       - name: build for linux
         run: |
           git fetch --tags
-          cmake --version
-          mkdir build
-          cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
-          cmake --build . --target all
-          cmake --build . --target wxTools-deb
+          docker pull ${{ env.DOCKER_IMAGE }}
+          docker run --rm --privileged -v ${{ github.workspace }}:/workspace ${{ env.DOCKER_IMAGE }} /bin/bash -c "\
+          cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
       - name: Upload Release Asset for Ubuntu
         run: |
           ls -l
@@ -75,9 +73,4 @@ jobs:
           done
           ls -l
           find . -name "*.deb" -exec gh release upload ${{ github.ref_name }} {} \;
-      - name: Make app image for ubuntu-20.04
-        if: matrix.os == 'ubuntu-20.04'
-        run: |
-          cd build
-          cmake --build . --target wxTools-appimage
-          find appimage -name "*.AppImage" -exec gh release upload ${{ github.ref_name }} {} \;
+          find . -name "*.AppImage" -exec gh release upload ${{ github.ref_name }} {} \;
