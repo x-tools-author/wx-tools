@@ -107,6 +107,11 @@ if(WIN32)
 endif()
 
 # --------------------------------------------------------------------------------------------------
+set(WXT_VERSION "0.0.0")
+if(WXT_GIT_TAG)
+  set(WXT_VERSION ${WXT_GIT_TAG})
+endif()
+
 # Generate MSI installer for Microsoft Store
 if(WIN32)
   wxt_build_for_store(wxTools)
