@@ -16,7 +16,32 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get instal
     build-essential \
     libfuse-dev \
     wget \
-    git
+    git \
+    libxcb-xinerama0 \
+    libxcb-cursor-dev \
+    libudev-dev \
+    ninja-build \
+    libopengl-dev \
+    libglu1-mesa-dev \
+    mesa-common-dev \
+    wget \
+    p7zip-full \
+    libicu-dev \
+    tree \
+    grep \
+    git \
+    libglib2.0-dev \
+    libxkb* \
+    libdbus* \
+    libegl1-mesa-dev \
+    libfontconfig1-dev  \
+    libfreetype6-dev  \
+    libfreetype-dev\
+    unzip \
+    fuse \
+    libfuse2 \
+    libfuse-dev \
+    kmod
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # CMake
