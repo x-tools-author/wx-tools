@@ -24,6 +24,8 @@ BaseSettingsPopup::BaseSettingsPopup(wxButton *controlButton, bool showOnBottom)
     if (controlButton) {
         controlButton->Bind(wxEVT_LEFT_DOWN, &BaseSettingsPopup::OnSettingsButtonClicked, this);
     }
+
+    Bind(wxEVT_LEFT_DOWN, &BaseSettingsPopup::OnGlobalMouseClick, this);
 }
 
 bool BaseSettingsPopup::ProcessLeftDown(wxMouseEvent &event)
@@ -44,5 +46,14 @@ void BaseSettingsPopup::OnSettingsButtonClicked(wxMouseEvent &event)
         Dismiss();
     } else {
         Show();
+    }
+}
+
+void BaseSettingsPopup::OnGlobalMouseClick(wxMouseEvent &event)
+{
+    if (!GetScreenRect().Contains(event.GetPosition())) {
+        Dismiss();
+    } else {
+        event.Skip();
     }
 }

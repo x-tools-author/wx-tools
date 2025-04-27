@@ -25,4 +25,5 @@ private:
 
 private:
     void OnSettingsButtonClicked(wxMouseEvent &event);
+    void OnGlobalMouseClick(wxMouseEvent &event);
 };
