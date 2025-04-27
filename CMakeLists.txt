@@ -3,28 +3,19 @@ cmake_minimum_required(VERSION 3.20)
 project(wxTools VERSION 1.0 LANGUAGES C CXX)
 # cmake-format: on
 
-# cmake-format: off
-if(NOT APPLE)
-  set(wxBUILD_SHARED OFF CACHE BOOL "Build wxWidgets as shared libraries" FORCE)
-if(WIN32)
-  set(wxBUILD_USE_STATIC_RUNTIME ON CACHE BOOL "Build static runtime" FORCE)
-endif()
-endif()
-# cmake-format: on
-
-if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Release")
-  if(MSVC)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-  elseif(MINGW)
-    # set(CMAKE_EXE_LINKER_FLAGS -static)
-  endif()
-endif()
-
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(${CMAKE_BUILD_TYPE} STREQUAL "Release")
   add_compile_definitions(WXT_RELEASE)
 endif()
+
+# cmake-format: off
+if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Release" AND MSVC)
+  set(wxBUILD_SHARED OFF CACHE BOOL "Build wxWidgets as shared libraries" FORCE)
+  set(wxBUILD_USE_STATIC_RUNTIME ON CACHE BOOL "Build static runtime" FORCE)
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+# cmake-format: on
 
 # --------------------------------------------------------------------------------------------------
 # Project options
@@ -37,9 +28,9 @@ endif()
 
 # --------------------------------------------------------------------------------------------------
 # The magic option...
-option(WXT_MO_YU "The magic option..." OFF)
-if(WXT_MO_YU)
-  add_compile_definitions(WXT_MO_YU)
+option(WXT_MO_MAGIC "The magic option..." OFF)
+if(WXT_MO_MAGIC)
+  add_compile_definitions(WXT_MO_MAGIC)
 endif()
 
 option(WXT_ENABLE_IPV6 "Enable IPv6" OFF)
@@ -51,11 +42,6 @@ include(cmake/git.cmake)
 wxt_git_get_latest_tag(${CMAKE_SOURCE_DIR} WXT)
 wxt_git_get_latest_commit(${CMAKE_SOURCE_DIR} WXT)
 wxt_git_get_latest_commit_time(${CMAKE_SOURCE_DIR} WXT)
-# Remove “v” from ${WXT_GIT_TAG} if it exists
-set(WXT_VERSION ${WXT_GIT_TAG})
-if(WXT_VERSION MATCHES "^v[0-9].*")
-  string(SUBSTRING ${WXT_VERSION} 1 -1 WXT_VERSION)
-endif()
 
 include(cmake/fmt.cmake)
 include(cmake/asio.cmake)

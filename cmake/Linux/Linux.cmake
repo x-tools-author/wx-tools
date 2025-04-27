@@ -1,6 +1,10 @@
 function(wxt_make_package target packetName friendlyName version is_deb)
   file(GLOB_RECURSE RES_FILES ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/app/*)
 
+  # Remove 'v' and 'V' from version string
+  string(REGEX REPLACE "v" "" version ${version})
+  string(REGEX REPLACE "V" "" version ${version})
+
   # target to lower case
   string(TOLOWER ${target} lower_target)
   # Remove all spaces

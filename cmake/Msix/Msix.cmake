@@ -1,4 +1,8 @@
 ﻿function(wxt_generate_msix target packet_name display_name packet_version rename_target)
+  # Remove 'v' and 'V' from version string
+  string(REGEX REPLACE "v" "" packet_version ${packet_version})
+  string(REGEX REPLACE "V" "" packet_version ${packet_version})
+
   set(root_dir ${WX_TOOLS_BINARY_DIR})
   set(template ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/MsixTemplate.xml)
   set(args -DargTarget=${target})
