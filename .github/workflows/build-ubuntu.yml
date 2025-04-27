@@ -21,7 +21,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Build for linux
         run: |
-          git fetch --tags
           docker pull ${{ env.DOCKER_IMAGE }}
           docker run --rm --privileged -v ${{ github.workspace }}:/workspace ${{ env.DOCKER_IMAGE }} /bin/bash -c "\
           cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
