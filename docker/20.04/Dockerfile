@@ -38,9 +38,6 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get instal
     libfreetype6-dev  \
     libfreetype-dev\
     unzip \
-    fuse \
-    libfuse2 \
-    libfuse-dev \
     kmod
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
