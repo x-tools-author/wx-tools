@@ -9,17 +9,21 @@ function(wxt_git_get_latest_tag working_dir prefix)
     OUTPUT_STRIP_TRAILING_WHITESPACE)
 
   # date_version: v2025.04.27
+  # cmake-format: off
   string(TIMESTAMP current_year "%Y")
   string(TIMESTAMP current_month "%m")
   string(TIMESTAMP current_day "%d")
   math(EXPR current_month "${current_month} + 0")
   math(EXPR current_day "${current_day} + 0")
   set(date_version "v${current_year}.${current_month}.${current_day}")
+  set(${prefix}_GIT_TAG "${date_version}" CACHE STRING "Latest git tag" FORCE)
+  # cmake-format: on
 
   if(NOT git_tags)
-    set(${prefix}_GIT_TAG
-        "${date_version}"
-        CACHE STRING "Latest git tag" FORCE)
+    return()
+  endif()
+
+  if(WXT_DAILY_BUILD)
     return()
   endif()
 
@@ -27,23 +31,16 @@ function(wxt_git_get_latest_tag working_dir prefix)
   string(REPLACE "\n" ";" git_tags ${git_tags})
   message("Tags found: ${git_tags}")
   list(LENGTH git_tags git_tags_count)
-  if(WXT_DAILY_BUILD)
-    list(GET git_tags 0 GIT_LATEST_TAG)
-  else()
-    list(GET git_tags -1 GIT_LATEST_TAG)
+  list(GET git_tags -1 git_latest_tag)
+  if(${git_latest_tag} STREQUAL "" OR ${git_latest_tag} STREQUAL "continuous")
+    set(git_latest_tag ${date_version})
   endif()
-  if(${GIT_LATEST_TAG} STREQUAL "" OR ${GIT_LATEST_TAG} STREQUAL "continuous")
-    set(GIT_LATEST_TAG ${date_version})
-  endif()
-  message("Latest git tag: ${GIT_LATEST_TAG}")
-  set(${prefix}_GIT_TAG
-      "${GIT_LATEST_TAG}"
-      CACHE STRING "Latest git tag" FORCE)
-  set(GIT_TAG
-      "${GIT_LATEST_TAG}"
-      PARENT_SCOPE)
-  string(SUBSTRING ${WXT_GIT_TAG} 1 -1 wxtools_version)
-  add_compile_definitions(${prefix}_GIT_TAG="${wxtools_version}")
+
+  # cmake-format: off
+  message("Latest git tag: ${git_latest_tag}")
+  set(${prefix}_GIT_TAG "${git_latest_tag}" CACHE STRING "Latest git tag" FORCE)
+  add_compile_definitions(${prefix}_GIT_TAG="${git_latest_tag}")
+  # cmake-format: on
 endfunction()
 
 # Get the last commit.
