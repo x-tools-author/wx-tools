@@ -17,14 +17,15 @@ function(wxt_git_get_latest_tag working_dir prefix)
   math(EXPR current_day "${current_day} + 0")
   set(date_version "${current_year}.${current_month}.${current_day}")
   set(${prefix}_GIT_TAG "${date_version}" CACHE STRING "Latest git tag" FORCE)
-  add_compile_definitions(${prefix}_GIT_TAG="${date_version}")
   # cmake-format: on
 
   if(NOT git_tags)
+    add_compile_definitions(${prefix}_GIT_TAG="${date_version}")
     return()
   endif()
 
   if(WXT_DAILY_BUILD)
+    add_compile_definitions(${prefix}_GIT_TAG="${date_version}")
     return()
   endif()
 
