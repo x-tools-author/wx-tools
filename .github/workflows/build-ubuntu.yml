@@ -36,5 +36,3 @@ jobs:
             ls -l
             find . -name "*.deb" -exec echo ${{ github.ref_name }} {} \;
             find . -name "*.AppImage" -exec echo ${{ github.ref_name }} {} \;
-
-
