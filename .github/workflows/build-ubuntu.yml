@@ -8,6 +8,11 @@ on:
 #    branches:
 #      - master
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  DOCKER_IMAGE: ghcr.io/x-tools-author/wx-tools-ubuntu-20.04:x86_64
+
+
 jobs:
   build:
     name: Build
@@ -18,6 +23,7 @@ jobs:
       - name: build for linux
         run: |
           git fetch --tags
+          docker pull ${{ env.DOCKER_IMAGE }}
           docker run --rm --privileged -v ${{ github.workspace }}:/workspace ${{ env.DOCKER_IMAGE }} /bin/bash -c "\
           cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
 
