@@ -15,7 +15,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get instal
     libfuse2 \
     build-essential \
     libfuse-dev \
-    wget
+    wget \
+    git
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # CMake

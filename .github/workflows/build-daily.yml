@@ -64,27 +64,17 @@ jobs:
       run: |
         for %%f in (build\assets\*.zip) do gh release upload continuous "%%f"
   release-for-linux:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-22.04
     needs: update-release
-    strategy:
-      matrix:
-        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04]
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: install-dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ninja-build automake libtool libgtk-3-dev pkg-config software-properties-common coreutils make pkg-config xvfb
-      - name: build for linux
+      - name: Build for Linux
         run: |
           git fetch --tags
-          cmake --version
-          mkdir build
-          cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -DWXT_DAILY_BUILD:BOOL=ON -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
-          cmake --build . --target all
-          cmake --build . --target wxTools-deb
+          docker pull ${{ env.DOCKER_IMAGE }}
+          docker run --rm --privileged -v ${{ github.workspace }}:/workspace ${{ env.DOCKER_IMAGE }} /bin/bash -c "\
+          cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
       - name: Upload Release Asset for Ubuntu
         run: |
           ls -l
