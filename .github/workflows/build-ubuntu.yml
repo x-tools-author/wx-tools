@@ -26,16 +26,16 @@ jobs:
           cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
       - name: Upload Release Asset for Ubuntu
         run: |
-            echo "---------------------------------------------------------------------------------"
-            ls -l
-            cd build/deb/wxTools
-            echo "---------------------------------------------------------------------------------"
-            ls -l
-            for file in *.deb; do
-              new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux-v\2-\3/")
-              sudo mv "$file" "$new_name"
-            done
-            echo "---------------------------------------------------------------------------------"
-            ls -l
-            find . -name "*.deb" -exec echo "Deb found: ${{ github.ref_name }}" {} \;
-            find . -name "*.AppImage" -exec echo "AppImage found: ${{ github.ref_name }}" {} \;
+          cd ${{ github.workspace }}/build/deb/wxTools
+          for file in *.deb; do
+            new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux-v\2-\3/")
+            sudo mv "$file" "$new_name"
+          done
+          find . -name "*.deb" -exec echo {} \;
+          echo "---------------------------------------------------------------------------------"
+          cd ${{ github.workspace }}/build/appimage/wxTools
+          for file in *.AppImage; do
+            new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux-v\2-\3/")
+            sudo mv "$file" "$new_name"
+          done
+          find . -name "*.AppImage" -exec echo {} \;
