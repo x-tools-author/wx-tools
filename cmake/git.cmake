@@ -37,6 +37,9 @@ function(wxt_git_get_latest_tag working_dir prefix)
     set(git_latest_tag ${date_version})
   endif()
 
+  # Remove 'v' and 'V' from git_latest_tag
+  string(REGEX REPLACE "^[vV]" "" git_latest_tag ${git_latest_tag})
+
   # cmake-format: off
   message("Latest git tag: ${git_latest_tag}")
   set(${prefix}_GIT_TAG ${git_latest_tag} CACHE STRING "Latest git tag" FORCE)
