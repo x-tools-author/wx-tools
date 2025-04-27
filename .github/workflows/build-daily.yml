@@ -82,7 +82,7 @@ jobs:
           ls -l
           for file in *.deb; do
             new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux-v\2-\3/")
-            mv "$file" "$new_name"
+            sudo mv "$file" "$new_name"
           done
           ls -l
           find . -name "*.deb" -exec gh release upload continuous {} \;
