@@ -270,7 +270,7 @@ void MainWindow::InitMenuHelp(wxMenuBar* menuBar)
 
     help = _("Visit Microsoft Store page to buy wxTools.");
     item = menuHelp->Append(wxID_ANY, _("Supporting Author"), help);
-    static const wxString storeUrl{"https://www.microsoft.com/store/apps/9NX1D0CCV9T7"};
+    static const wxString storeUrl{"https://apps.microsoft.com/detail/9nx1d0ccv9t7"};
     Bind(wxEVT_MENU, [](wxCommandEvent&) { wxLaunchDefaultBrowser(storeUrl); }, item->GetId());
 
     help = _("Visit Microsoft Store home page of author.");
