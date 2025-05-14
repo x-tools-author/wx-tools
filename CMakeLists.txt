@@ -10,7 +10,7 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Release")
 endif()
 
 # cmake-format: off
-if(WIN32 AND CMAKE_BUILD_TYPE STREQUAL "Release" AND MSVC)
+if(WIN32 AND MSVC)
   set(BUILD_SHARED_LIBS OFF CACHE BOOL "Reset option" FORCE)
   set(wxBUILD_SHARED OFF CACHE BOOL "Build wxWidgets as shared libraries" FORCE)
   set(wxBUILD_USE_STATIC_RUNTIME ON CACHE BOOL "Build static runtime" FORCE)
