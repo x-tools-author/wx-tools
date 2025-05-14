@@ -33,9 +33,9 @@ endif()
 
 # --------------------------------------------------------------------------------------------------
 # The magic option...
-option(WXT_MO_MAGIC "The magic option..." OFF)
-if(WXT_MO_MAGIC)
-  add_compile_definitions(WXT_MO_MAGIC)
+option(WXT_MAGIC "The magic option..." OFF)
+if(WXT_MAGIC)
+  add_compile_definitions(WXT_MAGIC)
 endif()
 
 option(WXT_ENABLE_IPV6 "Enable IPv6" OFF)
