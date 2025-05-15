@@ -234,6 +234,11 @@ void MainWindow::InitMenuHelp(wxMenuBar* menuBar)
     item->SetHelp(_("Check for updates online."));
     Bind(wxEVT_MENU, &MainWindow::DoCheckForUpdates, this, item->GetId());
 
+    item = menuHelp->Append(wxID_ANY, _("Report an Issue"));
+    item->SetHelp(_("Report a Issue online."));
+    static const wxString bugUrl{"https://github.com/x-tools-author/wx-tools/issues/new"};
+    Bind(wxEVT_MENU, [](wxCommandEvent&) { wxLaunchDefaultBrowser(bugUrl); }, item->GetId());
+
     menuHelp->AppendSeparator();
 
     // if history file not found, ignore this menu item
