@@ -34,6 +34,7 @@ bool Application::OnInit()
     m_locale.AddCatalog(wxString("wxWidgets"));
     wxtInfo() << "Application booting...";
     wxtInfo() << "--------------------------------------------------------------------------------";
+    wxtInfo() << "Settings file is:" << GetSettingsFileName();
 
     auto* mainWindow = new MainWindow();
 #if defined(WXT_MAGIC)
