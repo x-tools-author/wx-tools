@@ -28,5 +28,6 @@ else()
     install-${packet_name}
     COMMAND ${CMAKE_COMMAND} -E remove_directory ${prefix}
     COMMAND ${CMAKE_COMMAND} --install . --prefix ${prefix}
+    SOURCES ${CMAKE_SOURCE_DIR}/cmake/glog.cmake
     WORKING_DIRECTORY ${workdir})
 endif()
