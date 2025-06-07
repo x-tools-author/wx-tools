@@ -10,12 +10,17 @@
 
 #include <mongoose.h>
 #include <wx/stdpaths.h>
+#include <wx/utils.h>
 
 #include "Common/wxTools.h"
 #include "MainWindow.h"
 
 bool Application::OnInit()
 {
+#if wxCHECK_VERSION(3, 3, 0)
+    SetAppearance(Appearance::System);
+#endif
+
     SetAppName("wxTools");
     SetVendorName("xTools");
     mg_log_set(MG_LL_NONE);
