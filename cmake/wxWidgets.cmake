@@ -9,7 +9,11 @@ set(packet_version "${X_WXW_VERSION}")
 set(packet_name "wxWidgets-${packet_version}")
 set(packet_url_base "https://github.com/wxWidgets/wxWidgets/releases/download")
 set(packet_url "${packet_url_base}/v${packet_version}/${packet_name}.zip")
-message(STATUS "Using wxWidgets version ${packet_version}")
+
+message(STATUS "[wxWidgets] packet_version ${packet_version}")
+message(STATUS "[wxWidgets] packet_name ${packet_name}")
+message(STATUS "[wxWidgets] packet_url_base ${packet_url_base}")
+message(STATUS "[wxWidgets] packet_url ${packet_url}")
 
 # Download wxWidgets if not already present
 if(NOT EXISTS ${CMAKE_SOURCE_DIR}/3rd/${packet_name}.zip)
@@ -25,8 +29,12 @@ endif()
 
 # Using wxWidgets from the libs directory
 set(wxWidget_LIBS ${CMAKE_SOURCE_DIR}/libs/${CMAKE_BUILD_TYPE}/${packet_name})
+message(STATUS "[wxWidgets] wxWidget_LIBS ${wxWidget_LIBS}")
+
 if(EXISTS ${wxWidget_LIBS})
   set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${wxWidget_LIBS})
+  message(STATUS "[wxWidgets] CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH}")
+
   find_package(wxWidgets QUIET COMPONENTS core base aui)
   include(${wxWidgets_USE_FILE})
   include_directories(${wxWidget_LIBS}/include/wx-3.2)
