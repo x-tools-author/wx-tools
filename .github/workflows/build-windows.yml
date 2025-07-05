@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         # mingw 8.1, mingw 12.2, mingw 14.2
-        os: [windows-2019, windows-2022]
+        os: [windows-2022]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Pull code
