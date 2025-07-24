@@ -2,7 +2,7 @@
 
 # The version of wxWidgets must be equal to or greater than 3.2.0
 set(X_WXW_VERSION
-    "3.2.8"
+    "3.3.1"
     CACHE STRING "Select the version of wxWidgets to be used")
 
 set(packet_version "${X_WXW_VERSION}")
