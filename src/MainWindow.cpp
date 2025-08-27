@@ -13,7 +13,9 @@
 #include <wx/artprov.h>
 #include <wx/filename.h>
 #include <wx/stdpaths.h>
+#include <wx/wx.h>
 
+#include "Common/wxTools.h"
 #include "Page/Page.h"
 
 IMPLEMENT_ABSTRACT_CLASS(MainWindow, wxFrame)
@@ -218,6 +220,71 @@ void MainWindow::InitMenuOptions(wxMenuBar* menuBar)
     item = menuOptions->Append(wxID_ANY, _("Open App Directory"));
     item->SetHelp(_("Open the app directory."));
     Bind(wxEVT_MENU, [](wxCommandEvent&) { wxLaunchDefaultBrowser(wxtDataDir); }, item->GetId());
+#if 1
+    menuOptions->AppendSeparator();
+    InitMenuOptionsThemes(menuOptions);
+#endif
+    InitMenuOptionsShowOnTop(menuOptions);
+}
+
+void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
+{
+    wxMenu* themeMenu = new wxMenu;
+    optionMenu->Append(wxID_ANY, _("Application themes"), themeMenu);
+    struct ThemeInfo
+    {
+        wxString name;
+        int id;
+    };
+
+    std::vector<ThemeInfo> infos;
+    infos.push_back(ThemeInfo{_("System Theme"), static_cast<int>(wxAppBase::Appearance::System)});
+    infos.push_back(ThemeInfo{_("Light Theme"), static_cast<int>(wxAppBase::Appearance::Light)});
+    infos.push_back(ThemeInfo{_("Dark Theme"), static_cast<int>(wxAppBase::Appearance::Dark)});
+
+    int appAppearance = wxtConfig->Read("Application/Theme", long(0));
+    for (auto it = infos.begin(); it != infos.end(); ++it) {
+        wxMenuItem* item = themeMenu->AppendRadioItem(wxID_ANY, it->name);
+        if (it->id == appAppearance) {
+            item->Check();
+        }
+
+        int id = it->id;
+        Bind(
+            wxEVT_MENU,
+            [=](wxCommandEvent& evt) {
+                wxApp* app = dynamic_cast<wxApp*>(wxApp::GetInstance());
+                if (app) {
+                    wxtConfig->Write("Application/Theme", id);
+                    wxtConfig->Flush();
+                    app->SetAppearance(static_cast<wxAppBase::Appearance>(id));
+                    int ret = wxMessageBox(_("Reboot the application to take effect now?"),
+                                           _("Information"),
+                                           wxYES | wxNO | wxICON_QUESTION);
+                    if (ret == wxYES) {
+                        wxExecute(wxStandardPaths::Get().GetExecutablePath());
+                        wxTheApp->ExitMainLoop();
+                    }
+                }
+            },
+            item->GetId());
+    }
+}
+
+void MainWindow::InitMenuOptionsShowOnTop(wxMenu* optionMenu)
+{
+    wxMenuItem* item = optionMenu->AppendCheckItem(wxID_ANY, _("Show on Top"));
+    item->SetHelp(_("Keep the application window on top of others."));
+    Bind(
+        wxEVT_MENU,
+        [=](wxCommandEvent& evt) {
+            if (evt.IsChecked()) {
+                SetWindowStyleFlag(GetWindowStyleFlag() | wxSTAY_ON_TOP);
+            } else {
+                SetWindowStyleFlag(GetWindowStyleFlag() & ~wxSTAY_ON_TOP);
+            }
+        },
+        item->GetId());
 }
 
 void MainWindow::InitMenuHelp(wxMenuBar* menuBar)

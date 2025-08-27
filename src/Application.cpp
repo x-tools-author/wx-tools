@@ -24,9 +24,8 @@ Application::~Application()
 
 bool Application::OnInit()
 {
-#if wxCHECK_VERSION(3, 3, 0)
-    SetAppearance(Appearance::System);
-#endif
+    int appAppearance = wxtConfig->Read("Application/Theme", long(0));
+    SetAppearance(static_cast<wxAppBase::Appearance>(appAppearance));
 
     SetAppName("wxTools");
     SetVendorName("xTools");

@@ -27,6 +27,8 @@ private:
     void InitMenu();
     void InitMenuFile(wxMenuBar* menuBar);
     void InitMenuOptions(wxMenuBar* menuBar);
+    void InitMenuOptionsThemes(wxMenu* optionMenu);
+    void InitMenuOptionsShowOnTop(wxMenu* optionMenu);
     void InitMenuHelp(wxMenuBar* menuBar);
     void InitStatusBar();
 
