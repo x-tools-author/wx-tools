@@ -45,7 +45,7 @@ void BaseSettingsPopup::OnSettingsButtonClicked(wxMouseEvent &event)
     if (IsShown()) {
         Dismiss();
     } else {
-        Show();
+        Popup();
     }
 }
 
