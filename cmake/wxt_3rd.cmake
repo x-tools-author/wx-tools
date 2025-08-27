@@ -13,7 +13,10 @@ function(wxt_install_module module_name)
     return()
   endif()
 
-  set(module_src_dir ${CMAKE_BINARY_DIR}/_deps/${module_name}-build)
+  if(LINUX)
+    string(TOLOWER ${module_name} module_name_lower)
+  endif()
+  set(module_src_dir ${CMAKE_BINARY_DIR}/_deps/${module_name_lower}-build)
   set(module_dst_dir ${WXT_LIBS_DIR}/${WXT_BUILD_FLAG}/${module_name})
   add_custom_target(${module_name}_auto_install ALL
                     COMMAND ${CMAKE_COMMAND} --install ${module_src_dir} --prefix ${module_dst_dir})
