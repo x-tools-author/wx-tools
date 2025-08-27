@@ -255,9 +255,10 @@ void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
             [=](wxCommandEvent& evt) {
                 wxApp* app = dynamic_cast<wxApp*>(wxApp::GetInstance());
                 if (app) {
+                    app->SetAppearance(static_cast<wxAppBase::Appearance>(id));
+#if defined(__WINDOWS__)
                     wxtConfig->Write("Application/Theme", id);
                     wxtConfig->Flush();
-                    app->SetAppearance(static_cast<wxAppBase::Appearance>(id));
                     int ret = wxMessageBox(_("Reboot the application to take effect now?"),
                                            _("Information"),
                                            wxYES | wxNO | wxICON_QUESTION);
@@ -265,6 +266,7 @@ void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
                         wxExecute(wxStandardPaths::Get().GetExecutablePath());
                         wxTheApp->ExitMainLoop();
                     }
+#endif
                 }
             },
             item->GetId());
