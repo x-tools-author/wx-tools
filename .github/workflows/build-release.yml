@@ -1,0 +1,69 @@
+name: build-release
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  DOCKER_IMAGE: ghcr.io/x-tools-author/wx-tools-ubuntu-20.04:x86_64
+
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Delete Release
+      run: |
+        gh release delete ${{ github.ref_name }} -y || true
+    - name: Create Release
+      run: |
+        gh release create ${{ github.ref_name }} --title "Release ${{ github.ref_name }}" --notes "The version is ready. You can see the changed log: https://github.com/x-tools-author/wx-tools/blob/master/res/files/history.txt"
+  release-for-windows:
+    runs-on: windows-2022
+    needs: update-release
+    strategy:
+      matrix:
+        arch: [x86, x64]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Build for Windows
+      shell: cmd
+      run: |
+        git fetch --tags
+        mkdir build
+        cd build
+        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.arch }}
+        cmake -DWXT_MAKE_ZIP:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
+        cmake --build . --target wxTools
+        dir && dir .\assets && dir .\assets\wxTools
+    - name: Upload Release Asset for Windows
+      shell: cmd
+      run: |
+        for %%f in (build\assets\*.zip) do gh release upload ${{ github.ref_name }} "%%f"
+  release-for-linux:
+    runs-on: ubuntu-22.04
+    needs: update-release
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Build for linux
+        run: |
+          git fetch --tags
+          docker pull ${{ env.DOCKER_IMAGE }}
+          docker run --rm --privileged -v ${{ github.workspace }}:/workspace ${{ env.DOCKER_IMAGE }} /bin/bash -c "\
+          cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
+      - name: Upload Release Asset for Ubuntu
+        run: |
+          ls -l
+          cd build/deb/wxTools
+          ls -l
+          for file in *.deb; do
+            new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux-v\2-\3/")
+            mv "$file" "$new_name"
+          done
+          ls -l
+          find . -name "*.deb" -exec gh release upload ${{ github.ref_name }} {} \;
+          find . -name "*.AppImage" -exec gh release upload ${{ github.ref_name }} {} \;

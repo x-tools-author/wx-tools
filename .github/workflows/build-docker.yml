@@ -1,0 +1,24 @@
+name: build-docker
+on:
+  workflow_dispatch: # Enables manually
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-22.04
+    env:
+      CR_PAT: ${{ secrets.CR_PAT }}
+    steps:
+      - name: Pull respository
+        uses: actions/checkout@v4
+      - name: Build docker image
+        run: | # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
+          docker build -t wx-tools-ubuntu-20.04:x86_64 . -f docker/20.04/Dockerfile
+      - name: Push docker image to github registry
+        run: |
+          echo ${{ env.CR_PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker tag wx-tools-ubuntu-20.04:x86_64 ghcr.io/x-tools-author/wx-tools-ubuntu-20.04:x86_64
+          docker push ghcr.io/x-tools-author/wx-tools-ubuntu-20.04:x86_64

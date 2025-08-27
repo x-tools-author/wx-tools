@@ -1,0 +1,32 @@
+﻿name: build-macos
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+#on:
+#  push:
+#    branches: [master]
+#    paths-ignore:
+#      - '*.md'
+#      - '*.txt'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-13, macos-14]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build for macos
+        run: |
+          git fetch --tags
+          cmake --version
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF ../
+          cmake --build . --target all
+

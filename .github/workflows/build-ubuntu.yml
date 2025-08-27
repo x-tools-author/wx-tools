@@ -1,0 +1,41 @@
+﻿name: build-ubuntu
+on:
+  workflow_dispatch: # Enables manually
+  schedule:
+    - cron: '0 0 * * *'
+# on:
+#  push:
+#    branches:
+#      - master
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  DOCKER_IMAGE: ghcr.io/x-tools-author/wx-tools-ubuntu-20.04:x86_64
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Build for linux
+        run: |
+          docker pull ${{ env.DOCKER_IMAGE }}
+          docker run --rm --privileged -v ${{ github.workspace }}:/workspace ${{ env.DOCKER_IMAGE }} /bin/bash -c "\
+          cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
+      - name: Upload Release Asset for Ubuntu
+        run: |
+          cd ${{ github.workspace }}/build/deb/wxTools
+          for file in *.deb; do
+            new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux\2-\3/")
+            sudo mv "$file" "$new_name"
+          done
+          find . -name "*.deb" -exec echo {} \;
+          echo "---------------------------------------------------------------------------------"
+          cd ${{ github.workspace }}/build/appimage/wxTools
+          for file in *.AppImage; do
+            new_name=$(echo $file | sed "s/\(.*\)-\([0-9.]*\)-\(.*\)/\1-linux\2-\3/")
+            sudo mv "$file" "$new_name"
+          done
+          find . -name "*.AppImage" -exec echo {} \;
