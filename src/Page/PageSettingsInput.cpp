@@ -48,7 +48,7 @@ PageSettingsInput::PageSettingsInput(wxWindow* parent)
 
     m_interval->Bind(wxEVT_COMBOBOX_CLOSEUP, &PageSettingsInput::OnIntervalChanged, this);
     m_send->Bind(wxEVT_BUTTON, &PageSettingsInput::OnSendButtonClicked, this);
-    m_format->Bind(wxEVT_COMBOBOX_CLOSEUP, &PageSettingsInput::OnInputFormatChangehd, this);
+    m_format->Bind(wxEVT_COMBOBOX_CLOSEUP, &PageSettingsInput::OnInputFormatChanged, this);
     m_timer.Bind(wxEVT_TIMER, &PageSettingsInput::OnTimer, this);
 }
 
@@ -127,7 +127,7 @@ void PageSettingsInput::OnSendButtonClicked(wxCommandEvent&)
     wxPostEvent(m_parent, wxCommandEvent(wxtEVT_SETTINGS_INPUT_WRITE));
 }
 
-void PageSettingsInput::OnInputFormatChangehd(wxCommandEvent&)
+void PageSettingsInput::OnInputFormatChanged(wxCommandEvent&)
 {
     wxCommandEvent event(wxtEVT_SETTINGS_INPUT_FORMAT);
     event.SetInt(GetTextFormat());

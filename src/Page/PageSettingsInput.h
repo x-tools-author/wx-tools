@@ -45,7 +45,7 @@ private:
 
 private:
     void OnSendButtonClicked(wxCommandEvent &);
-    void OnInputFormatChangehd(wxCommandEvent &);
+    void OnInputFormatChanged(wxCommandEvent &);
     void OnIntervalChanged(wxCommandEvent &);
     void OnTimer(wxTimerEvent &);
 
