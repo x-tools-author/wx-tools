@@ -2,8 +2,8 @@
   if(WIN32)
     string(TOLOWER ${target} lower_target)
     string(TOLOWER ${CMAKE_HOST_SYSTEM_NAME} lower_system_name)
-    # string(TOLOWER ${CMAKE_SYSTEM_PROCESSOR} lower_system_processor)
     set(TAR_FILE_NAME ${lower_target}-${lower_system_name}-${WXT_GIT_TAG}-${WXT_TARGET_ARCH})
+    string(TOLOWER ${TAR_FILE_NAME} TAR_FILE_NAME)
     add_custom_command(
       TARGET ${target}
       POST_BUILD
