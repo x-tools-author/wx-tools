@@ -21,7 +21,6 @@
     set(mswu_suffix "")
   endif()
 endif()
-
 set(module_name wxWidgets)
 if(EXISTS ${WXT_LIBS_DIR}/${WXT_BUILD_FLAG}/${module_name}/include)
   set(wxWidgets_ROOT_DIR ${WXT_LIBS_DIR}/${WXT_BUILD_FLAG}/${module_name})

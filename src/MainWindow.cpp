@@ -155,7 +155,7 @@ void MainWindow::OnAbout(wxCommandEvent&)
     info += "\n";
     info += _("Version: ") + std::string(WXT_GIT_TAG) + std::string("\n");
     info += _("Author: x-tools-author\n");
-    info += _("Email: x-tools@outlook.com\n");
+    info += _("Email:") + wxString(" x-tools@outlook.com\n");
     info += "\n";
     info += _("Commit: ") + std::string(WXT_GIT_COMMIT) + std::string("\n");
     info += _("Date: ") + std::string(WXT_GIT_COMMIT_TIME) + std::string("\n");

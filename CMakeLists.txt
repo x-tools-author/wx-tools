@@ -95,8 +95,8 @@ set(WXT_3RD_DIR "${CMAKE_SOURCE_DIR}/3rd")
 set(WXT_LIBS_DIR "${CMAKE_SOURCE_DIR}/libs")
 set(cxx_compiler_flag "${CMAKE_CXX_COMPILER_ID}${CMAKE_CXX_COMPILER_VERSION}")
 set(WXT_BUILD_FLAG "${CMAKE_BUILD_TYPE}/${WXT_TARGET_ARCH}/${cxx_compiler_flag}")
+set(WXT_WX_LOCAL_DIR "${WXT_3RD_DIR}/wxWidgets/locale")
 set(WX_TOOLS_BINARY_DIR ${CMAKE_BINARY_DIR}/assets)
-
 # Do change WXT_MAGIC unless you know what you are doing...
 option(WXT_MAGIC "The magic option..." OFF)
 if(WXT_MAGIC)
@@ -131,17 +131,17 @@ else()
 endif()
 target_link_libraries(wxTools PRIVATE ${wxWidgets_LIBRARIES} ${PROJECT_LIBS})
 message(STATUS "[wxTools] Libraries of wxTools: ${wxWidgets_LIBRARIES} ${PROJECT_LIBS}")
+wxt_generate_po(wxTools ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/res/i18n)
+wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 
 # --------------------------------------------------------------------------------------------------
 # Copy res to build directory
 # cmake-format: off
 if(WIN32)
   add_custom_command(TARGET wxTools POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/i18n" "$<TARGET_FILE_DIR:wxTools>/i18n"
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files" "$<TARGET_FILE_DIR:wxTools>/files")
 else(APPLE)
   add_custom_command(TARGET wxTools POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/i18n" "$<TARGET_FILE_DIR:wxTools>/i18n"
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files" "$<TARGET_FILE_DIR:wxTools>/files")
 endif()
 # cmake-format: on

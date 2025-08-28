@@ -1,0 +1,543 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-28 15:28+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
+msgid "Binary"
+msgstr ""
+
+#: Common/wxTools.cpp:533
+msgid "Octal"
+msgstr ""
+
+#: Common/wxTools.cpp:534
+msgid "Decimal"
+msgstr ""
+
+#: Common/wxTools.cpp:535
+msgid "Hexadecimal"
+msgstr ""
+
+#: Common/wxTools.cpp:536
+msgid "ASCII"
+msgstr ""
+
+#: Common/wxTools.cpp:537
+msgid "UTF-8"
+msgstr ""
+
+#: Common/wxTools.cpp:769
+msgid "Serial Port"
+msgstr ""
+
+#: Common/wxTools.cpp:770
+msgid "UDP Client"
+msgstr ""
+
+#: Common/wxTools.cpp:771
+msgid "UDP Server"
+msgstr ""
+
+#: Common/wxTools.cpp:772
+msgid "TCP Client"
+msgstr ""
+
+#: Common/wxTools.cpp:773
+msgid "TCP Server"
+msgstr ""
+
+#: Common/wxTools.cpp:774
+msgid "Web Socket Client"
+msgstr ""
+
+#: Common/wxTools.cpp:775
+msgid "Web Socket Server"
+msgstr ""
+
+#: Common/wxTools.cpp:958
+msgid "wxTools.json"
+msgstr ""
+
+#: Links/SerialPort_p.h:75
+msgid "Write data failed."
+msgstr ""
+
+#: Links/SocketBase_p.h:117
+msgid "Open socket failed, please check parameters then try again."
+msgstr ""
+
+#: Links/SocketBase_p.h:186
+msgid "Unconnected"
+msgstr ""
+
+#: Links/SocketClient_p.h:22
+msgid "Client closed, server has been closed or not found."
+msgstr ""
+
+#: Links/SocketServer_p.h:34
+msgid "Server has been closed."
+msgstr ""
+
+#: Links/TCPClient_p.h:39
+msgid "TCP client send bytes error."
+msgstr ""
+
+#: Links/UDPClient_p.h:36
+msgid "Client write bytes failed."
+msgstr ""
+
+#: Links/WSClient_p.h:49
+msgid "WS server send bytes error."
+msgstr ""
+
+#: LinksUi/SerialPortUi.cpp:39
+msgid "Port name"
+msgstr ""
+
+#: LinksUi/SerialPortUi.cpp:40
+msgid "Baud rate"
+msgstr ""
+
+#: LinksUi/SerialPortUi.cpp:41
+msgid "Data bits"
+msgstr ""
+
+#: LinksUi/SerialPortUi.cpp:42
+msgid "Stop bits"
+msgstr ""
+
+#: LinksUi/SerialPortUi.cpp:43
+msgid "Parity"
+msgstr ""
+
+#: LinksUi/SerialPortUi.cpp:44
+msgid "Flow bits"
+msgstr ""
+
+#: LinksUi/SocketBaseUi.cpp:117
+msgid "Server IP"
+msgstr ""
+
+#: LinksUi/SocketBaseUi.cpp:130
+msgid "Server port"
+msgstr ""
+
+#: LinksUi/SocketBaseUi.cpp:141
+msgid "Write to"
+msgstr ""
+
+#: LinksUi/SocketBaseUi.cpp:153
+msgid "All Clients"
+msgstr ""
+
+#: LinksUi/SocketBaseUi.cpp:171
+msgid "Client Info"
+msgstr ""
+
+#: LinksUi/SocketBaseUi.cpp:184
+msgid "Tx Channel"
+msgstr ""
+
+#: MainWindow.cpp:98
+msgid "Open parameters file"
+msgstr ""
+
+#: MainWindow.cpp:101 MainWindow.cpp:119
+msgid "JSON files (*.json)|*.json"
+msgstr ""
+
+#: MainWindow.cpp:116
+msgid "Save parameters file"
+msgstr ""
+
+#: MainWindow.cpp:134
+msgid "The application will be closed!"
+msgstr ""
+
+#: MainWindow.cpp:154
+msgid "wxTools - A set of tools developed with wxWidgets\n"
+msgstr ""
+
+#: MainWindow.cpp:156
+msgid "Version: "
+msgstr ""
+
+#: MainWindow.cpp:157
+msgid "Author: x-tools-author\n"
+msgstr ""
+
+#: MainWindow.cpp:158
+msgid "Email:"
+msgstr ""
+
+#: MainWindow.cpp:160
+msgid "Commit: "
+msgstr ""
+
+#: MainWindow.cpp:161
+msgid "Date: "
+msgstr ""
+
+#: MainWindow.cpp:162
+msgid "Build: "
+msgstr ""
+
+#: MainWindow.cpp:164
+msgid "Copyright"
+msgstr ""
+
+#: MainWindow.cpp:166
+msgid "All rights reserved.\n"
+msgstr ""
+
+#: MainWindow.cpp:167
+msgid "About wxTools"
+msgstr ""
+
+#: MainWindow.cpp:189
+msgid "File"
+msgstr ""
+
+#: MainWindow.cpp:208
+msgid "Options"
+msgstr ""
+
+#: MainWindow.cpp:210
+msgid "Open Log Directory"
+msgstr ""
+
+#: MainWindow.cpp:211
+msgid "Open the log directory."
+msgstr ""
+
+#: MainWindow.cpp:215
+msgid "Open Config Directory"
+msgstr ""
+
+#: MainWindow.cpp:216
+msgid "Open the config directory."
+msgstr ""
+
+#: MainWindow.cpp:220
+msgid "Open App Directory"
+msgstr ""
+
+#: MainWindow.cpp:221
+msgid "Open the app directory."
+msgstr ""
+
+#: MainWindow.cpp:233
+msgid "Application themes"
+msgstr ""
+
+#: MainWindow.cpp:241
+msgid "System Theme"
+msgstr ""
+
+#: MainWindow.cpp:242
+msgid "Light Theme"
+msgstr ""
+
+#: MainWindow.cpp:243
+msgid "Dark Theme"
+msgstr ""
+
+#: MainWindow.cpp:262
+msgid "Reboot the application to take effect now?"
+msgstr ""
+
+#: MainWindow.cpp:263
+msgid "Information"
+msgstr ""
+
+#: MainWindow.cpp:278
+msgid "Show on Top"
+msgstr ""
+
+#: MainWindow.cpp:279
+msgid "Keep the application window on top of others."
+msgstr ""
+
+#: MainWindow.cpp:295
+msgid "Help"
+msgstr ""
+
+#: MainWindow.cpp:301
+msgid "About wxWidgets"
+msgstr ""
+
+#: MainWindow.cpp:302
+msgid "Show wxWidgets library information."
+msgstr ""
+
+#: MainWindow.cpp:306
+msgid "Visit online documentation page."
+msgstr ""
+
+#: MainWindow.cpp:310
+msgid "Check for Updates"
+msgstr ""
+
+#: MainWindow.cpp:311
+msgid "Check for updates online."
+msgstr ""
+
+#: MainWindow.cpp:314
+msgid "Report an Issue"
+msgstr ""
+
+#: MainWindow.cpp:315
+msgid "Report a Issue online."
+msgstr ""
+
+#: MainWindow.cpp:325
+msgid "History"
+msgstr ""
+
+#: MainWindow.cpp:325
+msgid "Show the history of the application."
+msgstr ""
+
+#: MainWindow.cpp:330
+msgid "Visit GitHub page to get more information."
+msgstr ""
+
+#: MainWindow.cpp:331
+msgid "Get Source from GitHub"
+msgstr ""
+
+#: MainWindow.cpp:335
+msgid "Visit Gitee page to get more information."
+msgstr ""
+
+#: MainWindow.cpp:336
+msgid "Get Source from Gitee"
+msgstr ""
+
+#: MainWindow.cpp:340
+msgid "Visit GitHub home page of author."
+msgstr ""
+
+#: MainWindow.cpp:341
+msgid "GitHub Home Page"
+msgstr ""
+
+#: MainWindow.cpp:345
+msgid "Visit Gitee home page of author."
+msgstr ""
+
+#: MainWindow.cpp:346
+msgid "Gitee Home Page"
+msgstr ""
+
+#: MainWindow.cpp:353
+msgid "Visit Microsoft Store page to buy wxTools."
+msgstr ""
+
+#: MainWindow.cpp:354
+msgid "Supporting Author"
+msgstr ""
+
+#: MainWindow.cpp:358
+msgid "Visit Microsoft Store home page of author."
+msgstr ""
+
+#: MainWindow.cpp:359
+msgid "Other Applications"
+msgstr ""
+
+#: MainWindow.cpp:456
+msgid "History file not found!"
+msgstr ""
+
+#: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369
+msgid "Error"
+msgstr ""
+
+#: MainWindow.cpp:460
+msgid "wxTools Release History"
+msgstr ""
+
+#: Page/Page.cpp:334
+msgid "Close"
+msgstr ""
+
+#: Page/Page.cpp:336
+msgid "Failed to open link."
+msgstr ""
+
+#: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34
+msgid "Open"
+msgstr ""
+
+#: Page/Page.cpp:369
+msgid "Link is not opened."
+msgstr ""
+
+#: Page/PageIOInput.cpp:14
+msgid "Input"
+msgstr ""
+
+#: Page/PageIOOutput.cpp:12
+msgid "Output"
+msgstr ""
+
+#: Page/PageSettingsInput.cpp:18
+msgid "Input Settings"
+msgstr ""
+
+#: Page/PageSettingsInput.cpp:21
+msgid "Cycle"
+msgstr ""
+
+#: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
+msgid "Format"
+msgstr ""
+
+#: Page/PageSettingsInput.cpp:25 Page/PageSettingsLink.cpp:32
+#: Page/PageSettingsOutput.cpp:58
+msgid "Settings"
+msgstr ""
+
+#: Page/PageSettingsInput.cpp:26
+msgid "Send"
+msgstr ""
+
+#: Page/PageSettingsInput.cpp:163
+msgid "Disabled"
+msgstr ""
+
+#: Page/PageSettingsInputPopup.cpp:24
+msgid "Prefix"
+msgstr ""
+
+#: Page/PageSettingsInputPopup.cpp:26
+msgid "Suffix"
+msgstr ""
+
+#: Page/PageSettingsInputPopup.cpp:28
+msgid "ESC"
+msgstr ""
+
+#: Page/PageSettingsInputPopup.cpp:31
+msgid "Start Index"
+msgstr ""
+
+#: Page/PageSettingsInputPopup.cpp:33
+msgid "End Index"
+msgstr ""
+
+#: Page/PageSettingsInputPopup.cpp:35
+msgid "Algorithm"
+msgstr ""
+
+#: Page/PageSettingsInputPopup.cpp:37
+msgid "Add CRC"
+msgstr ""
+
+#: Page/PageSettingsInputPopup.cpp:38
+msgid "Big Endian"
+msgstr ""
+
+#: Page/PageSettingsLink.cpp:22
+msgid "Link Settings"
+msgstr ""
+
+#: Page/PageSettingsLinkPopup.cpp:21
+msgid "Refresh"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:17
+msgid "Output Settings"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:38
+msgid "Rx"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:39
+msgid "Tx"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:40
+msgid "Flags"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:41
+msgid "Date"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:42
+msgid "Time"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:43
+msgid "MS"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:53
+msgid "Auto Wrap"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:54
+msgid "Terminal Mode"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:59
+msgid "Clear"
+msgstr ""
+
+#: Page/PageSettingsOutputPopup.cpp:19
+msgid "Filter"
+msgstr ""
+
+#: Page/PageSettingsOutputPopup.cpp:26
+msgid "Hello;World"
+msgstr ""
+
+#: Utilities/DataChannelComboBox.cpp:23
+msgid "Text"
+msgstr ""
+
+#: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
+msgid "None"
+msgstr ""
+
+#: Utilities/FlowBitsComboBox.cpp:22
+msgid "Hardware"
+msgstr ""
+
+#: Utilities/FlowBitsComboBox.cpp:23
+msgid "Software"
+msgstr ""
+
+#: Utilities/ParityComboBox.cpp:22
+msgid "Odd"
+msgstr ""
+
+#: Utilities/ParityComboBox.cpp:23
+msgid "Even"
+msgstr ""
+
+#: Utilities/ParityComboBox.cpp:24
+msgid "Mark"
+msgstr ""
+
+#: Utilities/ParityComboBox.cpp:25
+msgid "Space"
+msgstr ""

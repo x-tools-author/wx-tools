@@ -1,0 +1,543 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-28 15:28+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
+msgid "Binary"
+msgstr "二進製"
+
+#: Common/wxTools.cpp:533
+msgid "Octal"
+msgstr "八進製"
+
+#: Common/wxTools.cpp:534
+msgid "Decimal"
+msgstr "10進製"
+
+#: Common/wxTools.cpp:535
+msgid "Hexadecimal"
+msgstr "16進製"
+
+#: Common/wxTools.cpp:536
+msgid "ASCII"
+msgstr "ASCII"
+
+#: Common/wxTools.cpp:537
+msgid "UTF-8"
+msgstr "UTF-8"
+
+#: Common/wxTools.cpp:769
+msgid "Serial Port"
+msgstr "串口助手"
+
+#: Common/wxTools.cpp:770
+msgid "UDP Client"
+msgstr "UDP客戶端"
+
+#: Common/wxTools.cpp:771
+msgid "UDP Server"
+msgstr "UDP服務器"
+
+#: Common/wxTools.cpp:772
+msgid "TCP Client"
+msgstr "TCP客戶端"
+
+#: Common/wxTools.cpp:773
+msgid "TCP Server"
+msgstr "TCP服務器"
+
+#: Common/wxTools.cpp:774
+msgid "Web Socket Client"
+msgstr "Web Socket客戶端"
+
+#: Common/wxTools.cpp:775
+msgid "Web Socket Server"
+msgstr "Web Socket服務器"
+
+#: Common/wxTools.cpp:958
+msgid "wxTools.json"
+msgstr "wxTools.json"
+
+#: Links/SerialPort_p.h:75
+msgid "Write data failed."
+msgstr "發送數據失敗。"
+
+#: Links/SocketBase_p.h:117
+msgid "Open socket failed, please check parameters then try again."
+msgstr "打開socket失敗，請檢查參數後重試。"
+
+#: Links/SocketBase_p.h:186
+msgid "Unconnected"
+msgstr "未連接"
+
+#: Links/SocketClient_p.h:22
+msgid "Client closed, server has been closed or not found."
+msgstr "客戶端已關閉，服務器已關閉或未找到。"
+
+#: Links/SocketServer_p.h:34
+msgid "Server has been closed."
+msgstr "服務器已關閉。"
+
+#: Links/TCPClient_p.h:39
+msgid "TCP client send bytes error."
+msgstr "TCP客戶端發送失敗。"
+
+#: Links/UDPClient_p.h:36
+msgid "Client write bytes failed."
+msgstr "客戶端發送失敗。"
+
+#: Links/WSClient_p.h:49
+msgid "WS server send bytes error."
+msgstr "Web Socket客戶端發送失敗。"
+
+#: LinksUi/SerialPortUi.cpp:39
+msgid "Port name"
+msgstr "端口號"
+
+#: LinksUi/SerialPortUi.cpp:40
+msgid "Baud rate"
+msgstr "波特率"
+
+#: LinksUi/SerialPortUi.cpp:41
+msgid "Data bits"
+msgstr "數據位"
+
+#: LinksUi/SerialPortUi.cpp:42
+msgid "Stop bits"
+msgstr "停止位"
+
+#: LinksUi/SerialPortUi.cpp:43
+msgid "Parity"
+msgstr "校驗位"
+
+#: LinksUi/SerialPortUi.cpp:44
+msgid "Flow bits"
+msgstr "流控位"
+
+#: LinksUi/SocketBaseUi.cpp:117
+msgid "Server IP"
+msgstr "服務器地址"
+
+#: LinksUi/SocketBaseUi.cpp:130
+msgid "Server port"
+msgstr "服務器端口"
+
+#: LinksUi/SocketBaseUi.cpp:141
+msgid "Write to"
+msgstr "發送目標"
+
+#: LinksUi/SocketBaseUi.cpp:153
+msgid "All Clients"
+msgstr "所有客戶端"
+
+#: LinksUi/SocketBaseUi.cpp:171
+msgid "Client Info"
+msgstr "客戶端信息"
+
+#: LinksUi/SocketBaseUi.cpp:184
+msgid "Tx Channel"
+msgstr "发送通道"
+
+#: MainWindow.cpp:94 MainWindow.cpp:98
+msgid "Open parameters file"
+msgstr "打開參數文件"
+
+#: MainWindow.cpp:97 MainWindow.cpp:115 MainWindow.cpp:101 MainWindow.cpp:119
+msgid "JSON files (*.json)|*.json"
+msgstr "JSON文件 (*.json)|*.json"
+
+#: MainWindow.cpp:112 MainWindow.cpp:116
+msgid "Save parameters file"
+msgstr "保存參數文件"
+
+#: MainWindow.cpp:130 MainWindow.cpp:134
+msgid "The application will be closed!"
+msgstr "軟件即將關閉！"
+
+#: MainWindow.cpp:144 MainWindow.cpp:154
+msgid "wxTools - A set of tools developed with wxWidgets\n"
+msgstr "wxTools - 基於wxWidgets開發的工具集\n"
+
+#: MainWindow.cpp:146 MainWindow.cpp:156
+msgid "Version: "
+msgstr "版本: "
+
+#: MainWindow.cpp:147 MainWindow.cpp:157
+msgid "Author: x-tools-author\n"
+msgstr "作者: x-tools-author\n"
+
+#: MainWindow.cpp:150 MainWindow.cpp:160
+msgid "Commit: "
+msgstr "提交: "
+
+#: MainWindow.cpp:151 MainWindow.cpp:161
+msgid "Date: "
+msgstr "日期: "
+
+#: MainWindow.cpp:152 MainWindow.cpp:162
+msgid "Build: "
+msgstr "構建: "
+
+#: MainWindow.cpp:154 MainWindow.cpp:164
+msgid "Copyright"
+msgstr "版權聲明"
+
+#: MainWindow.cpp:156 MainWindow.cpp:166
+msgid "All rights reserved.\n"
+msgstr "保留所有版權。\n"
+
+#: MainWindow.cpp:157 MainWindow.cpp:167
+msgid "About wxTools"
+msgstr "關於wxTools"
+
+#: MainWindow.cpp:179 MainWindow.cpp:189
+msgid "File"
+msgstr "文件"
+
+#: MainWindow.cpp:198 MainWindow.cpp:208
+msgid "Options"
+msgstr "選項"
+
+#: MainWindow.cpp:200 MainWindow.cpp:210
+msgid "Open Log Directory"
+msgstr "打開日誌目錄"
+
+#: MainWindow.cpp:201 MainWindow.cpp:211
+msgid "Open the log directory."
+msgstr "打開日誌目錄。"
+
+#: MainWindow.cpp:205 MainWindow.cpp:215
+msgid "Open Config Directory"
+msgstr "打開配置目錄"
+
+#: MainWindow.cpp:206 MainWindow.cpp:216
+msgid "Open the config directory."
+msgstr "打開配置目錄。"
+
+#: MainWindow.cpp:210 MainWindow.cpp:220
+msgid "Open App Directory"
+msgstr "打開應用目錄"
+
+#: MainWindow.cpp:211 MainWindow.cpp:221
+msgid "Open the app directory."
+msgstr "打開應用目錄。"
+
+#: MainWindow.cpp:218 MainWindow.cpp:295
+msgid "Help"
+msgstr "幫助"
+
+#: MainWindow.cpp:224 MainWindow.cpp:301
+msgid "About wxWidgets"
+msgstr "關於wxWidgets"
+
+#: MainWindow.cpp:225 MainWindow.cpp:302
+msgid "Show wxWidgets library information."
+msgstr "顯示wxWidgets庫信息。"
+
+#: MainWindow.cpp:229 MainWindow.cpp:306
+msgid "Visit online documentation page."
+msgstr "訪問在線文檔。"
+
+#: MainWindow.cpp:233 MainWindow.cpp:310
+msgid "Check for Updates"
+msgstr "檢查更新"
+
+#: MainWindow.cpp:234 MainWindow.cpp:311
+msgid "Check for updates online."
+msgstr "在線檢查更新。"
+
+#: MainWindow.cpp:237 MainWindow.cpp:314
+msgid "Report an Issue"
+msgstr "向作者反饋"
+
+#: MainWindow.cpp:238 MainWindow.cpp:315
+msgid "Report a Issue online."
+msgstr "向作者反饋bug或者提出需求。"
+
+#: MainWindow.cpp:248 MainWindow.cpp:325
+msgid "History"
+msgstr "發佈記錄"
+
+#: MainWindow.cpp:248 MainWindow.cpp:325
+msgid "Show the history of the application."
+msgstr "顯示應用發佈歷史信息。"
+
+#: MainWindow.cpp:253 MainWindow.cpp:330
+msgid "Visit GitHub page to get more information."
+msgstr "訪問GitHub頁面查看更多信息。"
+
+#: MainWindow.cpp:254 MainWindow.cpp:331
+msgid "Get Source from GitHub"
+msgstr "從GitHub獲取源碼"
+
+#: MainWindow.cpp:258 MainWindow.cpp:335
+msgid "Visit Gitee page to get more information."
+msgstr "訪問Gitee頁面查看更多信息。"
+
+#: MainWindow.cpp:259 MainWindow.cpp:336
+msgid "Get Source from Gitee"
+msgstr "從Gitee獲取源碼"
+
+#: MainWindow.cpp:263 MainWindow.cpp:340
+msgid "Visit GitHub home page of author."
+msgstr "訪問作者GitHub主頁。"
+
+#: MainWindow.cpp:264 MainWindow.cpp:341
+msgid "GitHub Home Page"
+msgstr "GitHub主頁"
+
+#: MainWindow.cpp:268 MainWindow.cpp:345
+msgid "Visit Gitee home page of author."
+msgstr "訪問作者Gitee主頁。"
+
+#: MainWindow.cpp:269 MainWindow.cpp:346
+msgid "Gitee Home Page"
+msgstr "Gitee主頁"
+
+#: MainWindow.cpp:276 MainWindow.cpp:353
+msgid "Visit Microsoft Store page to buy wxTools."
+msgstr "訪問應用商店。"
+
+#: MainWindow.cpp:277 MainWindow.cpp:354
+msgid "Supporting Author"
+msgstr "支持作者"
+
+#: MainWindow.cpp:281 MainWindow.cpp:358
+msgid "Visit Microsoft Store home page of author."
+msgstr "訪問作者作品主頁。"
+
+#: MainWindow.cpp:282 MainWindow.cpp:359
+msgid "Other Applications"
+msgstr "其他應用"
+
+#: MainWindow.cpp:378 MainWindow.cpp:456
+msgid "History file not found!"
+msgstr "無法找到歷史記錄文件！"
+
+#: MainWindow.cpp:378 Page/Page.cpp:336 Page/Page.cpp:369 MainWindow.cpp:456
+msgid "Error"
+msgstr "錯誤"
+
+#: MainWindow.cpp:382 MainWindow.cpp:460
+msgid "wxTools Release History"
+msgstr "wxWidgets發佈記錄"
+
+#: Page/Page.cpp:334
+msgid "Close"
+msgstr "關閉"
+
+#: Page/Page.cpp:336
+msgid "Failed to open link."
+msgstr "打開鏈接失敗。"
+
+#: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34
+msgid "Open"
+msgstr "打開"
+
+#: Page/Page.cpp:369
+msgid "Link is not opened."
+msgstr "鏈接未打開。"
+
+#: Page/PageIOInput.cpp:14
+msgid "Input"
+msgstr "輸入"
+
+#: Page/PageIOOutput.cpp:12
+msgid "Output"
+msgstr "輸出"
+
+#: Page/PageSettingsInput.cpp:18
+msgid "Input Settings"
+msgstr "輸入設置"
+
+#: Page/PageSettingsInput.cpp:21
+msgid "Cycle"
+msgstr "循環發送"
+
+#: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
+msgid "Format"
+msgstr "文本格式"
+
+#: Page/PageSettingsInput.cpp:25 Page/PageSettingsLink.cpp:32
+#: Page/PageSettingsOutput.cpp:58
+msgid "Settings"
+msgstr "設置"
+
+#: Page/PageSettingsInput.cpp:26
+msgid "Send"
+msgstr "發送"
+
+#: Page/PageSettingsInput.cpp:158 Page/PageSettingsInput.cpp:163
+msgid "Disabled"
+msgstr "禁止"
+
+#: Page/PageSettingsInputPopup.cpp:24
+msgid "Prefix"
+msgstr "前綴"
+
+#: Page/PageSettingsInputPopup.cpp:26
+msgid "Suffix"
+msgstr "後綴"
+
+#: Page/PageSettingsInputPopup.cpp:28
+msgid "ESC"
+msgstr "轉移字符"
+
+#: Page/PageSettingsInputPopup.cpp:31
+msgid "Start Index"
+msgstr "開始索引"
+
+#: Page/PageSettingsInputPopup.cpp:33
+msgid "End Index"
+msgstr "結束索引"
+
+#: Page/PageSettingsInputPopup.cpp:35
+msgid "Algorithm"
+msgstr "算法模型"
+
+#: Page/PageSettingsInputPopup.cpp:37
+msgid "Add CRC"
+msgstr "添加CRC"
+
+#: Page/PageSettingsInputPopup.cpp:38
+msgid "Big Endian"
+msgstr "大端字節序"
+
+#: Page/PageSettingsLink.cpp:22
+msgid "Link Settings"
+msgstr "鏈接設置"
+
+#: Page/PageSettingsLinkPopup.cpp:21
+msgid "Refresh"
+msgstr "刷新設備"
+
+#: Page/PageSettingsOutput.cpp:17
+msgid "Output Settings"
+msgstr "輸出設置"
+
+#: Page/PageSettingsOutput.cpp:38
+msgid "Rx"
+msgstr "接收"
+
+#: Page/PageSettingsOutput.cpp:39
+msgid "Tx"
+msgstr "發送"
+
+#: Page/PageSettingsOutput.cpp:40
+msgid "Flags"
+msgstr "標記"
+
+#: Page/PageSettingsOutput.cpp:41
+msgid "Date"
+msgstr "日期"
+
+#: Page/PageSettingsOutput.cpp:42
+msgid "Time"
+msgstr "時間"
+
+#: Page/PageSettingsOutput.cpp:43
+msgid "MS"
+msgstr "毫秒"
+
+#: Page/PageSettingsOutput.cpp:53
+msgid "Auto Wrap"
+msgstr "自動換行"
+
+#: Page/PageSettingsOutput.cpp:54
+msgid "Terminal Mode"
+msgstr "終端模式"
+
+#: Page/PageSettingsOutput.cpp:59
+msgid "Clear"
+msgstr "清空輸出"
+
+#: Page/PageSettingsOutputPopup.cpp:19
+msgid "Filter"
+msgstr "過濾"
+
+#: Page/PageSettingsOutputPopup.cpp:26
+msgid "Hello;World"
+msgstr "Hello;World"
+
+#: Utilities/DataChannelComboBox.cpp:23
+msgid "Text"
+msgstr "文本"
+
+#: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
+msgid "None"
+msgstr "無"
+
+#: Utilities/FlowBitsComboBox.cpp:22
+msgid "Hardware"
+msgstr "硬件"
+
+#: Utilities/FlowBitsComboBox.cpp:23
+msgid "Software"
+msgstr "軟件"
+
+#: Utilities/ParityComboBox.cpp:22
+msgid "Odd"
+msgstr "奇校驗"
+
+#: Utilities/ParityComboBox.cpp:23
+msgid "Even"
+msgstr "偶校驗"
+
+#: Utilities/ParityComboBox.cpp:24
+msgid "Mark"
+msgstr "1校驗"
+
+#: Utilities/ParityComboBox.cpp:25
+msgid "Space"
+msgstr "0校驗"
+
+#: MainWindow.cpp:158
+msgid "Email:"
+msgstr ""
+
+#: MainWindow.cpp:233
+msgid "Application themes"
+msgstr ""
+
+#: MainWindow.cpp:241
+msgid "System Theme"
+msgstr ""
+
+#: MainWindow.cpp:242
+msgid "Light Theme"
+msgstr ""
+
+#: MainWindow.cpp:243
+msgid "Dark Theme"
+msgstr ""
+
+#: MainWindow.cpp:262
+msgid "Reboot the application to take effect now?"
+msgstr ""
+
+#: MainWindow.cpp:263
+msgid "Information"
+msgstr ""
+
+#: MainWindow.cpp:278
+msgid "Show on Top"
+msgstr ""
+
+#: MainWindow.cpp:279
+msgid "Keep the application window on top of others."
+msgstr ""
