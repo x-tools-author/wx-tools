@@ -8,4 +8,14 @@
  **************************************************************************************************/
 #include "Application.h"
 
+#if 0
 wxIMPLEMENT_APP(Application);
+#else
+int main(int argc, char* argv[])
+{
+    Application* app = new Application();
+    wxApp::SetInstance(app);
+
+    return wxEntry(argc, argv);
+}
+#endif
