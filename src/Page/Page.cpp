@@ -40,7 +40,6 @@ EVT_THREAD(wxtID_LINK_DELETE, Page::OnDeleteClient)
 EVT_THREAD(wxtID_LINK_OPENED, Page::OnLinkOpened)
 EVT_THREAD(wxtID_LINK_CLOSED, Page::OnLinkClosed)
 EVT_THREAD(wxtID_LINK_RESOLVED, Page::OnLinkResolve)
-EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_OUTPUT_WRAP, Page::OnWrap)
 EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_INPUT_WRITE, Page::OnWrite)
 EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_INPUT_FORMAT, Page::OnInputTextFormatChanged)
 END_EVENT_TABLE()
@@ -195,7 +194,9 @@ void Page::OnLinkResolve(wxThreadEvent &e)
 
 void Page::OnWrap(wxCommandEvent &event)
 {
-    m_pageIO->GetOutput()->SetWrap(event.GetInt());
+    auto outputSettings = m_pageSettings->GetOutputSettings();
+    bool wrap = outputSettings->GetWrap();
+    m_pageIO->GetOutput()->SetWrap(wrap);
 }
 
 void Page::OnClear(wxCommandEvent &)
@@ -462,6 +463,9 @@ void Page::DoSetupSettingsOutput()
 
     auto clearButton = outputSettings->GetClearButton();
     Bind(wxEVT_BUTTON, &Page::OnClear, this, clearButton->GetId());
+
+    auto wrapCheckBox = outputSettings->GetWrapCheckBox();
+    Bind(wxEVT_CHECKBOX, &Page::OnWrap, this, wrapCheckBox->GetId());
 }
 
 void Page::DoSetupSettingsInput() {}

@@ -44,6 +44,8 @@ public:
     bool GetShowFlag() const;
     bool GetWrap() const;
     bool GetTerminalMode() const;
+    wxCheckBox *GetWrapCheckBox() const;
+    wxCheckBox *GetTerminalModeCheckBox() const;
     wxButton *GetSaveButton() const;
     wxButton *GetClearButton() const;
     wxArrayString GetFilter() const;
@@ -65,7 +67,5 @@ private:
 
 private:
     void DoUpdateCheckBoxesState();
-
     void OnTerminalModeStateChanged(wxCommandEvent &);
-    void OnWrapModeStateChanged(wxCommandEvent &);
 };

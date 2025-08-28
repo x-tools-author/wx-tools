@@ -59,6 +59,7 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
                                       wxTE_PROCESS_ENTER);
     m_filterTextCtrl->SetHint(_("Filter: hello;world"));
     optionsSizer->Add(m_filterTextCtrl, wxGBPosition(2, 0), wxGBSpan(1, 3), wxEXPAND | wxALL, 0);
+    optionsSizer->AddGrowableCol(2);
 
     auto showModeSizer = new wxGridBagSizer(4, 4);
     m_wrap = new wxCheckBox(GetStaticBox(), wxID_ANY, _("Auto Wrap"));
@@ -87,7 +88,6 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     Add(sizer, 1, wxEXPAND | wxALL, 0);
     sizer->AddGrowableCol(1);
 
-    m_wrap->Bind(wxEVT_CHECKBOX, &PageSettingsOutput::OnWrapModeStateChanged, this);
     m_terminalMode->Bind(wxEVT_CHECKBOX, &PageSettingsOutput::OnTerminalModeStateChanged, this);
 }
 
@@ -189,6 +189,16 @@ bool PageSettingsOutput::GetTerminalMode() const
     return m_terminalMode->GetValue();
 }
 
+wxCheckBox *PageSettingsOutput::GetWrapCheckBox() const
+{
+    return m_wrap;
+}
+
+wxCheckBox *PageSettingsOutput::GetTerminalModeCheckBox() const
+{
+    return m_terminalMode;
+}
+
 wxButton *PageSettingsOutput::GetSaveButton() const
 {
     return m_saveButton;
@@ -220,11 +230,4 @@ void PageSettingsOutput::DoUpdateCheckBoxesState()
 void PageSettingsOutput::OnTerminalModeStateChanged(wxCommandEvent &)
 {
     DoUpdateCheckBoxesState();
-}
-
-void PageSettingsOutput::OnWrapModeStateChanged(wxCommandEvent &)
-{
-    wxCommandEvent event(wxtEVT_SETTINGS_OUTPUT_WRAP);
-    event.SetInt(m_wrap->GetValue() ? 1 : 0);
-    wxPostEvent(m_parent, wxCommandEvent(wxtEVT_SETTINGS_OUTPUT_WRAP));
 }
