@@ -24,11 +24,8 @@ public:
 
     void Load(const wxtJson &parameters);
     wxtJson DoSave() const;
+    wxButton *GetRefreshButton() const;
 
 private:
-    void OnRefresh(wxCommandEvent &);
-
-private:
-    wxWindow *m_parent;
     wxButton *m_refresh;
 };

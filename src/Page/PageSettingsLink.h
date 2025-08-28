@@ -12,7 +12,6 @@
 
 #include "Common/wxTools.h"
 
-class PageSettingsLinkPopup;
 class LinkUi;
 class PageSettingsLink : public wxStaticBoxSizer
 {
@@ -23,13 +22,13 @@ public:
     wxtJson DoSave() const;
 
     wxButton *GetOpenButton() const;
+    wxButton *GetRefreshButton() const;
     LinkUi *GetLinkUi() const;
-    PageSettingsLinkPopup *GetPopup() const;
 
 private:
     LinkUi *m_linkUi;
     wxButton *m_openButton;
-    PageSettingsLinkPopup *m_popup;
+    wxButton *m_refreshButton;
 
 private:
     LinkUi *CreateLinkUi(LinkType type, wxWindow *parent);

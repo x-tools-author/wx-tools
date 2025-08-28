@@ -16,28 +16,27 @@
 #include "LinksUi/UDPServerUi.h"
 #include "LinksUi/WSClientUi.h"
 #include "LinksUi/WSServerUi.h"
-#include "PageSettingsLinkPopup.h"
 
 PageSettingsLink::PageSettingsLink(LinkType type, wxWindow *parent)
     : wxStaticBoxSizer(wxVERTICAL, parent, _("Link Settings"))
     , m_linkUi(nullptr)
-    , m_popup(nullptr)
+    , m_openButton(nullptr)
+    , m_refreshButton(nullptr)
 {
     m_linkUi = CreateLinkUi(type, GetStaticBox());
     Add(m_linkUi, 0, wxEXPAND, 0);
 
     AddSpacer(4);
 
-    auto settingsButton = new wxButton(GetStaticBox(), wxID_ANY, _("Settings"));
-    m_popup = new PageSettingsLinkPopup(settingsButton, parent);
+    m_refreshButton = new wxButton(GetStaticBox(), wxID_ANY, _("Refresh"));
     m_openButton = new wxButton(GetStaticBox(), wxID_ANY, _("Open"));
 
     auto buttonSizer = new wxBoxSizer(wxHORIZONTAL);
 #if defined(__WXOSX__)
-    buttonSizer->Add(settingsButton, 1, wxEXPAND | wxALL, 4);
+    buttonSizer->Add(m_refreshButton, 1, wxEXPAND | wxALL, 4);
     buttonSizer->Add(m_openButton, 1, wxEXPAND | wxALL, 4);
 #else
-    buttonSizer->Add(settingsButton, 1, wxEXPAND | wxALL, 0);
+    buttonSizer->Add(m_refreshButton, 1, wxEXPAND | wxALL, 0);
     buttonSizer->Add(m_openButton, 1, wxEXPAND | wxALL, 0);
 #endif
     Add(buttonSizer, 0, wxEXPAND, 0);
@@ -58,14 +57,14 @@ wxButton *PageSettingsLink::GetOpenButton() const
     return m_openButton;
 }
 
+wxButton *PageSettingsLink::GetRefreshButton() const
+{
+    return m_refreshButton;
+}
+
 LinkUi *PageSettingsLink::GetLinkUi() const
 {
     return m_linkUi;
-}
-
-PageSettingsLinkPopup *PageSettingsLink::GetPopup() const
-{
-    return m_popup;
 }
 
 LinkUi *PageSettingsLink::CreateLinkUi(LinkType type, wxWindow *parent)

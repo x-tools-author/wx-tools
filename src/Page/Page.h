@@ -55,6 +55,11 @@ private:
     void DoClearClients();
     void DoWrite();
 
+    void DoSetupSettings();
+    void DoSetupSettingsLink();
+    void DoSetupSettingsOutput();
+    void DoSetupSettingsInput();
+
 private:
     DECLARE_DYNAMIC_CLASS(Page);
     DECLARE_EVENT_TABLE();
