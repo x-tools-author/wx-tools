@@ -79,7 +79,7 @@ set(BUILD_SHARED_LIBS OFF CACHE BOOL "Reset option" FORCE)
 # cmake-format: on
 
 # Git information
-include(cmake/wxt_git.cmake)
+include(cmake/wxt_tools_git.cmake)
 wxt_git_get_latest_tag(${CMAKE_SOURCE_DIR} WXT)
 wxt_git_get_latest_commit(${CMAKE_SOURCE_DIR} WXT)
 wxt_git_get_latest_commit_time(${CMAKE_SOURCE_DIR} WXT)
@@ -114,6 +114,7 @@ endif()
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake;${CMAKE_MODULE_PATH}")
 include(wxt)
 include(wxt_3rd)
+include(wxt_tools)
 
 # --------------------------------------------------------------------------------------------------
 # wxTools applications
@@ -123,7 +124,11 @@ list(APPEND WX_TOOLS_SOURCE wxTools.rc)
 set(WXT_OUTPUT_DIR "${WX_TOOLS_BINARY_DIR}/wxTools")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${WXT_OUTPUT_DIR})
 add_executable(wxTools ${WX_TOOLS_SOURCE})
-set(PROJECT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
+if(WIN32)
+  set(PROJECT_LIBS glog::glog fmt::fmt libcserialport mongoose)
+else()
+  set(PROJECT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
+endif()
 target_link_libraries(wxTools PRIVATE ${wxWidgets_LIBRARIES} ${PROJECT_LIBS})
 message(STATUS "[wxTools] Libraries of wxTools: ${wxWidgets_LIBRARIES} ${PROJECT_LIBS}")
 
