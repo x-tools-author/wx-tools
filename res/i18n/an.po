@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-28 15:27+0800\n"
+"POT-Creation-Date: 2025-08-28 22:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -365,7 +365,8 @@ msgstr ""
 msgid "History file not found!"
 msgstr ""
 
-#: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369
+#: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
+#: Page/Page.cpp:390
 msgid "Error"
 msgstr ""
 
@@ -373,19 +374,20 @@ msgstr ""
 msgid "wxTools Release History"
 msgstr ""
 
-#: Page/Page.cpp:334
+#: Page/Page.cpp:334 Page/Page.cpp:355
 msgid "Close"
 msgstr ""
 
-#: Page/Page.cpp:336
+#: Page/Page.cpp:336 Page/Page.cpp:357
 msgid "Failed to open link."
 msgstr ""
 
-#: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34
+#: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
+#: Page/PageSettingsLink.cpp:32
 msgid "Open"
 msgstr ""
 
-#: Page/Page.cpp:369
+#: Page/Page.cpp:369 Page/Page.cpp:390
 msgid "Link is not opened."
 msgstr ""
 
@@ -406,6 +408,7 @@ msgid "Cycle"
 msgstr ""
 
 #: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
+#: Page/PageSettingsOutput.cpp:30
 msgid "Format"
 msgstr ""
 
@@ -454,39 +457,39 @@ msgstr ""
 msgid "Big Endian"
 msgstr ""
 
-#: Page/PageSettingsLink.cpp:22
+#: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
 msgid "Link Settings"
 msgstr ""
 
-#: Page/PageSettingsLinkPopup.cpp:21
+#: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
 msgid "Refresh"
 msgstr ""
 
-#: Page/PageSettingsOutput.cpp:17
+#: Page/PageSettingsOutput.cpp:17 Page/PageSettingsOutput.cpp:16
 msgid "Output Settings"
 msgstr ""
 
-#: Page/PageSettingsOutput.cpp:38
+#: Page/PageSettingsOutput.cpp:38 Page/PageSettingsOutput.cpp:47
 msgid "Rx"
 msgstr ""
 
-#: Page/PageSettingsOutput.cpp:39
+#: Page/PageSettingsOutput.cpp:39 Page/PageSettingsOutput.cpp:48
 msgid "Tx"
 msgstr ""
 
-#: Page/PageSettingsOutput.cpp:40
+#: Page/PageSettingsOutput.cpp:40 Page/PageSettingsOutput.cpp:49
 msgid "Flags"
 msgstr ""
 
-#: Page/PageSettingsOutput.cpp:41
+#: Page/PageSettingsOutput.cpp:41 Page/PageSettingsOutput.cpp:50
 msgid "Date"
 msgstr ""
 
-#: Page/PageSettingsOutput.cpp:42
+#: Page/PageSettingsOutput.cpp:42 Page/PageSettingsOutput.cpp:51
 msgid "Time"
 msgstr ""
 
-#: Page/PageSettingsOutput.cpp:43
+#: Page/PageSettingsOutput.cpp:43 Page/PageSettingsOutput.cpp:52
 msgid "MS"
 msgstr ""
 
@@ -498,7 +501,7 @@ msgstr ""
 msgid "Terminal Mode"
 msgstr ""
 
-#: Page/PageSettingsOutput.cpp:59
+#: Page/PageSettingsOutput.cpp:59 Page/PageSettingsOutput.cpp:69
 msgid "Clear"
 msgstr ""
 
@@ -540,4 +543,29 @@ msgstr ""
 
 #: Utilities/ParityComboBox.cpp:25
 msgid "Space"
+msgstr ""
+
+#: Page/Page.cpp:231
+msgid "Save Output"
+msgstr ""
+
+#: Page/Page.cpp:244
+#, c-format
+msgid "Cannot save output to file '%s'."
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:53
+msgid "Wrap"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:67
+msgid "Save"
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:68
+msgid "Save output text to file..."
+msgstr ""
+
+#: Page/PageSettingsOutput.cpp:85
+msgid "Filter: hello;world"
 msgstr ""

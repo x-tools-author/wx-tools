@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-28 15:28+0800\n"
+"POT-Creation-Date: 2025-08-28 22:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -330,6 +330,7 @@ msgid "History file not found!"
 msgstr "無法找到歷史記錄文件！"
 
 #: MainWindow.cpp:378 Page/Page.cpp:336 Page/Page.cpp:369 MainWindow.cpp:456
+#: Page/Page.cpp:357 Page/Page.cpp:390
 msgid "Error"
 msgstr "錯誤"
 
@@ -337,19 +338,20 @@ msgstr "錯誤"
 msgid "wxTools Release History"
 msgstr "wxWidgets發佈記錄"
 
-#: Page/Page.cpp:334
+#: Page/Page.cpp:334 Page/Page.cpp:355
 msgid "Close"
 msgstr "關閉"
 
-#: Page/Page.cpp:336
+#: Page/Page.cpp:336 Page/Page.cpp:357
 msgid "Failed to open link."
 msgstr "打開鏈接失敗。"
 
-#: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34
+#: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
+#: Page/PageSettingsLink.cpp:32
 msgid "Open"
 msgstr "打開"
 
-#: Page/Page.cpp:369
+#: Page/Page.cpp:369 Page/Page.cpp:390
 msgid "Link is not opened."
 msgstr "鏈接未打開。"
 
@@ -370,6 +372,7 @@ msgid "Cycle"
 msgstr "循環發送"
 
 #: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
+#: Page/PageSettingsOutput.cpp:30
 msgid "Format"
 msgstr "文本格式"
 
@@ -418,39 +421,39 @@ msgstr "添加CRC"
 msgid "Big Endian"
 msgstr "大端字節序"
 
-#: Page/PageSettingsLink.cpp:22
+#: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
 msgid "Link Settings"
 msgstr "鏈接設置"
 
-#: Page/PageSettingsLinkPopup.cpp:21
+#: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
 msgid "Refresh"
 msgstr "刷新設備"
 
-#: Page/PageSettingsOutput.cpp:17
+#: Page/PageSettingsOutput.cpp:17 Page/PageSettingsOutput.cpp:16
 msgid "Output Settings"
 msgstr "輸出設置"
 
-#: Page/PageSettingsOutput.cpp:38
+#: Page/PageSettingsOutput.cpp:38 Page/PageSettingsOutput.cpp:47
 msgid "Rx"
 msgstr "接收"
 
-#: Page/PageSettingsOutput.cpp:39
+#: Page/PageSettingsOutput.cpp:39 Page/PageSettingsOutput.cpp:48
 msgid "Tx"
 msgstr "發送"
 
-#: Page/PageSettingsOutput.cpp:40
+#: Page/PageSettingsOutput.cpp:40 Page/PageSettingsOutput.cpp:49
 msgid "Flags"
 msgstr "標記"
 
-#: Page/PageSettingsOutput.cpp:41
+#: Page/PageSettingsOutput.cpp:41 Page/PageSettingsOutput.cpp:50
 msgid "Date"
 msgstr "日期"
 
-#: Page/PageSettingsOutput.cpp:42
+#: Page/PageSettingsOutput.cpp:42 Page/PageSettingsOutput.cpp:51
 msgid "Time"
 msgstr "時間"
 
-#: Page/PageSettingsOutput.cpp:43
+#: Page/PageSettingsOutput.cpp:43 Page/PageSettingsOutput.cpp:52
 msgid "MS"
 msgstr "毫秒"
 
@@ -462,7 +465,7 @@ msgstr "自動換行"
 msgid "Terminal Mode"
 msgstr "終端模式"
 
-#: Page/PageSettingsOutput.cpp:59
+#: Page/PageSettingsOutput.cpp:59 Page/PageSettingsOutput.cpp:69
 msgid "Clear"
 msgstr "清空輸出"
 
@@ -512,23 +515,23 @@ msgstr ""
 
 #: MainWindow.cpp:233
 msgid "Application themes"
-msgstr ""
+msgstr "应用主题"
 
 #: MainWindow.cpp:241
 msgid "System Theme"
-msgstr ""
+msgstr "系统主题"
 
 #: MainWindow.cpp:242
 msgid "Light Theme"
-msgstr ""
+msgstr "亮色主题"
 
 #: MainWindow.cpp:243
 msgid "Dark Theme"
-msgstr ""
+msgstr "暗色主题"
 
 #: MainWindow.cpp:262
 msgid "Reboot the application to take effect now?"
-msgstr ""
+msgstr "需要重启软件使配置生效，立即重启？"
 
 #: MainWindow.cpp:263
 msgid "Information"
@@ -536,8 +539,33 @@ msgstr ""
 
 #: MainWindow.cpp:278
 msgid "Show on Top"
-msgstr ""
+msgstr "置顶显示"
 
 #: MainWindow.cpp:279
 msgid "Keep the application window on top of others."
-msgstr ""
+msgstr "保持软件窗口在其他窗口前面。"
+
+#: Page/Page.cpp:231
+msgid "Save Output"
+msgstr "保存输出ß"
+
+#: Page/Page.cpp:244
+#, c-format
+msgid "Cannot save output to file '%s'."
+msgstr "无法保存输出至文件'%s'。"
+
+#: Page/PageSettingsOutput.cpp:53
+msgid "Wrap"
+msgstr "换行"
+
+#: Page/PageSettingsOutput.cpp:67
+msgid "Save"
+msgstr "保存"
+
+#: Page/PageSettingsOutput.cpp:68
+msgid "Save output text to file..."
+msgstr "保存输出文本至文件..."
+
+#: Page/PageSettingsOutput.cpp:85
+msgid "Filter: hello;world"
+msgstr "过滤器：hello;world"
