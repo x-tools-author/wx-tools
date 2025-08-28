@@ -15,9 +15,7 @@
 #include "Utilities/BaseSettingsPopup.h"
 
 struct PageSettingsLinkPopupParameterKeys
-{
-
-};
+{};
 
 class PageSettingsLinkPopup : public BaseSettingsPopup
 {

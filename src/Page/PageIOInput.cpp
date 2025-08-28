@@ -13,7 +13,7 @@
 PageIOInput::PageIOInput(wxWindow *parent)
     : wxStaticBoxSizer(wxVERTICAL, parent, _("Input"))
 {
-    m_lineEdit = new LineEdit(parent);
+    m_lineEdit = new LineEdit(GetStaticBox());
     Add(m_lineEdit, 1, wxEXPAND | wxALL, 0);
 }
 

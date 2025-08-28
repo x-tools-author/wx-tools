@@ -27,12 +27,10 @@ public:
     PageSettingsLinkPopup *GetPopup() const;
 
 private:
-    wxWindow *m_parent;
     LinkUi *m_linkUi;
     wxButton *m_openButton;
     PageSettingsLinkPopup *m_popup;
 
 private:
     LinkUi *CreateLinkUi(LinkType type, wxWindow *parent);
-    void OnOpen(wxCommandEvent &);
 };

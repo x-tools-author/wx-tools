@@ -38,7 +38,6 @@ EVT_THREAD(wxtID_LINK_DELETE, Page::OnDeleteClient)
 EVT_THREAD(wxtID_LINK_OPENED, Page::OnLinkOpened)
 EVT_THREAD(wxtID_LINK_CLOSED, Page::OnLinkClosed)
 EVT_THREAD(wxtID_LINK_RESOLVED, Page::OnLinkResolve)
-EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_LINK_OPEN, Page::OnOpen)
 EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_LINK_POPUP_REFRESH, Page::OnRefresh)
 EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_OUTPUT_CLEAR, Page::OnClear)
 EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_OUTPUT_WRAP, Page::OnWrap)
@@ -56,6 +55,9 @@ Page::Page(LinkType type, wxWindow *parent)
 
     m_pageSettings = new PageSettings(type, this);
     sizer->Add(m_pageSettings, 0, wxEXPAND | wxALL, 4);
+    PageSettingsLink *linkSettings = m_pageSettings->GetLinkSettings();
+    wxButton *openButton = linkSettings->GetOpenButton();
+    Bind(wxEVT_BUTTON, &Page::OnOpen, this, openButton->GetId());
 
     m_pageIO = new PageIO(this);
     sizer->Add(m_pageIO, 1, wxEXPAND | wxALL, 4);

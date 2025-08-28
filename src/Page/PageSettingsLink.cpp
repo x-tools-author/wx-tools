@@ -20,7 +20,6 @@
 
 PageSettingsLink::PageSettingsLink(LinkType type, wxWindow *parent)
     : wxStaticBoxSizer(wxVERTICAL, parent, _("Link Settings"))
-    , m_parent(parent)
     , m_linkUi(nullptr)
     , m_popup(nullptr)
 {
@@ -42,8 +41,6 @@ PageSettingsLink::PageSettingsLink(LinkType type, wxWindow *parent)
     buttonSizer->Add(m_openButton, 1, wxEXPAND | wxALL, 0);
 #endif
     Add(buttonSizer, 0, wxEXPAND, 0);
-
-    m_openButton->Bind(wxEVT_BUTTON, &PageSettingsLink::OnOpen, this);
 }
 
 void PageSettingsLink::DoLoad(const wxtJson &parameters)
@@ -90,9 +87,4 @@ LinkUi *PageSettingsLink::CreateLinkUi(LinkType type, wxWindow *parent)
     }
 
     return nullptr;
-}
-
-void PageSettingsLink::OnOpen(wxCommandEvent &)
-{
-    wxPostEvent(m_parent, wxCommandEvent(wxtEVT_SETTINGS_LINK_OPEN));
 }

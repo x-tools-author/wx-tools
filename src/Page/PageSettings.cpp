@@ -10,8 +10,8 @@
 
 #include <wx/stattext.h>
 
-#include "PageSettingsLink.h"
 #include "PageSettingsInput.h"
+#include "PageSettingsLink.h"
 #include "PageSettingsOutput.h"
 
 PageSettings::PageSettings(LinkType type, wxWindow *parent)
