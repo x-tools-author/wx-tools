@@ -6,8 +6,13 @@ set(url "${base_url}/v${tag}/${file_name}.zip")
 
 wxt_download_and_extract("${url}" "${file_name}" "zip" TRUE)
 
-set(msgfmt "${WXT_3RD_DIR}/${file_name}/bin/msgfmt.exe")
-set(xgettext "${WXT_3RD_DIR}/${file_name}/bin/xgettext.exe")
+if(WIN32)
+  set(msgfmt "${WXT_3RD_DIR}/${file_name}/bin/msgfmt.exe")
+  set(xgettext "${WXT_3RD_DIR}/${file_name}/bin/xgettext.exe")
+else()
+  set(msgfmt "msgfmt")
+  set(xgettext "xgettext")
+endif()
 set(po_script_file "${CMAKE_CURRENT_LIST_DIR}/wxt_tools_gettext_po.cmake")
 set(mo_script_file "${CMAKE_CURRENT_LIST_DIR}/wxt_tools_gettext_mo.cmake")
 
