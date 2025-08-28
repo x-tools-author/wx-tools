@@ -67,6 +67,5 @@ private:
     void DoUpdateCheckBoxesState();
 
     void OnTerminalModeStateChanged(wxCommandEvent &);
-    void OnClear(wxCommandEvent &);
     void OnWrapModeStateChanged(wxCommandEvent &);
 };

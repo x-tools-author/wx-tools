@@ -40,7 +40,6 @@ EVT_THREAD(wxtID_LINK_DELETE, Page::OnDeleteClient)
 EVT_THREAD(wxtID_LINK_OPENED, Page::OnLinkOpened)
 EVT_THREAD(wxtID_LINK_CLOSED, Page::OnLinkClosed)
 EVT_THREAD(wxtID_LINK_RESOLVED, Page::OnLinkResolve)
-EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_OUTPUT_CLEAR, Page::OnClear)
 EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_OUTPUT_WRAP, Page::OnWrap)
 EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_INPUT_WRITE, Page::OnWrite)
 EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_INPUT_FORMAT, Page::OnInputTextFormatChanged)
@@ -460,6 +459,9 @@ void Page::DoSetupSettingsOutput()
     auto outputSettings = m_pageSettings->GetOutputSettings();
     auto saveButton = outputSettings->GetSaveButton();
     Bind(wxEVT_BUTTON, &Page::OnSaveOutputText, this, saveButton->GetId());
+
+    auto clearButton = outputSettings->GetClearButton();
+    Bind(wxEVT_BUTTON, &Page::OnClear, this, clearButton->GetId());
 }
 
 void Page::DoSetupSettingsInput() {}

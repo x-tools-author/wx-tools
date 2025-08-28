@@ -68,14 +68,14 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
 
     m_saveButton = new wxButton(GetStaticBox(), wxID_ANY, _("Save"));
     m_saveButton->SetToolTip(_("Save output text to file..."));
-    auto clearButton = new wxButton(GetStaticBox(), wxID_ANY, _("Clear"));
+    m_clearButton = new wxButton(GetStaticBox(), wxID_ANY, _("Clear"));
     auto buttonsSizer = new wxBoxSizer(wxHORIZONTAL);
 #if defined(__WXOSX__)
     buttonsSizer->Add(m_saveButton, 1, wxEXPAND | wxALL, 4);
-    buttonsSizer->Add(clearButton, 1, wxEXPAND | wxALL, 4);
+    buttonsSizer->Add(m_clearButton, 1, wxEXPAND | wxALL, 4);
 #else
     buttonsSizer->Add(m_saveButton, 1, wxEXPAND | wxALL, 0);
-    buttonsSizer->Add(clearButton, 1, wxEXPAND | wxALL, 0);
+    buttonsSizer->Add(m_clearButton, 1, wxEXPAND | wxALL, 0);
 #endif
 
     auto *sizer = new wxGridBagSizer(4, 4);
@@ -89,7 +89,6 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
 
     m_wrap->Bind(wxEVT_CHECKBOX, &PageSettingsOutput::OnWrapModeStateChanged, this);
     m_terminalMode->Bind(wxEVT_CHECKBOX, &PageSettingsOutput::OnTerminalModeStateChanged, this);
-    clearButton->Bind(wxEVT_BUTTON, &PageSettingsOutput::OnClear, this);
 }
 
 void PageSettingsOutput::DoLoad(const wxtJson &parameters)
@@ -221,11 +220,6 @@ void PageSettingsOutput::DoUpdateCheckBoxesState()
 void PageSettingsOutput::OnTerminalModeStateChanged(wxCommandEvent &)
 {
     DoUpdateCheckBoxesState();
-}
-
-void PageSettingsOutput::OnClear(wxCommandEvent &)
-{
-    wxPostEvent(m_parent, wxCommandEvent(wxtEVT_SETTINGS_OUTPUT_CLEAR));
 }
 
 void PageSettingsOutput::OnWrapModeStateChanged(wxCommandEvent &)
