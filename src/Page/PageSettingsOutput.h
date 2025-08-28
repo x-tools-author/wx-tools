@@ -14,19 +14,19 @@
 
 struct PageSettingsOutputParameterKeys
 {
-    std::string textFormat = {"textFormat"};
-    std::string showDate = {"showDate"};
-    std::string showTime = {"showTime"};
-    std::string showMs = {"showMs"};
-    std::string showRx = {"showRx"};
-    std::string showTx = {"showTx"};
-    std::string showFlag = {"showFlag"};
-    std::string wrap = {"wrap"};
-    std::string terminalMode = {"terminalMode"};
+    const std::string textFormat{"textFormat"};
+    const std::string showDate{"showDate"};
+    const std::string showTime{"showTime"};
+    const std::string showMs{"showMs"};
+    const std::string showRx{"showRx"};
+    const std::string showTx{"showTx"};
+    const std::string showFlag{"showFlag"};
+    const std::string wrap{"wrap"};
+    const std::string terminalMode{"terminalMode"};
+    const std::string filter{"filter"};
 };
 
 class TextFormatComboBox;
-class PageSettingsOutputPopup;
 class PageSettingsOutput : public wxStaticBoxSizer
 {
 public:
@@ -44,9 +44,9 @@ public:
     bool GetShowFlag() const;
     bool GetWrap() const;
     bool GetTerminalMode() const;
-    PageSettingsOutputPopup *GetPopup();
     wxButton *GetSaveButton() const;
     wxButton *GetClearButton() const;
+    wxArrayString GetFilter() const;
 
 private:
     TextFormatComboBox *m_textFormatComboBox;
@@ -58,8 +58,8 @@ private:
     wxCheckBox *m_showFlag;
     wxCheckBox *m_wrap;
     wxCheckBox *m_terminalMode;
-    PageSettingsOutputPopup *m_popup;
     wxWindow *m_parent;
+    wxTextCtrl *m_filterTextCtrl;
     wxButton *m_saveButton;
     wxButton *m_clearButton;
 

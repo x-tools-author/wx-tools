@@ -10,7 +10,6 @@
 
 #include <wx/gbsizer.h>
 
-#include "PageSettingsOutputPopup.h"
 #include "Utilities/TextFormatComboBox.h"
 
 PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
@@ -25,6 +24,7 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     , m_wrap(nullptr)
     , m_terminalMode(nullptr)
     , m_parent(parent)
+    , m_filterTextCtrl(nullptr)
     , m_saveButton(nullptr)
     , m_clearButton(nullptr)
 {
@@ -51,6 +51,15 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     m_showMs->SetValue(false);
     m_showFlag->SetValue(true);
 
+    m_filterTextCtrl = new wxTextCtrl(GetStaticBox(),
+                                      wxID_ANY,
+                                      wxEmptyString,
+                                      wxDefaultPosition,
+                                      wxDefaultSize,
+                                      wxTE_PROCESS_ENTER);
+    m_filterTextCtrl->SetHint(_("Filter: hello;world"));
+    optionsSizer->Add(m_filterTextCtrl, wxGBPosition(2, 0), wxGBSpan(1, 3), wxEXPAND | wxALL, 0);
+
     auto showModeSizer = new wxGridBagSizer(4, 4);
     m_wrap = new wxCheckBox(GetStaticBox(), wxID_ANY, _("Auto Wrap"));
     m_terminalMode = new wxCheckBox(GetStaticBox(), wxID_ANY, _("Terminal Mode"));
@@ -59,8 +68,6 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
 
     m_saveButton = new wxButton(GetStaticBox(), wxID_ANY, _("Save"));
     m_saveButton->SetToolTip(_("Save output text to file..."));
-    auto settingsButton = new wxButton(GetStaticBox(), wxID_ANY, _("Settings"));
-    settingsButton->Hide();
     auto clearButton = new wxButton(GetStaticBox(), wxID_ANY, _("Clear"));
     auto buttonsSizer = new wxBoxSizer(wxHORIZONTAL);
 #if defined(__WXOSX__)
@@ -70,8 +77,6 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     buttonsSizer->Add(m_saveButton, 1, wxEXPAND | wxALL, 0);
     buttonsSizer->Add(clearButton, 1, wxEXPAND | wxALL, 0);
 #endif
-
-    m_popup = new PageSettingsOutputPopup(settingsButton);
 
     auto *sizer = new wxGridBagSizer(4, 4);
     sizer->Add(formatText, wxGBPosition(0, 0), wxGBSpan(1, 1), wxALIGN_CENTER_VERTICAL | wxALL, 0);
@@ -100,6 +105,7 @@ void PageSettingsOutput::DoLoad(const wxtJson &parameters)
     bool showFlag = wxtGetJsonObjValue<bool>(parameters, keys.showFlag, true);
     bool wrap = wxtGetJsonObjValue<bool>(parameters, keys.wrap, false);
     bool terminalMode = wxtGetJsonObjValue<bool>(parameters, keys.terminalMode, false);
+    wxString filter = wxtGetJsonObjValue<std::string>(parameters, keys.filter, "");
 
     SetComboBoxSectionByIntClientData(m_textFormatComboBox, format);
     m_showDate->SetValue(showDate);
@@ -110,6 +116,7 @@ void PageSettingsOutput::DoLoad(const wxtJson &parameters)
     m_showFlag->SetValue(showFlag);
     m_wrap->SetValue(wrap);
     m_terminalMode->SetValue(terminalMode);
+    m_filterTextCtrl->SetValue(filter);
 
     DoUpdateCheckBoxesState();
 }
@@ -133,6 +140,7 @@ wxtJson PageSettingsOutput::DoSave() const
     parameters[keys.showFlag] = m_showFlag->GetValue();
     parameters[keys.wrap] = m_wrap->GetValue();
     parameters[keys.terminalMode] = m_terminalMode->GetValue();
+    parameters[keys.filter] = m_filterTextCtrl->GetValue();
 
     return parameters;
 }
@@ -182,11 +190,6 @@ bool PageSettingsOutput::GetTerminalMode() const
     return m_terminalMode->GetValue();
 }
 
-PageSettingsOutputPopup *PageSettingsOutput::GetPopup()
-{
-    return m_popup;
-}
-
 wxButton *PageSettingsOutput::GetSaveButton() const
 {
     return m_saveButton;
@@ -195,6 +198,13 @@ wxButton *PageSettingsOutput::GetSaveButton() const
 wxButton *PageSettingsOutput::GetClearButton() const
 {
     return m_clearButton;
+}
+
+wxArrayString PageSettingsOutput::GetFilter() const
+{
+    wxString filter = m_filterTextCtrl->GetValue();
+    wxArrayString ret = wxSplit(filter, wxChar(';'));
+    return ret;
 }
 
 void PageSettingsOutput::DoUpdateCheckBoxesState()

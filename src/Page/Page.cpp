@@ -29,7 +29,6 @@
 #include "PageSettingsInputPopup.h"
 #include "PageSettingsLink.h"
 #include "PageSettingsOutput.h"
-#include "PageSettingsOutputPopup.h"
 
 IMPLEMENT_ABSTRACT_CLASS(Page, wxPanel)
 BEGIN_EVENT_TABLE(Page, wxPanel)
@@ -333,8 +332,7 @@ void Page::DoOutputText(std::shared_ptr<char> bytes, int len, std::string &fromT
     }
 
     // Filter
-    PageSettingsOutputPopup *outputPopup = outputSettings->GetPopup();
-    wxArrayString filter = outputPopup->GetFilter();
+    wxArrayString filter = outputSettings->GetFilter();
     if (filter.IsEmpty()) {
         m_pageIO->GetOutput()->AppendText(str, true);
     } else {
