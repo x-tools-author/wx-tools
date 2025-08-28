@@ -51,16 +51,6 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     m_showMs->SetValue(false);
     m_showFlag->SetValue(true);
 
-    m_filterTextCtrl = new wxTextCtrl(GetStaticBox(),
-                                      wxID_ANY,
-                                      wxEmptyString,
-                                      wxDefaultPosition,
-                                      wxDefaultSize,
-                                      wxTE_PROCESS_ENTER);
-    m_filterTextCtrl->SetHint(_("Filter: hello;world"));
-    optionsSizer->Add(m_filterTextCtrl, wxGBPosition(2, 0), wxGBSpan(1, 3), wxEXPAND | wxALL, 0);
-    optionsSizer->AddGrowableCol(2);
-
     auto showModeSizer = new wxGridBagSizer(4, 4);
     m_wrap = new wxCheckBox(GetStaticBox(), wxID_ANY, _("Auto Wrap"));
     m_terminalMode = new wxCheckBox(GetStaticBox(), wxID_ANY, _("Terminal Mode"));
@@ -79,14 +69,23 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     buttonsSizer->Add(m_clearButton, 1, wxEXPAND | wxALL, 0);
 #endif
 
+    m_filterTextCtrl = new wxTextCtrl(GetStaticBox(),
+                                      wxID_ANY,
+                                      wxEmptyString,
+                                      wxDefaultPosition,
+                                      wxDefaultSize,
+                                      wxTE_PROCESS_ENTER);
+    m_filterTextCtrl->SetHint(_("Filter: hello;world"));
+
     auto *sizer = new wxGridBagSizer(4, 4);
     sizer->Add(formatText, wxGBPosition(0, 0), wxGBSpan(1, 1), wxALIGN_CENTER_VERTICAL | wxALL, 0);
     sizer->Add(m_textFormatComboBox, wxGBPosition(0, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
     sizer->Add(optionsSizer, wxGBPosition(1, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
     sizer->Add(showModeSizer, wxGBPosition(2, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
-    sizer->Add(buttonsSizer, wxGBPosition(3, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
-    Add(sizer, 1, wxEXPAND | wxALL, 0);
+    sizer->Add(m_filterTextCtrl, wxGBPosition(3, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
+    sizer->Add(buttonsSizer, wxGBPosition(4, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
     sizer->AddGrowableCol(1);
+    Add(sizer, 1, wxEXPAND | wxALL, 0);
 
     m_terminalMode->Bind(wxEVT_CHECKBOX, &PageSettingsOutput::OnTerminalModeStateChanged, this);
 }

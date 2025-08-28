@@ -396,7 +396,7 @@ msgstr "后缀"
 
 #: Page/PageSettingsInputPopup.cpp:28
 msgid "ESC"
-msgstr "转移字符"
+msgstr "转义字符"
 
 #: Page/PageSettingsInputPopup.cpp:31
 msgid "Start Index"
