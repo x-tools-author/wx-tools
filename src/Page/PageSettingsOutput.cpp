@@ -23,7 +23,6 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     , m_showFlag(nullptr)
     , m_wrap(nullptr)
     , m_terminalMode(nullptr)
-    , m_parent(parent)
     , m_filterTextCtrl(nullptr)
     , m_saveButton(nullptr)
     , m_clearButton(nullptr)
@@ -43,6 +42,12 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     m_showDate = AddCheckBox(_("Date"), 1, 0);
     m_showTime = AddCheckBox(_("Time"), 1, 1);
     m_showMs = AddCheckBox(_("MS"), 1, 2);
+    m_wrap = AddCheckBox(_("Auto Wrap"), 2, 0);
+    m_terminalMode = AddCheckBox(_("Terminal Mode"), 2, 1);
+
+    optionsSizer->AddGrowableCol(0);
+    optionsSizer->AddGrowableCol(1);
+    optionsSizer->AddGrowableCol(2);
 
     m_showRx->SetValue(true);
     m_showTx->SetValue(true);
@@ -50,12 +55,6 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     m_showTime->SetValue(true);
     m_showMs->SetValue(false);
     m_showFlag->SetValue(true);
-
-    auto showModeSizer = new wxGridBagSizer(4, 4);
-    m_wrap = new wxCheckBox(GetStaticBox(), wxID_ANY, _("Auto Wrap"));
-    m_terminalMode = new wxCheckBox(GetStaticBox(), wxID_ANY, _("Terminal Mode"));
-    showModeSizer->Add(m_wrap, wxGBPosition(0, 0), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
-    showModeSizer->Add(m_terminalMode, wxGBPosition(0, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
 
     m_saveButton = new wxButton(GetStaticBox(), wxID_ANY, _("Save"));
     m_saveButton->SetToolTip(_("Save output text to file..."));
@@ -81,9 +80,9 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     sizer->Add(formatText, wxGBPosition(0, 0), wxGBSpan(1, 1), wxALIGN_CENTER_VERTICAL | wxALL, 0);
     sizer->Add(m_textFormatComboBox, wxGBPosition(0, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
     sizer->Add(optionsSizer, wxGBPosition(1, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
-    sizer->Add(showModeSizer, wxGBPosition(2, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
-    sizer->Add(m_filterTextCtrl, wxGBPosition(3, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
-    sizer->Add(buttonsSizer, wxGBPosition(4, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
+    //sizer->Add(showModeSizer, wxGBPosition(2, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
+    sizer->Add(m_filterTextCtrl, wxGBPosition(2, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
+    sizer->Add(buttonsSizer, wxGBPosition(3, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
     sizer->AddGrowableCol(1);
     Add(sizer, 1, wxEXPAND | wxALL, 0);
 

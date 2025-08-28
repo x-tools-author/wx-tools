@@ -60,7 +60,6 @@ private:
     wxCheckBox *m_showFlag;
     wxCheckBox *m_wrap;
     wxCheckBox *m_terminalMode;
-    wxWindow *m_parent;
     wxTextCtrl *m_filterTextCtrl;
     wxButton *m_saveButton;
     wxButton *m_clearButton;
