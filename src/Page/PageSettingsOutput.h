@@ -45,6 +45,8 @@ public:
     bool GetWrap() const;
     bool GetTerminalMode() const;
     PageSettingsOutputPopup *GetPopup();
+    wxButton *GetSaveButton() const;
+    wxButton *GetClearButton() const;
 
 private:
     TextFormatComboBox *m_textFormatComboBox;
@@ -58,6 +60,8 @@ private:
     wxCheckBox *m_terminalMode;
     PageSettingsOutputPopup *m_popup;
     wxWindow *m_parent;
+    wxButton *m_saveButton;
+    wxButton *m_clearButton;
 
 private:
     void DoUpdateCheckBoxesState();

@@ -57,3 +57,8 @@ void PageIOOutput::Clear()
         m_textCtrl->Clear();
     }
 }
+
+wxString PageIOOutput::GetOutputText() const
+{
+    return m_textCtrl ? m_textCtrl->GetValue() : wxString("");
+}

@@ -25,6 +25,8 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     , m_wrap(nullptr)
     , m_terminalMode(nullptr)
     , m_parent(parent)
+    , m_saveButton(nullptr)
+    , m_clearButton(nullptr)
 {
     auto formatText = new wxStaticText(GetStaticBox(), wxID_ANY, _("Format"));
     m_textFormatComboBox = new TextFormatComboBox(GetStaticBox());
@@ -55,14 +57,17 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     showModeSizer->Add(m_wrap, wxGBPosition(0, 0), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
     showModeSizer->Add(m_terminalMode, wxGBPosition(0, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
 
+    m_saveButton = new wxButton(GetStaticBox(), wxID_ANY, _("Save"));
+    m_saveButton->SetToolTip(_("Save output text to file..."));
     auto settingsButton = new wxButton(GetStaticBox(), wxID_ANY, _("Settings"));
+    settingsButton->Hide();
     auto clearButton = new wxButton(GetStaticBox(), wxID_ANY, _("Clear"));
     auto buttonsSizer = new wxBoxSizer(wxHORIZONTAL);
 #if defined(__WXOSX__)
-    buttonsSizer->Add(settingsButton, 1, wxEXPAND | wxALL, 4);
+    buttonsSizer->Add(m_saveButton, 1, wxEXPAND | wxALL, 4);
     buttonsSizer->Add(clearButton, 1, wxEXPAND | wxALL, 4);
 #else
-    buttonsSizer->Add(settingsButton, 1, wxEXPAND | wxALL, 0);
+    buttonsSizer->Add(m_saveButton, 1, wxEXPAND | wxALL, 0);
     buttonsSizer->Add(clearButton, 1, wxEXPAND | wxALL, 0);
 #endif
 
@@ -180,6 +185,16 @@ bool PageSettingsOutput::GetTerminalMode() const
 PageSettingsOutputPopup *PageSettingsOutput::GetPopup()
 {
     return m_popup;
+}
+
+wxButton *PageSettingsOutput::GetSaveButton() const
+{
+    return m_saveButton;
+}
+
+wxButton *PageSettingsOutput::GetClearButton() const
+{
+    return m_clearButton;
 }
 
 void PageSettingsOutput::DoUpdateCheckBoxesState()

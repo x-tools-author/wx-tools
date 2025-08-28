@@ -48,6 +48,7 @@ private:
     void OnClear(wxCommandEvent &);
     void OnInputTextFormatChanged(wxCommandEvent &);
     void OnWrite(wxCommandEvent &);
+    void OnSaveOutputText(wxCommandEvent &);
 
     void DoOutputText(std::shared_ptr<char> bytes, int len, std::string &fromTo, bool isRx);
     void DoOpen();

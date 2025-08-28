@@ -18,6 +18,7 @@ public:
     void AppendText(const wxString &text, bool newLine);
     void SetWrap(bool wrap);
     void Clear();
+    wxString GetOutputText() const;
 
 private:
     wxTextCtrl *m_textCtrl;

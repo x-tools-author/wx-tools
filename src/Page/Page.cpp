@@ -9,7 +9,10 @@
 #include "Page.h"
 
 #include <fmt/format.h>
+#include <wx/filedlg.h>
 #include <wx/gbsizer.h>
+#include <wx/stdpaths.h>
+#include <wx/wfstream.h>
 
 #include "Common/wxTools.h"
 #include "Links/Link.h"
@@ -223,6 +226,27 @@ void Page::OnWrite(wxCommandEvent &)
     DoWrite();
 }
 
+void Page::OnSaveOutputText(wxCommandEvent &)
+{
+    wxFileDialog saveFileDialog(this,
+                                _("Save Output"),
+                                wxStandardPaths::Get().GetDocumentsDir(),
+                                "output.txt",
+                                "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                                wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+    if (saveFileDialog.ShowModal() == wxID_OK) {
+        wxString filePath = saveFileDialog.GetPath();
+        wxFileOutputStream outputStream(filePath);
+        if (outputStream.IsOk()) {
+            auto output = m_pageIO->GetOutput();
+            wxString outputText = output->GetOutputText();
+            outputStream.Write(outputText.c_str(), outputText.length());
+        } else {
+            wxLogError(_("Cannot save output to file '%s'."), filePath);
+        }
+    }
+}
+
 std::string dateTimeString(bool showDate, bool showTime, bool showMs)
 {
     std::string text;
@@ -433,6 +457,11 @@ void Page::DoSetupSettingsLink()
     Bind(wxEVT_BUTTON, &Page::OnRefresh, this, refreshButton->GetId());
 }
 
-void Page::DoSetupSettingsOutput() {}
+void Page::DoSetupSettingsOutput()
+{
+    auto outputSettings = m_pageSettings->GetOutputSettings();
+    auto saveButton = outputSettings->GetSaveButton();
+    Bind(wxEVT_BUTTON, &Page::OnSaveOutputText, this, saveButton->GetId());
+}
 
 void Page::DoSetupSettingsInput() {}
