@@ -56,6 +56,10 @@ void PortNameComboBox::DoRefresh()
               });
 
     for (auto& info : infos) {
+        wxString portName(info.portName);
+        if (portName.Contains("Blue") || portName.Contains("blue")) {
+            continue;
+        }
         Append(info.portName, new wxString(info.portName));
     }
 

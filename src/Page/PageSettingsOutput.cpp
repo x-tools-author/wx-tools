@@ -30,9 +30,17 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     auto formatText = new wxStaticText(GetStaticBox(), wxID_ANY, _("Format"));
     m_textFormatComboBox = new TextFormatComboBox(GetStaticBox());
     auto optionsSizer = new wxGridBagSizer(4, 4);
-    auto AddCheckBox = [=, this](const wxString &label, int row, int col) -> wxCheckBox * {
+    auto AddCheckBox = [=, this](const wxString &label,
+                                 int row,
+                                 int col,
+                                 int rowSpan = 1,
+                                 int colSpan = 1) -> wxCheckBox * {
         auto cb = new wxCheckBox(GetStaticBox(), wxID_ANY, label);
-        optionsSizer->Add(cb, wxGBPosition(row, col), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
+        optionsSizer->Add(cb,
+                          wxGBPosition(row, col),
+                          wxGBSpan(rowSpan, colSpan),
+                          wxEXPAND | wxALL,
+                          0);
         return cb;
     };
 
@@ -42,8 +50,8 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     m_showDate = AddCheckBox(_("Date"), 1, 0);
     m_showTime = AddCheckBox(_("Time"), 1, 1);
     m_showMs = AddCheckBox(_("MS"), 1, 2);
-    m_wrap = AddCheckBox(_("Auto Wrap"), 2, 0);
-    m_terminalMode = AddCheckBox(_("Terminal Mode"), 2, 1);
+    m_wrap = AddCheckBox(_("Wrap"), 2, 0);
+    m_terminalMode = AddCheckBox(_("Terminal Mode"), 2, 1, 1, 2);
 
     optionsSizer->AddGrowableCol(0);
     optionsSizer->AddGrowableCol(1);
