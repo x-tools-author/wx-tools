@@ -10,7 +10,6 @@
 
 PageIOOutput::PageIOOutput(wxWindow *parent)
     : wxStaticBoxSizer(wxVERTICAL, parent, _("Output"))
-    , m_parent(parent)
     , m_textCtrl(nullptr)
 {
     SetWrap(false);
@@ -39,7 +38,7 @@ void PageIOOutput::SetWrap(bool wrap)
     }
 
     long wrapMode = wrap ? (wxTE_MULTILINE | wxTE_CHARWRAP) : (wxTE_MULTILINE | wxTE_DONTWRAP);
-    m_textCtrl = new wxTextCtrl(m_parent,
+    m_textCtrl = new wxTextCtrl(GetStaticBox(),
                                 wxID_ANY,
                                 wxEmptyString,
                                 wxDefaultPosition,

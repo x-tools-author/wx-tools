@@ -12,12 +12,13 @@
 
 #include "Common/wxTools.h"
 
+class Page;
 class PageIOInput;
 class PageIOOutput;
 class PageIO : public wxPanel
 {
 public:
-    PageIO(wxWindow *parent);
+    PageIO(Page *parent);
 
     PageIOInput *GetInput() const;
     PageIOOutput *GetOutput() const;

@@ -8,15 +8,16 @@
  **************************************************************************************************/
 #include "PageIO.h"
 
+#include "Page.h"
 #include "PageIOInput.h"
 #include "PageIOOutput.h"
 
-PageIO::PageIO(wxWindow *parent)
+PageIO::PageIO(Page *parent)
     : wxPanel(parent, wxID_ANY)
     , m_input(nullptr)
     , m_output(nullptr)
 {
-    auto* sizer = new wxBoxSizer(wxVERTICAL);
+    auto *sizer = new wxBoxSizer(wxVERTICAL);
     SetSizerAndFit(sizer);
 
     m_output = new PageIOOutput(this);
