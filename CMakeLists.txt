@@ -134,22 +134,20 @@ message(STATUS "[wxTools] Libraries of wxTools: ${wxWidgets_LIBRARIES} ${PROJECT
 wxt_generate_po(wxTools ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/res/i18n)
 wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 
-# --------------------------------------------------------------------------------------------------
 # Copy res to build directory
-# cmake-format: off
-if(WIN32)
-  add_custom_command(TARGET wxTools POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files" "$<TARGET_FILE_DIR:wxTools>/files")
-else(APPLE)
-  add_custom_command(TARGET wxTools POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files" "$<TARGET_FILE_DIR:wxTools>/files")
-endif()
-# cmake-format: on
+add_custom_command(
+  TARGET wxTools
+  POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files"
+          "$<TARGET_FILE_DIR:wxTools>/files")
 
 # --------------------------------------------------------------------------------------------------
 # Do something for Windows
 if(WIN32)
-  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE TRUE WIN32_EXECUTABLE TRUE)
+  option(WXT_USE_VS_CODE "Use Visual Studio Code" OFF)
+  if(NOT WXT_USE_VS_CODE)
+    set_target_properties(wxTools PROPERTIES WIN32_EXECUTABLE TRUE)
+  endif()
 
   option(WXT_MAKE_ZIP "Make zip file" ON)
   if(WXT_MAKE_ZIP)
