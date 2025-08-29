@@ -86,4 +86,3 @@ jobs:
           find . -name "*.AppImage" -type f | while read file; do
             gh release upload continuous $file
           done
-s
