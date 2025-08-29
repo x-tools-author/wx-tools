@@ -57,8 +57,11 @@ jobs:
           cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
       - name: Upload Release Asset for Ubuntu
         run: |
-          ls -l
-          cd build/deb/wxTools
-          ls -l
-          find . -name "*.deb" -exec gh release upload ${{ github.ref_name }} {} \;
-          find . -name "*.AppImage" -exec gh release upload ${{ github.ref_name }} {} \;
+          cd ${{ github.workspace }}/build
+          find . -name "*.deb" -type f | while read file; do
+            gh release upload ${{ github.ref_name }} "$file"
+          done
+          echo "---------------------------------------------------------------------------------"
+          find . -name "*.AppImage" -type f | while read file; do
+            gh release upload ${{ github.ref_name }} "$file"
+          done
