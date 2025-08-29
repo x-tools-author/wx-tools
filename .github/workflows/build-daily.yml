@@ -74,7 +74,7 @@ jobs:
         run: |
           docker pull ${{ env.DOCKER_IMAGE }}
           docker run --rm --privileged -v ${{ github.workspace }}:/workspace ${{ env.DOCKER_IMAGE }} /bin/bash -c "\
-          cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh"
+          cd /workspace && chmod +x ./scripts/ci-build-ubuntu-20.04.sh && ./scripts/ci-build-ubuntu-20.04.sh daily"
       - name: Upload Release Asset for Ubuntu
         run: |
           cd ${{ github.workspace }}/build
@@ -98,7 +98,7 @@ jobs:
           cmake --version
           mkdir build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF ../
+          cmake -DCMAKE_BUILD_TYPE=Release -DWXT_DAILY_BUILD:BOOL=ON -DWXT_GENERATE_MSIX:BOOL=OFF ../
           cmake --build . --target wxTools_pkg_dmg
           find . -name "*.pkg" -type f | while read file; do
             gh release upload continuous $file
