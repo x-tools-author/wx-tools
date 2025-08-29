@@ -468,7 +468,6 @@ void Page::DoSetupSettingsOutput()
 
 void Page::DoSetupSettingsInput()
 {
-#if 1
     auto inputSettings = m_pageSettings->GetInputSettings();
     auto sendButton = inputSettings->GetSendButton();
     sendButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &) { this->OnWrite(); });
@@ -479,5 +478,4 @@ void Page::DoSetupSettingsInput()
     wxComboBox *textFormatComboBox = inputSettings->GetTextFormatComboBox();
     textFormatComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP,
                              [this](wxCommandEvent &) { this->OnInputTextFormatChanged(); });
-#endif
 }
