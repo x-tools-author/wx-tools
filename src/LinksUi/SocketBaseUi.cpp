@@ -153,7 +153,7 @@ void SocketBaseUi::InitClientsComboBox(int row, wxWindow *parent)
     m_clientsComboBox->Append(_("All Clients"), new wxString(""));
     m_clientsComboBox->SetSelection(0);
 
-    m_clientsComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP, [=](wxCommandEvent &) {
+    m_clientsComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP, [this](wxCommandEvent &) {
         Link *link = GetLink();
         SocketServer *socketServer = dynamic_cast<SocketServer *>(link);
         if (!socketServer) {
@@ -187,7 +187,7 @@ void SocketBaseUi::InitDataChannelComboBox(int row, wxWindow *parent)
     m_dataChannelComboBox = new DataChannelComboBox(parent);
     Add(m_dataChannelComboBox, wxGBPosition(row, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
 
-    m_dataChannelComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP, [=](wxCommandEvent &) {
+    m_dataChannelComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP, [this](wxCommandEvent &) {
         Link *link = GetLink();
         SocketBase *socket = dynamic_cast<SocketBase *>(link);
         if (!socket) {
