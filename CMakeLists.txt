@@ -196,7 +196,7 @@ if(APPLE)
   # Remove the last section from WXT_VERSION, such "1.0.0" -> "1.0"
   string(REGEX REPLACE "\\.[0-9]+$" "" short_ver ${WXT_VERSION})
   set(WX_TOOLS_BUNDLE_VERSION ${WXT_VERSION})
-  set(WX_TOOLS_BUNDLE_SHORT_VERSION_STRING "${short_ver}")
+  set(WXT_SHORT_VERSION "${short_ver}")
 
   string(TIMESTAMP CURRENT_YEAR "%Y")
   message(STATUS "Current year: ${CURRENT_YEAR}")
@@ -204,20 +204,28 @@ if(APPLE)
   set(WX_TOOLS_YYYY "${CURRENT_YEAR}" CACHE STRING "The current year")
   # cmake-format: on
 
-  set(out_file ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/wxTools.app/Contents/Info.plist)
-  configure_file(res/apple/macos/wxTools.plist.in ${CMAKE_BINARY_DIR}/wxTools.plist)
+  # set(out_file ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/wxTools.app/Contents/Info.plist)
+  # configure_file(res/apple/macos/wxTools.plist.in ${CMAKE_BINARY_DIR}/wxTools.plist)
 
   # Set the bundle properties
   # cmake-format: off
   if(BUNDLE_ID_OPTION)
     set_target_properties(wxTools PROPERTIES ${BUNDLE_ID_OPTION})
   endif()
-  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE TRUE)
-  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_BUNDLE_VERSION ${WX_TOOLS_BUNDLE_VERSION})
-  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_SHORT_VERSION_STRING "${WX_TOOLS_BUNDLE_SHORT_VERSION_STRING}")
-  # cmake-format: on
+  set_target_properties(wxTools PROPERTIES
+    MACOSX_BUNDLE TRUE
+    MACOSX_BUNDLE_BUNDLE_NAME "${WXT_APP_ID}"
+    MACOSX_BUNDLE_BUNDLE_VERSION "${WXT_VERSION}"
+    MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2024-${CURRENT_YEAR} x-tools@outlook.com. All rights reserved."
+    MACOSX_BUNDLE_GUI_IDENTIFIER "${WXT_APP_ID}"
+    MACOSX_BUNDLE_ICON_FILE "${wxTools.icns}"
+    MACOSX_BUNDLE_INFO_STRING "wxTools"
+    MACOSX_BUNDLE_LONG_VERSION_STRING "${WXT_VERSION}"
+    MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
+  )
+    # cmake-format: on
 
-  # Make pkg and dmp
+  # Make pkg and dmg
   # cmake-format: off
   add_custom_target(wxTools_pkg_dmg VERBATIM COMMENT "Making pkg and dmg..."
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/assets/wxTools
