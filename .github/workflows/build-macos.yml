@@ -18,10 +18,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-13, macos-14]
+        os: [macos-13, macos-14, macos-15]
     steps:
       - name: checkout
         uses: actions/checkout@v4
+        continue-on-error: true
       - name: build for macos
         run: |
           git fetch --tags
