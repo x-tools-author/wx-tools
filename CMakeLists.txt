@@ -145,7 +145,9 @@ add_custom_command(
 # Do something for Windows
 if(WIN32)
   option(WXT_USE_VS_CODE "Use Visual Studio Code" OFF)
-  if(NOT WXT_USE_VS_CODE)
+  if(WXT_USE_VS_CODE)
+    add_compile_definitions(WXT_USE_VS_CODE)
+  else()
     set_target_properties(wxTools PROPERTIES WIN32_EXECUTABLE TRUE)
   endif()
 

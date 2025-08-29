@@ -8,9 +8,7 @@
  **************************************************************************************************/
 #include "Application.h"
 
-#if 0
-wxIMPLEMENT_APP(Application);
-#else
+#if defined(WXT_USE_VS_CODE)
 int main(int argc, char* argv[])
 {
     Application* app = new Application();
@@ -18,4 +16,6 @@ int main(int argc, char* argv[])
 
     return wxEntry(argc, argv);
 }
+#else
+wxIMPLEMENT_APP(Application);
 #endif
