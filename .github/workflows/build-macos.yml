@@ -29,5 +29,5 @@ jobs:
           mkdir build
           cd build
           cmake -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF ../
-          cmake --build . --target all
+          cmake --build . --target wxTools
 
