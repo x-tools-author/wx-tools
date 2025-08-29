@@ -4,7 +4,9 @@ set(file_name "gettext0.26-iconv1.17-shared-32")
 set(base_url "https://github.com/mlocati/gettext-iconv-windows/releases/download")
 set(url "${base_url}/v${tag}/${file_name}.zip")
 
-wxt_download_and_extract("${url}" "${file_name}" "zip" TRUE)
+if(WIN32)
+  wxt_download_and_extract("${url}" "${file_name}" "zip" TRUE)
+endif()
 
 if(WIN32)
   set(msgfmt "${WXT_3RD_DIR}/${file_name}/bin/msgfmt.exe")
