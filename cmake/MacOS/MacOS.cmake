@@ -1,13 +1,10 @@
 function(wxt_make_pkg target dev_id_app dev_id_installer)
-  make_directory(${CMAKE_BINARY_DIR}/assets/${target}_pkg)
   # cmake-format: off
   add_custom_target(${target}_pkg VERBATIM
     COMMENT "Making pkg..."
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/assets/${target}_pkg
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/assets
     COMMAND ${CMAKE_COMMAND} -E echo "Developer ID Application: ${dev_id_app}"
     COMMAND ${CMAKE_COMMAND} -E echo "Developer ID Installer: ${dev_id_installer}"
-    COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/assets/${target}_pkg/${target}.app "||" ${CMAKE_COMMAND} -E true
-    COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${CMAKE_BINARY_DIR}/assets/${target}.app ${target}.app
     COMMAND ${CMAKE_COMMAND} -E echo "codesign --deep --force --verbose --sign ${dev_id_app} ${target}.app"
     COMMAND codesign --deep --force --verbose --sign "${dev_id_app}" "${target}.app")
   # cmake-format: on
