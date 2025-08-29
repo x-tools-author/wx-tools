@@ -1,6 +1,7 @@
 ﻿name: build-macos
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
 
