@@ -111,6 +111,7 @@ endif()
 
 # --------------------------------------------------------------------------------------------------
 # CMake modules
+include(CPack)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake;${CMAKE_MODULE_PATH}")
 include(wxt)
 include(wxt_3rd)
