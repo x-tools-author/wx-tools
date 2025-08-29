@@ -96,7 +96,11 @@ set(WXT_LIBS_DIR "${CMAKE_SOURCE_DIR}/libs")
 set(cxx_compiler_flag "${CMAKE_CXX_COMPILER_ID}${CMAKE_CXX_COMPILER_VERSION}")
 set(WXT_BUILD_FLAG "${CMAKE_BUILD_TYPE}/${WXT_TARGET_ARCH}/${cxx_compiler_flag}")
 set(WXT_WX_LOCAL_DIR "${WXT_3RD_DIR}/wxWidgets/locale")
+set(WXT_ASSETS_NAME wxtools-${CMAKE_HOST_SYSTEM_NAME}-${WXT_GIT_TAG}-${WXT_TARGET_ARCH})
+string(TOLOWER ${WXT_ASSETS_NAME} WXT_ASSETS_NAME)
 set(WX_TOOLS_BINARY_DIR ${CMAKE_BINARY_DIR}/assets)
+set(WXT_APP_ID "com.xtools.wxtools")
+
 # Do change WXT_MAGIC unless you know what you are doing...
 option(WXT_MAGIC "The magic option..." OFF)
 if(WXT_MAGIC)
@@ -210,11 +214,24 @@ if(APPLE)
   set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_SHORT_VERSION_STRING "${WX_TOOLS_BUNDLE_SHORT_VERSION_STRING}")
   # cmake-format: on
 
+  # Make pkg and dmp
+  add_custom_target(
+    wxTools_pkg_dmg
+    VERBATIM
+    COMMENT "Making pkg and dmg..."
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/assets/wxTools
+    COMMAND pkgbuild --root wxTools.app --identifier ${WXT_APP_ID} --version ${WXT_VERSION}
+            --install-location /Applications/wxTools.app ${WXT_ASSETS_NAME}.pkg
+    COMMAND hdiutil create -volname "wxTools" -srcfolder "wxTools.app" -ov -format UDZO
+            "${WXT_ASSETS_NAME}.dmg")
+  add_dependencies(wxTools_pkg_dmg wxTools)
+
   # Create pak file
   include(cmake/MacOS/MacOS.cmake)
   # cmake-format: off
   set(WXTOOLS_DEV_ID_APP "xxx_id_developer" CACHE STRING "The app's developer ID")
   set(WXTOOLS_DEV_ID_INSTALLER "xxx_id_installer" CACHE STRING "The installer's developer ID")
   wxt_make_pkg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
+  wxt_make_dmg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
   # cmake-format: on
 endif()
