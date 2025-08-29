@@ -8,6 +8,10 @@
  **************************************************************************************************/
 #include "MainWindow.h"
 
+#if defined(_MSC_VER)
+#include <dwmapi.h>
+#endif
+
 #include <fmt/format.h>
 #include <fstream>
 #include <wx/artprov.h>
@@ -91,6 +95,21 @@ MainWindow::MainWindow()
 }
 
 MainWindow::~MainWindow() {}
+
+void MainWindow::DoUpdateWindowFrameWork()
+{
+#if defined(_MSC_VER) && defined(WIN32)
+    // Set the window caption color using Windows API
+    HWND hwnd = GetHWND();
+    if (hwnd) {
+        // Get theme color
+        wxColour colour = wxSystemSettings::GetColour(wxSYS_COLOUR_MENU);
+        COLORREF colorref = RGB(colour.Red(), colour.Green(), colour.Blue());
+        // DWMWA_CAPTION_COLOR is available on Windows 11 and later
+        DwmSetWindowAttribute(hwnd, DWMWA_CAPTION_COLOR, &colorref, sizeof(colorref));
+    }
+#endif
+}
 
 void MainWindow::OnOpen(wxCommandEvent&)
 {
@@ -252,10 +271,11 @@ void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
         int id = it->id;
         Bind(
             wxEVT_MENU,
-            [=](wxCommandEvent& evt) {
+            [=, this](wxCommandEvent& evt) {
                 wxApp* app = dynamic_cast<wxApp*>(wxApp::GetInstance());
                 if (app) {
                     app->SetAppearance(static_cast<wxAppBase::Appearance>(id));
+                    DoUpdateWindowFrameWork();
 #if defined(__WINDOWS__)
                     wxtConfig->Write("Application/Theme", id);
                     wxtConfig->Flush();

@@ -22,6 +22,8 @@ public:
     MainWindow();
     ~MainWindow() override;
 
+    void DoUpdateWindowFrameWork();
+
 private:
     void Init();
     void InitMenu();
@@ -44,6 +46,7 @@ private:
     void DoLoad(wxString fileName = wxString());
     void DoCheckForUpdates(wxCommandEvent&);
     void DoShowHistory(wxCommandEvent&);
+
     wxString GetHistoryFileName() const;
 
 private:

@@ -59,6 +59,7 @@ bool Application::OnInit()
     m_mainWindow->SetTransparent(50);
 #endif
     m_mainWindow->Show(true);
+    m_mainWindow->DoUpdateWindowFrameWork();
     return true;
 }
 
