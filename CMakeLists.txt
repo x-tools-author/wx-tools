@@ -181,6 +181,10 @@ if(APPLE)
   set_source_files_properties(${wxTools_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
   target_sources(wxTools PRIVATE ${wxTools_ICON})
 
+  set(RESOURCE_FILES "${CMAKE_SOURCE_DIR}/res/apple/macos/Assets.xcassets")
+  set_source_files_properties(${RESOURCE_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+  target_sources(wxTools PRIVATE ${RESOURCE_FILES})
+
   # Remove the last section from WXT_VERSION, such "1.0.0" -> "1.0"
   string(REGEX REPLACE "\\.[0-9]+$" "" short_ver ${WXT_VERSION})
   set(WX_TOOLS_BUNDLE_VERSION ${WXT_VERSION})
