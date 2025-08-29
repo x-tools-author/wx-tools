@@ -2,7 +2,7 @@
 set(tag "0.26-v1.17")
 set(file_name "gettext0.26-iconv1.17-shared-32")
 set(base_url "https://github.com/mlocati/gettext-iconv-windows/releases/download")
-set(url "${base_url}/v${tag}/${file_name}.zip")
+set(url "${base_url}/v${tag}")
 
 if(WIN32)
   wxt_download_and_extract("${url}" "${file_name}" "zip" TRUE)
