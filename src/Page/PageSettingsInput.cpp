@@ -16,7 +16,6 @@
 
 PageSettingsInput::PageSettingsInput(wxWindow* parent)
     : wxStaticBoxSizer(wxVERTICAL, parent, _("Input Settings"))
-    , m_parent{parent}
 {
     auto cycleText = new wxStaticText(GetStaticBox(), wxID_ANY, _("Cycle"));
     m_interval = InitCycleIntervalComboBox();
@@ -47,9 +46,6 @@ PageSettingsInput::PageSettingsInput(wxWindow* parent)
     Add(buttonSizer, 0, wxEXPAND | wxALL, 0);
 
     m_interval->Bind(wxEVT_COMBOBOX_CLOSEUP, &PageSettingsInput::OnIntervalChanged, this);
-    m_send->Bind(wxEVT_BUTTON, &PageSettingsInput::OnSendButtonClicked, this);
-    m_format->Bind(wxEVT_COMBOBOX_CLOSEUP, &PageSettingsInput::OnInputFormatChanged, this);
-    m_timer.Bind(wxEVT_TIMER, &PageSettingsInput::OnTimer, this);
 }
 
 void PageSettingsInput::DoLoad(const wxtJson& parameters)
@@ -106,6 +102,26 @@ void PageSettingsInput::DoStopTimer()
     m_interval->SetSelection(0);
 }
 
+wxTimer* PageSettingsInput::GetTimer() const
+{
+    return const_cast<wxTimer*>(&m_timer);
+}
+
+wxButton* PageSettingsInput::GetSendButton() const
+{
+    return m_send;
+}
+
+wxComboBox* PageSettingsInput::GetTextFormatComboBox() const
+{
+    return m_format;
+}
+
+TextFormatComboBox* PageSettingsInput::GetFormatComboBox() const
+{
+    return m_format;
+}
+
 PageSettingsInputPopup* PageSettingsInput::GetPopup()
 {
     return m_popup;
@@ -122,18 +138,6 @@ int PageSettingsInput::GetInterval() const
     return -1;
 }
 
-void PageSettingsInput::OnSendButtonClicked(wxCommandEvent&)
-{
-    wxPostEvent(m_parent, wxCommandEvent(wxtEVT_SETTINGS_INPUT_WRITE));
-}
-
-void PageSettingsInput::OnInputFormatChanged(wxCommandEvent&)
-{
-    wxCommandEvent event(wxtEVT_SETTINGS_INPUT_FORMAT);
-    event.SetInt(GetTextFormat());
-    wxPostEvent(m_parent, event);
-}
-
 void PageSettingsInput::OnIntervalChanged(wxCommandEvent&)
 {
     int interval = GetInterval();
@@ -142,11 +146,6 @@ void PageSettingsInput::OnIntervalChanged(wxCommandEvent&)
     } else {
         m_timer.Start(interval);
     }
-}
-
-void PageSettingsInput::OnTimer(wxTimerEvent&)
-{
-    wxPostEvent(m_parent, wxCommandEvent(wxtEVT_SETTINGS_INPUT_WRITE));
 }
 
 wxComboBox* PageSettingsInput::InitCycleIntervalComboBox()

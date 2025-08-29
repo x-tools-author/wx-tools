@@ -34,8 +34,8 @@ private:
     PageIO *m_pageIO;
 
 private:
-    void OnOpen(wxCommandEvent &);
-    void OnRefresh(wxCommandEvent &);
+    void OnOpen();
+    void OnRefresh();
     void OnBytesRx(wxThreadEvent &e);
     void OnBytesTx(wxThreadEvent &e);
     void OnErrorOccurred(wxThreadEvent &e);
@@ -44,11 +44,11 @@ private:
     void OnLinkOpened(wxThreadEvent &e);
     void OnLinkClosed(wxThreadEvent &e);
     void OnLinkResolve(wxThreadEvent &e);
-    void OnWrap(wxCommandEvent &event);
-    void OnClear(wxCommandEvent &);
-    void OnInputTextFormatChanged(wxCommandEvent &);
-    void OnWrite(wxCommandEvent &);
-    void OnSaveOutputText(wxCommandEvent &);
+    void OnWrap();
+    void OnClear();
+    void OnInputTextFormatChanged();
+    void OnWrite();
+    void OnSaveOutputText();
 
     void DoOutputText(std::shared_ptr<char> bytes, int len, std::string &fromTo, bool isRx);
     void DoOpen();

@@ -45,13 +45,6 @@ enum wxtID {
 };
 const int wxtNewID();
 
-wxDECLARE_EVENT(wxtEVT_SETTINGS_LINK_OPEN, wxCommandEvent);
-wxDECLARE_EVENT(wxtEVT_SETTINGS_LINK_POPUP_REFRESH, wxCommandEvent);
-wxDECLARE_EVENT(wxtEVT_SETTINGS_OUTPUT_CLEAR, wxCommandEvent);
-wxDECLARE_EVENT(wxtEVT_SETTINGS_OUTPUT_WRAP, wxCommandEvent);
-wxDECLARE_EVENT(wxtEVT_SETTINGS_INPUT_WRITE, wxCommandEvent);
-wxDECLARE_EVENT(wxtEVT_SETTINGS_INPUT_FORMAT, wxCommandEvent);
-
 //--------------------------------------------------------------------------------------------------
 // Datastructure
 struct wxtDataItem

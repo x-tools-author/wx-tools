@@ -19,13 +19,6 @@
 #include <wx/filename.h>
 #include <wx/stdpaths.h>
 
-wxDEFINE_EVENT(wxtEVT_SETTINGS_LINK_OPEN, wxCommandEvent);
-wxDEFINE_EVENT(wxtEVT_SETTINGS_LINK_POPUP_REFRESH, wxCommandEvent);
-wxDEFINE_EVENT(wxtEVT_SETTINGS_OUTPUT_CLEAR, wxCommandEvent);
-wxDEFINE_EVENT(wxtEVT_SETTINGS_OUTPUT_WRAP, wxCommandEvent);
-wxDEFINE_EVENT(wxtEVT_SETTINGS_INPUT_WRITE, wxCommandEvent);
-wxDEFINE_EVENT(wxtEVT_SETTINGS_INPUT_FORMAT, wxCommandEvent);
-
 const int wxtNewID()
 {
     static int wxtId = wxID_HIGHEST + 10000;

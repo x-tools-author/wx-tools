@@ -32,6 +32,10 @@ public:
     int GetInterval() const;
     int GetTextFormat() const;
     void DoStopTimer();
+    wxTimer *GetTimer() const;
+    wxButton *GetSendButton() const;
+    wxComboBox *GetTextFormatComboBox() const;
+    TextFormatComboBox *GetFormatComboBox() const;
     PageSettingsInputPopup *GetPopup();
 
 private:
@@ -40,14 +44,10 @@ private:
     wxComboBox *m_interval{nullptr};
     TextFormatComboBox *m_format{nullptr};
     PageSettingsInputPopup *m_popup{nullptr};
-    wxWindow *m_parent{nullptr};
     wxTimer m_timer;
 
 private:
-    void OnSendButtonClicked(wxCommandEvent &);
-    void OnInputFormatChanged(wxCommandEvent &);
     void OnIntervalChanged(wxCommandEvent &);
-    void OnTimer(wxTimerEvent &);
 
     wxComboBox *InitCycleIntervalComboBox();
 };

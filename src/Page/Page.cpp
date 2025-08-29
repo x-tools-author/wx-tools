@@ -40,8 +40,6 @@ EVT_THREAD(wxtID_LINK_DELETE, Page::OnDeleteClient)
 EVT_THREAD(wxtID_LINK_OPENED, Page::OnLinkOpened)
 EVT_THREAD(wxtID_LINK_CLOSED, Page::OnLinkClosed)
 EVT_THREAD(wxtID_LINK_RESOLVED, Page::OnLinkResolve)
-EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_INPUT_WRITE, Page::OnWrite)
-EVT_COMMAND(wxID_ANY, wxtEVT_SETTINGS_INPUT_FORMAT, Page::OnInputTextFormatChanged)
 END_EVENT_TABLE()
 
 Page::Page(LinkType type, wxWindow *parent)
@@ -87,7 +85,7 @@ wxtJson Page::DoSave() const
     return json;
 }
 
-void Page::OnOpen(wxCommandEvent &)
+void Page::OnOpen()
 {
     PageSettingsLink *linkSettings = m_pageSettings->GetLinkSettings();
     LinkUi *linkUi = linkSettings->GetLinkUi();
@@ -102,7 +100,7 @@ void Page::OnOpen(wxCommandEvent &)
     }
 }
 
-void Page::OnRefresh(wxCommandEvent &)
+void Page::OnRefresh()
 {
     auto linkSettings = m_pageSettings->GetLinkSettings();
     auto linkUi = linkSettings->GetLinkUi();
@@ -192,26 +190,26 @@ void Page::OnLinkResolve(wxThreadEvent &e)
     }
 }
 
-void Page::OnWrap(wxCommandEvent &event)
+void Page::OnWrap()
 {
     auto outputSettings = m_pageSettings->GetOutputSettings();
     bool wrap = outputSettings->GetWrap();
     m_pageIO->GetOutput()->SetWrap(wrap);
 }
 
-void Page::OnClear(wxCommandEvent &)
+void Page::OnClear()
 {
     m_pageIO->GetOutput()->Clear();
 }
 
-void Page::OnInputTextFormatChanged(wxCommandEvent &)
+void Page::OnInputTextFormatChanged()
 {
     PageSettingsInput *inputSettings = m_pageSettings->GetInputSettings();
     int format = inputSettings->GetTextFormat();
     m_pageIO->GetInput()->SetTextFormat(static_cast<TextFormat>(format));
 }
 
-void Page::OnWrite(wxCommandEvent &)
+void Page::OnWrite()
 {
     PageSettingsLink *linkSettings = m_pageSettings->GetLinkSettings();
     LinkUi *linkUi = linkSettings->GetLinkUi();
@@ -225,7 +223,7 @@ void Page::OnWrite(wxCommandEvent &)
     DoWrite();
 }
 
-void Page::OnSaveOutputText(wxCommandEvent &)
+void Page::OnSaveOutputText()
 {
     wxFileDialog saveFileDialog(this,
                                 _("Save Output"),
@@ -449,23 +447,37 @@ void Page::DoSetupSettingsLink()
 {
     auto linkSettings = m_pageSettings->GetLinkSettings();
     auto openButton = linkSettings->GetOpenButton();
-    Bind(wxEVT_BUTTON, &Page::OnOpen, this, openButton->GetId());
+    openButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &) { this->OnOpen(); });
 
     auto refreshButton = linkSettings->GetRefreshButton();
-    Bind(wxEVT_BUTTON, &Page::OnRefresh, this, refreshButton->GetId());
+    refreshButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &) { this->OnRefresh(); });
 }
 
 void Page::DoSetupSettingsOutput()
 {
     auto outputSettings = m_pageSettings->GetOutputSettings();
     auto saveButton = outputSettings->GetSaveButton();
-    Bind(wxEVT_BUTTON, &Page::OnSaveOutputText, this, saveButton->GetId());
+    saveButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &) { this->OnSaveOutputText(); });
 
     auto clearButton = outputSettings->GetClearButton();
-    Bind(wxEVT_BUTTON, &Page::OnClear, this, clearButton->GetId());
+    clearButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &) { this->OnClear(); });
 
     auto wrapCheckBox = outputSettings->GetWrapCheckBox();
-    Bind(wxEVT_CHECKBOX, &Page::OnWrap, this, wrapCheckBox->GetId());
+    wrapCheckBox->Bind(wxEVT_CHECKBOX, [this](wxCommandEvent &) { this->OnWrap(); });
 }
 
-void Page::DoSetupSettingsInput() {}
+void Page::DoSetupSettingsInput()
+{
+#if 1
+    auto inputSettings = m_pageSettings->GetInputSettings();
+    auto sendButton = inputSettings->GetSendButton();
+    sendButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &) { this->OnWrite(); });
+
+    wxTimer *timer = inputSettings->GetTimer();
+    timer->Bind(wxEVT_TIMER, [this](wxTimerEvent &) { this->OnWrite(); });
+
+    wxComboBox *textFormatComboBox = inputSettings->GetTextFormatComboBox();
+    textFormatComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP,
+                             [this](wxCommandEvent &) { this->OnInputTextFormatChanged(); });
+#endif
+}
