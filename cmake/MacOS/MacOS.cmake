@@ -26,3 +26,4 @@ function(wxt_make_dmg target dev_id_app dev_id_installer)
     COMMAND codesign --force --sign "${dev_id_installer}" "${target}.dmg"
   )
   # cmake-format: on
+endfunction()
