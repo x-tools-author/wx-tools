@@ -8,7 +8,7 @@ function(wxt_make_pkg target dev_id_app dev_id_installer)
     COMMAND ${CMAKE_COMMAND} -E echo "Developer ID Installer: ${dev_id_installer}"
     COMMAND ${CMAKE_COMMAND} -E echo "codesign --deep --force --verbose --sign ${dev_id_app} ${target}.app"
     COMMAND codesign --deep --force --verbose --sign "${dev_id_app}" "${target}.app"
-    COMMAND pkgbuild --root ${target}.app --identifier com.xtools.wxtools --version 1.1.0 --install-location /Applications/${target}.app ${target}.pkg
+    COMMAND pkgbuild --root ${target}.app --identifier com.xtools.wxtools --version ${WXT_VERSION} --install-location /Applications/${WXT_ASSETS_NAME}.app ${target}.pkg
   )
   # cmake-format: on
 endfunction()
