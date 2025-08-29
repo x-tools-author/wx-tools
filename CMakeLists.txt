@@ -218,15 +218,13 @@ if(APPLE)
   # cmake-format: on
 
   # Make pkg and dmp
-  add_custom_target(
-    wxTools_pkg_dmg
-    VERBATIM
-    COMMENT "Making pkg and dmg..."
+  # cmake-format: off
+  add_custom_target(wxTools_pkg_dmg VERBATIM COMMENT "Making pkg and dmg..."
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/assets/wxTools
-    COMMAND pkgbuild --root wxTools.app --identifier ${WXT_APP_ID} --version ${WXT_VERSION}
-            --install-location /Applications/wxTools.app ${WXT_ASSETS_NAME}.pkg
-    COMMAND hdiutil create -volname "wxTools" -srcfolder "wxTools.app" -ov -format UDZO
-            "${WXT_ASSETS_NAME}.dmg")
+    COMMAND pkgbuild --root wxTools.app --identifier ${WXT_APP_ID} --version ${WXT_VERSION} --install-location /Applications/wxTools.app ${WXT_ASSETS_NAME}.pkg
+    COMMAND hdiutil create -volname "wxTools" -srcfolder "wxTools.app" -ov -format UDZO "${WXT_ASSETS_NAME}.dmg"
+  )
+  # cmake-format: on
   add_dependencies(wxTools_pkg_dmg wxTools)
 
   # Create pak file
