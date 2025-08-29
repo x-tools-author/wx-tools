@@ -86,3 +86,22 @@ jobs:
           find . -name "*.AppImage" -type f | while read file; do
             gh release upload continuous $file
           done
+  release-for-macos:
+    runs-on: macos-13
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build for macos
+        run: |
+          git fetch --tags
+          cmake --version
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF ../
+          cmake --build . --target wxTools_pkg_dmg
+          find . -name "*.pkg" -type f | while read file; do
+            gh release upload continuous $file
+          done
+          find . -name "*.dmg" -type f | while read file; do
+            gh release upload continuous $file
+          done
