@@ -28,11 +28,12 @@ if(MSVC)
   string(REPLACE "/machine:" "" WXT_TARGET_ARCH ${WXT_TARGET_ARCH})
 else()
   if(APPLE)
-    set(CMAKE_OSX_ARCHITECTURES
-        "arm64"
-        CACHE STRING "Build architectures for macOS" FORCE)
-    set(WXT_TARGET_ARCH "arm64")
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "11.5")
+    # * set(CMAKE_OSX_ARCHITECTURES
+    # * "arm64"
+    # * CACHE STRING "Build architectures for macOS" FORCE)
+    # * set(WXT_TARGET_ARCH "arm64")
+    set(WXT_TARGET_ARCH "64")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0")
   else()
     # 获取空指针大小
     if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
@@ -111,7 +112,11 @@ if(WXT_ENABLE_IPV6)
 endif()
 
 # Auto deploy 3rd modules
-option(WXT_AUTO_DEPLOY_3RD "Auto deploy 3rd modules" OFF)
+if(APPLE)
+  option(WXT_AUTO_DEPLOY_3RD "Auto deploy 3rd modules" OFF)
+else()
+  option(WXT_AUTO_DEPLOY_3RD "Auto deploy 3rd modules" ON)
+endif()
 if(NOT WXT_AUTO_DEPLOY_3RD)
   # remove libs ${BUILD_TYPE_DIR}
   execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory
