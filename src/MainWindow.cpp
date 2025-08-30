@@ -56,7 +56,9 @@ MainWindow::MainWindow()
     wxtInfo() << "MakeConfigFileName():" << wxStandardPaths::Get().MakeConfigFileName("wxTools");
     wxtInfo() << "GetGlobalFileName():" << wxFileConfig::GetGlobalFileName("wxTools");
     wxtInfo() << "GetLocalFileName():" << wxFileConfig::GetLocalFileName("wxTools");
+#if !defined(__APPLE__)
     wxtInfo() << "wxGetCwd():" << wxGetCwd();
+#endif
 #endif
 
     Init();

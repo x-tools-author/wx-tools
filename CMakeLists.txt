@@ -4,7 +4,7 @@ if(NOT ${CMAKE_VERSION} VERSION_LESS "4.0.0")
   set(CMAKE_POLICY_VERSION_MINIMUM "3.20" CACHE STRING "CMake policy version" FORCE)
 endif()
 cmake_minimum_required(VERSION 3.20)
-project(wxTools VERSION 1.0 LANGUAGES C CXX)
+project(wxTools VERSION 1.0 LANGUAGES C CXX DESCRIPTION "A set of tools developed with wxWidgets")
 # cmake-format: on
 
 if(IOS OR ANDROID)
@@ -28,14 +28,10 @@ if(MSVC)
   string(REPLACE "/machine:" "" WXT_TARGET_ARCH ${WXT_TARGET_ARCH})
 else()
   if(APPLE)
-    if(CMAKE_OSX_ARCHITECTURES)
-      set(WXT_TARGET_ARCH ${CMAKE_OSX_ARCHITECTURES})
-    else()
-      set(CMAKE_OSX_ARCHITECTURES
-          "arm64"
-          CACHE STRING "Build architectures for macOS")
-      set(WXT_TARGET_ARCH "arm64")
-    endif()
+    set(CMAKE_OSX_ARCHITECTURES
+        "arm64"
+        CACHE STRING "Build architectures for macOS")
+    set(WXT_TARGET_ARCH "arm64")
   else()
     # 获取空指针大小
     if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
@@ -185,13 +181,13 @@ endif()
 if(APPLE)
   # Set the icon file for the macOS bundle
   set(MACOSX_BUNDLE_ICON_FILE wxTools.icns)
-  set(wxTools_ICON ${CMAKE_SOURCE_DIR}/wxTools.icns)
+  set(wxTools_ICON wxTools.icns)
   set_source_files_properties(${wxTools_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
   target_sources(wxTools PRIVATE ${wxTools_ICON})
 
-  set(RESOURCE_FILES "${CMAKE_SOURCE_DIR}/res/apple/macos/Assets.xcassets")
-  set_source_files_properties(${RESOURCE_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
-  target_sources(wxTools PRIVATE ${RESOURCE_FILES})
+  # * set(RESOURCE_FILES "${CMAKE_SOURCE_DIR}/res/apple/macos/Assets.xcassets")
+  # * set_source_files_properties(${RESOURCE_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+  # * target_sources(wxTools PRIVATE ${RESOURCE_FILES})
 
   # Remove the last section from WXT_VERSION, such "1.0.0" -> "1.0"
   string(REGEX REPLACE "\\.[0-9]+$" "" short_ver ${WXT_VERSION})
@@ -212,16 +208,17 @@ if(APPLE)
   if(BUNDLE_ID_OPTION)
     set_target_properties(wxTools PROPERTIES ${BUNDLE_ID_OPTION})
   endif()
+
   set_target_properties(wxTools PROPERTIES
     MACOSX_BUNDLE TRUE
-    MACOSX_BUNDLE_BUNDLE_NAME "${WXT_APP_ID}"
-    MACOSX_BUNDLE_BUNDLE_VERSION "${WXT_VERSION}"
-    MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2024-${CURRENT_YEAR} x-tools@outlook.com. All rights reserved."
+    MACOSX_BUNDLE_BUNDLE_NAME "wxTools"
     MACOSX_BUNDLE_GUI_IDENTIFIER "${WXT_APP_ID}"
-    MACOSX_BUNDLE_ICON_FILE "wxTools.icns"
-    MACOSX_BUNDLE_INFO_STRING "wxTools"
+    MACOSX_BUNDLE_BUNDLE_VERSION "${WXT_VERSION}"
+    MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
     MACOSX_BUNDLE_LONG_VERSION_STRING "${WXT_VERSION}"
     MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
+    MACOSX_BUNDLE_INFO_STRING "${CMAKE_PROJECT_DESCRIPTION}"
+    MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2024-${CURRENT_YEAR} x-tools@outlook.com. All rights reserved."
   )
     # cmake-format: on
 
