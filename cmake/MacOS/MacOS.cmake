@@ -6,8 +6,8 @@ function(wxt_make_pkg target dev_id_app dev_id_installer)
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/assets/${target}
     COMMAND ${CMAKE_COMMAND} -E echo "Developer ID Application: ${dev_id_app}"
     COMMAND ${CMAKE_COMMAND} -E echo "Developer ID Installer: ${dev_id_installer}"
-    COMMAND echo "codesign --deep --force --verbose --sign \"${dev_id_app}\" ${target}.app"
-    COMMAND codesign --deep --force --verbose --sign "${dev_id_app}" ${target}.app
+    COMMAND echo "codesign --deep --force --verbose --sign ${dev_id_app} ${target}.app"
+    COMMAND codesign --deep --force --verbose --sign "${dev_id_app}" "${target}.app"
     COMMAND pkgbuild --root ${target}.app --identifier "${WXT_APP_ID}" --version "${WXT_VERSION}" --install-location /Applications/${target}.app ${WXT_ASSETS_NAME}.pkg
   )
   # cmake-format: on

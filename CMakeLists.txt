@@ -32,6 +32,7 @@ else()
         "arm64"
         CACHE STRING "Build architectures for macOS")
     set(WXT_TARGET_ARCH "arm64")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "11.5")
   else()
     # 获取空指针大小
     if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
@@ -147,11 +148,18 @@ wxt_generate_po(wxTools ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/res/i18n)
 wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 
 # Copy res to build directory
-add_custom_command(
-  TARGET wxTools
-  POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files"
-          "$<TARGET_FILE_DIR:wxTools>/files")
+if(APPLE)
+  option(WXT_ENABLE_HISTORY_MENU "Enable history menu" OFF)
+else()
+  ption(WXT_ENABLE_HISTORY_MENU "Enable history menu" ON)
+endif()
+if(WXT_ENABLE_HISTORY_MENU)
+  add_custom_command(
+    TARGET wxTools
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files"
+            "$<TARGET_FILE_DIR:wxTools>/files")
+endif()
 
 # --------------------------------------------------------------------------------------------------
 # Do something for Windows
