@@ -110,7 +110,12 @@ if(WXT_ENABLE_IPV6)
 endif()
 
 # Auto deploy 3rd modules
-option(WXT_AUTO_DEPLOY_3RD "Auto deploy 3rd modules" ON)
+option(WXT_AUTO_DEPLOY_3RD "Auto deploy 3rd modules" OFF)
+if(NOT WXT_AUTO_DEPLOY_3RD)
+  # remove libs ${BUILD_TYPE_DIR}
+  execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory
+                          "${WXT_LIBS_DIR}/${CMAKE_BUILD_TYPE}" || true)
+endif()
 
 # --------------------------------------------------------------------------------------------------
 # CMake modules
