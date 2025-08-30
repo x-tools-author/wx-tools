@@ -30,7 +30,7 @@ else()
   if(APPLE)
     set(CMAKE_OSX_ARCHITECTURES
         "arm64"
-        CACHE STRING "Build architectures for macOS")
+        CACHE STRING "Build architectures for macOS" FORCE)
     set(WXT_TARGET_ARCH "arm64")
     set(CMAKE_OSX_DEPLOYMENT_TARGET "11.5")
   else()
