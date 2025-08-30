@@ -109,6 +109,9 @@ if(WXT_ENABLE_IPV6)
   add_compile_definitions(WXT_ENABLE_IPV6)
 endif()
 
+# Auto deploy 3rd modules
+option(WXT_AUTO_DEPLOY_3RD "Auto deploy 3rd modules" ON)
+
 # --------------------------------------------------------------------------------------------------
 # CMake modules
 include(CPack)

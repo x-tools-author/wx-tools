@@ -31,7 +31,7 @@ function(wxt_find_module module_name)
     set(CMAKE_PREFIX_PATH ${module_dst_dir} ${CMAKE_PREFIX_PATH})
     find_package(${module_name} REQUIRED)
     # cmake-format: off
-    if(${module_name}_FOUND)
+    if(${module_name}_FOUND AND ${WXT_AUTO_DEPLOY_3RD})
       set(${module_name}_FOUND TRUE PARENT_SCOPE)
       include_directories(${module_dst_dir}/include)
       link_directories(${module_dst_dir}/lib)
