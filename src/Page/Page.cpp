@@ -57,18 +57,21 @@ Page::Page(LinkType type, wxWindow *parent)
     m_pageIO = new PageIO(this);
     sizer->Add(m_pageIO, 1, wxEXPAND | wxALL, 4);
 
+    int format = m_pageSettings->GetInputSettings()->GetTextFormat();
+    bool wrap = m_pageSettings->GetOutputSettings()->GetWrap();
+    m_pageIO->GetInput()->SetTextFormat(static_cast<TextFormat>(format));
+    m_pageIO->GetOutput()->SetWrap(wrap);
+
     Layout();
 }
 
 void Page::DoLoad(const wxtJson &json)
 {
     if (!json.is_object()) {
-        return;
+        PageParameterKeys keys;
+        m_pageSettings->DoLoad(wxtGetJsonObjValue<wxtJson>(json, keys.settings, wxtJson::object()));
+        m_pageIO->DoLoad(wxtGetJsonObjValue<wxtJson>(json, keys.io, wxtJson::object()));
     }
-
-    PageParameterKeys keys;
-    m_pageSettings->DoLoad(wxtGetJsonObjValue<wxtJson>(json, keys.settings, wxtJson::object()));
-    m_pageIO->DoLoad(wxtGetJsonObjValue<wxtJson>(json, keys.io, wxtJson::object()));
 
     int format = m_pageSettings->GetInputSettings()->GetTextFormat();
     bool wrap = m_pageSettings->GetOutputSettings()->GetWrap();
