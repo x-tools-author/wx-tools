@@ -76,20 +76,24 @@ endfunction()
 function(wxt_auto_import_package_dir package_dir_name package_name)
   # Add module...
   set(package_dst_dir ${WXT_LIBS_DIR}/${WXT_BUILD_FLAG}/${package_dir_name})
-  if(EXISTS ${package_dst_dir}/include)
+  if(EXISTS ${package_dst_dir}/include AND WXT_AUTO_DEPLOY_3RD)
     set(CMAKE_PREFIX_PATH ${package_dst_dir} ${CMAKE_PREFIX_PATH})
     find_package(${package_name} REQUIRED)
     message(STATUS "[PUMA]Found ${package_dir_name}: ${package_dst_dir}")
   else()
     add_subdirectory(${WXT_3RD_DIR}/${package_dir_name})
 
-    if(NOT ANDROID AND NOT IOS)
+    if(NOT ANDROID
+       AND NOT IOS
+       AND WXT_AUTO_DEPLOY_3RD)
       add_custom_target(
         ${package_dir_name}_auto_install ALL
         COMMAND ${CMAKE_COMMAND} --install . --prefix ${package_dst_dir}
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/3rd/${package_dir_name}
         COMMENT "Installing ${package_dir_name} to ${package_dst_dir}")
-      add_dependencies(${package_dir_name}_auto_install ${package_name} ${ARGN})
+      if(TARGET ${package_name})
+        add_dependencies(${package_dir_name}_auto_install ${package_name} ${ARGN})
+      endif()
       set_property(TARGET ${package_dir_name}_auto_install PROPERTY FOLDER "3rd")
     endif()
   endif()

@@ -1,12 +1,17 @@
-set(module_name CSerialPort)
+set(file_name "cserialport-4.3.2")
+set(file_url "https://github.com/itas109/CSerialPort/archive/refs/tags/v4.3.2.zip")
 
-wxt_find_module(${module_name})
-if(${${module_name}_FOUND})
-  set(wxtSerialPortLib cserialport)
-  return()
-endif()
+set(CSERIALPORT_BUILD_EXAMPLES
+    OFF
+    CACHE BOOL "Build CSerialPort examples")
+set(CSERIALPORT_BUILD_TEST
+    OFF
+    CACHE BOOL "Build CSerialPort tests")
+set(CSERIALPORT_BUILD_DOC
+    OFF
+    CACHE BOOL "Build CSerialPort documentation")
 
-wxt_add_github_module(${module_name} "https://github.com/itas109/CSerialPort.git" "v4.3.2")
-include_directories(${CMAKE_SOURCE_DIR}/3rd/${module_name}/include)
-wxt_install_module(${module_name})
-set(wxtSerialPortLib libcserialport)
+wxt_download_zip_file(${file_url} ${file_name})
+wxt_auto_import_package(${file_name} cserialport)
+include_directories(${WXT_3RD_DIR}/${file_name}/include)
+set(wxtSerialPortLib ${CSerialPort_LIBRARY})
