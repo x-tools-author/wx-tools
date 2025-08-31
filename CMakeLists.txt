@@ -4,7 +4,7 @@ if(NOT ${CMAKE_VERSION} VERSION_LESS "4.0.0")
   set(CMAKE_POLICY_VERSION_MINIMUM "3.20" CACHE STRING "CMake policy version" FORCE)
 endif()
 cmake_minimum_required(VERSION 3.20)
-project(wxTools VERSION 1.0 LANGUAGES C CXX DESCRIPTION "A set of tools developed with wxWidgets")
+project(wxToolsProject VERSION 1.0 LANGUAGES C CXX DESCRIPTION "A set of tools developed with wxWidgets")
 # cmake-format: on
 
 if(IOS OR ANDROID)
@@ -40,6 +40,9 @@ else()
     # * set(WXT_TARGET_ARCH "arm64")
     set(WXT_TARGET_ARCH "64")
     set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0")
+    set(MACOSX_BUNDLE_INFO_PLIST
+        ${CMAKE_BINARY_DIR}/wxTools.plist
+        CACHE STRING "The path to the Info.plist file")
   else()
     # 获取空指针大小
     if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)
