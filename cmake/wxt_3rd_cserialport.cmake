@@ -15,7 +15,7 @@ wxt_download_zip_file(${file_url} ${file_name})
 wxt_auto_import_package(${file_name} cserialport)
 include_directories(${WXT_3RD_DIR}/${file_name}/include)
 
-if(EXISTS ${WXT_LIBS_DIR}/${file_name}/include)
+if(EXISTS ${WXT_LIBS_DIR}/${WXT_BUILD_FLAG}/${file_name}/include)
   set(wxtSerialPortLib ${CSerialPort_LIBRARY})
 else()
   set(wxtSerialPortLib libcserialport)

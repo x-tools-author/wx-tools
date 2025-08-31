@@ -501,7 +501,11 @@ wxString MainWindow::GetHistoryFileName() const
 #elif defined(__LINUX__)
     return wxString("/usr/share/doc/wx-tools/history.txt");
 #elif defined(__APPLE__)
-    return wxString("/Applications/wx-tools/history.txt");
+    wxString path = wxStandardPaths::Get().GetExecutablePath();
+    path = wxFileName(path).GetPath();
+    path += wxString("/../Resources/files/history.txt");
+    wxtInfo() << "History file:" << path;
+    return path;
 #endif
 
     return wxEmptyString;

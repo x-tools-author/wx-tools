@@ -146,11 +146,12 @@ wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 
 # Copy res to build directory
 if(APPLE)
-  option(WXT_ENABLE_HISTORY_MENU "Enable history menu" OFF)
+  add_custom_command(
+    TARGET wxTools
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files"
+            "$<TARGET_FILE_DIR:wxTools>/../Resources/files")
 else()
-  ption(WXT_ENABLE_HISTORY_MENU "Enable history menu" ON)
-endif()
-if(WXT_ENABLE_HISTORY_MENU)
   add_custom_command(
     TARGET wxTools
     POST_BUILD
