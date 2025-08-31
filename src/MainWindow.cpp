@@ -301,7 +301,7 @@ void MainWindow::InitMenuOptionsShowOnTop(wxMenu* optionMenu)
     item->SetHelp(_("Keep the application window on top of others."));
     Bind(
         wxEVT_MENU,
-        [=](wxCommandEvent& evt) {
+        [this](wxCommandEvent& evt) {
             if (evt.IsChecked()) {
                 SetWindowStyleFlag(GetWindowStyleFlag() | wxSTAY_ON_TOP);
             } else {

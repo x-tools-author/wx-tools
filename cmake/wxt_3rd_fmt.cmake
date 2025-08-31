@@ -1,9 +1,5 @@
-﻿set(module_name fmt)
-wxt_find_module(${module_name})
-if(${fmt_FOUND})
-  return()
-endif()
+﻿set(file_name "fmt-11.1.4")
+set(file_url "https://github.com/fmtlib/fmt/releases/download/11.1.4/fmt-11.1.4.zip")
 
-wxt_add_github_module(${module_name} "https://github.com/fmtlib/fmt.git" "11.2.0")
-include_directories(${CMAKE_SOURCE_DIR}/3rd/${module_name})
-wxt_install_module(${module_name})
+wxt_download_zip_file(${file_url} ${file_name})
+wxt_auto_import_package(${file_name} fmt)
