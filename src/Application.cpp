@@ -39,6 +39,8 @@ bool Application::OnInit()
     wxString i18nDir = wxStandardPaths::Get().GetExecutablePath();
     // Get the path of i18nDir
     i18nDir = wxFileName(i18nDir).GetPath();
+    i18nDir += wxFileName::GetPathSeparator();
+    i18nDir += wxString("../Resources");
 #else
     wxString i18nDir = wxGetCwd();
 #endif

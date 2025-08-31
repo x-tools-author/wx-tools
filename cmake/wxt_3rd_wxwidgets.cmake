@@ -30,6 +30,7 @@ if(NOT EXISTS ${WXT_3RD_DIR}/${file_name})
   execute_process(COMMAND ${CMAKE_COMMAND} -E tar xzf ${WXT_3RD_DIR}/${file_name}.zip
                   WORKING_DIRECTORY ${WXT_3RD_DIR}/${file_name})
 endif()
+set(WXT_WX_LOCAL_DIR "${WXT_3RD_DIR}/${file_name}/locale")
 
 if(APPLE)
   add_subdirectory(${WXT_3RD_DIR}/${file_name})

@@ -25,7 +25,11 @@ function(wxt_generate_mo target wxLocalDir)
   set(args -DargMsgfmt=${msgfmt})
   list(APPEND args -DargWxWidgetsLocalDir=${wxLocalDir})
   list(APPEND args -DargInputDir=${CMAKE_SOURCE_DIR}/res/i18n)
-  list(APPEND args -DargOutputDir=$<TARGET_FILE_DIR:${target}>/i18n)
+  if(APPLE)
+    list(APPEND args -DargOutputDir=$<TARGET_FILE_DIR:${target}>/../Resources/i18n)
+  else()
+    list(APPEND args -DargOutputDir=$<TARGET_FILE_DIR:${target}>/i18n)
+  endif()
   add_custom_command(
     TARGET ${target}
     POST_BUILD
