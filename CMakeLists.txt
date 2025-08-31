@@ -204,9 +204,9 @@ if(APPLE)
   set_source_files_properties(${wxTools_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
   target_sources(wxTools PRIVATE ${wxTools_ICON})
 
-  # * set(RESOURCE_FILES "${CMAKE_SOURCE_DIR}/res/apple/macos/Assets.xcassets")
-  # * set_source_files_properties(${RESOURCE_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
-  # * target_sources(wxTools PRIVATE ${RESOURCE_FILES})
+  set(RESOURCE_FILES "${CMAKE_SOURCE_DIR}/res/apple/macos/Assets.xcassets")
+  set_source_files_properties(${RESOURCE_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+  target_sources(wxTools PRIVATE ${RESOURCE_FILES})
 
   # Remove the last section from WXT_VERSION, such "1.0.0" -> "1.0"
   string(REGEX REPLACE "\\.[0-9]+$" "" short_ver ${WXT_VERSION})
@@ -219,27 +219,28 @@ if(APPLE)
   set(WX_TOOLS_YYYY "${CURRENT_YEAR}" CACHE STRING "The current year")
   # cmake-format: on
 
-  # set(out_file ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/wxTools.app/Contents/Info.plist)
-  # configure_file(res/apple/macos/wxTools.plist.in ${CMAKE_BINARY_DIR}/wxTools.plist)
-
+  configure_file(res/apple/macos/wxTools.plist.in ${CMAKE_BINARY_DIR}/wxTools.plist)
+  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_INFO_PLIST
+                                           ${CMAKE_BINARY_DIR}/wxTools.plist)
+  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE TRUE)
   # Set the bundle properties
   # cmake-format: off
   if(BUNDLE_ID_OPTION)
     set_target_properties(wxTools PROPERTIES ${BUNDLE_ID_OPTION})
   endif()
 
-  set_target_properties(wxTools PROPERTIES
-    MACOSX_BUNDLE TRUE
-    MACOSX_BUNDLE_BUNDLE_NAME "wxTools"
-    MACOSX_BUNDLE_GUI_IDENTIFIER "${WXT_APP_ID}"
-    MACOSX_BUNDLE_BUNDLE_VERSION "${WXT_VERSION}"
-    MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
-    MACOSX_BUNDLE_LONG_VERSION_STRING "${WXT_VERSION}"
-    MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
-    MACOSX_BUNDLE_INFO_STRING "${CMAKE_PROJECT_DESCRIPTION}"
-    MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2024-${CURRENT_YEAR} x-tools@outlook.com. All rights reserved."
-  )
-    # cmake-format: on
+  # * set_target_properties(wxTools PROPERTIES
+  # *   MACOSX_BUNDLE TRUE
+  # *   MACOSX_BUNDLE_BUNDLE_NAME "wxTools"
+  # *   MACOSX_BUNDLE_GUI_IDENTIFIER "${WXT_APP_ID}"
+  # *   MACOSX_BUNDLE_BUNDLE_VERSION "${WXT_VERSION}"
+  # *   MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
+  # *   MACOSX_BUNDLE_LONG_VERSION_STRING "${WXT_VERSION}"
+  # *   MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
+  # *   MACOSX_BUNDLE_INFO_STRING "${CMAKE_PROJECT_DESCRIPTION}"
+  # *   MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2024-${CURRENT_YEAR} x-tools@outlook.com. All rights reserved."
+  # * )
+  # cmake-format: on
 
   # Make pkg and dmg
   # cmake-format: off
