@@ -574,32 +574,6 @@ std::string GetString(TextFormat format, uint8_t value)
     return GetHexString(value);
 }
 
-std::string DoDecodeBytes(const std::shared_ptr<char> &bytes, int &len, int format)
-{
-    auto getString = [](const char *data, size_t size, int format) -> std::string {
-        std::ostringstream stringStream;
-        for (std::size_t i = 0; i < size; ++i) {
-            stringStream << GetString(static_cast<TextFormat>(format), data[i]);
-            if (i < size - 1) {
-                stringStream << " ";
-            }
-        }
-        return stringStream.str();
-    };
-
-    switch (format) {
-    case static_cast<int>(TextFormat::Bin):
-    case static_cast<int>(TextFormat::Oct):
-    case static_cast<int>(TextFormat::Dec):
-    case static_cast<int>(TextFormat::Hex):
-        return getString(bytes.get(), len, format);
-    case static_cast<int>(TextFormat::Ascii):
-        return wxString::FromAscii(bytes.get(), len).ToStdString();
-    default:
-        return wxString::FromUTF8(bytes.get(), len).ToStdString();
-    }
-}
-
 std::shared_ptr<char> convertEncoding(std::shared_ptr<char> &input,
                                       const char *fromCharset,
                                       const char *toCharset)
@@ -611,7 +585,7 @@ std::shared_ptr<char> convertEncoding(std::shared_ptr<char> &input,
     }
 
     size_t inBytesLeft = strlen(input.get());
-    size_t outBytesLeft = inBytesLeft * 4 + 1;
+    size_t outBytesLeft = inBytesLeft * 4 + 4;
     std::shared_ptr<char> output(new char[outBytesLeft], [](char *p) { delete[] p; });
     const char *inBuf = input.get();
     char *outBuf = output.get();
@@ -639,32 +613,63 @@ std::shared_ptr<char> convertEncoding(std::shared_ptr<char> &input,
 #endif
 }
 
+std::string DoDecodeBytesWithIconv(const std::shared_ptr<char> &bytes, int &len, int format)
+{
+    const char *from = GetTextFormatName(static_cast<TextFormat>(format)).c_str();
+    const char *to = "UTF-8";
+
+    if (from && to) {
+        std::shared_ptr<char> bytesCopy(new char[len + 1], [](char *p) { delete[] p; });
+        memcpy(bytesCopy.get(), bytes.get(), len);
+        bytesCopy.get()[len] = '\0';
+
+        std::shared_ptr<char> converted = convertEncoding(bytesCopy, from, to);
+        if (converted) {
+            return wxString::FromUTF8(converted.get(), len).ToStdString();
+        }
+    }
+
+    return wxString::FromUTF8(bytes.get(), len).ToStdString();
+}
+
+std::string DoDecodeBytes(const std::shared_ptr<char> &bytes, int &len, int format)
+{
+    bool isIconvEnabled = format == static_cast<int>(TextFormat::GB2312)
+                          || format == static_cast<int>(TextFormat::CSGB2312)
+                          || format == static_cast<int>(TextFormat::GBK)
+                          || format == static_cast<int>(TextFormat::GB18030);
+    if (isIconvEnabled) {
+        return DoDecodeBytesWithIconv(bytes, len, format);
+    }
+
+    auto getString = [](const char *data, size_t size, int format) -> std::string {
+        std::ostringstream stringStream;
+        for (std::size_t i = 0; i < size; ++i) {
+            stringStream << GetString(static_cast<TextFormat>(format), data[i]);
+            if (i < size - 1) {
+                stringStream << " ";
+            }
+        }
+        return stringStream.str();
+    };
+
+    switch (format) {
+    case static_cast<int>(TextFormat::Bin):
+    case static_cast<int>(TextFormat::Oct):
+    case static_cast<int>(TextFormat::Dec):
+    case static_cast<int>(TextFormat::Hex):
+        return getString(bytes.get(), len, format);
+    case static_cast<int>(TextFormat::Ascii):
+        return wxString::FromAscii(bytes.get(), len).ToStdString();
+    default:
+        return wxString::FromUTF8(bytes.get(), len).ToStdString();
+    }
+}
+
 std::shared_ptr<char> DoEncodeBytesWithIconv(const std::string &text, int &len, int format)
 {
-    const char *from = nullptr;
-    const char *to = nullptr;
-    switch (format) {
-    case static_cast<int>(TextFormat::GB2312):
-        from = "UTF-8";
-        to = "GB2312";
-        break;
-    case static_cast<int>(TextFormat::CSGB2312):
-        from = "UTF-8";
-        to = "CSGB2312";
-        break;
-    case static_cast<int>(TextFormat::GBK):
-        from = "UTF-8";
-        to = "GBK";
-        break;
-    case static_cast<int>(TextFormat::GB18030):
-        from = "UTF-8";
-        to = "GB18030";
-        break;
-    default:
-        from = "UTF-8";
-        to = "UTF-8";
-        break;
-    }
+    const char *from = "UTF-8";
+    const char *to = GetTextFormatName(static_cast<TextFormat>(format)).c_str();
     len = text.size();
     std::shared_ptr<char> bytes(new char[len + 1], [](char *p) { delete[] p; });
     memcpy(bytes.get(), text.c_str(), len);
