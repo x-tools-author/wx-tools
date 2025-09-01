@@ -585,7 +585,7 @@ std::shared_ptr<char> convertEncoding(std::shared_ptr<char> &input,
     }
 
     size_t inBytesLeft = strlen(input.get());
-    size_t outBytesLeft = inBytesLeft * 4 + 4;
+    size_t outBytesLeft = inBytesLeft * 4 + 1;
     std::shared_ptr<char> output(new char[outBytesLeft], [](char *p) { delete[] p; });
     const char *inBuf = input.get();
     char *outBuf = output.get();
