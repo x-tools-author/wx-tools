@@ -30,6 +30,7 @@ endfunction()
 # --------------------------------------------------------------------------------------------------
 function(wxt_auto_import_package_dir package_dir_name package_name)
   # Add module...
+  string(TOLOWER package_dir_name ${package_dir_name})
   set(package_dst_dir ${WXT_LIBS_DIR}/${WXT_BUILD_FLAG}/${package_dir_name})
   if(EXISTS ${package_dst_dir}/include AND WXT_AUTO_DEPLOY_3RD)
     set(CMAKE_PREFIX_PATH ${package_dst_dir} ${CMAKE_PREFIX_PATH})
@@ -51,6 +52,7 @@ endfunction()
 
 function(wxt_install_package package_dir_name)
   set(package_dst_dir ${WXT_LIBS_DIR}/${WXT_BUILD_FLAG}/${package_dir_name})
+  string(TOLOWER package_dst_dir ${package_dst_dir})
   add_custom_target(
     ${package_dir_name}_auto_install
     COMMAND ${CMAKE_COMMAND} --install . --prefix ${package_dst_dir}
