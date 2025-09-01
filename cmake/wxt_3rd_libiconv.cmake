@@ -45,7 +45,7 @@ else()
 endif()
 
 # Download libiconv if it does not exist
-if(NOT EXISTS ${CMAKE_SOURCE_DIR}/3rd/${file_name}.${file_suffix})
+if(NOT EXISTS ${CMAKE_SOURCE_DIR}/3rd/${file_name}.${file_suffix} AND NOT APPLE)
   message(STATUS "Downloading ${file_name} from ${file_url}")
   file(
     DOWNLOAD ${file_url} ${CMAKE_SOURCE_DIR}/3rd/${file_name}.${file_suffix}
@@ -57,7 +57,7 @@ if(NOT EXISTS ${CMAKE_SOURCE_DIR}/3rd/${file_name}.${file_suffix})
 endif()
 
 # Extract libiconv if it does not exist
-if(NOT EXISTS ${CMAKE_SOURCE_DIR}/3rd/${file_name})
+if(NOT EXISTS ${CMAKE_SOURCE_DIR}/3rd/${file_name} AND NOT APPLE)
   message(STATUS "Extracting ${file_name}.${file_suffix}")
   execute_process(COMMAND ${CMAKE_COMMAND} -E tar xzf ${file_name}.${file_suffix}
                   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/3rd)
@@ -109,20 +109,22 @@ if(WIN32)
   list(APPEND PROJECT_LIBS "libiconv-static")
   message(STATUS "[wxTools-libiconv] Found libiconv-static.lib")
 elseif(APPLE)
-  set(working_dir ${CMAKE_SOURCE_DIR}/3rd/${file_name})
-  if(NOT EXISTS ${working_dir}/out/lib/libiconv.la)
-    execute_process(COMMAND ./configure --prefix=${working_dir}/out
-                    WORKING_DIRECTORY ${working_dir})
-    execute_process(COMMAND make WORKING_DIRECTORY ${working_dir})
-    execute_process(COMMAND make install WORKING_DIRECTORY ${working_dir})
-  endif()
-
-  if(EXISTS ${working_dir}/out/lib/libiconv.la)
-    add_compile_definitions(WXT_ENABLE_ICONV)
-    include_directories(${working_dir}/out/include)
-    link_directories(${working_dir}/out/lib)
-    list(APPEND PROJECT_LIBS "charset" "iconv")
-  endif()
+  list(APPEND PROJECT_LIBS iconv)
+  add_compile_definitions(WXT_ENABLE_ICONV)
+  # * set(working_dir ${CMAKE_SOURCE_DIR}/3rd/${file_name})
+  # * if(NOT EXISTS ${working_dir}/out/lib/libiconv.la)
+  # * execute_process(COMMAND ./configure --prefix=${working_dir}/out
+  # * WORKING_DIRECTORY ${working_dir})
+  # * execute_process(COMMAND make WORKING_DIRECTORY ${working_dir})
+  # * execute_process(COMMAND make install WORKING_DIRECTORY ${working_dir})
+  # * endif() *
+  # * if(EXISTS ${working_dir}/out/lib/libiconv.la)
+  # * add_compile_definitions(WXT_ENABLE_ICONV)
+  # * include_directories(${working_dir}/out/include)
+  # * link_directories(${working_dir}/out/lib)
+  # * list(APPEND PROJECT_LIBS iconv)
+  # * message(STATUS "[wxTools-libiconv] Found libiconv.la")
+  # * endif()
 else()
   set(working_dir ${CMAKE_SOURCE_DIR}/3rd/${file_name})
   if(NOT EXISTS ${working_dir}/out/lib/libiconv.so)
