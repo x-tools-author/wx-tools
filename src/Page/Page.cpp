@@ -67,7 +67,7 @@ Page::Page(LinkType type, wxWindow *parent)
 
 void Page::DoLoad(const wxtJson &json)
 {
-    if (!json.is_object()) {
+    if (json.is_object()) {
         PageParameterKeys keys;
         m_pageSettings->DoLoad(wxtGetJsonObjValue<wxtJson>(json, keys.settings, wxtJson::object()));
         m_pageIO->DoLoad(wxtGetJsonObjValue<wxtJson>(json, keys.io, wxtJson::object()));
