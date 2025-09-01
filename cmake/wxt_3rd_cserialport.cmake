@@ -11,6 +11,18 @@ set(CSERIALPORT_BUILD_DOC
     OFF
     CACHE BOOL "Build CSerialPort documentation")
 
+# Move CSerialPort to cserialport to avoid name conflicts
+if(NOT WIN32)
+  string(TOLOWER cserialport_name ${file_name})
+  execute_process(
+    COMMAND ${CMAKE_COMMAND} -E rename ${WXT_3RD_DIR}/${file_name}
+            ${WXT_3RD_DIR}/${cserialport_name}
+    RESULT_VARIABLE rename_result
+    OUTPUT_VARIABLE rename_output
+    ERROR_VARIABLE rename_error
+    OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_STRIP_TRAILING_WHITESPACE)
+endif()
+
 wxt_download_zip_file(${file_url} ${file_name})
 wxt_auto_import_package(${file_name} cserialport)
 include_directories(${WXT_3RD_DIR}/${file_name}/include)
