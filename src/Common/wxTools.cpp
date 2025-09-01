@@ -574,7 +574,7 @@ std::string GetString(TextFormat format, uint8_t value)
     return GetHexString(value);
 }
 
-std::shared_ptr<char> convertEncoding(std::shared_ptr<char> &input,
+std::shared_ptr<char> convertEncoding(const std::shared_ptr<char> &input,
                                       const char *fromCharset,
                                       const char *toCharset)
 {
@@ -584,16 +584,16 @@ std::shared_ptr<char> convertEncoding(std::shared_ptr<char> &input,
         return nullptr;
     }
 
-    size_t inBytesLeft = strlen(input.get());
-    size_t outBytesLeft = inBytesLeft * 4 + 1;
-    std::shared_ptr<char> output(new char[outBytesLeft], [](char *p) { delete[] p; });
-    const char *inBuf = input.get();
+    size_t inBytesLen = strlen(input.get());
+    size_t outBytesLen = inBytesLen * 4 + 1;
+    std::shared_ptr<char> output(new char[outBytesLen], [](char *p) { delete[] p; });
     char *outBuf = output.get();
 #if defined(__WINDOWS__)
-    size_t result = iconv(cd, &inBuf, &inBytesLeft, &outBuf, &outBytesLeft);
+    const char *inBuf = input.get();
+    size_t result = iconv(cd, &inBuf, &inBytesLen, &outBuf, &outBytesLen);
 #else
-    char *tmp = const_cast<char *>(inBuf);
-    size_t result = iconv(cd, &tmp, &inBytesLeft, &outBuf, &outBytesLeft);
+    char *tmp = const_cast<char *>(input.get());
+    size_t result = iconv(cd, &tmp, &inBytesLen, &outBuf, &outBytesLen);
 #endif
     iconv_close(cd);
 
@@ -601,10 +601,10 @@ std::shared_ptr<char> convertEncoding(std::shared_ptr<char> &input,
         return input;
     }
 
-    std::shared_ptr<char> finalOutput(new char[outBuf - output.get() + 1],
-                                      [](char *p) { delete[] p; });
-    memcpy(finalOutput.get(), output.get(), outBuf - output.get());
-    finalOutput.get()[outBuf - output.get()] = '\0';
+    size_t convertedLen = outBuf - output.get();
+    std::shared_ptr<char> finalOutput(new char[convertedLen + 1], [](char *p) { delete[] p; });
+    memcpy(finalOutput.get(), output.get(), convertedLen);
+    finalOutput.get()[convertedLen] = '\0';
     return finalOutput;
 #else
     Q_UNUSED(fromCharset);
