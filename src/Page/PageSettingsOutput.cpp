@@ -112,6 +112,8 @@ void PageSettingsOutput::DoLoad(const wxtJson &parameters)
     bool terminalMode = wxtGetJsonObjValue<bool>(parameters, keys.terminalMode, false);
     wxString filter = wxtGetJsonObjValue<std::string>(parameters, keys.filter, "");
 
+    wxtInfo() << "PageSettingsOutput parameters:" << parameters;
+
     SetComboBoxSectionByIntClientData(m_textFormatComboBox, format);
     m_showDate->SetValue(showDate);
     m_showTime->SetValue(showTime);

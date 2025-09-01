@@ -8,7 +8,7 @@
  **************************************************************************************************/
 #include "Application.h"
 
-#if 0
+#if defined(WXT_USE_VS_CODE)
 int main(int argc, char* argv[])
 {
     Application* app = new Application();

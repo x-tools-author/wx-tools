@@ -430,6 +430,7 @@ void MainWindow::DoLoad(wxString fileName)
     }
 
     if (!wxFileName::Exists(fileName)) {
+        wxtWarning() << "Settings file not found:" << fileName;
         return;
     }
 
@@ -438,6 +439,7 @@ void MainWindow::DoLoad(wxString fileName)
     ifs >> json;
 
     if (!json.is_object()) {
+        wxtWarning() << "Invalid JSON format in file:" << fileName;
         return;
     }
 
@@ -445,6 +447,7 @@ void MainWindow::DoLoad(wxString fileName)
         Page* page = it->second;
         wxString name = GetPageParameterFileName(it->first);
         if (!json.contains(name.ToStdString())) {
+            wxtWarning() << "Missing JSON entry for page:" << name;
             continue;
         }
 

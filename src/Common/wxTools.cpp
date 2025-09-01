@@ -1059,7 +1059,7 @@ wxString GetSettingsPath()
 
 wxString GetSettingsFileName()
 {
-    return GetSettingsPath() + wxFileName::GetPathSeparator() + _("wxTools.json");
+    return GetSettingsPath() + wxFileName::GetPathSeparator() + "wxTools.json";
 }
 
 std::string DoEncodeFlag(const std::string &ip, uint16_t port)
