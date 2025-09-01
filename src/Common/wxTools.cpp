@@ -607,8 +607,8 @@ std::shared_ptr<char> convertEncoding(const std::shared_ptr<char> &input,
     finalOutput.get()[convertedLen] = '\0';
     return finalOutput;
 #else
-    Q_UNUSED(fromCharset);
-    Q_UNUSED(toCharset);
+    wxUnusedVar(fromCharset);
+    wxUnusedVar(toCharset);
     return input;
 #endif
 }
