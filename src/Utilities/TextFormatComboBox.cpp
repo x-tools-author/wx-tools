@@ -10,6 +10,10 @@
 
 #include "Common/wxTools.h"
 
+#if defined(WXT_ENABLE_ICONV)
+#include "iconv.h"
+#endif
+
 TextFormatComboBox::TextFormatComboBox(wxWindow* parent)
     : wxComboBox(parent,
                  wxID_ANY,

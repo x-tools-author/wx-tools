@@ -34,7 +34,14 @@ function(wxt_auto_import_package_dir package_dir_name package_name)
   if(EXISTS ${package_dst_dir}/include AND WXT_AUTO_DEPLOY_3RD)
     set(CMAKE_PREFIX_PATH ${package_dst_dir} ${CMAKE_PREFIX_PATH})
     find_package(${package_name} REQUIRED)
-    message(STATUS "[wxTools] Found ${package_dir_name}: ${package_dst_dir}")
+
+    if(${package_name}_FOUND)
+      include_directories(${package_dst_dir}/include)
+      message(STATUS "[wxTools] Found ${package_dir_name}: ${package_dst_dir}")
+    else()
+      message(WARNING "[wxTools] ${package_dir_name} not found")
+    endif()
+
     set(${package_name}_FOUND
         ${${package_name}_FOUND}
         PARENT_SCOPE)
@@ -63,6 +70,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_json.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_asio.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_glog.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_mongoose.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_libiconv.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_cserialport.cmake)
 
 add_compile_definitions(_UNICODE)

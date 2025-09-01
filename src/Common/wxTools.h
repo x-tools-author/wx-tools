@@ -111,7 +111,19 @@ std::string GetDateTimeString(const std::string &format = "%Y-%m-%d %H:%M:%S", b
 
 //--------------------------------------------------------------------------------------------------
 // Text format
-enum class TextFormat { Bin, Oct, Dec, Hex, Ascii, Utf8, Unknown = -1 };
+enum class TextFormat {
+    Bin,
+    Oct,
+    Dec,
+    Hex,
+    Ascii,
+    Utf8,
+    GB2312,
+    CSGB2312,
+    GBK,
+    GB18030,
+    Unknown = -1
+};
 std::vector<int> GetSuportedFormats();
 std::vector<wxString> GetSuportedTextFormats();
 wxString GetTextFormatName(TextFormat format);

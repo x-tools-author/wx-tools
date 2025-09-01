@@ -106,6 +106,7 @@ set(WXT_ASSETS_NAME wxtools-${CMAKE_HOST_SYSTEM_NAME}-${WXT_GIT_TAG}-${WXT_TARGE
 string(TOLOWER ${WXT_ASSETS_NAME} WXT_ASSETS_NAME)
 set(WX_TOOLS_BINARY_DIR ${CMAKE_BINARY_DIR}/assets)
 set(WXT_APP_ID "com.xtools.wxtools")
+set(PROJECT_LIBS)
 
 # Do change WXT_MAGIC unless you know what you are doing...
 option(WXT_MAGIC "The magic option..." OFF)
@@ -143,7 +144,7 @@ list(APPEND WX_TOOLS_SOURCE wxTools.rc)
 set(WXT_OUTPUT_DIR "${WX_TOOLS_BINARY_DIR}/wxTools")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${WXT_OUTPUT_DIR})
 add_executable(wxTools ${WX_TOOLS_SOURCE})
-set(PROJECT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
+list(APPEND PROJECT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
 if(MSVC)
   list(APPEND PROJECT_LIBS Dwmapi)
 endif()

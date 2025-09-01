@@ -19,6 +19,10 @@
 #include <wx/filename.h>
 #include <wx/stdpaths.h>
 
+#if defined(WXT_ENABLE_ICONV)
+#include "iconv.h"
+#endif
+
 const int wxtNewID()
 {
     static int wxtId = wxID_HIGHEST + 10000;
@@ -500,6 +504,12 @@ std::vector<int> GetSuportedFormats()
     formats.push_back(static_cast<int>(TextFormat::Hex));
     formats.push_back(static_cast<int>(TextFormat::Ascii));
     formats.push_back(static_cast<int>(TextFormat::Utf8));
+#if defined(WXT_ENABLE_ICONV)
+    formats.push_back(static_cast<int>(TextFormat::GB2312));
+    formats.push_back(static_cast<int>(TextFormat::CSGB2312));
+    formats.push_back(static_cast<int>(TextFormat::GBK));
+    formats.push_back(static_cast<int>(TextFormat::GB18030));
+#endif
     return formats;
 }
 
@@ -513,6 +523,12 @@ std::vector<wxString> GetSuportedTextFormats()
         formats.push_back(GetTextFormatName(TextFormat::Hex));
         formats.push_back(GetTextFormatName(TextFormat::Ascii));
         formats.push_back(GetTextFormatName(TextFormat::Utf8));
+#if defined(WXT_ENABLE_ICONV)
+        formats.push_back(GetTextFormatName(TextFormat::GB2312));
+        formats.push_back(GetTextFormatName(TextFormat::CSGB2312));
+        formats.push_back(GetTextFormatName(TextFormat::GBK));
+        formats.push_back(GetTextFormatName(TextFormat::GB18030));
+#endif
     }
 
     return formats;
@@ -528,6 +544,12 @@ wxString GetTextFormatName(TextFormat format)
         formatMap[TextFormat::Hex] = _("Hexadecimal");
         formatMap[TextFormat::Ascii] = _("ASCII");
         formatMap[TextFormat::Utf8] = _("UTF-8");
+#if defined(WXT_ENABLE_ICONV)
+        formatMap[TextFormat::GB2312] = "GB2312";
+        formatMap[TextFormat::CSGB2312] = "CSGB2312";
+        formatMap[TextFormat::GBK] = "GBK";
+        formatMap[TextFormat::GB18030] = "GB18030";
+#endif
     }
 
     if (formatMap.find(format) == formatMap.end()) {
@@ -578,8 +600,92 @@ std::string DoDecodeBytes(const std::shared_ptr<char> &bytes, int &len, int form
     }
 }
 
+std::shared_ptr<char> convertEncoding(std::shared_ptr<char> &input,
+                                      const char *fromCharset,
+                                      const char *toCharset)
+{
+#if defined(WXT_ENABLE_ICONV)
+    iconv_t cd = iconv_open(toCharset, fromCharset);
+    if (cd == (iconv_t) -1) {
+        return nullptr;
+    }
+
+    size_t inBytesLeft = strlen(input.get());
+    size_t outBytesLeft = inBytesLeft * 4 + 1;
+    std::shared_ptr<char> output(new char[outBytesLeft], [](char *p) { delete[] p; });
+    const char *inBuf = input.get();
+    char *outBuf = output.get();
+#if defined(__WINDOWS__)
+    size_t result = iconv(cd, &inBuf, &inBytesLeft, &outBuf, &outBytesLeft);
+#else
+    char *tmp = const_cast<char *>(inBuf);
+    size_t result = iconv(cd, &tmp, &inBytesLeft, &outBuf, &outBytesLeft);
+#endif
+    iconv_close(cd);
+
+    if (result == (size_t) -1) {
+        return input;
+    }
+
+    std::shared_ptr<char> finalOutput(new char[outBuf - output.get() + 1],
+                                      [](char *p) { delete[] p; });
+    memcpy(finalOutput.get(), output.get(), outBuf - output.get());
+    finalOutput.get()[outBuf - output.get()] = '\0';
+    return finalOutput;
+#else
+    Q_UNUSED(fromCharset);
+    Q_UNUSED(toCharset);
+    return input;
+#endif
+}
+
+std::shared_ptr<char> DoEncodeBytesWithIconv(const std::string &text, int &len, int format)
+{
+    const char *from = nullptr;
+    const char *to = nullptr;
+    switch (format) {
+    case static_cast<int>(TextFormat::GB2312):
+        from = "UTF-8";
+        to = "GB2312";
+        break;
+    case static_cast<int>(TextFormat::CSGB2312):
+        from = "UTF-8";
+        to = "CSGB2312";
+        break;
+    case static_cast<int>(TextFormat::GBK):
+        from = "UTF-8";
+        to = "GBK";
+        break;
+    case static_cast<int>(TextFormat::GB18030):
+        from = "UTF-8";
+        to = "GB18030";
+        break;
+    default:
+        from = "UTF-8";
+        to = "UTF-8";
+        break;
+    }
+    len = text.size();
+    std::shared_ptr<char> bytes(new char[len + 1], [](char *p) { delete[] p; });
+    memcpy(bytes.get(), text.c_str(), len);
+    bytes.get()[len] = '\0';
+    auto converted = convertEncoding(bytes, from, to);
+    len = strlen(converted.get());
+    return converted;
+}
+
 std::shared_ptr<char> DoEncodeBytes(const std::string &text, int &len, int format)
 {
+#if defined(WXT_ENABLE_ICONV)
+    bool isIconvEnabled = format == static_cast<int>(TextFormat::GB2312)
+                          || format == static_cast<int>(TextFormat::CSGB2312)
+                          || format == static_cast<int>(TextFormat::GBK)
+                          || format == static_cast<int>(TextFormat::GB18030);
+    if (isIconvEnabled) {
+        return DoEncodeBytesWithIconv(text, len, format);
+    }
+#endif
+
     if (format == static_cast<int>(TextFormat::Ascii)
         || format == static_cast<int>(TextFormat::Utf8)) {
         len = text.size();
