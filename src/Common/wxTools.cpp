@@ -625,6 +625,7 @@ std::string DoDecodeBytesWithIconv(const std::shared_ptr<char> &bytes, int &len,
 
         std::shared_ptr<char> converted = convertEncoding(bytesCopy, from, to);
         if (converted) {
+            len = strlen(converted.get());
             return wxString::FromUTF8(converted.get(), len).ToStdString();
         }
     }
