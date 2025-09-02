@@ -17,9 +17,7 @@
 
 Application::~Application()
 {
-#if defined(WXT_RELEASE)
     DoShutdownLogging();
-#endif
 }
 
 bool Application::OnInit()
@@ -31,9 +29,7 @@ bool Application::OnInit()
     SetVendorName("xTools");
     mg_log_set(MG_LL_NONE);
 
-#if defined(WXT_RELEASE)
     DoInitLogging("wxTools");
-#endif
 
 #if defined(__WXOSX__)
     wxString i18nDir = wxStandardPaths::Get().GetExecutablePath();

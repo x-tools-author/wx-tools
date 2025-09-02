@@ -37,7 +37,6 @@ MainWindow::MainWindow()
     : wxFrame(nullptr, wxID_ANY, fmt::format("wxTools v{}", std::string(WXT_GIT_TAG)))
     , m_statusBar(nullptr)
 {
-#if !defined(WXT_RELEASE)
 #if 0
     [Ubuntu]
     I20250219 13:13:10.775637 139801817956736 MainWindow.cpp:29] GetExecutablePath():/home/user/Project/wx-tools/build/Desktop_Qt_6_8_2-Debug/assets/wxTools/wxTools
@@ -64,7 +63,6 @@ MainWindow::MainWindow()
     wxtInfo() << "GetLocalFileName():" << wxFileConfig::GetLocalFileName("wxTools");
 #if !defined(__APPLE__)
     wxtInfo() << "wxGetCwd():" << wxGetCwd();
-#endif
 #endif
 
     Init();

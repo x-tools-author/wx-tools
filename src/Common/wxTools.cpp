@@ -36,6 +36,8 @@ std::string LogPath()
 {
     wxString path = GetSettingsPath();
     path += wxFileName::GetPathSeparator();
+    path += wxString("..");
+    path += wxFileName::GetPathSeparator();
     path += wxString("log");
 
 #if defined(WIN32)
@@ -49,10 +51,8 @@ std::string LogPath()
 
 void DoInitLogging(const char *argv0)
 {
-    const std::chrono::minutes keep{7 * 24 * 60};
-
     google::SetLogFilenameExtension(".log");
-    google::EnableLogCleaner(keep);
+    google::EnableLogCleaner(std::chrono::days(7));
     google::InstallFailureSignalHandler();
     google::InstallFailureWriter(FailureWriter);
 
@@ -63,7 +63,7 @@ void DoInitLogging(const char *argv0)
     fLU::FLAGS_max_log_size = 10;
     fLB::FLAGS_stop_logging_if_full_disk = true;
     fLB::FLAGS_colorlogtostderr = true;
-#if 0
+#if !defined(WXT_RELEASE)
     fLB::FLAGS_alsologtostderr = true;
 #endif
     google::InitGoogleLogging(argv0);
