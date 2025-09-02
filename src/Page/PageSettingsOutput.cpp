@@ -88,7 +88,6 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     sizer->Add(formatText, wxGBPosition(0, 0), wxGBSpan(1, 1), wxALIGN_CENTER_VERTICAL | wxALL, 0);
     sizer->Add(m_textFormatComboBox, wxGBPosition(0, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
     sizer->Add(optionsSizer, wxGBPosition(1, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
-    //sizer->Add(showModeSizer, wxGBPosition(2, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
     sizer->Add(m_filterTextCtrl, wxGBPosition(2, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
     sizer->Add(buttonsSizer, wxGBPosition(3, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
     sizer->AddGrowableCol(1);
