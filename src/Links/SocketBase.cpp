@@ -9,6 +9,8 @@
 #include "SocketBase.h"
 #include "SocketBase_p.h"
 
+#include "Common/wxTools.h"
+
 SocketBase::SocketBase(SocketBasePrivate *d)
     : Link(d)
 {}
@@ -19,23 +21,10 @@ void SocketBase::DoLoad(const wxtJson &parameters)
 {
     auto *d = GetD<SocketBasePrivate *>();
     SocketBaseParameterKeys keys;
-    if (parameters.contains(keys.serverAddress)) {
-        d->serverAddress = parameters[keys.serverAddress].get<std::string>();
-    } else {
-        d->serverAddress = "127.0.0.1";
-    }
 
-    if (parameters.contains(keys.serverPort)) {
-        d->serverPort = parameters[keys.serverPort].get<int>();
-    } else {
-        d->serverPort = 51234;
-    }
-
-    if (parameters.contains(keys.dataChannel)) {
-        d->dataChannel = parameters[keys.dataChannel].get<int>();
-    } else {
-        d->dataChannel = WEBSOCKET_OP_TEXT;
-    }
+    d->serverAddress = wxtGetJsonObjValue<std::string>(parameters, keys.serverAddress, "127.0.0.1");
+    d->serverPort = wxtGetJsonObjValue<int>(parameters, keys.serverPort, 51234);
+    d->dataChannel = wxtGetJsonObjValue<int>(parameters, keys.dataChannel, WEBSOCKET_OP_TEXT);
 }
 
 wxtJson SocketBase::DoSave()
