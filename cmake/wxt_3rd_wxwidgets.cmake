@@ -1,5 +1,11 @@
-﻿set(file_name "wxWidgets-3.3.1")
-set(file_url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.3.1/wxWidgets-3.3.1.zip")
+﻿set(wxWidgets_version
+    3.3.1
+    CACHE STRING "wxWidgets version")
+set(file_name "wxWidgets-${wxWidgets_version}")
+set(base_url "https://github.com/wxWidgets/wxWidgets/releases/download")
+set(file_url "${base_url}/v${wxWidgets_version}/wxWidgets-${wxWidgets_version}.zip")
+# https://github.com/wxWidgets/wxWidgets/releases/download/v3.3.1/wxWidgets-3.3.1.zip
+
 wxt_download_zip_file(${file_url} ${file_name})
 if(NOT EXISTS ${WXT_3RD_DIR}/${file_name})
   make_directory(${WXT_3RD_DIR}/${file_name})
