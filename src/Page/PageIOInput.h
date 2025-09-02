@@ -16,6 +16,12 @@ class LineEdit;
 class PageIOInput : public wxStaticBoxSizer
 {
 public:
+    struct Parameters
+    {
+        const std::string inputText{"inputText"};
+    };
+
+public:
     PageIOInput(wxWindow *parent);
 
     void Load(const wxtJson &parameters);
@@ -24,7 +30,9 @@ public:
     void SetInputText(const wxString &text);
     wxString GetInputText() const;
     void SetTextFormat(TextFormat format);
+    wxString GetLoadedText() const;
 
 private:
     LineEdit *m_lineEdit;
+    wxString m_loadedText;
 };

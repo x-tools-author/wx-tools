@@ -17,6 +17,12 @@ class PageIOInput;
 class PageIOOutput;
 class PageIO : public wxPanel
 {
+    struct Parameters
+    {
+        const std::string input = {"input"};
+        const std::string output = {"output"};
+    };
+
 public:
     PageIO(Page *parent);
 

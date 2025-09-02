@@ -17,11 +17,30 @@ PageIOInput::PageIOInput(wxWindow *parent)
     Add(m_lineEdit, 1, wxEXPAND | wxALL, 0);
 }
 
-void PageIOInput::Load(const wxtJson &parameters) {}
+void PageIOInput::Load(const wxtJson &parameters)
+{
+    if (parameters.is_null() || !parameters.is_object()) {
+        return;
+    }
+
+    Parameters keys;
+    m_loadedText = wxString("");
+    if (parameters.contains(keys.inputText)) {
+        wxString txt = parameters[keys.inputText].get<std::wstring>();
+        m_loadedText = txt;
+        m_lineEdit->SetValue(txt);
+    }
+}
 
 wxtJson PageIOInput::DoSave() const
 {
     wxtJson parameters{wxtJson::object()};
+    Parameters keys;
+    wxString txt = m_lineEdit->GetValue();
+    if (!txt.IsEmpty()) {
+        parameters[keys.inputText] = txt.ToStdWstring();
+    }
+
     return parameters;
 }
 
@@ -43,4 +62,9 @@ wxString PageIOInput::GetInputText() const
 void PageIOInput::SetTextFormat(TextFormat format)
 {
     m_lineEdit->SetTextFormat(format);
+}
+
+wxString PageIOInput::GetLoadedText() const
+{
+    return m_loadedText;
 }

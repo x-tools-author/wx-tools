@@ -39,10 +39,19 @@ PageIOOutput *PageIO::GetOutput() const
 
 wxtJson PageIO::DoSave() const
 {
-    return wxtJson::object();
+    wxtJson parameters = wxtJson::object();
+    Parameters keys;
+    parameters[keys.input] = m_input->DoSave();
+    return parameters;
 }
 
 void PageIO::DoLoad(const wxtJson &parameters)
 {
-    wxUnusedVar(parameters);
+    if (parameters.is_null() || !parameters.is_object()) {
+        return;
+    }
+
+    Parameters keys;
+    auto tmp = wxtGetJsonObjValue<wxtJson>(parameters, keys.input, wxtJson::object());
+    m_input->Load(tmp);
 }

@@ -77,6 +77,9 @@ void Page::DoLoad(const wxtJson &json)
     bool wrap = m_pageSettings->GetOutputSettings()->GetWrap();
     m_pageIO->GetInput()->SetTextFormat(static_cast<TextFormat>(format));
     m_pageIO->GetOutput()->SetWrap(wrap);
+
+    wxString tmp = m_pageIO->GetInput()->GetLoadedText();
+    m_pageIO->GetInput()->SetInputText(tmp);
 }
 
 wxtJson Page::DoSave() const
