@@ -93,6 +93,11 @@ std::vector<CRCType> GetSuportedCrcTypes()
         types.push_back(CRCType::CRC_16_DNP);
         types.push_back(CRCType::CRC_32);
         types.push_back(CRCType::CRC_32_MPEG2);
+
+        types.push_back(CRCType::Sum8);
+        types.push_back(CRCType::Sum16);
+        types.push_back(CRCType::Sum32);
+        types.push_back(CRCType::Sum64);
     }
 
     return types;
@@ -117,6 +122,11 @@ wxString GetCrcName(CRCType type)
         typeMap[CRCType::CRC_16_DNP] = "CRC-16/DNP";
         typeMap[CRCType::CRC_32] = "CRC-32";
         typeMap[CRCType::CRC_32_MPEG2] = "CRC-32/MPEG2";
+
+        typeMap[CRCType::Sum8] = "SUM-8";
+        typeMap[CRCType::Sum16] = "SUM-16";
+        typeMap[CRCType::Sum32] = "SUM-32";
+        typeMap[CRCType::Sum64] = "SUM-64";
     }
 
     if (typeMap.find(type) == typeMap.end()) {
@@ -158,6 +168,8 @@ uint32_t GetCRCPoly(CRCType CRCType)
     case CRCType::CRC_32_MPEG2:
         poly = 0x04c11db7;
         break;
+    default:
+        break;
     }
 
     return poly;
@@ -195,6 +207,8 @@ uint32_t GetXorValue(CRCType CRCType)
     case CRCType::CRC_32_MPEG2:
         value = 0x00000000;
         break;
+    default:
+        break;
     }
 
     return value;
@@ -230,6 +244,8 @@ uint32_t GetCRCInitialValue(CRCType CRCType)
     case CRCType::CRC_32_MPEG2:
         init = 0xffffffff;
         break;
+    default:
+        break;
     }
 
     return init;
@@ -258,6 +274,8 @@ bool GetCRCIsInputReversal(CRCType CRCType)
     case CRCType::CRC_16_DNP:
     case CRCType::CRC_32:
         reversal = true;
+        break;
+    default:
         break;
     }
 
@@ -288,6 +306,8 @@ bool GetCRCIsOutputReversal(CRCType CRCType)
     case CRCType::CRC_32:
         reversal = true;
         break;
+    default:
+        break;
     }
 
     return reversal;
@@ -317,6 +337,8 @@ int GetCRCBitsWidth(CRCType CRCType)
     case CRCType::CRC_32:
     case CRCType::CRC_32_MPEG2:
         ret = 32;
+        break;
+    default:
         break;
     }
     return ret;
@@ -351,6 +373,8 @@ std::string GetCRCFriendlyPoly(CRCType CRCType)
     case CRCType::CRC_32:
     case CRCType::CRC_32_MPEG2:
         fp = std::string("x32+x6+x3+x2+x6+x2+x1+x0+x8+x7+x5+x4+x2+x+1");
+        break;
+    default:
         break;
     }
 
@@ -403,6 +427,28 @@ T crcCalculate(const uint8_t *input, uint64_t length, CRCType algorithm)
     return crc;
 }
 
+template<typename T>
+std::vector<char> calculateSum(std::shared_ptr<char> bytes, int len, bool isBigEngian)
+{
+    T sum = 0;
+    auto *ptr = reinterpret_cast<const uint8_t *>(bytes.get());
+    for (int i = 0; i < len; i++) {
+        sum += ptr[i];
+    }
+
+    if (isBigEngian) {
+        sum = DoReverseByteOrder<T>(sum);
+    }
+
+    std::vector<char> retBytes;
+    char *ch = reinterpret_cast<char *>(&sum);
+    for (size_t i = 0; i < sizeof(T); i++) {
+        retBytes.push_back(ch[i]);
+    }
+
+    return retBytes;
+}
+
 std::vector<char> DoCalculateCRC(std::shared_ptr<char> bytes,
                                  int len,
                                  int algorithm,
@@ -410,6 +456,23 @@ std::vector<char> DoCalculateCRC(std::shared_ptr<char> bytes,
                                  int endIndex,   // from right to left
                                  bool bigEndian)
 {
+    bool isSum = false;
+    isSum |= (algorithm == static_cast<int>(CRCType::Sum8));
+    isSum |= (algorithm == static_cast<int>(CRCType::Sum16));
+    isSum |= (algorithm == static_cast<int>(CRCType::Sum32));
+    isSum |= (algorithm == static_cast<int>(CRCType::Sum64));
+    if (isSum) {
+        if (algorithm == static_cast<int>(CRCType::Sum8)) {
+            return calculateSum<uint8_t>(bytes, len, bigEndian);
+        } else if (algorithm == static_cast<int>(CRCType::Sum16)) {
+            return calculateSum<uint16_t>(bytes, len, bigEndian);
+        } else if (algorithm == static_cast<int>(CRCType::Sum32)) {
+            return calculateSum<uint32_t>(bytes, len, bigEndian);
+        } else if (algorithm == static_cast<int>(CRCType::Sum64)) {
+            return calculateSum<uint64_t>(bytes, len, bigEndian);
+        }
+    }
+
     if (len <= 0) {
         return std::vector<char>();
     }
@@ -436,7 +499,7 @@ std::vector<char> DoCalculateCRC(std::shared_ptr<char> bytes,
         retBytes.push_back(char(ret));
     } else if (bw == 16) {
         uint16_t ret = crcCalculate<uint16_t>(ptr, len, cookedAlgorithm);
-        if (!bigEndian) {
+        if (bigEndian) {
             ret = DoReverseByteOrder<uint16_t>(ret);
         }
 
@@ -445,7 +508,7 @@ std::vector<char> DoCalculateCRC(std::shared_ptr<char> bytes,
         retBytes.push_back(ch[1]);
     } else if (bw == 32) {
         uint32_t ret = crcCalculate<uint32_t>(ptr, len, cookedAlgorithm);
-        if (!bigEndian) {
+        if (bigEndian) {
             ret = DoReverseByteOrder<uint32_t>(ret);
         }
 

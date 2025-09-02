@@ -463,29 +463,27 @@ void MainWindow::DoSave(wxString fileName)
 
 void MainWindow::DoLoad(wxString fileName)
 {
+#if 0
     if (fileName.IsEmpty()) {
         fileName = GetSettingsFileName();
     }
+#endif
 
-    if (!wxFileName::Exists(fileName)) {
-        wxtWarning() << "Settings file not found:" << fileName;
-        return;
+    wxtJson json;
+    if (wxFileName::Exists(fileName)) {
+        std::ifstream ifs(fileName.ToStdString());
+        ifs >> json;
     }
 
-    std::ifstream ifs(fileName.ToStdString());
-    wxtJson json;
-    ifs >> json;
-
     if (!json.is_object()) {
-        wxtWarning() << "Invalid JSON format in file:" << fileName;
-        return;
+        json = wxtJson::object();
     }
 
     for (auto it = m_pageMap.begin(); it != m_pageMap.end(); ++it) {
         Page* page = it->second;
         wxString name = GetPageParameterFileName(it->first);
         if (!json.contains(name.ToStdString())) {
-            wxtWarning() << "Missing JSON entry for page:" << name;
+            page->DoLoad(wxtJson::object());
             continue;
         }
 

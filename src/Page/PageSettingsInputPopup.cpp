@@ -75,14 +75,14 @@ PageSettingsInputPopup::PageSettingsInputPopup(wxButton *controlButton)
 void PageSettingsInputPopup::DoLoad(const wxtJson &json)
 {
     PageSettingsInputPopupParameterKeys keys;
-    int prefix = json[keys.prefix].get<int>();
-    int suffix = json[keys.suffix].get<int>();
-    int escIndex = json[keys.escIndex].get<int>();
-    int startIndex = json[keys.startIndex].get<int>();
-    int endIndex = json[keys.endIndex].get<int>();
-    int algorithm = json[keys.algorithm].get<int>();
-    bool addCrc = json[keys.addCrc].get<bool>();
-    bool bigEndian = json[keys.bigEndian].get<bool>();
+    int prefix = wxtGetJsonObjValue<int>(json, keys.prefix, static_cast<int>(AdditionType::None));
+    int suffix = wxtGetJsonObjValue<int>(json, keys.suffix, static_cast<int>(AdditionType::None));
+    int escIndex = wxtGetJsonObjValue<int>(json, keys.escIndex, static_cast<int>(EscapeType::None));
+    int startIndex = wxtGetJsonObjValue<int>(json, keys.startIndex, 0);
+    int endIndex = wxtGetJsonObjValue<int>(json, keys.endIndex, 0);
+    int algorithm = wxtGetJsonObjValue<int>(json, keys.algorithm, static_cast<int>(CRCType::CRC_8));
+    bool addCrc = wxtGetJsonObjValue<bool>(json, keys.addCrc, false);
+    bool bigEndian = wxtGetJsonObjValue<bool>(json, keys.bigEndian, true);
 
     SetComboBoxSectionByIntClientData(m_prefixComboBox, prefix);
     SetComboBoxSectionByIntClientData(m_suffixComboBox, suffix);

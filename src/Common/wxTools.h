@@ -75,7 +75,11 @@ enum class CRCType {
     CRC_16_XMODEM,
     CRC_16_DNP,
     CRC_32,
-    CRC_32_MPEG2
+    CRC_32_MPEG2,
+    Sum8 = 0x0f000000,
+    Sum16,
+    Sum32,
+    Sum64
 };
 std::vector<CRCType> GetSuportedCrcTypes();
 wxString GetCrcName(CRCType type);
