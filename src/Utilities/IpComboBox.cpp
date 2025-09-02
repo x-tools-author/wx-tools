@@ -24,6 +24,21 @@ void IpComboBox::DoRefresh()
     Clear();
     Append(wxString("127.0.0.1"));
 
+#if ASIO_VERSION > 103200 //1.32.0
+    asio::io_context io_context;
+    asio::ip::tcp::resolver resolver(io_context);
+    auto endpoints = resolver.resolve(asio::ip::host_name(), "");
+    for (const auto& ep : endpoints) {
+        auto addr = ep.endpoint().address();
+        if (addr.is_v4()) {
+            Append(addr.to_string());
+        } else if (addr.is_v6()) {
+#if defined(WXT_ENABLE_IPV6)
+            Append(addr.to_string());
+#endif
+        }
+    }
+#else
     asio::io_service ioService;
     asio::ip::tcp::resolver resolver(ioService);
     asio::ip::tcp::resolver::query query(asio::ip::host_name(), "");
@@ -39,6 +54,7 @@ void IpComboBox::DoRefresh()
 #endif
         }
     }
+#endif
 
     SetSelection(0);
 }
