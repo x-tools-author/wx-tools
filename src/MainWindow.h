@@ -32,6 +32,7 @@ private:
     void InitMenuOptionsThemes(wxMenu* optionMenu);
     void InitMenuOptionsShowOnTop(wxMenu* optionMenu);
     void InitMenuHelp(wxMenuBar* menuBar);
+    void InitMenuHelp3rdParty(wxMenu* menuHelp);
     void InitStatusBar();
 
     void OnOpen(wxCommandEvent&);

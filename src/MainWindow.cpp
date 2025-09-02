@@ -338,6 +338,8 @@ void MainWindow::InitMenuHelp(wxMenuBar* menuBar)
     static const wxString bugUrl{"https://github.com/x-tools-author/wx-tools/issues/new"};
     Bind(wxEVT_MENU, [](wxCommandEvent&) { wxLaunchDefaultBrowser(bugUrl); }, item->GetId());
 
+    InitMenuHelp3rdParty(menuHelp);
+
     menuHelp->AppendSeparator();
 
     // if history file not found, ignore this menu item
@@ -382,6 +384,36 @@ void MainWindow::InitMenuHelp(wxMenuBar* menuBar)
     static wxString storeHomeUrl{"https://apps.microsoft.com/search/publisher?name=x-tools-author"};
     Bind(wxEVT_MENU, [](wxCommandEvent&) { wxLaunchDefaultBrowser(storeHomeUrl); }, item->GetId());
 #endif
+}
+
+void MainWindow::InitMenuHelp3rdParty(wxMenu* menuHelp)
+{
+    wxMenu* thirdPartyMenu = new wxMenu;
+    menuHelp->Append(wxID_ANY, _("Third Party"), thirdPartyMenu);
+
+    struct ThirdPartyInfo
+    {
+        wxString name;
+        wxString url;
+    };
+    std::vector<ThirdPartyInfo> infos;
+    // clang-format off
+    infos.push_back(ThirdPartyInfo{wxString("asio"), "https://github.com/chriskohlhoff/asio"});
+    infos.push_back(ThirdPartyInfo{wxString("CSerialPort"), "https://github.com/itas109/CSerialPort"});
+    infos.push_back(ThirdPartyInfo{wxString("fmt"), "https://github.com/fmtlib/fmt"});
+    infos.push_back(ThirdPartyInfo{wxString("glog"), "https://github.com/google/glog"});
+    infos.push_back(ThirdPartyInfo{wxString("json"), "https://github.com/nlohmann/json"});
+    infos.push_back(ThirdPartyInfo{wxString("libiconv"), "https://www.gnu.org/software/libiconv/"});
+    infos.push_back(ThirdPartyInfo{wxString("mongoose"), "https://github.com/cesanta/mongoose"});
+    // clang-format on
+    for (auto it = infos.begin(); it != infos.end(); ++it) {
+        wxMenuItem* item = thirdPartyMenu->Append(wxID_ANY, it->name);
+        wxString url = it->url;
+        Bind(
+            wxEVT_MENU,
+            [=, this](wxCommandEvent& evt) { wxLaunchDefaultBrowser(url); },
+            item->GetId());
+    }
 }
 
 void MainWindow::InitStatusBar()
