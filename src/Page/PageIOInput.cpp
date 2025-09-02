@@ -25,6 +25,11 @@ wxtJson PageIOInput::DoSave() const
     return parameters;
 }
 
+void PageIOInput::SetInputText(const wxString &text)
+{
+    m_lineEdit->SetValue(text);
+}
+
 wxString PageIOInput::GetInputText() const
 {
     wxString txt = m_lineEdit->GetValue();

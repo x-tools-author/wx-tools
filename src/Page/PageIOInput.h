@@ -21,6 +21,7 @@ public:
     void Load(const wxtJson &parameters);
     wxtJson DoSave() const;
 
+    void SetInputText(const wxString &text);
     wxString GetInputText() const;
     void SetTextFormat(TextFormat format);
 
