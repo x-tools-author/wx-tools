@@ -2,8 +2,11 @@
 # For mongoose, the default value is 32, I think it is too small.
 add_compile_definitions(MG_DATA_SIZE=10240)
 
-set(file_name "mongoose-7.19")
-set(file_url "https://github.com/cesanta/mongoose/archive/refs/tags/7.19.zip")
+set(mongoose_version
+    7.19
+    CACHE STRING "mongoose version")
+set(file_name "mongoose-${mongoose_version}")
+set(file_url "https://github.com/cesanta/mongoose/archive/refs/tags/${mongoose_version}.zip")
 
 wxt_download_zip_file(${file_url} ${file_name})
 

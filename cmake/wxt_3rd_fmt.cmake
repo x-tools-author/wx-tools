@@ -1,5 +1,7 @@
 ﻿# https://github.com/fmtlib/fmt
-set(fmt_version "11.2.0")
+set(fmt_version
+    "11.2.0"
+    CACHE STRING "fmt version")
 set(file_name "fmt-${fmt_version}")
 set(base_url "https://github.com/fmtlib/fmt")
 set(file_url "${base_url}/releases/download/${fmt_version}/fmt-${fmt_version}.zip")

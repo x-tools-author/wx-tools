@@ -1,5 +1,7 @@
 # https://github.com/nlohmann/json
-set(json_version "3.12.0")
+set(json_version
+    "3.12.0"
+    CACHE STRING "nlohmann/json version")
 set(file_name "json-${json_version}")
 set(file_url "https://github.com/nlohmann/json/archive/refs/tags/v${json_version}.zip")
 
