@@ -463,7 +463,7 @@ void MainWindow::DoSave(wxString fileName)
 
 void MainWindow::DoLoad(wxString fileName)
 {
-#if 0
+#if 1
     if (fileName.IsEmpty()) {
         fileName = GetSettingsFileName();
     }
