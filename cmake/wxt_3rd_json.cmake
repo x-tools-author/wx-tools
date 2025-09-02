@@ -1,6 +1,7 @@
 # https://github.com/nlohmann/json
-set(file_name "json-3.11.3")
-set(file_url "https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.zip")
+set(json_version "3.12.0")
+set(file_name "json-${json_version}")
+set(file_url "https://github.com/nlohmann/json/archive/refs/tags/v${json_version}.zip")
 
 wxt_download_zip_file(${file_url} ${file_name})
 if(NOT EXISTS ${WXT_3RD_DIR}/${file_name})
