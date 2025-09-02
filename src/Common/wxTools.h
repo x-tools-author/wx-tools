@@ -20,14 +20,14 @@
 #define wxtOK 0
 #define wxtUnknown -2
 
-#define wxtNoneStr wxT("None")
-#define wxtOkStr wxT("Ok")
-#define wxtUnknownStr wxT("Unknown")
+#define wxtNoneStr _("None")
+#define wxtOkStr _("Ok")
+#define wxtUnknownStr _("Unknown")
 #define wxtPathSeparator wxFileName::GetPathSeparator()
 #define wxtDataDir wxStandardPaths::Get().GetDataDir()
 
 //--------------------------------------------------------------------------------------------------
-// Datastructure
+// Data structure
 struct wxtDataItem
 {
     std::shared_ptr<char> data;
