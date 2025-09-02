@@ -1,4 +1,5 @@
-﻿# * https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.18.tar.gz
+﻿# * https://www.gnu.org/software/libiconv/
+# * https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.18.tar.gz
 # * https://github.com/kiyolee/libiconv-win-build/archive/refs/tags/v1.17-p1.zip
 # * https://codeload.github.com/kiyolee/libiconv-win-build/zip/refs/tags/v1.17-p1
 # * devenv libiconv.sln /Build

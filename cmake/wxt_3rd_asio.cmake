@@ -1,4 +1,5 @@
-﻿set(file_name "asio-1.30.2")
+﻿# https://github.com/chriskohlhoff/asio
+set(file_name "asio-1.30.2")
 set(file_url "https://codeload.github.com/chriskohlhoff/asio/zip/refs/tags/asio-1-30-2")
 
 wxt_download_zip_file(${file_url} ${file_name})

@@ -34,10 +34,16 @@ function(wxt_generate_mo target wxLocalDir)
     TARGET ${target}
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} ${args} -P ${mo_script_file})
-  add_custom_target(${target}-mo COMMAND ${CMAKE_COMMAND} ${args} -P ${mo_script_file})
+  add_custom_target(
+    ${target}-mo
+    COMMAND ${CMAKE_COMMAND} ${args} -P ${mo_script_file}
+    SOURCES ${mo_script_file})
 endfunction()
 
 function(wxt_generate_po target in_dir out_dir)
   set(args -DargInputDir=${in_dir} -DargOutputDir=${out_dir} -DargXgettext=${xgettext})
-  add_custom_target(${target}-po COMMAND ${CMAKE_COMMAND} ${args} -P ${po_script_file})
+  add_custom_target(
+    ${target}-po
+    COMMAND ${CMAKE_COMMAND} ${args} -P ${po_script_file}
+    SOURCES ${po_script_file})
 endfunction()
