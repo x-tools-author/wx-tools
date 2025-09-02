@@ -36,7 +36,7 @@ public:
     }
 
 protected:
-    void *Entry() final;
+    void *Entry() override;
 
 protected:
     LinkPrivate *d;
