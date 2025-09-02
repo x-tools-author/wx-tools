@@ -197,7 +197,12 @@ void Page::OnLinkResolve(wxThreadEvent &e)
         auto textCtrl = clientUi->GetClientInfoTextCtrl();
         wxString ip = e.GetString();
         int port = e.GetInt();
+#if 0
+        // App will crash sometimes....
         textCtrl->SetLabelText(DoEncodeFlag(ip.ToStdString(), port));
+#else
+        textCtrl->SetValue(DoEncodeFlag(ip.ToStdString(), port));
+#endif
     }
 }
 
