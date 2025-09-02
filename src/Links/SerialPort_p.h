@@ -57,7 +57,7 @@ public:
 public:
     void ReadBytes(itas109::CSerialPort *sp)
     {
-        char data[wxtDataSize] = {0};
+        char data[10240] = {0};
         int len = sp->readAllData(&data);
         if (len > 0) {
             std::shared_ptr<char> bytes(new char[len], std::default_delete<char[]>());

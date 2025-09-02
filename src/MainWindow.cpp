@@ -27,6 +27,12 @@ BEGIN_EVENT_TABLE(MainWindow, wxFrame)
 // Nothing to do yet
 END_EVENT_TABLE()
 
+const int wxtNewID()
+{
+    static int wxtId = wxID_HIGHEST + 10000;
+    return wxtId++;
+}
+
 MainWindow::MainWindow()
     : wxFrame(nullptr, wxID_ANY, fmt::format("wxTools v{}", std::string(WXT_GIT_TAG)))
     , m_statusBar(nullptr)

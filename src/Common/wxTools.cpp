@@ -23,12 +23,6 @@
 #include "iconv.h"
 #endif
 
-const int wxtNewID()
-{
-    static int wxtId = wxID_HIGHEST + 10000;
-    return wxtId++;
-}
-
 void FailureWriter(const char *data, size_t size)
 {
     // Remove the settings file
