@@ -59,8 +59,8 @@ MainWindow::MainWindow()
     wxtInfo() << "GetUserLocalDataDir():" << wxStandardPaths::Get().GetUserLocalDataDir();
     wxtInfo() << "GetPluginsDir():" << wxStandardPaths::Get().GetPluginsDir();
     wxtInfo() << "MakeConfigFileName():" << wxStandardPaths::Get().MakeConfigFileName("wxTools");
-    wxtInfo() << "GetGlobalFileName():" << wxFileConfig::GetGlobalFileName("wxTools");
-    wxtInfo() << "GetLocalFileName():" << wxFileConfig::GetLocalFileName("wxTools");
+    wxtInfo() << "wxFileConfig::GetGlobalFileName():" << wxFileConfig::GetGlobalFileName("wxTools");
+    wxtInfo() << "wxFileConfig::GetLocalFileName():" << wxFileConfig::GetLocalFileName("wxTools");
 #if !defined(__APPLE__)
     wxtInfo() << "wxGetCwd():" << wxGetCwd();
 #endif
