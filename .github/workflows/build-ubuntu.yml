@@ -18,7 +18,7 @@ env:
 
 jobs:
   build-docker:
-    name: Build
+    name: Build width Docker
     runs-on: ubuntu-22.04
     steps:
       - name: checkout
@@ -39,8 +39,8 @@ jobs:
           find . -name "*.AppImage" -type f | while read file; do
             echo "find appimage file: $file"
           done
-  build-ubuntu:
-    name: Build for Ubuntu
+  build-system:
+    name: Build with System
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -50,7 +50,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build for linux
         run: |
-          chmod +x ./scripts/install-dependencies.sh
-          sudo ./scripts/install-dependencies.sh
+          apt-get update -y
+          apt-get install -y automake build-essential coreutils fuse git grep kmod libdbus* libegl1-mesa-dev libfontconfig1-dev libfreetype-dev libfreetype6-dev libglib2.0-dev libglu1-mesa-dev libgtk-3-dev libicu-dev libopengl-dev libtool libudev-dev libxcb-cursor-dev libxcb-xinerama0 libxkb* make mesa-common-dev ninja-build p7zip-full pkg-config software-properties-common tree unzip xvfb
           chmod +x ./scripts/ci-build-ubuntu-20.04.sh
           ./scripts/ci-build-ubuntu-20.04.sh"
