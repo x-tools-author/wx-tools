@@ -692,11 +692,8 @@ std::string DoDecodeBytesWithIconv(const std::shared_ptr<char> &bytes, int &len,
 
 std::string DoDecodeBytes(const std::shared_ptr<char> &bytes, int &len, int format)
 {
-    bool isIconvEnabled = format == static_cast<int>(TextFormat::GB2312)
-                          || format == static_cast<int>(TextFormat::CSGB2312)
-                          || format == static_cast<int>(TextFormat::GBK)
-                          || format == static_cast<int>(TextFormat::GB18030);
-    if (isIconvEnabled) {
+    wxString str = GetTextFormatName(static_cast<TextFormat>(format));
+    if (isSupportedIconvEncodings(str.ToStdString())) {
         return DoDecodeBytesWithIconv(bytes, len, format);
     }
 
@@ -740,11 +737,8 @@ std::shared_ptr<char> DoEncodeBytesWithIconv(const std::string &text, int &len, 
 std::shared_ptr<char> DoEncodeBytes(const std::string &text, int &len, int format)
 {
 #if defined(WXT_ENABLE_ICONV)
-    bool isIconvEnabled = format == static_cast<int>(TextFormat::GB2312)
-                          || format == static_cast<int>(TextFormat::CSGB2312)
-                          || format == static_cast<int>(TextFormat::GBK)
-                          || format == static_cast<int>(TextFormat::GB18030);
-    if (isIconvEnabled) {
+    wxString str = GetTextFormatName(static_cast<TextFormat>(format));
+    if (isSupportedIconvEncodings(str.ToStdString())) {
         return DoEncodeBytesWithIconv(text, len, format);
     }
 #endif
@@ -906,6 +900,43 @@ std::string GetHexString(uint8_t value)
            "FF"};
 
     return list[value];
+}
+
+int printEncoding(unsigned int namescount, const char *const *names, void *data)
+{
+    for (unsigned int i = 0; i < namescount; ++i) {
+        wxtInfo() << names[i];
+    }
+
+    return 0;
+}
+
+void printSupportedIconvEncodings()
+{
+#ifdef WXT_ENABLE_ICONV
+    iconvlist(printEncoding, nullptr);
+#else
+    wxtWarning() << "Iconv is not enabled in this build.";
+#endif
+}
+
+bool isSupportedIconvEncodings(const std::string &name)
+{
+    static std::vector<std::string> encodings;
+    if (encodings.empty()) {
+        // Get the list of supported iconv encodings
+        iconvlist(
+            [](unsigned int count, const char *const *names, void *) {
+                for (unsigned int i = 0; i < count; ++i) {
+                    encodings.push_back(names[i]);
+                }
+
+                return 0;
+            },
+            nullptr);
+    }
+
+    return std::find(encodings.begin(), encodings.end(), name) != encodings.end();
 }
 
 std::vector<LinkType> GetSuportedLinkTypes()

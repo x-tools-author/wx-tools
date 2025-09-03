@@ -118,6 +118,8 @@ std::string GetBinString(uint8_t value);
 std::string GetOctString(uint8_t value);
 std::string GetDecString(uint8_t value);
 std::string GetHexString(uint8_t value);
+void printSupportedIconvEncodings();
+bool isSupportedIconvEncodings(const std::string &name);
 
 //--------------------------------------------------------------------------------------------------
 // Link type
