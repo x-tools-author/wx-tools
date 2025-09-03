@@ -428,7 +428,7 @@ T crcCalculate(const uint8_t *input, uint64_t length, CRCType algorithm)
 }
 
 template<typename T>
-std::vector<char> calculateSum(std::shared_ptr<char> bytes, int len, bool isBigEngian)
+std::vector<char> calculateSum(std::shared_ptr<char> bytes, int len, bool isBigEndian)
 {
     T sum = 0;
     auto *ptr = reinterpret_cast<const uint8_t *>(bytes.get());
@@ -436,7 +436,7 @@ std::vector<char> calculateSum(std::shared_ptr<char> bytes, int len, bool isBigE
         sum += ptr[i];
     }
 
-    if (isBigEngian) {
+    if (isBigEndian) {
         sum = DoReverseByteOrder<T>(sum);
     }
 
