@@ -163,10 +163,7 @@ std::pair<std::string, uint16_t> DoDecodeFlag(const std::string &flag);
 template<typename T>
 T DoReverseByteOrder(T value)
 {
-    T result = 0;
-    for (size_t i = 0; i < sizeof(value); i++) {
-        result = (result << 8) | (value & 0xff);
-        value >>= 8;
-    }
-    return result;
+    uint8_t *bytePtr = reinterpret_cast<uint8_t *>(&value);
+    std::reverse(bytePtr, bytePtr + sizeof(value));
+    return value;
 }
