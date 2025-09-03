@@ -9,11 +9,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: Build for linux
+      - name: echo something
         run: |
           echo "This is a test build job."
       - name: Test custom actions
-        uses: ./.github/actions/wxt-checker-commit
+        uses: ./.github/actions/commit-checker
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Echo checking result
