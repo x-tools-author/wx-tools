@@ -5,6 +5,9 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    outputs:
+      commits_found: ${{ steps.recent.outputs.commits_found }}
+      commits_count: ${{ steps.recent.outputs.commits_count }}
     steps:
       - uses: actions/checkout@v4
         with:
