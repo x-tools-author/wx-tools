@@ -46,11 +46,13 @@ jobs:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04]
     steps:
-      - name: checkout
+      - name: checkout...
         uses: actions/checkout@v4
-      - name: Build for linux
+      - name: installing...
         run: |
           sudo apt-get update -y
           sudo apt-get install -y automake build-essential coreutils fuse grep kmod libdbus* libegl1-mesa-dev libfontconfig1-dev libfreetype-dev libfreetype6-dev libglib2.0-dev libglu1-mesa-dev libgtk-3-dev libicu-dev libopengl-dev libtool libudev-dev libxcb-cursor-dev libxcb-xinerama0 libxkb* make mesa-common-dev ninja-build p7zip-full pkg-config software-properties-common tree unzip xvfb
+      - name: building...
+        run: |
           chmod +x ./scripts/ci-build-ubuntu-20.04.sh
           ./scripts/ci-build-ubuntu-20.04.sh"
