@@ -3,6 +3,10 @@ on:
   workflow_dispatch: # Enables manually
   schedule:
     - cron: '0 0 * * *'
+  pull_request:
+    branches:
+      - master
+    types: [opened, synchronize, reopened]
 # on:
 #  push:
 #    branches:
@@ -13,7 +17,7 @@ env:
   DOCKER_IMAGE: ghcr.io/x-tools-author/wx-tools-ubuntu-20.04:x86_64
 
 jobs:
-  build:
+  build-docker:
     name: Build
     runs-on: ubuntu-22.04
     steps:
@@ -35,3 +39,18 @@ jobs:
           find . -name "*.AppImage" -type f | while read file; do
             echo "find appimage file: $file"
           done
+  build-ubuntu:
+    name: Build for Ubuntu
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Build for linux
+        run: |
+          chmod +x ./scripts/install-dependencies.sh
+          ./scripts/install-dependencies.sh
+          chmod +x ./scripts/ci-build-ubuntu-20.04.sh
+          ./scripts/ci-build-ubuntu-20.04.sh"

@@ -3,6 +3,10 @@ on:
   workflow_dispatch: # Enables manually
   schedule:
     - cron: '0 0 * * *'
+  pull_request:
+    branches:
+      - master
+    types: [opened, synchronize, reopened]
 # on:
 #  push:
 #    branches:
