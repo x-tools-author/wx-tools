@@ -23,14 +23,14 @@ jobs:
   test-found:
     runs-on: ubuntu-latest
     needs: check
-    if: ${{ needs.check.outputs.commits_found }}
+    if: ${{ needs.check.outputs.commits_found == 'true' }}
     steps:
       - name: Recent Commits Found
         run: echo "There are recent commits, proceeding with tests."
   test-not-found:
     runs-on: ubuntu-latest
     needs: check
-    if: ${{ needs.check.outputs.commits_found }}
+    if: ${{ needs.check.outputs.commits_found == 'false' }}
     steps:
       - name: No Recent Commits Found
         run: echo "No recent commits found, skipping tests."
