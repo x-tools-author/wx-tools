@@ -1,25 +1,19 @@
 ﻿name: build-test
 on:
-  workflow_dispatch: # Enables manually
+  workflow_dispatch:
 
 jobs:
-  build-docker:
-    name: Run testing
+  check:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-      - name: echo something
-        run: |
-          echo "This is a test build job."
-      - name: Test custom actions
-        uses: ./.github/actions/commit-checker
+      - uses: actions/checkout@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Echo checking result
+          fetch-depth: 0
+      - uses: ./.github/actions/commit-checker
+        id: recent
+        with:
+          since_hours: 24
+      - name: Use output
         run: |
-          if [ "${{ steps.Test_custom_actions.outputs.commits_found }}" = "true" ]; then
-            echo "There have been commits in the last 24 hours."
-          else
-            echo "No commits in the last 24 hours."
-          fi
+          echo "Found? ${{ steps.recent.outputs.commits_found }}"
+          echo "Count:  ${{ steps.recent.outputs.commits_count }}"

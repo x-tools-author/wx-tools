@@ -1,24 +1,43 @@
 ﻿name: Check Recent Commits
-description: This action checks if there have been any commits in the last 24 hours.
+description: Check whether there are commits within the past N hours.
+inputs:
+  since_hours:
+    description: Hours to look back for commits
+    required: false
+    default: "24"
+
+outputs:
+  commits_found:
+    description: "true if commits exist in the given time window"
+    value: ${{ steps.check_commits.outputs.commits_found }}
+  commits_count:
+    description: "Number of commits in the given time window"
+    value: ${{ steps.check_commits.outputs.commits_count }}
 
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Check for recent commits
       id: check_commits
+      shell: bash
       run: |
-        RECENT_COMMITS=$(git log --since="24 hours ago" --pretty=format:"%h - %s" | wc -l)
+        HOURS="${{ inputs.since_hours }}"
+        echo "Looking back last $HOURS hours"
+        # Ensure git log works even if shallow clone (user must set fetch-depth: 0 in workflow)
+        RECENT_COMMITS=$(git log --since="$HOURS hours ago" --pretty=format:"%h - %s" | wc -l | tr -d ' ')
         echo "Recent commits count: $RECENT_COMMITS"
         if [ "$RECENT_COMMITS" -gt 0 ]; then
-          echo "commits_found=true" >> $GITHUB_OUTPUT
+          echo "commits_found=true" >> "$GITHUB_OUTPUT"
         else
-          echo "commits_found=false" >> $GITHUB_OUTPUT
+          echo "commits_found=false" >> "$GITHUB_OUTPUT"
         fi
+        echo "commits_count=$RECENT_COMMITS" >> "$GITHUB_OUTPUT"
 
     - name: Output result
+      shell: bash
       run: |
         if [ "${{ steps.check_commits.outputs.commits_found }}" = "true" ]; then
-          echo "There have been commits in the last 24 hours."
+          echo "There have been ${{ steps.check_commits.outputs.commits_count }} commits in the last ${{ inputs.since_hours }} hours."
         else
-          echo "No commits in the last 24 hours."
+          echo "No commits in the last ${{ inputs.since_hours }} hours."
         fi
