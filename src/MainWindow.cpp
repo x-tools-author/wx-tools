@@ -348,7 +348,11 @@ void MainWindow::InitMenuHelp(wxMenuBar* menuBar)
 
     // if history file not found, ignore this menu item
     wxString historyFileName = GetHistoryFileName();
+#if defined(__WINDOWS__)
+    {
+#else
     if (wxFileExists(historyFileName)) {
+#endif
         tmpId = wxtNewID();
         menuHelp->Append(tmpId, _("History"), _("Show the history of the application."));
         Bind(wxEVT_MENU, &MainWindow::DoShowHistory, this, tmpId);
@@ -510,12 +514,18 @@ void MainWindow::DoCheckForUpdates(wxCommandEvent&)
 
 void MainWindow::DoShowHistory(wxCommandEvent&)
 {
+#if defined(__WINDOWS__)
+    int len = 0;
+    char* txt = wxLoadUserResource(wxString("HISTORY_TXT"), wxT("TEXT"), &len);
+    wxString historyText = wxString::FromUTF8(txt, len);
+    delete[] txt;
+#else
     wxString path = GetHistoryFileName();
     if (!wxFileExists(path)) {
         wxMessageBox(_("History file not found!"), _("Error"), wxOK | wxICON_ERROR);
         return;
     }
-
+#endif
     wxDialog dlg(this, wxID_ANY, _("wxTools Release History"), wxDefaultPosition, wxSize(600, 400));
     dlg.SetIcon(wxArtProvider::GetIcon(wxART_INFORMATION, wxART_OTHER, wxSize(64, 64)));
     wxTextCtrl* textCtrl = new wxTextCtrl(&dlg,
@@ -524,7 +534,11 @@ void MainWindow::DoShowHistory(wxCommandEvent&)
                                           wxDefaultPosition,
                                           wxDefaultSize,
                                           wxTE_MULTILINE | wxTE_DONTWRAP | wxTE_READONLY);
+#if defined(__WINDOWS__)
+    textCtrl->SetValue(historyText);
+#else
     textCtrl->LoadFile(path);
+#endif
     dlg.ShowModal();
 }
 

@@ -159,7 +159,7 @@ if(APPLE)
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files"
             "$<TARGET_FILE_DIR:wxTools>/../Resources/files")
-else()
+elseif(LINUX)
   add_custom_command(
     TARGET wxTools
     POST_BUILD

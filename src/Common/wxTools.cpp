@@ -23,6 +23,23 @@
 #include "iconv.h"
 #endif
 
+wxString wxtMsAppLocalDataPath()
+{
+    // The path is: C:\Users\<User>\AppData\Local\wxTools
+    wxString path = wxStandardPaths::Get().GetUserLocalDataDir();
+
+    // Remove "/wxTools" from path, now the path is: C:\Users\<User>\AppData\Local
+    path = path.BeforeLast(wxFileName::GetPathSeparator());
+
+    // Using Microsoft app path:
+    // C:\Users\<User>\AppData\Local\Packages\50263Qsaker2018.wxTools_83fbcck3baqe6\LocalState
+    const wxString appFlag = wxString("50263Qsaker2018.wxTools_83fbcck3baqe6");
+    path += wxString(wxFileName::GetPathSeparator()) + wxString("Packages");
+    path += wxString(wxFileName::GetPathSeparator()) + appFlag;
+
+    return path;
+}
+
 void FailureWriter(const char *data, size_t size)
 {
     // Remove the settings file
@@ -34,11 +51,19 @@ void FailureWriter(const char *data, size_t size)
 
 std::string LogPath()
 {
+#if defined(__WINDOWS__)
+#if defined(WXT_PORTABLE_EDITION)
     wxString path = GetSettingsPath();
     path += wxFileName::GetPathSeparator();
     path += wxString("..");
     path += wxFileName::GetPathSeparator();
     path += wxString("log");
+#else
+    wxString path = wxtMsAppLocalDataPath();
+    path += wxString(wxFileName::GetPathSeparator()) + wxString("LocalState");
+    path += wxString(wxFileName::GetPathSeparator()) + wxString("log");
+#endif
+#endif
 
 #if defined(WIN32)
     wxMkDir(path);
@@ -1133,11 +1158,24 @@ void SetComboBoxSectionByIntClientData(wxComboBox *comboBox, int clientDataValue
 
 wxString GetSettingsPath()
 {
-#if defined(WXT_PORTABLE_EDITION) && defined(WIN32)
+#if defined(__WINDOWS__)
+#if defined(WXT_PORTABLE_EDITION)
     wxString path = wxGetCwd() + wxFileName::GetPathSeparator() + wxString("conf");
 #else
+    wxString path = wxtMsAppLocalDataPath();
+    path += wxString(wxFileName::GetPathSeparator()) + wxString("Settings");
+    path += wxString(wxFileName::GetPathSeparator()) + wxString("conf");
+#endif
+#endif
+
+#if defined(__LINUX__)
     wxString path = wxStandardPaths::Get().GetUserDataDir();
 #endif
+
+#if defined(__APPLE__)
+    wxString path = wxStandardPaths::Get().GetUserDataDir();
+#endif
+
     // Make full dir...
     if (!wxDirExists(path)) {
 #if defined(WIN32)
