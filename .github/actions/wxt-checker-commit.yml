@@ -1,0 +1,24 @@
+﻿name: Check Recent Commits
+description: This action checks if there have been any commits in the last 24 hours.
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check for recent commits
+      id: check_commits
+      run: |
+        RECENT_COMMITS=$(git log --since="24 hours ago" --pretty=format:"%h - %s" | wc -l)
+        echo "Recent commits count: $RECENT_COMMITS"
+        if [ "$RECENT_COMMITS" -gt 0 ]; then
+          echo "commits_found=true" >> $GITHUB_OUTPUT
+        else
+          echo "commits_found=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Output result
+      run: |
+        if [ "${{ steps.check_commits.outputs.commits_found }}" = "true" ]; then
+          echo "There have been commits in the last 24 hours."
+        else
+          echo "No commits in the last 24 hours."
+        fi

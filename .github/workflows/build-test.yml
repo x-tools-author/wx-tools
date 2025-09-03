@@ -1,0 +1,25 @@
+﻿name: build-test
+on:
+  workflow_dispatch: # Enables manually
+
+jobs:
+  build-docker:
+    name: Build width Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Build for linux
+        run: |
+          echo "This is a test build job."
+      - name: Test custom actions
+        uses: ./.github/actions/wxt-checker-commit.yml
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Echo checking result
+        run: |
+          if [ "${{ steps.Test_custom_actions.outputs.commits_found }}" = "true" ]; then
+            echo "There have been commits in the last 24 hours."
+          else
+            echo "No commits in the last 24 hours."
+          fi
