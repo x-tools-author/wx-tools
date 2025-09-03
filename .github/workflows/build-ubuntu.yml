@@ -51,6 +51,6 @@ jobs:
       - name: Build for linux
         run: |
           chmod +x ./scripts/install-dependencies.sh
-          ./scripts/install-dependencies.sh
+          sudo ./scripts/install-dependencies.sh
           chmod +x ./scripts/ci-build-ubuntu-20.04.sh
           ./scripts/ci-build-ubuntu-20.04.sh"
