@@ -1,7 +1,7 @@
-﻿#!/bin/bash
+#!/bin/bash
 
-sudo apt-get update -y
-sudo apt-get install -y \
+apt-get update -y
+apt-get install -y \
     ninja-build \
     automake \
     libtool \
@@ -40,3 +40,5 @@ sudo apt-get install -y \
     libfreetype-dev\
     unzip \
     kmod
+
+exit 0
