@@ -17,3 +17,17 @@ jobs:
         run: |
           echo "Found? ${{ steps.recent.outputs.commits_found }}"
           echo "Count:  ${{ steps.recent.outputs.commits_count }}"
+  test-1:
+    runs-on: ubuntu-latest
+    needs: check
+    if: ${{ needs.check.outputs.commits_found == 'true' }}
+    steps:
+      - name: Recent Commits Found
+        run: echo "There are recent commits, proceeding with tests."
+  test-2:
+    runs-on: ubuntu-latest
+    needs: check
+    if: ${{ needs.check.outputs.commits_found == 'false' }}
+    steps:
+      - name: No Recent Commits Found
+        run: echo "No recent commits found, skipping tests."
