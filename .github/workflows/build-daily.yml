@@ -38,16 +38,6 @@ jobs:
         git push origin :refs/tags/continuous
         git tag continuous
         git push origin continuous -f
-  update-release:
-    runs-on: ubuntu-latest
-    needs: update-tag
-    if:  ${{ needs.update-tag.outputs.commits_found == 'true' }}
-    outputs:
-      commits_found: ${{ needs.update-tag.outputs.commits_found }}
-      commits_count: ${{ needs.update-tag.outputs.commits_found }}
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
     - name: Delete Release
       run: |
         gh release delete continuous -y || true
@@ -56,8 +46,8 @@ jobs:
         gh release create continuous --title "Continuous Build" --notes "Daily build of wxTools..."
   release-for-windows:
     runs-on: windows-2022
-    needs: update-release
-    if:  ${{ needs.update-release.outputs.commits_found == 'true' }}
+    needs: update-tag
+    if:  ${{ needs.update-tag.outputs.commits_found == 'true' }}
     strategy:
       matrix:
         arch: [x86, x64, x86_arm64]
@@ -80,8 +70,8 @@ jobs:
         for %%f in (build\assets\*.zip) do gh release upload continuous "%%f"
   release-for-linux:
     runs-on: ubuntu-22.04
-    needs: update-release
-    if:  ${{ needs.update-release.outputs.commits_found == 'true' }}
+    needs: update-tag
+    if:  ${{ needs.update-tag.outputs.commits_found == 'true' }}
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -104,8 +94,8 @@ jobs:
           done
   release-for-macos:
     runs-on: macos-13
-    needs: update-release
-    if:  ${{ needs.update-release.outputs.commits_found == 'true' }}
+    needs: update-tag
+    if:  ${{ needs.update-tag.outputs.commits_found == 'true' }}
     steps:
       - name: checkout
         uses: actions/checkout@v4
