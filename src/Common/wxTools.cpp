@@ -52,7 +52,7 @@ std::string LogPath()
 void DoInitLogging(const char *argv0)
 {
     google::SetLogFilenameExtension(".log");
-    google::EnableLogCleaner(std::chrono::days(7));
+    google::EnableLogCleaner(std::chrono::minutes(7 * 24 * 60));
     google::InstallFailureSignalHandler();
     google::InstallFailureWriter(FailureWriter);
 
