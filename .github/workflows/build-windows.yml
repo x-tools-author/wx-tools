@@ -14,9 +14,10 @@ on:
 jobs:
   build-msvc:
     name: Build MSVC
-    runs-on: windows-2022
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [windows-2022, windows-2025]
         arch: [x86, x64, x86_arm64]
     steps:
       - name: Pull code
