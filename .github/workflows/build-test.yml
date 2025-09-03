@@ -4,7 +4,7 @@ on:
 
 jobs:
   build-docker:
-    name: Build width Docker
+    name: Run testing
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -13,7 +13,7 @@ jobs:
         run: |
           echo "This is a test build job."
       - name: Test custom actions
-        uses: ./.github/actions/wxt-checker-commit.yml
+        uses: ./.github/actions/wxt-checker-commit
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Echo checking result
