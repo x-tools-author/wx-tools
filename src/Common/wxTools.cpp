@@ -51,18 +51,16 @@ void FailureWriter(const char *data, size_t size)
 
 std::string LogPath()
 {
-#if defined(__WINDOWS__)
-#if defined(WXT_PORTABLE_EDITION)
+#if defined(__WINDOWS__) && !defined(WXT_PORTABLE_EDITION)
+    wxString path = wxtMsAppLocalDataPath();
+    path += wxString(wxFileName::GetPathSeparator()) + wxString("LocalState");
+    path += wxString(wxFileName::GetPathSeparator()) + wxString("log");
+#else
     wxString path = GetSettingsPath();
     path += wxFileName::GetPathSeparator();
     path += wxString("..");
     path += wxFileName::GetPathSeparator();
     path += wxString("log");
-#else
-    wxString path = wxtMsAppLocalDataPath();
-    path += wxString(wxFileName::GetPathSeparator()) + wxString("LocalState");
-    path += wxString(wxFileName::GetPathSeparator()) + wxString("log");
-#endif
 #endif
 
 #if defined(WIN32)
