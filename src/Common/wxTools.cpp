@@ -922,6 +922,7 @@ void printSupportedIconvEncodings()
 
 bool isSupportedIconvEncodings(const std::string &name)
 {
+#if defined(WXT_ENABLE_ICONV)
     static std::vector<std::string> encodings;
     if (encodings.empty()) {
         // Get the list of supported iconv encodings
@@ -937,6 +938,9 @@ bool isSupportedIconvEncodings(const std::string &name)
     }
 
     return std::find(encodings.begin(), encodings.end(), name) != encodings.end();
+#else
+    return false;
+#endif
 }
 
 std::vector<LinkType> GetSuportedLinkTypes()
