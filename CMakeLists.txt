@@ -222,7 +222,7 @@ if(APPLE)
   set(WX_TOOLS_YYYY "${CURRENT_YEAR}" CACHE STRING "The current year")
   # cmake-format: on
 
-   if(CMAKE_GENERATOR STREQUAL "Xcode")
+  if(CMAKE_GENERATOR STREQUAL "Xcode")
     # * set(CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM
     # * set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_STYLE
     # * set(CMAKE_XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER
@@ -234,6 +234,7 @@ if(APPLE)
     # * set(CMAKE_XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION
     set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
         "${CMAKE_SOURCE_DIR}/res/apple/macos/wxTools.entitlements")
+  endif()
 
   configure_file(res/apple/macos/wxTools.plist.in ${CMAKE_BINARY_DIR}/wxTools.plist)
   set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_INFO_PLIST
