@@ -38,11 +38,7 @@ jobs:
         git push origin :refs/tags/continuous
         git tag continuous
         git push origin continuous -f
-    - name: Delete Release
-      run: |
         gh release delete continuous -y || true
-    - name: Create Release
-      run: |
         gh release create continuous --title "Continuous Build" --notes "Daily build of wxTools..."
   release-for-windows:
     runs-on: windows-2022
