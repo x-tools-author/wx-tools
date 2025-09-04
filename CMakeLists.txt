@@ -39,7 +39,7 @@ else()
     # * CACHE STRING "Build architectures for macOS" FORCE)
     # * set(WXT_TARGET_ARCH "arm64")
     set(WXT_TARGET_ARCH "64")
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "11.0")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0")
     set(MACOSX_BUNDLE_INFO_PLIST
         ${CMAKE_BINARY_DIR}/wxTools.plist
         CACHE STRING "The path to the Info.plist file")
