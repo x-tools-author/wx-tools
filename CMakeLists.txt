@@ -201,6 +201,15 @@ endif()
 # --------------------------------------------------------------------------------------------------
 # Do something for Apple
 if(APPLE)
+  set(args -DargMsgfmt=${msgfmt})
+  list(APPEND args -DargWxWidgetsLocalDir=${wxLocalDir})
+  list(APPEND args -DargInputDir=${CMAKE_SOURCE_DIR}/res/i18n)
+  list(APPEND args -DargOutputDir=$<TARGET_FILE_DIR:wxTools>/../Resources/i18n)
+  add_custom_command(
+    TARGET wxTools
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} ${args} -P ${mo_script_file})
+
   # Set the icon file for the macOS bundle
   set(MACOSX_BUNDLE_ICON_FILE wxTools.icns)
   set(wxTools_ICON wxTools.icns)
