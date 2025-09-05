@@ -34,11 +34,6 @@ jobs:
           find . -name "*.deb" -type f | while read file; do
             echo "find deb file: $file"
           done
-          echo "---------------------------------------------------------------------------------"
-          cd ${{ github.workspace }}/build
-          find . -name "*.AppImage" -type f | while read file; do
-            echo "find appimage file: $file"
-          done
   build-system:
     name: Build with System
     runs-on: ${{ matrix.os }}

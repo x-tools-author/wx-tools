@@ -11,5 +11,4 @@ else
 fi
 
 cmake --build . --target all --parallel 4
-cmake --build . --target wxTools-appimage
 cmake --build . --target wxTools-deb
