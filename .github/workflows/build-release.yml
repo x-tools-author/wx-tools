@@ -61,7 +61,3 @@ jobs:
           find . -name "*.deb" -type f | while read file; do
             gh release upload ${{ github.ref_name }} "$file"
           done
-          echo "---------------------------------------------------------------------------------"
-          find . -name "*.AppImage" -type f | while read file; do
-            gh release upload ${{ github.ref_name }} "$file"
-          done
