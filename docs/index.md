@@ -7,7 +7,7 @@ permalink: /
 ---
 
 {: .note }
-> xTools始于2018...
+> wxTools始于2024...
 
 *wxTools*是一款基于wxWidgets开发的开发调试工具集，支持串口，UDP客户端，UDP服务端，TCP客户端，TCP服务器，WebSocket客户端和WebSocket服务器数据收发调试。
 
