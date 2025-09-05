@@ -1,7 +1,7 @@
 ---
 title: 项目简介
 layout: home
-nav_order: 1
+nav_order: 0
 description: "wxTools项目简介。"
 permalink: /
 ---
@@ -13,8 +13,8 @@ permalink: /
 
 *wxTools*提供但不限于以下功能：
 
-* 支持数据发送与接受
-* 支持2进制，8进制，16进制, ASCII及UTF8等文本格式的输出入及输出
+* 支持数据发送与接收
+* 支持2进制，8进制，16进制, ASCII及UTF8等文本格式的输入与输出
 * 支持添加前缀，后缀：'\r', '\n', '\r\n'或'\n\r'
 * 支持输入文本转义：'\r', '\n', '\r\n，\n\r'等
 * 支持自动计算CRC，支持以下（但不限于）算法：
