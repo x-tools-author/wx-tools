@@ -194,7 +194,7 @@ endif()
 # Do something for Linux
 if(LINUX)
   include(cmake/Linux/Linux.cmake)
-  wxt_make_package(wxTools "wx-tools" "wxTools" ${WXT_VERSION})
+  wxt_make_deb_package(wxTools "wx-tools" "wxTools" ${WXT_VERSION})
 endif()
 
 # --------------------------------------------------------------------------------------------------

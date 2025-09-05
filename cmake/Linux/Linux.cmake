@@ -1,4 +1,4 @@
-function(wxt_make_package target packetName friendlyName version)
+function(wxt_make_deb_package target packetName friendlyName version)
   file(GLOB_RECURSE RES_FILES ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/app/*)
 
   # Remove 'v' and 'V' from version string
