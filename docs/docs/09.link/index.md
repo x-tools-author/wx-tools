@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: 链接参数配置
 nav_order: 9
 ---
 

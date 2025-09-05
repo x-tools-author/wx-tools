@@ -6,8 +6,10 @@ description: "wxTools项目简介。"
 permalink: /
 ---
 
-{: .note }
-> wxTools始于2024...
+{: .note-title }
+> wxTools
+>
+> 大道至简，实用为王，wxTools始于2024...
 
 `wxTools`是一款基于wxWidgets开发的多功能、开源、免费、跨平台、的开发调试工具集，支持串口，UDP客户端，UDP服务端，TCP客户端，TCP服务器，WebSocket客户端和WebSocket服务器数据收发调试。支持Windows（x86/x64/arm64），Linux(amd64)和MacOS(arm64)等操作系统。
 
@@ -15,7 +17,8 @@ permalink: /
 
 `wxTools`项目开源，代码托管在GitHub上，欢迎大家下载使用和反馈问题，也欢迎大家参与开发和贡献代码。项目具有一定的实用性和综合性，适合初学者学习和实践，也适合有经验的开发者使用和二次开发。许可协议（wxWindows Library Licence, Version 3.1）可查看项目根目录下的LICENSE文件。
 
-软件可以从GitHub发布页面和应用商店获得，但是软件商店版本需要付费购买，GitHub发布版本永久免费。从软件商店购买本软件是一种对开发者的支持，其功能与开源本版相同。
+{: .note }
+> 软件可以从GitHub发布页面和应用商店获得，但是软件商店版本需要付费购买，GitHub发布版本永久免费。从软件商店购买本软件是一种对开发者的支持，其功能与开源本版相同。
 
 软件功能包括：
 

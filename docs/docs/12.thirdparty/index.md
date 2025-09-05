@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: 第三方开源
 nav_order: 12
 ---
 

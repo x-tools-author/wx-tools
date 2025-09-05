@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: 输出参数配置
 nav_order: 10
 ---
 

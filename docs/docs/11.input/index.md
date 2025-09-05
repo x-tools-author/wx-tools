@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: 输入参数配置
 nav_order: 11
 ---
 
