@@ -21,7 +21,7 @@ set(mo_script_file "${CMAKE_CURRENT_LIST_DIR}/wxt_tools_gettext_mo.cmake")
 # * Convert .po files to .mo files.
 # * All .po files will be converted and placed in the output directory.
 # * Input directory framework will be keep.
-function(wxt_generate_mo target wxLocalDir)
+macro(wxt_generate_mo target wxLocalDir)
   set(args -DargMsgfmt=${msgfmt})
   list(APPEND args -DargWxWidgetsLocalDir=${wxLocalDir})
   list(APPEND args -DargInputDir=${CMAKE_SOURCE_DIR}/res/i18n)
@@ -38,7 +38,7 @@ function(wxt_generate_mo target wxLocalDir)
     ${target}-mo
     COMMAND ${CMAKE_COMMAND} ${args} -P ${mo_script_file}
     SOURCES ${mo_script_file})
-endfunction()
+endmacro()
 
 function(wxt_generate_po target in_dir out_dir)
   set(args -DargInputDir=${in_dir} -DargOutputDir=${out_dir} -DargXgettext=${xgettext})
