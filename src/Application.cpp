@@ -37,10 +37,8 @@ bool Application::OnInit()
     wxString i18nDir = wxFileName(appPath).GetPath();
     i18nDir += wxFileName::GetPathSeparator();
     i18nDir += wxString("../Resources");
-#elif defined(__WINDOWS__)
-    wxString i18nDir = wxFileName(appPath).GetPath();
 #else
-    wxString i18nDir = wxGetCwd();
+    wxString i18nDir = wxFileName(appPath).GetPath();
 #endif
     i18nDir += wxFileName::GetPathSeparator();
     i18nDir += wxString("i18n");

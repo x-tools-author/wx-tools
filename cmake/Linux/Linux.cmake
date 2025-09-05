@@ -1,36 +1,22 @@
-function(wxt_make_package target packetName friendlyName version is_deb)
+function(wxt_make_package target packetName friendlyName version)
   file(GLOB_RECURSE RES_FILES ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/app/*)
 
   # Remove 'v' and 'V' from version string
   string(REGEX REPLACE "v" "" version ${version})
   string(REGEX REPLACE "V" "" version ${version})
 
-  # target to lower case
-  string(TOLOWER ${target} lower_target)
-  # Remove all spaces
-  string(REGEX REPLACE " " "" lower_target ${lower_target})
-
-  set(package_type "appimage")
-  if(${is_deb})
-    set(package_type "deb")
-  endif()
-
   set(args "-DargTarget=${target}")
-  list(APPEND args "-DargPacketName=${packetName}")
-  list(APPEND args "-DargFriendlyName=${friendlyName}")
+  list(APPEND args "-DargPacketName=${packetName}") # e.g. wx-tools
+  list(APPEND args "-DargTargetName=${friendlyName}") # e.g. wxTools
   list(APPEND args "-DargVersion=${version}")
-  list(APPEND args "-DargWorkingDir=${CMAKE_BINARY_DIR}/${package_type}/${target}")
-  list(APPEND args "-DargLowerTargetName=${lower_target}")
+  list(APPEND args "-DargWorkingDir=${CMAKE_BINARY_DIR}/deb")
   list(APPEND args "-DargTool=${CMAKE_CURRENT_FUNCTION_LIST_DIR}/tools/linuxdeployqt")
-  list(APPEND args "-DargSrcDir=${CMAKE_SOURCE_DIR}")
-  list(APPEND args "-DargPackageType=${package_type}")
+  list(APPEND args "-DargTargetBinaryDir=$<TARGET_FILE_DIR:${target}>")
+  list(APPEND args "-DargTemplateDir=${CMAKE_CURRENT_FUNCTION_LIST_DIR}/app")
+  list(APPEND args "-DargIconFile=${CMAKE_SOURCE_DIR}/300x300.png")
 
   # cmake-format: off
-  add_custom_target(${target}-${package_type}
-    COMMAND ${CMAKE_COMMAND} -E remove_directory {CMAKE_BINARY_DIR}/${package_type}/${target} "||" ${CMAKE_COMMAND} -E true
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/${package_type}/${target} "||" ${CMAKE_COMMAND} -E true
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/app ${CMAKE_BINARY_DIR}/${package_type}/${target} "||" ${CMAKE_COMMAND} -E true
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:${target}> ${CMAKE_BINARY_DIR}/${package_type}/${target}/usr/bin/${packetName}
+  add_custom_target(${target}-deb
     COMMAND ${CMAKE_COMMAND} ${args} -P ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/LinuxScript.cmake
     SOURCES ${RES_FILES})
   # cmake-format: on
