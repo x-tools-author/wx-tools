@@ -13,6 +13,10 @@ if(NOT EXISTS ${WXT_3RD_DIR}/${file_name})
                   WORKING_DIRECTORY ${WXT_3RD_DIR}/${file_name})
 endif()
 
+if(LINUX AND NOT APPLE)
+set(wxUSE_LIBICONV OFF CACHE BOOL "Use libiconv for wxWidgets")
+endif()
+
 set(WXT_WX_LOCAL_DIR "${WXT_3RD_DIR}/${file_name}/locale")
 set(wxWidgets_ROOT_DIR ${WXT_LIBS_DIR}/${WXT_BUILD_FLAG}/${file_name})
 if(EXISTS ${wxWidgets_ROOT_DIR})
