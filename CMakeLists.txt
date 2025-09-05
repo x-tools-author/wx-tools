@@ -220,6 +220,7 @@ if(APPLE)
   # cmake-format: off
   set(WX_TOOLS_YYYY "${CURRENT_YEAR}" CACHE STRING "The current year")
   # cmake-format: on
+  set(wxt_entitlements "${CMAKE_SOURCE_DIR}/res/apple/macos/wxTools.entitlements")
 
   if(CMAKE_GENERATOR STREQUAL "Xcode")
     # cmake-format: off
@@ -232,13 +233,17 @@ if(APPLE)
     # * set(CMAKE_XCODE_ATTRIBUTE_LD_ENTRY_POINT
     # * set(CMAKE_XCODE_ATTRIBUTE_MARKETING_VERSION
     # * set(CMAKE_XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION
-    set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${CMAKE_SOURCE_DIR}/res/apple/macos/wxTools.entitlements")
+    set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
     # cmake-format: on
   endif()
 
+  # cmake-format: off
   configure_file(res/apple/macos/wxTools.plist.in ${CMAKE_BINARY_DIR}/wxTools.plist)
-  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_INFO_PLIST
-                                           ${CMAKE_BINARY_DIR}/wxTools.plist)
+  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_BINARY_DIR}/wxTools.plist)
+  set_target_properties(wxTools PROPERTIES CMAKE_XCODE_ATTRIBUTE_INSTALL_PATH "/Applications")
+  set_target_properties(wxTools PROPERTIES CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_STYLE "Automatic")
+  set_target_properties(wxTools PROPERTIES CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
+  # cmake-format: on
   set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE TRUE)
   # Set the bundle properties
   # cmake-format: off
