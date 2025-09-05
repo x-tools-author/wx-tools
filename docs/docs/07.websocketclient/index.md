@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: WebSocket客户端
 nav_order: 7
 ---
 

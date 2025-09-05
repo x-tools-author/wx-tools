@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: 串口助手
 nav_order: 2
 ---
 

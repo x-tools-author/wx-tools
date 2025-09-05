@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: WebSocket服务器
 nav_order: 8
 ---
 
