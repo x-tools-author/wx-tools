@@ -20,557 +20,557 @@ msgstr ""
 #: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
 #: Common/wxTools.cpp:541
 msgid "Binary"
-msgstr ""
+msgstr "Dvejetainis"
 
 #: Common/wxTools.cpp:533 Common/wxTools.cpp:542
 msgid "Octal"
-msgstr ""
+msgstr "Aštuonetainis"
 
 #: Common/wxTools.cpp:534 Common/wxTools.cpp:543
 msgid "Decimal"
-msgstr ""
+msgstr "Dešimtainis"
 
 #: Common/wxTools.cpp:535 Common/wxTools.cpp:544
 msgid "Hexadecimal"
-msgstr ""
+msgstr "Šešioliktainis"
 
 #: Common/wxTools.cpp:536 Common/wxTools.cpp:545
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 #: Common/wxTools.cpp:537 Common/wxTools.cpp:546
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874
 msgid "Serial Port"
-msgstr ""
+msgstr "Nuoseklusis prievadas"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875
 msgid "UDP Client"
-msgstr ""
+msgstr "UDP klientas"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876
 msgid "UDP Server"
-msgstr ""
+msgstr "UDP serveris"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877
 msgid "TCP Client"
-msgstr ""
+msgstr "TCP klientas"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878
 msgid "TCP Server"
-msgstr ""
+msgstr "TCP serveris"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879
 msgid "Web Socket Client"
-msgstr ""
+msgstr "Web Socket klientas"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880
 msgid "Web Socket Server"
-msgstr ""
+msgstr "Web Socket serveris"
 
 #: Common/wxTools.cpp:958
 msgid "wxTools.json"
-msgstr ""
+msgstr "wxTools.json"
 
 #: Links/SerialPort_p.h:75
 msgid "Write data failed."
-msgstr ""
+msgstr "Nepavyko įrašyti duomenų."
 
 #: Links/SocketBase_p.h:117
 msgid "Open socket failed, please check parameters then try again."
-msgstr ""
+msgstr "Nepavyko atidaryti lizdo, patikrinkite parametrus ir bandykite dar kartą."
 
 #: Links/SocketBase_p.h:186
 msgid "Unconnected"
-msgstr ""
+msgstr "Neprisijungta"
 
 #: Links/SocketClient_p.h:22
 msgid "Client closed, server has been closed or not found."
-msgstr ""
+msgstr "Klientas uždarytas, serveris uždarytas arba nerastas."
 
 #: Links/SocketServer_p.h:34
 msgid "Server has been closed."
-msgstr ""
+msgstr "Serveris uždarytas."
 
 #: Links/TCPClient_p.h:39
 msgid "TCP client send bytes error."
-msgstr ""
+msgstr "TCP kliento baitų siuntimo klaida."
 
 #: Links/UDPClient_p.h:36
 msgid "Client write bytes failed."
-msgstr ""
+msgstr "Klientui nepavyko įrašyti baitų."
 
 #: Links/WSClient_p.h:49
 msgid "WS server send bytes error."
-msgstr ""
+msgstr "Web Socket kliento baitų siuntimo klaida."
 
 #: LinksUi/SerialPortUi.cpp:39
 msgid "Port name"
-msgstr ""
+msgstr "Prievado pavadinimas"
 
 #: LinksUi/SerialPortUi.cpp:40
 msgid "Baud rate"
-msgstr ""
+msgstr "Baud greitis"
 
 #: LinksUi/SerialPortUi.cpp:41
 msgid "Data bits"
-msgstr ""
+msgstr "Duomenų bitai"
 
 #: LinksUi/SerialPortUi.cpp:42
 msgid "Stop bits"
-msgstr ""
+msgstr "Stop bitai"
 
 #: LinksUi/SerialPortUi.cpp:43
 msgid "Parity"
-msgstr ""
+msgstr "Paritetas"
 
 #: LinksUi/SerialPortUi.cpp:44
 msgid "Flow bits"
-msgstr ""
+msgstr "Srauto bitai"
 
 #: LinksUi/SocketBaseUi.cpp:117
 msgid "Server IP"
-msgstr ""
+msgstr "Serverio IP"
 
 #: LinksUi/SocketBaseUi.cpp:130
 msgid "Server port"
-msgstr ""
+msgstr "Serverio prievadas"
 
 #: LinksUi/SocketBaseUi.cpp:141
 msgid "Write to"
-msgstr ""
+msgstr "Siųsti į"
 
 #: LinksUi/SocketBaseUi.cpp:153
 msgid "All Clients"
-msgstr ""
+msgstr "Visi klientai"
 
 #: LinksUi/SocketBaseUi.cpp:171
 msgid "Client Info"
-msgstr ""
+msgstr "Kliento informacija"
 
 #: LinksUi/SocketBaseUi.cpp:184
 msgid "Tx Channel"
-msgstr ""
+msgstr "Tx kanalas"
 
 #: MainWindow.cpp:98 MainWindow.cpp:119
 msgid "Open parameters file"
-msgstr ""
+msgstr "Atidaryti parametrų failą"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
 msgid "JSON files (*.json)|*.json"
-msgstr ""
+msgstr "JSON failai (*.json)|*.json"
 
 #: MainWindow.cpp:116 MainWindow.cpp:137
 msgid "Save parameters file"
-msgstr ""
+msgstr "Išsaugoti parametrų failą"
 
 #: MainWindow.cpp:134 MainWindow.cpp:155
 msgid "The application will be closed!"
-msgstr ""
+msgstr "Programa bus uždaryta!"
 
 #: MainWindow.cpp:154 MainWindow.cpp:175
 msgid "wxTools - A set of tools developed with wxWidgets\n"
-msgstr ""
+msgstr "wxTools - Įrankių rinkinys, sukurtas su wxWidgets\n"
 
 #: MainWindow.cpp:156 MainWindow.cpp:177
 msgid "Version: "
-msgstr ""
+msgstr "Versija: "
 
 #: MainWindow.cpp:157 MainWindow.cpp:178
 msgid "Author: x-tools-author\n"
-msgstr ""
+msgstr "Autorius: x-tools-author\n"
 
 #: MainWindow.cpp:158 MainWindow.cpp:179
 msgid "Email:"
-msgstr ""
+msgstr "El. paštas:"
 
 #: MainWindow.cpp:160 MainWindow.cpp:181
 msgid "Commit: "
-msgstr ""
+msgstr "Commit: "
 
 #: MainWindow.cpp:161 MainWindow.cpp:182
 msgid "Date: "
-msgstr ""
+msgstr "Data: "
 
 #: MainWindow.cpp:162 MainWindow.cpp:183
 msgid "Build: "
-msgstr ""
+msgstr "Build: "
 
 #: MainWindow.cpp:164 MainWindow.cpp:185
 msgid "Copyright"
-msgstr ""
+msgstr "Autorinės teisės"
 
 #: MainWindow.cpp:166 MainWindow.cpp:187
 msgid "All rights reserved.\n"
-msgstr ""
+msgstr "Visos teisės saugomos.\n"
 
 #: MainWindow.cpp:167 MainWindow.cpp:188
 msgid "About wxTools"
-msgstr ""
+msgstr "Apie wxTools"
 
 #: MainWindow.cpp:189 MainWindow.cpp:210
 msgid "File"
-msgstr ""
+msgstr "Failas"
 
 #: MainWindow.cpp:208 MainWindow.cpp:229
 msgid "Options"
-msgstr ""
+msgstr "Parinktys"
 
 #: MainWindow.cpp:210 MainWindow.cpp:231
 msgid "Open Log Directory"
-msgstr ""
+msgstr "Atidaryti žurnalo katalogą"
 
 #: MainWindow.cpp:211 MainWindow.cpp:232
 msgid "Open the log directory."
-msgstr ""
+msgstr "Atidaryti žurnalo katalogą."
 
 #: MainWindow.cpp:215 MainWindow.cpp:236
 msgid "Open Config Directory"
-msgstr ""
+msgstr "Atidaryti konfigūracijos katalogą"
 
 #: MainWindow.cpp:216 MainWindow.cpp:237
 msgid "Open the config directory."
-msgstr ""
+msgstr "Atidaryti konfigūracijos katalogą."
 
 #: MainWindow.cpp:220 MainWindow.cpp:241
 msgid "Open App Directory"
-msgstr ""
+msgstr "Atidaryti programos katalogą"
 
 #: MainWindow.cpp:221 MainWindow.cpp:242
 msgid "Open the app directory."
-msgstr ""
+msgstr "Atidaryti programos katalogą."
 
 #: MainWindow.cpp:233 MainWindow.cpp:254
 msgid "Application themes"
-msgstr ""
+msgstr "Programos temos"
 
 #: MainWindow.cpp:241 MainWindow.cpp:262
 msgid "System Theme"
-msgstr ""
+msgstr "Sistemos tema"
 
 #: MainWindow.cpp:242 MainWindow.cpp:263
 msgid "Light Theme"
-msgstr ""
+msgstr "Šviesi tema"
 
 #: MainWindow.cpp:243 MainWindow.cpp:264
 msgid "Dark Theme"
-msgstr ""
+msgstr "Tamsi tema"
 
 #: MainWindow.cpp:262 MainWindow.cpp:284
 msgid "Reboot the application to take effect now?"
-msgstr ""
+msgstr "Perkrauti programą, kad pakeitimai įsigaliotų?"
 
 #: MainWindow.cpp:263 MainWindow.cpp:285
 msgid "Information"
-msgstr ""
+msgstr "Informacija"
 
 #: MainWindow.cpp:278 MainWindow.cpp:300
 msgid "Show on Top"
-msgstr ""
+msgstr "Rodyti viršuje"
 
 #: MainWindow.cpp:279 MainWindow.cpp:301
 msgid "Keep the application window on top of others."
-msgstr ""
+msgstr "Laikyti programos langą virš kitų."
 
 #: MainWindow.cpp:295 MainWindow.cpp:317
 msgid "Help"
-msgstr ""
+msgstr "Pagalba"
 
 #: MainWindow.cpp:301 MainWindow.cpp:323
 msgid "About wxWidgets"
-msgstr ""
+msgstr "Apie wxWidgets"
 
 #: MainWindow.cpp:302 MainWindow.cpp:324
 msgid "Show wxWidgets library information."
-msgstr ""
+msgstr "Rodyti informaciją apie wxWidgets biblioteką."
 
 #: MainWindow.cpp:306 MainWindow.cpp:328
 msgid "Visit online documentation page."
-msgstr ""
+msgstr "Aplankykite internetinės dokumentacijos puslapį."
 
 #: MainWindow.cpp:310 MainWindow.cpp:332
 msgid "Check for Updates"
-msgstr ""
+msgstr "Tikrinti atnaujinimus"
 
 #: MainWindow.cpp:311 MainWindow.cpp:333
 msgid "Check for updates online."
-msgstr ""
+msgstr "Tikrinti atnaujinimus internete."
 
 #: MainWindow.cpp:314 MainWindow.cpp:336
 msgid "Report an Issue"
-msgstr ""
+msgstr "Pranešti apie problemą"
 
 #: MainWindow.cpp:315 MainWindow.cpp:337
 msgid "Report a Issue online."
-msgstr ""
+msgstr "Pranešti apie problemą ar užklausą internete."
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "History"
-msgstr ""
+msgstr "Istorija"
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "Show the history of the application."
-msgstr ""
+msgstr "Rodyti programos istoriją."
 
 #: MainWindow.cpp:330 MainWindow.cpp:354
 msgid "Visit GitHub page to get more information."
-msgstr ""
+msgstr "Aplankykite GitHub puslapį, kad gautumėte daugiau informacijos."
 
 #: MainWindow.cpp:331 MainWindow.cpp:355
 msgid "Get Source from GitHub"
-msgstr ""
+msgstr "Gauti šaltinį iš GitHub"
 
 #: MainWindow.cpp:335 MainWindow.cpp:359
 msgid "Visit Gitee page to get more information."
-msgstr ""
+msgstr "Aplankykite Gitee puslapį, kad gautumėte daugiau informacijos."
 
 #: MainWindow.cpp:336 MainWindow.cpp:360
 msgid "Get Source from Gitee"
-msgstr ""
+msgstr "Gauti šaltinį iš Gitee"
 
 #: MainWindow.cpp:340 MainWindow.cpp:364
 msgid "Visit GitHub home page of author."
-msgstr ""
+msgstr "Aplankykite autoriaus GitHub pagrindinį puslapį."
 
 #: MainWindow.cpp:341 MainWindow.cpp:365
 msgid "GitHub Home Page"
-msgstr ""
+msgstr "GitHub pagrindinis puslapis"
 
 #: MainWindow.cpp:345 MainWindow.cpp:369
 msgid "Visit Gitee home page of author."
-msgstr ""
+msgstr "Aplankykite autoriaus Gitee pagrindinį puslapį."
 
 #: MainWindow.cpp:346 MainWindow.cpp:370
 msgid "Gitee Home Page"
-msgstr ""
+msgstr "Gitee pagrindinis puslapis"
 
 #: MainWindow.cpp:353 MainWindow.cpp:377
 msgid "Visit Microsoft Store page to buy wxTools."
-msgstr ""
+msgstr "Aplankykite Microsoft Store puslapį, kad įsigytumėte wxTools."
 
 #: MainWindow.cpp:354 MainWindow.cpp:378
 msgid "Supporting Author"
-msgstr ""
+msgstr "Palaikyti autorių"
 
 #: MainWindow.cpp:358 MainWindow.cpp:382
 msgid "Visit Microsoft Store home page of author."
-msgstr ""
+msgstr "Aplankykite autoriaus Microsoft Store pagrindinį puslapį."
 
 #: MainWindow.cpp:359 MainWindow.cpp:383
 msgid "Other Applications"
-msgstr ""
+msgstr "Kitos programos"
 
 #: MainWindow.cpp:456 MainWindow.cpp:513
 msgid "History file not found!"
-msgstr ""
+msgstr "Istorijos failas nerastas!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 msgid "Error"
-msgstr ""
+msgstr "Klaida"
 
 #: MainWindow.cpp:460 MainWindow.cpp:517
 msgid "wxTools Release History"
-msgstr ""
+msgstr "wxTools leidimų istorija"
 
 #: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359
 msgid "Close"
-msgstr ""
+msgstr "Uždaryti"
 
 #: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361
 msgid "Failed to open link."
-msgstr ""
+msgstr "Nepavyko atidaryti nuorodos."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
 #: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377
 msgid "Open"
-msgstr ""
+msgstr "Atidaryti"
 
 #: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394
 msgid "Link is not opened."
-msgstr ""
+msgstr "Nuoroda neatidaryta."
 
 #: Page/PageIOInput.cpp:14
 msgid "Input"
-msgstr ""
+msgstr "Įvestis"
 
 #: Page/PageIOOutput.cpp:12
 msgid "Output"
-msgstr ""
+msgstr "Išvestis"
 
 #: Page/PageSettingsInput.cpp:18
 msgid "Input Settings"
-msgstr ""
+msgstr "Įvesties nustatymai"
 
 #: Page/PageSettingsInput.cpp:21 Page/PageSettingsInput.cpp:20
 msgid "Cycle"
-msgstr ""
+msgstr "Ciklinis siuntimas"
 
 #: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
 #: Page/PageSettingsOutput.cpp:30 Page/PageSettingsInput.cpp:22
 msgid "Format"
-msgstr ""
+msgstr "Teksto formatas"
 
 #: Page/PageSettingsInput.cpp:25 Page/PageSettingsLink.cpp:32
 #: Page/PageSettingsOutput.cpp:58 Page/PageSettingsInput.cpp:24
 msgid "Settings"
-msgstr ""
+msgstr "Nustatymai"
 
 #: Page/PageSettingsInput.cpp:26 Page/PageSettingsInput.cpp:25
 msgid "Send"
-msgstr ""
+msgstr "Siųsti"
 
 #: Page/PageSettingsInput.cpp:163 Page/PageSettingsInput.cpp:162
 msgid "Disabled"
-msgstr ""
+msgstr "Išjungta"
 
 #: Page/PageSettingsInputPopup.cpp:24
 msgid "Prefix"
-msgstr ""
+msgstr "Priešdėlis"
 
 #: Page/PageSettingsInputPopup.cpp:26
 msgid "Suffix"
-msgstr ""
+msgstr "Priesaga"
 
 #: Page/PageSettingsInputPopup.cpp:28
 msgid "ESC"
-msgstr ""
+msgstr "Escape simbolis"
 
 #: Page/PageSettingsInputPopup.cpp:31
 msgid "Start Index"
-msgstr ""
+msgstr "Pradinis indeksas"
 
 #: Page/PageSettingsInputPopup.cpp:33
 msgid "End Index"
-msgstr ""
+msgstr "Galinis indeksas"
 
 #: Page/PageSettingsInputPopup.cpp:35
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritmas"
 
 #: Page/PageSettingsInputPopup.cpp:37
 msgid "Add CRC"
-msgstr ""
+msgstr "Pridėti CRC"
 
 #: Page/PageSettingsInputPopup.cpp:38
 msgid "Big Endian"
-msgstr ""
+msgstr "Big Endian"
 
 #: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
 msgid "Link Settings"
-msgstr ""
+msgstr "Nuorodos nustatymai"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
 msgid "Refresh"
-msgstr ""
+msgstr "Atnaujinti įrenginį"
 
 #: Page/PageSettingsOutput.cpp:17 Page/PageSettingsOutput.cpp:16
 msgid "Output Settings"
-msgstr ""
+msgstr "Išvesties nustatymai"
 
 #: Page/PageSettingsOutput.cpp:38 Page/PageSettingsOutput.cpp:47
 msgid "Rx"
-msgstr ""
+msgstr "Priėmimas"
 
 #: Page/PageSettingsOutput.cpp:39 Page/PageSettingsOutput.cpp:48
 msgid "Tx"
-msgstr ""
+msgstr "Siuntimas"
 
 #: Page/PageSettingsOutput.cpp:40 Page/PageSettingsOutput.cpp:49
 msgid "Flags"
-msgstr ""
+msgstr "Vėliavėlės"
 
 #: Page/PageSettingsOutput.cpp:41 Page/PageSettingsOutput.cpp:50
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: Page/PageSettingsOutput.cpp:42 Page/PageSettingsOutput.cpp:51
 msgid "Time"
-msgstr ""
+msgstr "Laikas"
 
 #: Page/PageSettingsOutput.cpp:43 Page/PageSettingsOutput.cpp:52
 msgid "MS"
-msgstr ""
+msgstr "Milisekundė"
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Auto Wrap"
-msgstr ""
+msgstr "Automatinis eilučių laužymas"
 
 #: Page/PageSettingsOutput.cpp:54
 msgid "Terminal Mode"
-msgstr ""
+msgstr "Terminalo režimas"
 
 #: Page/PageSettingsOutput.cpp:59 Page/PageSettingsOutput.cpp:69
 msgid "Clear"
-msgstr ""
+msgstr "Išvalyti išvestį"
 
 #: Page/PageSettingsOutputPopup.cpp:19
 msgid "Filter"
-msgstr ""
+msgstr "Filtras"
 
 #: Page/PageSettingsOutputPopup.cpp:26
 msgid "Hello;World"
-msgstr ""
+msgstr "Hello;World"
 
 #: Utilities/DataChannelComboBox.cpp:23
 msgid "Text"
-msgstr ""
+msgstr "Tekstas"
 
 #: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
 msgid "None"
-msgstr ""
+msgstr "Nėra"
 
 #: Utilities/FlowBitsComboBox.cpp:22
 msgid "Hardware"
-msgstr ""
+msgstr "Aparatinė įranga"
 
 #: Utilities/FlowBitsComboBox.cpp:23
 msgid "Software"
-msgstr ""
+msgstr "Programinė įranga"
 
 #: Utilities/ParityComboBox.cpp:22
 msgid "Odd"
-msgstr ""
+msgstr "Nelyginis"
 
 #: Utilities/ParityComboBox.cpp:23
 msgid "Even"
-msgstr ""
+msgstr "Lyginis"
 
 #: Utilities/ParityComboBox.cpp:24
 msgid "Mark"
-msgstr ""
+msgstr "Žymė"
 
 #: Utilities/ParityComboBox.cpp:25
 msgid "Space"
-msgstr ""
+msgstr "Tarpas"
 
 #: Page/Page.cpp:231 Page/Page.cpp:235
 msgid "Save Output"
-msgstr ""
+msgstr "Išsaugoti išvestį"
 
 #: Page/Page.cpp:244 Page/Page.cpp:248
 #, c-format
 msgid "Cannot save output to file '%s'."
-msgstr ""
+msgstr "Nepavyko išsaugoti išvesties į failą '%s'."
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Wrap"
-msgstr ""
+msgstr "Eilučių laužymas"
 
 #: Page/PageSettingsOutput.cpp:67
 msgid "Save"
-msgstr ""
+msgstr "Išsaugoti"
 
 #: Page/PageSettingsOutput.cpp:68
 msgid "Save output text to file..."
-msgstr ""
+msgstr "Išsaugoti išvesties tekstą į failą..."
 
 #: Page/PageSettingsOutput.cpp:85
 msgid "Filter: hello;world"
-msgstr ""
+msgstr "Filtras: hello;world"
 
 #: MainWindow.cpp:392
 msgid "Third Party"
-msgstr ""
+msgstr "Trečioji šalis"

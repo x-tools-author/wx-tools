@@ -20,557 +20,557 @@ msgstr ""
 #: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
 #: Common/wxTools.cpp:541
 msgid "Binary"
-msgstr ""
+msgstr "Binar"
 
 #: Common/wxTools.cpp:533 Common/wxTools.cpp:542
 msgid "Octal"
-msgstr ""
+msgstr "Octal"
 
 #: Common/wxTools.cpp:534 Common/wxTools.cpp:543
 msgid "Decimal"
-msgstr ""
+msgstr "Zecimal"
 
 #: Common/wxTools.cpp:535 Common/wxTools.cpp:544
 msgid "Hexadecimal"
-msgstr ""
+msgstr "Hexazecimal"
 
 #: Common/wxTools.cpp:536 Common/wxTools.cpp:545
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 #: Common/wxTools.cpp:537 Common/wxTools.cpp:546
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874
 msgid "Serial Port"
-msgstr ""
+msgstr "Port serial"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875
 msgid "UDP Client"
-msgstr ""
+msgstr "Client UDP"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876
 msgid "UDP Server"
-msgstr ""
+msgstr "Server UDP"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877
 msgid "TCP Client"
-msgstr ""
+msgstr "Client TCP"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878
 msgid "TCP Server"
-msgstr ""
+msgstr "Server TCP"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879
 msgid "Web Socket Client"
-msgstr ""
+msgstr "Client Web Socket"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880
 msgid "Web Socket Server"
-msgstr ""
+msgstr "Server Web Socket"
 
 #: Common/wxTools.cpp:958
 msgid "wxTools.json"
-msgstr ""
+msgstr "wxTools.json"
 
 #: Links/SerialPort_p.h:75
 msgid "Write data failed."
-msgstr ""
+msgstr "Scrierea datelor a eșuat."
 
 #: Links/SocketBase_p.h:117
 msgid "Open socket failed, please check parameters then try again."
-msgstr ""
+msgstr "Deschiderea socket-ului a eșuat, verificați parametrii și încercați din nou."
 
 #: Links/SocketBase_p.h:186
 msgid "Unconnected"
-msgstr ""
+msgstr "Neconectat"
 
 #: Links/SocketClient_p.h:22
 msgid "Client closed, server has been closed or not found."
-msgstr ""
+msgstr "Clientul a fost închis, serverul a fost închis sau nu a fost găsit."
 
 #: Links/SocketServer_p.h:34
 msgid "Server has been closed."
-msgstr ""
+msgstr "Serverul a fost închis."
 
 #: Links/TCPClient_p.h:39
 msgid "TCP client send bytes error."
-msgstr ""
+msgstr "Eroare la trimiterea octeților de către clientul TCP."
 
 #: Links/UDPClient_p.h:36
 msgid "Client write bytes failed."
-msgstr ""
+msgstr "Clientul nu a reușit să scrie octeții."
 
 #: Links/WSClient_p.h:49
 msgid "WS server send bytes error."
-msgstr ""
+msgstr "Eroare la trimiterea octeților de către clientul Web Socket."
 
 #: LinksUi/SerialPortUi.cpp:39
 msgid "Port name"
-msgstr ""
+msgstr "Nume port"
 
 #: LinksUi/SerialPortUi.cpp:40
 msgid "Baud rate"
-msgstr ""
+msgstr "Rată baud"
 
 #: LinksUi/SerialPortUi.cpp:41
 msgid "Data bits"
-msgstr ""
+msgstr "Biți de date"
 
 #: LinksUi/SerialPortUi.cpp:42
 msgid "Stop bits"
-msgstr ""
+msgstr "Biți de stop"
 
 #: LinksUi/SerialPortUi.cpp:43
 msgid "Parity"
-msgstr ""
+msgstr "Paritate"
 
 #: LinksUi/SerialPortUi.cpp:44
 msgid "Flow bits"
-msgstr ""
+msgstr "Biți de control flux"
 
 #: LinksUi/SocketBaseUi.cpp:117
 msgid "Server IP"
-msgstr ""
+msgstr "IP server"
 
 #: LinksUi/SocketBaseUi.cpp:130
 msgid "Server port"
-msgstr ""
+msgstr "Port server"
 
 #: LinksUi/SocketBaseUi.cpp:141
 msgid "Write to"
-msgstr ""
+msgstr "Trimite către"
 
 #: LinksUi/SocketBaseUi.cpp:153
 msgid "All Clients"
-msgstr ""
+msgstr "Toți clienții"
 
 #: LinksUi/SocketBaseUi.cpp:171
 msgid "Client Info"
-msgstr ""
+msgstr "Informații client"
 
 #: LinksUi/SocketBaseUi.cpp:184
 msgid "Tx Channel"
-msgstr ""
+msgstr "Canal Tx"
 
 #: MainWindow.cpp:98 MainWindow.cpp:119
 msgid "Open parameters file"
-msgstr ""
+msgstr "Deschide fișierul de parametri"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
 msgid "JSON files (*.json)|*.json"
-msgstr ""
+msgstr "Fișiere JSON (*.json)|*.json"
 
 #: MainWindow.cpp:116 MainWindow.cpp:137
 msgid "Save parameters file"
-msgstr ""
+msgstr "Salvează fișierul de parametri"
 
 #: MainWindow.cpp:134 MainWindow.cpp:155
 msgid "The application will be closed!"
-msgstr ""
+msgstr "Aplicația va fi închisă!"
 
 #: MainWindow.cpp:154 MainWindow.cpp:175
 msgid "wxTools - A set of tools developed with wxWidgets\n"
-msgstr ""
+msgstr "wxTools - Un set de instrumente dezvoltate cu wxWidgets\n"
 
 #: MainWindow.cpp:156 MainWindow.cpp:177
 msgid "Version: "
-msgstr ""
+msgstr "Versiune: "
 
 #: MainWindow.cpp:157 MainWindow.cpp:178
 msgid "Author: x-tools-author\n"
-msgstr ""
+msgstr "Autor: x-tools-author\n"
 
 #: MainWindow.cpp:158 MainWindow.cpp:179
 msgid "Email:"
-msgstr ""
+msgstr "Email:"
 
 #: MainWindow.cpp:160 MainWindow.cpp:181
 msgid "Commit: "
-msgstr ""
+msgstr "Commit: "
 
 #: MainWindow.cpp:161 MainWindow.cpp:182
 msgid "Date: "
-msgstr ""
+msgstr "Data: "
 
 #: MainWindow.cpp:162 MainWindow.cpp:183
 msgid "Build: "
-msgstr ""
+msgstr "Build: "
 
 #: MainWindow.cpp:164 MainWindow.cpp:185
 msgid "Copyright"
-msgstr ""
+msgstr "Copyright"
 
 #: MainWindow.cpp:166 MainWindow.cpp:187
 msgid "All rights reserved.\n"
-msgstr ""
+msgstr "Toate drepturile rezervate.\n"
 
 #: MainWindow.cpp:167 MainWindow.cpp:188
 msgid "About wxTools"
-msgstr ""
+msgstr "Despre wxTools"
 
 #: MainWindow.cpp:189 MainWindow.cpp:210
 msgid "File"
-msgstr ""
+msgstr "Fișier"
 
 #: MainWindow.cpp:208 MainWindow.cpp:229
 msgid "Options"
-msgstr ""
+msgstr "Opțiuni"
 
 #: MainWindow.cpp:210 MainWindow.cpp:231
 msgid "Open Log Directory"
-msgstr ""
+msgstr "Deschide folderul de loguri"
 
 #: MainWindow.cpp:211 MainWindow.cpp:232
 msgid "Open the log directory."
-msgstr ""
+msgstr "Deschide folderul de loguri."
 
 #: MainWindow.cpp:215 MainWindow.cpp:236
 msgid "Open Config Directory"
-msgstr ""
+msgstr "Deschide folderul de configurare"
 
 #: MainWindow.cpp:216 MainWindow.cpp:237
 msgid "Open the config directory."
-msgstr ""
+msgstr "Deschide folderul de configurare."
 
 #: MainWindow.cpp:220 MainWindow.cpp:241
 msgid "Open App Directory"
-msgstr ""
+msgstr "Deschide folderul aplicației"
 
 #: MainWindow.cpp:221 MainWindow.cpp:242
 msgid "Open the app directory."
-msgstr ""
+msgstr "Deschide folderul aplicației."
 
 #: MainWindow.cpp:233 MainWindow.cpp:254
 msgid "Application themes"
-msgstr ""
+msgstr "Teme aplicație"
 
 #: MainWindow.cpp:241 MainWindow.cpp:262
 msgid "System Theme"
-msgstr ""
+msgstr "Tema sistemului"
 
 #: MainWindow.cpp:242 MainWindow.cpp:263
 msgid "Light Theme"
-msgstr ""
+msgstr "Temă deschisă"
 
 #: MainWindow.cpp:243 MainWindow.cpp:264
 msgid "Dark Theme"
-msgstr ""
+msgstr "Temă închisă"
 
 #: MainWindow.cpp:262 MainWindow.cpp:284
 msgid "Reboot the application to take effect now?"
-msgstr ""
+msgstr "Reporniți aplicația pentru a aplica modificările?"
 
 #: MainWindow.cpp:263 MainWindow.cpp:285
 msgid "Information"
-msgstr ""
+msgstr "Informații"
 
 #: MainWindow.cpp:278 MainWindow.cpp:300
 msgid "Show on Top"
-msgstr ""
+msgstr "Afișează deasupra"
 
 #: MainWindow.cpp:279 MainWindow.cpp:301
 msgid "Keep the application window on top of others."
-msgstr ""
+msgstr "Menține fereastra aplicației deasupra celorlalte."
 
 #: MainWindow.cpp:295 MainWindow.cpp:317
 msgid "Help"
-msgstr ""
+msgstr "Ajutor"
 
 #: MainWindow.cpp:301 MainWindow.cpp:323
 msgid "About wxWidgets"
-msgstr ""
+msgstr "Despre wxWidgets"
 
 #: MainWindow.cpp:302 MainWindow.cpp:324
 msgid "Show wxWidgets library information."
-msgstr ""
+msgstr "Afișează informații despre biblioteca wxWidgets."
 
 #: MainWindow.cpp:306 MainWindow.cpp:328
 msgid "Visit online documentation page."
-msgstr ""
+msgstr "Vizitați pagina de documentație online."
 
 #: MainWindow.cpp:310 MainWindow.cpp:332
 msgid "Check for Updates"
-msgstr ""
+msgstr "Verifică actualizări"
 
 #: MainWindow.cpp:311 MainWindow.cpp:333
 msgid "Check for updates online."
-msgstr ""
+msgstr "Verifică actualizări online."
 
 #: MainWindow.cpp:314 MainWindow.cpp:336
 msgid "Report an Issue"
-msgstr ""
+msgstr "Raportează o problemă"
 
 #: MainWindow.cpp:315 MainWindow.cpp:337
 msgid "Report a Issue online."
-msgstr ""
+msgstr "Raportează o problemă sau o cerere online."
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "History"
-msgstr ""
+msgstr "Istoric"
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "Show the history of the application."
-msgstr ""
+msgstr "Afișează istoricul aplicației."
 
 #: MainWindow.cpp:330 MainWindow.cpp:354
 msgid "Visit GitHub page to get more information."
-msgstr ""
+msgstr "Vizitați pagina GitHub pentru mai multe informații."
 
 #: MainWindow.cpp:331 MainWindow.cpp:355
 msgid "Get Source from GitHub"
-msgstr ""
+msgstr "Obține sursa de pe GitHub"
 
 #: MainWindow.cpp:335 MainWindow.cpp:359
 msgid "Visit Gitee page to get more information."
-msgstr ""
+msgstr "Vizitați pagina Gitee pentru mai multe informații."
 
 #: MainWindow.cpp:336 MainWindow.cpp:360
 msgid "Get Source from Gitee"
-msgstr ""
+msgstr "Obține sursa de pe Gitee"
 
 #: MainWindow.cpp:340 MainWindow.cpp:364
 msgid "Visit GitHub home page of author."
-msgstr ""
+msgstr "Vizitați pagina principală GitHub a autorului."
 
 #: MainWindow.cpp:341 MainWindow.cpp:365
 msgid "GitHub Home Page"
-msgstr ""
+msgstr "Pagina principală GitHub"
 
 #: MainWindow.cpp:345 MainWindow.cpp:369
 msgid "Visit Gitee home page of author."
-msgstr ""
+msgstr "Vizitați pagina principală Gitee a autorului."
 
 #: MainWindow.cpp:346 MainWindow.cpp:370
 msgid "Gitee Home Page"
-msgstr ""
+msgstr "Pagina principală Gitee"
 
 #: MainWindow.cpp:353 MainWindow.cpp:377
 msgid "Visit Microsoft Store page to buy wxTools."
-msgstr ""
+msgstr "Vizitați pagina Microsoft Store pentru a cumpăra wxTools."
 
 #: MainWindow.cpp:354 MainWindow.cpp:378
 msgid "Supporting Author"
-msgstr ""
+msgstr "Susțineți autorul"
 
 #: MainWindow.cpp:358 MainWindow.cpp:382
 msgid "Visit Microsoft Store home page of author."
-msgstr ""
+msgstr "Vizitați pagina principală Microsoft Store a autorului."
 
 #: MainWindow.cpp:359 MainWindow.cpp:383
 msgid "Other Applications"
-msgstr ""
+msgstr "Alte aplicații"
 
 #: MainWindow.cpp:456 MainWindow.cpp:513
 msgid "History file not found!"
-msgstr ""
+msgstr "Fișierul de istoric nu a fost găsit!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 msgid "Error"
-msgstr ""
+msgstr "Eroare"
 
 #: MainWindow.cpp:460 MainWindow.cpp:517
 msgid "wxTools Release History"
-msgstr ""
+msgstr "Istoric lansări wxTools"
 
 #: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359
 msgid "Close"
-msgstr ""
+msgstr "Închide"
 
 #: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361
 msgid "Failed to open link."
-msgstr ""
+msgstr "Deschiderea linkului a eșuat."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
 #: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377
 msgid "Open"
-msgstr ""
+msgstr "Deschide"
 
 #: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394
 msgid "Link is not opened."
-msgstr ""
+msgstr "Linkul nu este deschis."
 
 #: Page/PageIOInput.cpp:14
 msgid "Input"
-msgstr ""
+msgstr "Intrare"
 
 #: Page/PageIOOutput.cpp:12
 msgid "Output"
-msgstr ""
+msgstr "Ieșire"
 
 #: Page/PageSettingsInput.cpp:18
 msgid "Input Settings"
-msgstr ""
+msgstr "Setări intrare"
 
 #: Page/PageSettingsInput.cpp:21 Page/PageSettingsInput.cpp:20
 msgid "Cycle"
-msgstr ""
+msgstr "Trimitere ciclică"
 
 #: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
 #: Page/PageSettingsOutput.cpp:30 Page/PageSettingsInput.cpp:22
 msgid "Format"
-msgstr ""
+msgstr "Format text"
 
 #: Page/PageSettingsInput.cpp:25 Page/PageSettingsLink.cpp:32
 #: Page/PageSettingsOutput.cpp:58 Page/PageSettingsInput.cpp:24
 msgid "Settings"
-msgstr ""
+msgstr "Setări"
 
 #: Page/PageSettingsInput.cpp:26 Page/PageSettingsInput.cpp:25
 msgid "Send"
-msgstr ""
+msgstr "Trimite"
 
 #: Page/PageSettingsInput.cpp:163 Page/PageSettingsInput.cpp:162
 msgid "Disabled"
-msgstr ""
+msgstr "Dezactivat"
 
 #: Page/PageSettingsInputPopup.cpp:24
 msgid "Prefix"
-msgstr ""
+msgstr "Prefix"
 
 #: Page/PageSettingsInputPopup.cpp:26
 msgid "Suffix"
-msgstr ""
+msgstr "Sufix"
 
 #: Page/PageSettingsInputPopup.cpp:28
 msgid "ESC"
-msgstr ""
+msgstr "Caracter Escape"
 
 #: Page/PageSettingsInputPopup.cpp:31
 msgid "Start Index"
-msgstr ""
+msgstr "Index de start"
 
 #: Page/PageSettingsInputPopup.cpp:33
 msgid "End Index"
-msgstr ""
+msgstr "Index de final"
 
 #: Page/PageSettingsInputPopup.cpp:35
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritm"
 
 #: Page/PageSettingsInputPopup.cpp:37
 msgid "Add CRC"
-msgstr ""
+msgstr "Adaugă CRC"
 
 #: Page/PageSettingsInputPopup.cpp:38
 msgid "Big Endian"
-msgstr ""
+msgstr "Big Endian"
 
 #: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
 msgid "Link Settings"
-msgstr ""
+msgstr "Setări link"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
 msgid "Refresh"
-msgstr ""
+msgstr "Reîmprospătează dispozitivul"
 
 #: Page/PageSettingsOutput.cpp:17 Page/PageSettingsOutput.cpp:16
 msgid "Output Settings"
-msgstr ""
+msgstr "Setări ieșire"
 
 #: Page/PageSettingsOutput.cpp:38 Page/PageSettingsOutput.cpp:47
 msgid "Rx"
-msgstr ""
+msgstr "Recepție"
 
 #: Page/PageSettingsOutput.cpp:39 Page/PageSettingsOutput.cpp:48
 msgid "Tx"
-msgstr ""
+msgstr "Transmitere"
 
 #: Page/PageSettingsOutput.cpp:40 Page/PageSettingsOutput.cpp:49
 msgid "Flags"
-msgstr ""
+msgstr "Steaguri"
 
 #: Page/PageSettingsOutput.cpp:41 Page/PageSettingsOutput.cpp:50
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: Page/PageSettingsOutput.cpp:42 Page/PageSettingsOutput.cpp:51
 msgid "Time"
-msgstr ""
+msgstr "Ora"
 
 #: Page/PageSettingsOutput.cpp:43 Page/PageSettingsOutput.cpp:52
 msgid "MS"
-msgstr ""
+msgstr "Milisecundă"
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Auto Wrap"
-msgstr ""
+msgstr "Încadrare automată"
 
 #: Page/PageSettingsOutput.cpp:54
 msgid "Terminal Mode"
-msgstr ""
+msgstr "Mod terminal"
 
 #: Page/PageSettingsOutput.cpp:59 Page/PageSettingsOutput.cpp:69
 msgid "Clear"
-msgstr ""
+msgstr "Curăță ieșirea"
 
 #: Page/PageSettingsOutputPopup.cpp:19
 msgid "Filter"
-msgstr ""
+msgstr "Filtru"
 
 #: Page/PageSettingsOutputPopup.cpp:26
 msgid "Hello;World"
-msgstr ""
+msgstr "Hello;World"
 
 #: Utilities/DataChannelComboBox.cpp:23
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
 msgid "None"
-msgstr ""
+msgstr "Niciunul"
 
 #: Utilities/FlowBitsComboBox.cpp:22
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #: Utilities/FlowBitsComboBox.cpp:23
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #: Utilities/ParityComboBox.cpp:22
 msgid "Odd"
-msgstr ""
+msgstr "Impar"
 
 #: Utilities/ParityComboBox.cpp:23
 msgid "Even"
-msgstr ""
+msgstr "Par"
 
 #: Utilities/ParityComboBox.cpp:24
 msgid "Mark"
-msgstr ""
+msgstr "Marcaj"
 
 #: Utilities/ParityComboBox.cpp:25
 msgid "Space"
-msgstr ""
+msgstr "Spațiu"
 
 #: Page/Page.cpp:231 Page/Page.cpp:235
 msgid "Save Output"
-msgstr ""
+msgstr "Salvează ieșirea"
 
 #: Page/Page.cpp:244 Page/Page.cpp:248
 #, c-format
 msgid "Cannot save output to file '%s'."
-msgstr ""
+msgstr "Nu se poate salva ieșirea în fișierul '%s'."
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Wrap"
-msgstr ""
+msgstr "Încadrare"
 
 #: Page/PageSettingsOutput.cpp:67
 msgid "Save"
-msgstr ""
+msgstr "Salvează"
 
 #: Page/PageSettingsOutput.cpp:68
 msgid "Save output text to file..."
-msgstr ""
+msgstr "Salvează textul ieșirii în fișier..."
 
 #: Page/PageSettingsOutput.cpp:85
 msgid "Filter: hello;world"
-msgstr ""
+msgstr "Filtru: hello;world"
 
 #: MainWindow.cpp:392
 msgid "Third Party"
-msgstr ""
+msgstr "Terță parte"

@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+# Croatian (hr) translation for wxTools
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-02 10:31+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-09-05 16:00+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: Croatian <hr@li.org>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,557 +20,557 @@ msgstr ""
 #: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
 #: Common/wxTools.cpp:541
 msgid "Binary"
-msgstr ""
+msgstr "Binarni"
 
 #: Common/wxTools.cpp:533 Common/wxTools.cpp:542
 msgid "Octal"
-msgstr ""
+msgstr "Oktalni"
 
 #: Common/wxTools.cpp:534 Common/wxTools.cpp:543
 msgid "Decimal"
-msgstr ""
+msgstr "Decimalni"
 
 #: Common/wxTools.cpp:535 Common/wxTools.cpp:544
 msgid "Hexadecimal"
-msgstr ""
+msgstr "Heksadecimalni"
 
 #: Common/wxTools.cpp:536 Common/wxTools.cpp:545
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 #: Common/wxTools.cpp:537 Common/wxTools.cpp:546
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874
 msgid "Serial Port"
-msgstr ""
+msgstr "Serijski port"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875
 msgid "UDP Client"
-msgstr ""
+msgstr "UDP klijent"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876
 msgid "UDP Server"
-msgstr ""
+msgstr "UDP poslužitelj"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877
 msgid "TCP Client"
-msgstr ""
+msgstr "TCP klijent"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878
 msgid "TCP Server"
-msgstr ""
+msgstr "TCP poslužitelj"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879
 msgid "Web Socket Client"
-msgstr ""
+msgstr "Web Socket klijent"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880
 msgid "Web Socket Server"
-msgstr ""
+msgstr "Web Socket poslužitelj"
 
 #: Common/wxTools.cpp:958
 msgid "wxTools.json"
-msgstr ""
+msgstr "wxTools.json"
 
 #: Links/SerialPort_p.h:75
 msgid "Write data failed."
-msgstr ""
+msgstr "Pisanje podataka nije uspjelo."
 
 #: Links/SocketBase_p.h:117
 msgid "Open socket failed, please check parameters then try again."
-msgstr ""
+msgstr "Otvaranje utičnice nije uspjelo, provjerite parametre i pokušajte ponovno."
 
 #: Links/SocketBase_p.h:186
 msgid "Unconnected"
-msgstr ""
+msgstr "Nepovezan"
 
 #: Links/SocketClient_p.h:22
 msgid "Client closed, server has been closed or not found."
-msgstr ""
+msgstr "Klijent zatvoren, poslužitelj je zatvoren ili nije pronađen."
 
 #: Links/SocketServer_p.h:34
 msgid "Server has been closed."
-msgstr ""
+msgstr "Poslužitelj je zatvoren."
 
 #: Links/TCPClient_p.h:39
 msgid "TCP client send bytes error."
-msgstr ""
+msgstr "Pogreška pri slanju bajtova TCP klijenta."
 
 #: Links/UDPClient_p.h:36
 msgid "Client write bytes failed."
-msgstr ""
+msgstr "Pisanje bajtova klijenta nije uspjelo."
 
 #: Links/WSClient_p.h:49
 msgid "WS server send bytes error."
-msgstr ""
+msgstr "Pogreška pri slanju bajtova WS poslužitelja."
 
 #: LinksUi/SerialPortUi.cpp:39
 msgid "Port name"
-msgstr ""
+msgstr "Naziv porta"
 
 #: LinksUi/SerialPortUi.cpp:40
 msgid "Baud rate"
-msgstr ""
+msgstr "Baud rata"
 
 #: LinksUi/SerialPortUi.cpp:41
 msgid "Data bits"
-msgstr ""
+msgstr "Bitovi podataka"
 
 #: LinksUi/SerialPortUi.cpp:42
 msgid "Stop bits"
-msgstr ""
+msgstr "Stop bitovi"
 
 #: LinksUi/SerialPortUi.cpp:43
 msgid "Parity"
-msgstr ""
+msgstr "Paritet"
 
 #: LinksUi/SerialPortUi.cpp:44
 msgid "Flow bits"
-msgstr ""
+msgstr "Kontrola toka"
 
 #: LinksUi/SocketBaseUi.cpp:117
 msgid "Server IP"
-msgstr ""
+msgstr "IP poslužitelja"
 
 #: LinksUi/SocketBaseUi.cpp:130
 msgid "Server port"
-msgstr ""
+msgstr "Port poslužitelja"
 
 #: LinksUi/SocketBaseUi.cpp:141
 msgid "Write to"
-msgstr ""
+msgstr "Pisati na"
 
 #: LinksUi/SocketBaseUi.cpp:153
 msgid "All Clients"
-msgstr ""
+msgstr "Svi klijenti"
 
 #: LinksUi/SocketBaseUi.cpp:171
 msgid "Client Info"
-msgstr ""
+msgstr "Informacije o klijentu"
 
 #: LinksUi/SocketBaseUi.cpp:184
 msgid "Tx Channel"
-msgstr ""
+msgstr "Tx kanal"
 
 #: MainWindow.cpp:98 MainWindow.cpp:119
 msgid "Open parameters file"
-msgstr ""
+msgstr "Otvori datoteku parametara"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
 msgid "JSON files (*.json)|*.json"
-msgstr ""
+msgstr "JSON datoteke (*.json)|*.json"
 
 #: MainWindow.cpp:116 MainWindow.cpp:137
 msgid "Save parameters file"
-msgstr ""
+msgstr "Spremi datoteku parametara"
 
 #: MainWindow.cpp:134 MainWindow.cpp:155
 msgid "The application will be closed!"
-msgstr ""
+msgstr "Aplikacija će se zatvoriti!"
 
 #: MainWindow.cpp:154 MainWindow.cpp:175
 msgid "wxTools - A set of tools developed with wxWidgets\n"
-msgstr ""
+msgstr "wxTools - Skup alata razvijen s wxWidgets\n"
 
 #: MainWindow.cpp:156 MainWindow.cpp:177
 msgid "Version: "
-msgstr ""
+msgstr "Verzija: "
 
 #: MainWindow.cpp:157 MainWindow.cpp:178
 msgid "Author: x-tools-author\n"
-msgstr ""
+msgstr "Autor: x-tools-author\n"
 
 #: MainWindow.cpp:158 MainWindow.cpp:179
 msgid "Email:"
-msgstr ""
+msgstr "E-pošta:"
 
 #: MainWindow.cpp:160 MainWindow.cpp:181
 msgid "Commit: "
-msgstr ""
+msgstr "Commit: "
 
 #: MainWindow.cpp:161 MainWindow.cpp:182
 msgid "Date: "
-msgstr ""
+msgstr "Datum: "
 
 #: MainWindow.cpp:162 MainWindow.cpp:183
 msgid "Build: "
-msgstr ""
+msgstr "Build: "
 
 #: MainWindow.cpp:164 MainWindow.cpp:185
 msgid "Copyright"
-msgstr ""
+msgstr "Autorska prava"
 
 #: MainWindow.cpp:166 MainWindow.cpp:187
 msgid "All rights reserved.\n"
-msgstr ""
+msgstr "Sva prava pridržana.\n"
 
 #: MainWindow.cpp:167 MainWindow.cpp:188
 msgid "About wxTools"
-msgstr ""
+msgstr "O wxTools"
 
 #: MainWindow.cpp:189 MainWindow.cpp:210
 msgid "File"
-msgstr ""
+msgstr "Datoteka"
 
 #: MainWindow.cpp:208 MainWindow.cpp:229
 msgid "Options"
-msgstr ""
+msgstr "Opcije"
 
 #: MainWindow.cpp:210 MainWindow.cpp:231
 msgid "Open Log Directory"
-msgstr ""
+msgstr "Otvori direktorij zapisa"
 
 #: MainWindow.cpp:211 MainWindow.cpp:232
 msgid "Open the log directory."
-msgstr ""
+msgstr "Otvori direktorij zapisa."
 
 #: MainWindow.cpp:215 MainWindow.cpp:236
 msgid "Open Config Directory"
-msgstr ""
+msgstr "Otvori konfiguracijski direktorij"
 
 #: MainWindow.cpp:216 MainWindow.cpp:237
 msgid "Open the config directory."
-msgstr ""
+msgstr "Otvori konfiguracijski direktorij."
 
 #: MainWindow.cpp:220 MainWindow.cpp:241
 msgid "Open App Directory"
-msgstr ""
+msgstr "Otvori direktorij aplikacije"
 
 #: MainWindow.cpp:221 MainWindow.cpp:242
 msgid "Open the app directory."
-msgstr ""
+msgstr "Otvori direktorij aplikacije."
 
 #: MainWindow.cpp:233 MainWindow.cpp:254
 msgid "Application themes"
-msgstr ""
+msgstr "Teme aplikacije"
 
 #: MainWindow.cpp:241 MainWindow.cpp:262
 msgid "System Theme"
-msgstr ""
+msgstr "Sistemska tema"
 
 #: MainWindow.cpp:242 MainWindow.cpp:263
 msgid "Light Theme"
-msgstr ""
+msgstr "Svijetla tema"
 
 #: MainWindow.cpp:243 MainWindow.cpp:264
 msgid "Dark Theme"
-msgstr ""
+msgstr "Tamna tema"
 
 #: MainWindow.cpp:262 MainWindow.cpp:284
 msgid "Reboot the application to take effect now?"
-msgstr ""
+msgstr "Ponovno pokrenuti aplikaciju da bi promjene stupile na snagu?"
 
 #: MainWindow.cpp:263 MainWindow.cpp:285
 msgid "Information"
-msgstr ""
+msgstr "Informacija"
 
 #: MainWindow.cpp:278 MainWindow.cpp:300
 msgid "Show on Top"
-msgstr ""
+msgstr "Prikaži na vrhu"
 
 #: MainWindow.cpp:279 MainWindow.cpp:301
 msgid "Keep the application window on top of others."
-msgstr ""
+msgstr "Zadrži prozor aplikacije iznad ostalih."
 
 #: MainWindow.cpp:295 MainWindow.cpp:317
 msgid "Help"
-msgstr ""
+msgstr "Pomoć"
 
 #: MainWindow.cpp:301 MainWindow.cpp:323
 msgid "About wxWidgets"
-msgstr ""
+msgstr "O wxWidgets"
 
 #: MainWindow.cpp:302 MainWindow.cpp:324
 msgid "Show wxWidgets library information."
-msgstr ""
+msgstr "Prikaži informacije o wxWidgets biblioteci."
 
 #: MainWindow.cpp:306 MainWindow.cpp:328
 msgid "Visit online documentation page."
-msgstr ""
+msgstr "Posjetite stranicu online dokumentacije."
 
 #: MainWindow.cpp:310 MainWindow.cpp:332
 msgid "Check for Updates"
-msgstr ""
+msgstr "Provjeri ažuriranja"
 
 #: MainWindow.cpp:311 MainWindow.cpp:333
 msgid "Check for updates online."
-msgstr ""
+msgstr "Provjeri ažuriranja online."
 
 #: MainWindow.cpp:314 MainWindow.cpp:336
 msgid "Report an Issue"
-msgstr ""
+msgstr "Prijavi problem"
 
 #: MainWindow.cpp:315 MainWindow.cpp:337
 msgid "Report a Issue online."
-msgstr ""
+msgstr "Prijavi problem online."
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "History"
-msgstr ""
+msgstr "Povijest"
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "Show the history of the application."
-msgstr ""
+msgstr "Prikaži povijest aplikacije."
 
 #: MainWindow.cpp:330 MainWindow.cpp:354
 msgid "Visit GitHub page to get more information."
-msgstr ""
+msgstr "Posjetite GitHub stranicu za više informacija."
 
 #: MainWindow.cpp:331 MainWindow.cpp:355
 msgid "Get Source from GitHub"
-msgstr ""
+msgstr "Preuzmi izvorni kod s GitHuba"
 
 #: MainWindow.cpp:335 MainWindow.cpp:359
 msgid "Visit Gitee page to get more information."
-msgstr ""
+msgstr "Posjetite Gitee stranicu za više informacija."
 
 #: MainWindow.cpp:336 MainWindow.cpp:360
 msgid "Get Source from Gitee"
-msgstr ""
+msgstr "Preuzmi izvorni kod s Giteea"
 
 #: MainWindow.cpp:340 MainWindow.cpp:364
 msgid "Visit GitHub home page of author."
-msgstr ""
+msgstr "Posjetite GitHub početnu stranicu autora."
 
 #: MainWindow.cpp:341 MainWindow.cpp:365
 msgid "GitHub Home Page"
-msgstr ""
+msgstr "GitHub početna stranica"
 
 #: MainWindow.cpp:345 MainWindow.cpp:369
 msgid "Visit Gitee home page of author."
-msgstr ""
+msgstr "Posjetite Gitee početnu stranicu autora."
 
 #: MainWindow.cpp:346 MainWindow.cpp:370
 msgid "Gitee Home Page"
-msgstr ""
+msgstr "Gitee početna stranica"
 
 #: MainWindow.cpp:353 MainWindow.cpp:377
 msgid "Visit Microsoft Store page to buy wxTools."
-msgstr ""
+msgstr "Posjetite Microsoft Store stranicu za kupnju wxTools."
 
 #: MainWindow.cpp:354 MainWindow.cpp:378
 msgid "Supporting Author"
-msgstr ""
+msgstr "Podrška autoru"
 
 #: MainWindow.cpp:358 MainWindow.cpp:382
 msgid "Visit Microsoft Store home page of author."
-msgstr ""
+msgstr "Posjetite Microsoft Store početnu stranicu autora."
 
 #: MainWindow.cpp:359 MainWindow.cpp:383
 msgid "Other Applications"
-msgstr ""
+msgstr "Ostale aplikacije"
 
 #: MainWindow.cpp:456 MainWindow.cpp:513
 msgid "History file not found!"
-msgstr ""
+msgstr "Datoteka povijesti nije pronađena!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 msgid "Error"
-msgstr ""
+msgstr "Greška"
 
 #: MainWindow.cpp:460 MainWindow.cpp:517
 msgid "wxTools Release History"
-msgstr ""
+msgstr "Povijest izdanja wxTools"
 
 #: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361
 msgid "Failed to open link."
-msgstr ""
+msgstr "Otvaranje veze nije uspjelo."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
 #: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377
 msgid "Open"
-msgstr ""
+msgstr "Otvori"
 
 #: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394
 msgid "Link is not opened."
-msgstr ""
+msgstr "Veza nije otvorena."
 
 #: Page/PageIOInput.cpp:14
 msgid "Input"
-msgstr ""
+msgstr "Ulaz"
 
 #: Page/PageIOOutput.cpp:12
 msgid "Output"
-msgstr ""
+msgstr "Izlaz"
 
 #: Page/PageSettingsInput.cpp:18
 msgid "Input Settings"
-msgstr ""
+msgstr "Postavke ulaza"
 
 #: Page/PageSettingsInput.cpp:21 Page/PageSettingsInput.cpp:20
 msgid "Cycle"
-msgstr ""
+msgstr "Ciklus"
 
 #: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
 #: Page/PageSettingsOutput.cpp:30 Page/PageSettingsInput.cpp:22
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: Page/PageSettingsInput.cpp:25 Page/PageSettingsLink.cpp:32
 #: Page/PageSettingsOutput.cpp:58 Page/PageSettingsInput.cpp:24
 msgid "Settings"
-msgstr ""
+msgstr "Postavke"
 
 #: Page/PageSettingsInput.cpp:26 Page/PageSettingsInput.cpp:25
 msgid "Send"
-msgstr ""
+msgstr "Pošalji"
 
 #: Page/PageSettingsInput.cpp:163 Page/PageSettingsInput.cpp:162
 msgid "Disabled"
-msgstr ""
+msgstr "Onemogućeno"
 
 #: Page/PageSettingsInputPopup.cpp:24
 msgid "Prefix"
-msgstr ""
+msgstr "Prefiks"
 
 #: Page/PageSettingsInputPopup.cpp:26
 msgid "Suffix"
-msgstr ""
+msgstr "Sufiks"
 
 #: Page/PageSettingsInputPopup.cpp:28
 msgid "ESC"
-msgstr ""
+msgstr "ESC"
 
 #: Page/PageSettingsInputPopup.cpp:31
 msgid "Start Index"
-msgstr ""
+msgstr "Početni indeks"
 
 #: Page/PageSettingsInputPopup.cpp:33
 msgid "End Index"
-msgstr ""
+msgstr "Završni indeks"
 
 #: Page/PageSettingsInputPopup.cpp:35
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritam"
 
 #: Page/PageSettingsInputPopup.cpp:37
 msgid "Add CRC"
-msgstr ""
+msgstr "Dodaj CRC"
 
 #: Page/PageSettingsInputPopup.cpp:38
 msgid "Big Endian"
-msgstr ""
+msgstr "Big Endian"
 
 #: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
 msgid "Link Settings"
-msgstr ""
+msgstr "Postavke veze"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
 msgid "Refresh"
-msgstr ""
+msgstr "Osvježi"
 
 #: Page/PageSettingsOutput.cpp:17 Page/PageSettingsOutput.cpp:16
 msgid "Output Settings"
-msgstr ""
+msgstr "Postavke izlaza"
 
 #: Page/PageSettingsOutput.cpp:38 Page/PageSettingsOutput.cpp:47
 msgid "Rx"
-msgstr ""
+msgstr "Rx"
 
 #: Page/PageSettingsOutput.cpp:39 Page/PageSettingsOutput.cpp:48
 msgid "Tx"
-msgstr ""
+msgstr "Tx"
 
 #: Page/PageSettingsOutput.cpp:40 Page/PageSettingsOutput.cpp:49
 msgid "Flags"
-msgstr ""
+msgstr "Zastavice"
 
 #: Page/PageSettingsOutput.cpp:41 Page/PageSettingsOutput.cpp:50
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: Page/PageSettingsOutput.cpp:42 Page/PageSettingsOutput.cpp:51
 msgid "Time"
-msgstr ""
+msgstr "Vrijeme"
 
 #: Page/PageSettingsOutput.cpp:43 Page/PageSettingsOutput.cpp:52
 msgid "MS"
-msgstr ""
+msgstr "MS"
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Auto Wrap"
-msgstr ""
+msgstr "Automatski prelom"
 
 #: Page/PageSettingsOutput.cpp:54
 msgid "Terminal Mode"
-msgstr ""
+msgstr "Terminalski način rada"
 
 #: Page/PageSettingsOutput.cpp:59 Page/PageSettingsOutput.cpp:69
 msgid "Clear"
-msgstr ""
+msgstr "Očisti"
 
 #: Page/PageSettingsOutputPopup.cpp:19
 msgid "Filter"
-msgstr ""
+msgstr "Filtar"
 
 #: Page/PageSettingsOutputPopup.cpp:26
 msgid "Hello;World"
-msgstr ""
+msgstr "Hello;World"
 
 #: Utilities/DataChannelComboBox.cpp:23
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
 msgid "None"
-msgstr ""
+msgstr "Nema"
 
 #: Utilities/FlowBitsComboBox.cpp:22
 msgid "Hardware"
-msgstr ""
+msgstr "Hardver"
 
 #: Utilities/FlowBitsComboBox.cpp:23
 msgid "Software"
-msgstr ""
+msgstr "Softver"
 
 #: Utilities/ParityComboBox.cpp:22
 msgid "Odd"
-msgstr ""
+msgstr "Neparan"
 
 #: Utilities/ParityComboBox.cpp:23
 msgid "Even"
-msgstr ""
+msgstr "Paran"
 
 #: Utilities/ParityComboBox.cpp:24
 msgid "Mark"
-msgstr ""
+msgstr "Mark"
 
 #: Utilities/ParityComboBox.cpp:25
 msgid "Space"
-msgstr ""
+msgstr "Space"
 
 #: Page/Page.cpp:231 Page/Page.cpp:235
 msgid "Save Output"
-msgstr ""
+msgstr "Spremi izlaz"
 
 #: Page/Page.cpp:244 Page/Page.cpp:248
 #, c-format
 msgid "Cannot save output to file '%s'."
-msgstr ""
+msgstr "Nije moguće spremiti izlaz u datoteku '%s'."
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Wrap"
-msgstr ""
+msgstr "Prelom"
 
 #: Page/PageSettingsOutput.cpp:67
 msgid "Save"
-msgstr ""
+msgstr "Spremi"
 
 #: Page/PageSettingsOutput.cpp:68
 msgid "Save output text to file..."
-msgstr ""
+msgstr "Spremi izlazni tekst u datoteku..."
 
 #: Page/PageSettingsOutput.cpp:85
 msgid "Filter: hello;world"
-msgstr ""
+msgstr "Filtar: hello;world"
 
 #: MainWindow.cpp:392
 msgid "Third Party"
-msgstr ""
+msgstr "Treća strana"

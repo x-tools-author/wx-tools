@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+# Hindi (hi) translation for wxTools
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-02 10:31+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-09-05 16:00+0530\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: Hindi <hi@li.org>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,557 +20,557 @@ msgstr ""
 #: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
 #: Common/wxTools.cpp:541
 msgid "Binary"
-msgstr ""
+msgstr "बाइनरी"
 
 #: Common/wxTools.cpp:533 Common/wxTools.cpp:542
 msgid "Octal"
-msgstr ""
+msgstr "ऑक्टल"
 
 #: Common/wxTools.cpp:534 Common/wxTools.cpp:543
 msgid "Decimal"
-msgstr ""
+msgstr "दशमलव"
 
 #: Common/wxTools.cpp:535 Common/wxTools.cpp:544
 msgid "Hexadecimal"
-msgstr ""
+msgstr "हेक्साडेसिमल"
 
 #: Common/wxTools.cpp:536 Common/wxTools.cpp:545
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 #: Common/wxTools.cpp:537 Common/wxTools.cpp:546
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874
 msgid "Serial Port"
-msgstr ""
+msgstr "सीरियल पोर्ट"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875
 msgid "UDP Client"
-msgstr ""
+msgstr "UDP क्लाइंट"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876
 msgid "UDP Server"
-msgstr ""
+msgstr "UDP सर्वर"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877
 msgid "TCP Client"
-msgstr ""
+msgstr "TCP क्लाइंट"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878
 msgid "TCP Server"
-msgstr ""
+msgstr "TCP सर्वर"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879
 msgid "Web Socket Client"
-msgstr ""
+msgstr "वेब सॉकेट क्लाइंट"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880
 msgid "Web Socket Server"
-msgstr ""
+msgstr "वेब सॉकेट सर्वर"
 
 #: Common/wxTools.cpp:958
 msgid "wxTools.json"
-msgstr ""
+msgstr "wxTools.json"
 
 #: Links/SerialPort_p.h:75
 msgid "Write data failed."
-msgstr ""
+msgstr "डेटा लिखने में विफल।"
 
 #: Links/SocketBase_p.h:117
 msgid "Open socket failed, please check parameters then try again."
-msgstr ""
+msgstr "सॉकेट खोलने में विफल, कृपया पैरामीटर जांचें और फिर से प्रयास करें।"
 
 #: Links/SocketBase_p.h:186
 msgid "Unconnected"
-msgstr ""
+msgstr "असंबद्ध"
 
 #: Links/SocketClient_p.h:22
 msgid "Client closed, server has been closed or not found."
-msgstr ""
+msgstr "क्लाइंट बंद, सर्वर बंद हो गया है या नहीं मिला।"
 
 #: Links/SocketServer_p.h:34
 msgid "Server has been closed."
-msgstr ""
+msgstr "सर्वर बंद हो गया है।"
 
 #: Links/TCPClient_p.h:39
 msgid "TCP client send bytes error."
-msgstr ""
+msgstr "TCP क्लाइंट बाइट भेजने में त्रुटि।"
 
 #: Links/UDPClient_p.h:36
 msgid "Client write bytes failed."
-msgstr ""
+msgstr "क्लाइंट बाइट लिखने में विफल।"
 
 #: Links/WSClient_p.h:49
 msgid "WS server send bytes error."
-msgstr ""
+msgstr "WS सर्वर बाइट भेजने में त्रुटि।"
 
 #: LinksUi/SerialPortUi.cpp:39
 msgid "Port name"
-msgstr ""
+msgstr "पोर्ट का नाम"
 
 #: LinksUi/SerialPortUi.cpp:40
 msgid "Baud rate"
-msgstr ""
+msgstr "बॉड दर"
 
 #: LinksUi/SerialPortUi.cpp:41
 msgid "Data bits"
-msgstr ""
+msgstr "डेटा बिट्स"
 
 #: LinksUi/SerialPortUi.cpp:42
 msgid "Stop bits"
-msgstr ""
+msgstr "स्टॉप बिट्स"
 
 #: LinksUi/SerialPortUi.cpp:43
 msgid "Parity"
-msgstr ""
+msgstr "पैरिटी"
 
 #: LinksUi/SerialPortUi.cpp:44
 msgid "Flow bits"
-msgstr ""
+msgstr "फ्लो कंट्रोल"
 
 #: LinksUi/SocketBaseUi.cpp:117
 msgid "Server IP"
-msgstr ""
+msgstr "सर्वर IP"
 
 #: LinksUi/SocketBaseUi.cpp:130
 msgid "Server port"
-msgstr ""
+msgstr "सर्वर पोर्ट"
 
 #: LinksUi/SocketBaseUi.cpp:141
 msgid "Write to"
-msgstr ""
+msgstr "इसे लिखें"
 
 #: LinksUi/SocketBaseUi.cpp:153
 msgid "All Clients"
-msgstr ""
+msgstr "सभी क्लाइंट"
 
 #: LinksUi/SocketBaseUi.cpp:171
 msgid "Client Info"
-msgstr ""
+msgstr "क्लाइंट जानकारी"
 
 #: LinksUi/SocketBaseUi.cpp:184
 msgid "Tx Channel"
-msgstr ""
+msgstr "Tx चैनल"
 
 #: MainWindow.cpp:98 MainWindow.cpp:119
 msgid "Open parameters file"
-msgstr ""
+msgstr "पैरामीटर फ़ाइल खोलें"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
 msgid "JSON files (*.json)|*.json"
-msgstr ""
+msgstr "JSON फ़ाइलें (*.json)|*.json"
 
 #: MainWindow.cpp:116 MainWindow.cpp:137
 msgid "Save parameters file"
-msgstr ""
+msgstr "पैरामीटर फ़ाइल सहेजें"
 
 #: MainWindow.cpp:134 MainWindow.cpp:155
 msgid "The application will be closed!"
-msgstr ""
+msgstr "एप्लिकेशन बंद हो जाएगा!"
 
 #: MainWindow.cpp:154 MainWindow.cpp:175
 msgid "wxTools - A set of tools developed with wxWidgets\n"
-msgstr ""
+msgstr "wxTools - wxWidgets के साथ विकसित उपकरणों का एक सेट\n"
 
 #: MainWindow.cpp:156 MainWindow.cpp:177
 msgid "Version: "
-msgstr ""
+msgstr "संस्करण: "
 
 #: MainWindow.cpp:157 MainWindow.cpp:178
 msgid "Author: x-tools-author\n"
-msgstr ""
+msgstr "लेखक: x-tools-author\n"
 
 #: MainWindow.cpp:158 MainWindow.cpp:179
 msgid "Email:"
-msgstr ""
+msgstr "ईमेल:"
 
 #: MainWindow.cpp:160 MainWindow.cpp:181
 msgid "Commit: "
-msgstr ""
+msgstr "कमिट: "
 
 #: MainWindow.cpp:161 MainWindow.cpp:182
 msgid "Date: "
-msgstr ""
+msgstr "तारीख: "
 
 #: MainWindow.cpp:162 MainWindow.cpp:183
 msgid "Build: "
-msgstr ""
+msgstr "बिल्ड: "
 
 #: MainWindow.cpp:164 MainWindow.cpp:185
 msgid "Copyright"
-msgstr ""
+msgstr "कॉपीराइट"
 
 #: MainWindow.cpp:166 MainWindow.cpp:187
 msgid "All rights reserved.\n"
-msgstr ""
+msgstr "सर्वाधिकार सुरक्षित।\n"
 
 #: MainWindow.cpp:167 MainWindow.cpp:188
 msgid "About wxTools"
-msgstr ""
+msgstr "wxTools के बारे में"
 
 #: MainWindow.cpp:189 MainWindow.cpp:210
 msgid "File"
-msgstr ""
+msgstr "फ़ाइल"
 
 #: MainWindow.cpp:208 MainWindow.cpp:229
 msgid "Options"
-msgstr ""
+msgstr "विकल्प"
 
 #: MainWindow.cpp:210 MainWindow.cpp:231
 msgid "Open Log Directory"
-msgstr ""
+msgstr "लॉग डायरेक्टरी खोलें"
 
 #: MainWindow.cpp:211 MainWindow.cpp:232
 msgid "Open the log directory."
-msgstr ""
+msgstr "लॉग डायरेक्टरी खोलें।"
 
 #: MainWindow.cpp:215 MainWindow.cpp:236
 msgid "Open Config Directory"
-msgstr ""
+msgstr "कॉन्फ़िग डायरेक्टरी खोलें"
 
 #: MainWindow.cpp:216 MainWindow.cpp:237
 msgid "Open the config directory."
-msgstr ""
+msgstr "कॉन्फ़िग डायरेक्टरी खोलें।"
 
 #: MainWindow.cpp:220 MainWindow.cpp:241
 msgid "Open App Directory"
-msgstr ""
+msgstr "ऐप डायरेक्टरी खोलें"
 
 #: MainWindow.cpp:221 MainWindow.cpp:242
 msgid "Open the app directory."
-msgstr ""
+msgstr "ऐप डायरेक्टरी खोलें।"
 
 #: MainWindow.cpp:233 MainWindow.cpp:254
 msgid "Application themes"
-msgstr ""
+msgstr "एप्लिकेशन थीम"
 
 #: MainWindow.cpp:241 MainWindow.cpp:262
 msgid "System Theme"
-msgstr ""
+msgstr "सिस्टम थीम"
 
 #: MainWindow.cpp:242 MainWindow.cpp:263
 msgid "Light Theme"
-msgstr ""
+msgstr "लाइट थीम"
 
 #: MainWindow.cpp:243 MainWindow.cpp:264
 msgid "Dark Theme"
-msgstr ""
+msgstr "डार्क थीम"
 
 #: MainWindow.cpp:262 MainWindow.cpp:284
 msgid "Reboot the application to take effect now?"
-msgstr ""
+msgstr "अब प्रभावी होने के लिए एप्लिकेशन रीबूट करें?"
 
 #: MainWindow.cpp:263 MainWindow.cpp:285
 msgid "Information"
-msgstr ""
+msgstr "जानकारी"
 
 #: MainWindow.cpp:278 MainWindow.cpp:300
 msgid "Show on Top"
-msgstr ""
+msgstr "सबसे ऊपर दिखाएं"
 
 #: MainWindow.cpp:279 MainWindow.cpp:301
 msgid "Keep the application window on top of others."
-msgstr ""
+msgstr "एप्लिकेशन विंडो को दूसरों के ऊपर रखें।"
 
 #: MainWindow.cpp:295 MainWindow.cpp:317
 msgid "Help"
-msgstr ""
+msgstr "सहायता"
 
 #: MainWindow.cpp:301 MainWindow.cpp:323
 msgid "About wxWidgets"
-msgstr ""
+msgstr "wxWidgets के बारे में"
 
 #: MainWindow.cpp:302 MainWindow.cpp:324
 msgid "Show wxWidgets library information."
-msgstr ""
+msgstr "wxWidgets लाइब्रेरी जानकारी दिखाएं।"
 
 #: MainWindow.cpp:306 MainWindow.cpp:328
 msgid "Visit online documentation page."
-msgstr ""
+msgstr "ऑनलाइन दस्तावेज़ीकरण पृष्ठ देखें।"
 
 #: MainWindow.cpp:310 MainWindow.cpp:332
 msgid "Check for Updates"
-msgstr ""
+msgstr "अपडेट के लिए जांचें"
 
 #: MainWindow.cpp:311 MainWindow.cpp:333
 msgid "Check for updates online."
-msgstr ""
+msgstr "ऑनलाइन अपडेट के लिए जांचें।"
 
 #: MainWindow.cpp:314 MainWindow.cpp:336
 msgid "Report an Issue"
-msgstr ""
+msgstr "एक समस्या रिपोर्ट करें"
 
 #: MainWindow.cpp:315 MainWindow.cpp:337
 msgid "Report a Issue online."
-msgstr ""
+msgstr "ऑनलाइन एक समस्या रिपोर्ट करें।"
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "History"
-msgstr ""
+msgstr "इतिहास"
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "Show the history of the application."
-msgstr ""
+msgstr "एप्लिकेशन का इतिहास दिखाएं।"
 
 #: MainWindow.cpp:330 MainWindow.cpp:354
 msgid "Visit GitHub page to get more information."
-msgstr ""
+msgstr "अधिक जानकारी प्राप्त करने के लिए GitHub पृष्ठ देखें।"
 
 #: MainWindow.cpp:331 MainWindow.cpp:355
 msgid "Get Source from GitHub"
-msgstr ""
+msgstr "GitHub से स्रोत प्राप्त करें"
 
 #: MainWindow.cpp:335 MainWindow.cpp:359
 msgid "Visit Gitee page to get more information."
-msgstr ""
+msgstr "अधिक जानकारी प्राप्त करने के लिए Gitee पृष्ठ देखें।"
 
 #: MainWindow.cpp:336 MainWindow.cpp:360
 msgid "Get Source from Gitee"
-msgstr ""
+msgstr "Gitee से स्रोत प्राप्त करें"
 
 #: MainWindow.cpp:340 MainWindow.cpp:364
 msgid "Visit GitHub home page of author."
-msgstr ""
+msgstr "लेखक का GitHub होम पेज देखें।"
 
 #: MainWindow.cpp:341 MainWindow.cpp:365
 msgid "GitHub Home Page"
-msgstr ""
+msgstr "GitHub होम पेज"
 
 #: MainWindow.cpp:345 MainWindow.cpp:369
 msgid "Visit Gitee home page of author."
-msgstr ""
+msgstr "लेखक का Gitee होम पेज देखें।"
 
 #: MainWindow.cpp:346 MainWindow.cpp:370
 msgid "Gitee Home Page"
-msgstr ""
+msgstr "Gitee होम पेज"
 
 #: MainWindow.cpp:353 MainWindow.cpp:377
 msgid "Visit Microsoft Store page to buy wxTools."
-msgstr ""
+msgstr "wxTools खरीदने के लिए Microsoft Store पेज देखें।"
 
 #: MainWindow.cpp:354 MainWindow.cpp:378
 msgid "Supporting Author"
-msgstr ""
+msgstr "लेखक का समर्थन करें"
 
 #: MainWindow.cpp:358 MainWindow.cpp:382
 msgid "Visit Microsoft Store home page of author."
-msgstr ""
+msgstr "लेखक का Microsoft Store होम पेज देखें。"
 
 #: MainWindow.cpp:359 MainWindow.cpp:383
 msgid "Other Applications"
-msgstr ""
+msgstr "अन्य एप्लिकेशन"
 
 #: MainWindow.cpp:456 MainWindow.cpp:513
 msgid "History file not found!"
-msgstr ""
+msgstr "इतिहास फ़ाइल नहीं मिली!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 msgid "Error"
-msgstr ""
+msgstr "त्रुटि"
 
 #: MainWindow.cpp:460 MainWindow.cpp:517
 msgid "wxTools Release History"
-msgstr ""
+msgstr "wxTools रिलीज़ इतिहास"
 
 #: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359
 msgid "Close"
-msgstr ""
+msgstr "बंद करें"
 
 #: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361
 msgid "Failed to open link."
-msgstr ""
+msgstr "लिंक खोलने में विफल।"
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
 #: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377
 msgid "Open"
-msgstr ""
+msgstr "खोलें"
 
 #: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394
 msgid "Link is not opened."
-msgstr ""
+msgstr "लिंक खुला नहीं है।"
 
 #: Page/PageIOInput.cpp:14
 msgid "Input"
-msgstr ""
+msgstr "इनपुट"
 
 #: Page/PageIOOutput.cpp:12
 msgid "Output"
-msgstr ""
+msgstr "आउटपुट"
 
 #: Page/PageSettingsInput.cpp:18
 msgid "Input Settings"
-msgstr ""
+msgstr "इनपुट सेटिंग्स"
 
 #: Page/PageSettingsInput.cpp:21 Page/PageSettingsInput.cpp:20
 msgid "Cycle"
-msgstr ""
+msgstr "चक्र"
 
 #: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
 #: Page/PageSettingsOutput.cpp:30 Page/PageSettingsInput.cpp:22
 msgid "Format"
-msgstr ""
+msgstr "प्रारूप"
 
 #: Page/PageSettingsInput.cpp:25 Page/PageSettingsLink.cpp:32
 #: Page/PageSettingsOutput.cpp:58 Page/PageSettingsInput.cpp:24
 msgid "Settings"
-msgstr ""
+msgstr "सेटिंग्स"
 
 #: Page/PageSettingsInput.cpp:26 Page/PageSettingsInput.cpp:25
 msgid "Send"
-msgstr ""
+msgstr "भेजें"
 
 #: Page/PageSettingsInput.cpp:163 Page/PageSettingsInput.cpp:162
 msgid "Disabled"
-msgstr ""
+msgstr "अक्षम"
 
 #: Page/PageSettingsInputPopup.cpp:24
 msgid "Prefix"
-msgstr ""
+msgstr "उपसर्ग"
 
 #: Page/PageSettingsInputPopup.cpp:26
 msgid "Suffix"
-msgstr ""
+msgstr "प्रत्यय"
 
 #: Page/PageSettingsInputPopup.cpp:28
 msgid "ESC"
-msgstr ""
+msgstr "ESC"
 
 #: Page/PageSettingsInputPopup.cpp:31
 msgid "Start Index"
-msgstr ""
+msgstr "प्रारंभ सूचकांक"
 
 #: Page/PageSettingsInputPopup.cpp:33
 msgid "End Index"
-msgstr ""
+msgstr "अंत सूचकांक"
 
 #: Page/PageSettingsInputPopup.cpp:35
 msgid "Algorithm"
-msgstr ""
+msgstr "एल्गोरिथम"
 
 #: Page/PageSettingsInputPopup.cpp:37
 msgid "Add CRC"
-msgstr ""
+msgstr "CRC जोड़ें"
 
 #: Page/PageSettingsInputPopup.cpp:38
 msgid "Big Endian"
-msgstr ""
+msgstr "बिग एंडियन"
 
 #: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
 msgid "Link Settings"
-msgstr ""
+msgstr "लिंक सेटिंग्स"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
 msgid "Refresh"
-msgstr ""
+msgstr "ताज़ा करें"
 
 #: Page/PageSettingsOutput.cpp:17 Page/PageSettingsOutput.cpp:16
 msgid "Output Settings"
-msgstr ""
+msgstr "आउटपुट सेटिंग्स"
 
 #: Page/PageSettingsOutput.cpp:38 Page/PageSettingsOutput.cpp:47
 msgid "Rx"
-msgstr ""
+msgstr "Rx"
 
 #: Page/PageSettingsOutput.cpp:39 Page/PageSettingsOutput.cpp:48
 msgid "Tx"
-msgstr ""
+msgstr "Tx"
 
 #: Page/PageSettingsOutput.cpp:40 Page/PageSettingsOutput.cpp:49
 msgid "Flags"
-msgstr ""
+msgstr "फ्लैग्स"
 
 #: Page/PageSettingsOutput.cpp:41 Page/PageSettingsOutput.cpp:50
 msgid "Date"
-msgstr ""
+msgstr "तारीख"
 
 #: Page/PageSettingsOutput.cpp:42 Page/PageSettingsOutput.cpp:51
 msgid "Time"
-msgstr ""
+msgstr "समय"
 
 #: Page/PageSettingsOutput.cpp:43 Page/PageSettingsOutput.cpp:52
 msgid "MS"
-msgstr ""
+msgstr "एमएस"
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Auto Wrap"
-msgstr ""
+msgstr "ऑटो रैप"
 
 #: Page/PageSettingsOutput.cpp:54
 msgid "Terminal Mode"
-msgstr ""
+msgstr "टर्मिनल मोड"
 
 #: Page/PageSettingsOutput.cpp:59 Page/PageSettingsOutput.cpp:69
 msgid "Clear"
-msgstr ""
+msgstr "साफ़ करें"
 
 #: Page/PageSettingsOutputPopup.cpp:19
 msgid "Filter"
-msgstr ""
+msgstr "फ़िल्टर"
 
 #: Page/PageSettingsOutputPopup.cpp:26
 msgid "Hello;World"
-msgstr ""
+msgstr "नमस्ते;दुनिया"
 
 #: Utilities/DataChannelComboBox.cpp:23
 msgid "Text"
-msgstr ""
+msgstr "टेक्स्ट"
 
 #: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
 msgid "None"
-msgstr ""
+msgstr "कोई नहीं"
 
 #: Utilities/FlowBitsComboBox.cpp:22
 msgid "Hardware"
-msgstr ""
+msgstr "हार्डवेयर"
 
 #: Utilities/FlowBitsComboBox.cpp:23
 msgid "Software"
-msgstr ""
+msgstr "सॉफ्टवेयर"
 
 #: Utilities/ParityComboBox.cpp:22
 msgid "Odd"
-msgstr ""
+msgstr "विषम"
 
 #: Utilities/ParityComboBox.cpp:23
 msgid "Even"
-msgstr ""
+msgstr "सम"
 
 #: Utilities/ParityComboBox.cpp:24
 msgid "Mark"
-msgstr ""
+msgstr "मार्क"
 
 #: Utilities/ParityComboBox.cpp:25
 msgid "Space"
-msgstr ""
+msgstr "स्पेस"
 
 #: Page/Page.cpp:231 Page/Page.cpp:235
 msgid "Save Output"
-msgstr ""
+msgstr "आउटपुट सहेजें"
 
 #: Page/Page.cpp:244 Page/Page.cpp:248
 #, c-format
 msgid "Cannot save output to file '%s'."
-msgstr ""
+msgstr "आउटपुट को '%s' फ़ाइल में सहेज नहीं सकते।"
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Wrap"
-msgstr ""
+msgstr "रैप"
 
 #: Page/PageSettingsOutput.cpp:67
 msgid "Save"
-msgstr ""
+msgstr "सहेजें"
 
 #: Page/PageSettingsOutput.cpp:68
 msgid "Save output text to file..."
-msgstr ""
+msgstr "आउटपुट टेक्स्ट को फ़ाइल में सहेजें..."
 
 #: Page/PageSettingsOutput.cpp:85
 msgid "Filter: hello;world"
-msgstr ""
+msgstr "फ़िल्टर: नमस्ते;दुनिया"
 
 #: MainWindow.cpp:392
 msgid "Third Party"
-msgstr ""
+msgstr "थर्ड पार्टी"

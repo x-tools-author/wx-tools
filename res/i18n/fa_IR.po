@@ -11,8 +11,8 @@ msgstr ""
 "POT-Creation-Date: 2025-09-02 10:31+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: Persian (Iran) <LL@li.org>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,557 +20,557 @@ msgstr ""
 #: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
 #: Common/wxTools.cpp:541
 msgid "Binary"
-msgstr ""
+msgstr "دودویی"
 
 #: Common/wxTools.cpp:533 Common/wxTools.cpp:542
 msgid "Octal"
-msgstr ""
+msgstr "هشتی"
 
 #: Common/wxTools.cpp:534 Common/wxTools.cpp:543
 msgid "Decimal"
-msgstr ""
+msgstr "اعشاری"
 
 #: Common/wxTools.cpp:535 Common/wxTools.cpp:544
 msgid "Hexadecimal"
-msgstr ""
+msgstr "شانزده‌شانزدهی"
 
 #: Common/wxTools.cpp:536 Common/wxTools.cpp:545
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 #: Common/wxTools.cpp:537 Common/wxTools.cpp:546
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874
 msgid "Serial Port"
-msgstr ""
+msgstr "پورت سریال"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875
 msgid "UDP Client"
-msgstr ""
+msgstr "کلاینت UDP"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876
 msgid "UDP Server"
-msgstr ""
+msgstr "سرور UDP"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877
 msgid "TCP Client"
-msgstr ""
+msgstr "کلاینت TCP"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878
 msgid "TCP Server"
-msgstr ""
+msgstr "سرور TCP"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879
 msgid "Web Socket Client"
-msgstr ""
+msgstr "کلاینت Web Socket"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880
 msgid "Web Socket Server"
-msgstr ""
+msgstr "سرور Web Socket"
 
 #: Common/wxTools.cpp:958
 msgid "wxTools.json"
-msgstr ""
+msgstr "wxTools.json"
 
 #: Links/SerialPort_p.h:75
 msgid "Write data failed."
-msgstr ""
+msgstr "نوشتن داده ناموفق بود."
 
 #: Links/SocketBase_p.h:117
 msgid "Open socket failed, please check parameters then try again."
-msgstr ""
+msgstr "باز کردن سوکت ناموفق بود، لطفاً پارامترها را بررسی کرده و دوباره تلاش کنید."
 
 #: Links/SocketBase_p.h:186
 msgid "Unconnected"
-msgstr ""
+msgstr "اتصال برقرار نشد"
 
 #: Links/SocketClient_p.h:22
 msgid "Client closed, server has been closed or not found."
-msgstr ""
+msgstr "کلاینت بسته شد، سرور بسته شده یا یافت نشد."
 
 #: Links/SocketServer_p.h:34
 msgid "Server has been closed."
-msgstr ""
+msgstr "سرور بسته شده است."
 
 #: Links/TCPClient_p.h:39
 msgid "TCP client send bytes error."
-msgstr ""
+msgstr "خطای ارسال بایت‌ها توسط کلاینت TCP."
 
 #: Links/UDPClient_p.h:36
 msgid "Client write bytes failed."
-msgstr ""
+msgstr "نوشتن بایت‌ها توسط کلاینت ناموفق بود."
 
 #: Links/WSClient_p.h:49
 msgid "WS server send bytes error."
-msgstr ""
+msgstr "خطای ارسال بایت‌ها توسط سرور WS."
 
 #: LinksUi/SerialPortUi.cpp:39
 msgid "Port name"
-msgstr ""
+msgstr "نام پورت"
 
 #: LinksUi/SerialPortUi.cpp:40
 msgid "Baud rate"
-msgstr ""
+msgstr "نرخ Baud"
 
 #: LinksUi/SerialPortUi.cpp:41
 msgid "Data bits"
-msgstr ""
+msgstr "بیت‌های داده"
 
 #: LinksUi/SerialPortUi.cpp:42
 msgid "Stop bits"
-msgstr ""
+msgstr "بیت‌های توقف"
 
 #: LinksUi/SerialPortUi.cpp:43
 msgid "Parity"
-msgstr ""
+msgstr "پاریتی"
 
 #: LinksUi/SerialPortUi.cpp:44
 msgid "Flow bits"
-msgstr ""
+msgstr "بیت‌های جریان"
 
 #: LinksUi/SocketBaseUi.cpp:117
 msgid "Server IP"
-msgstr ""
+msgstr "آی‌پی سرور"
 
 #: LinksUi/SocketBaseUi.cpp:130
 msgid "Server port"
-msgstr ""
+msgstr "پورت سرور"
 
 #: LinksUi/SocketBaseUi.cpp:141
 msgid "Write to"
-msgstr ""
+msgstr "نوشتن به"
 
 #: LinksUi/SocketBaseUi.cpp:153
 msgid "All Clients"
-msgstr ""
+msgstr "همه کلاینت‌ها"
 
 #: LinksUi/SocketBaseUi.cpp:171
 msgid "Client Info"
-msgstr ""
+msgstr "اطلاعات کلاینت"
 
 #: LinksUi/SocketBaseUi.cpp:184
 msgid "Tx Channel"
-msgstr ""
+msgstr "کانال Tx"
 
 #: MainWindow.cpp:98 MainWindow.cpp:119
 msgid "Open parameters file"
-msgstr ""
+msgstr "باز کردن فایل پارامترها"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
 msgid "JSON files (*.json)|*.json"
-msgstr ""
+msgstr "فایل‌های JSON (*.json)|*.json"
 
 #: MainWindow.cpp:116 MainWindow.cpp:137
 msgid "Save parameters file"
-msgstr ""
+msgstr "ذخیره فایل پارامترها"
 
 #: MainWindow.cpp:134 MainWindow.cpp:155
 msgid "The application will be closed!"
-msgstr ""
+msgstr "برنامه بسته خواهد شد!"
 
 #: MainWindow.cpp:154 MainWindow.cpp:175
 msgid "wxTools - A set of tools developed with wxWidgets\n"
-msgstr ""
+msgstr "wxTools - مجموعه‌ای از ابزارهای توسعه‌یافته با wxWidgets\n"
 
 #: MainWindow.cpp:156 MainWindow.cpp:177
 msgid "Version: "
-msgstr ""
+msgstr "نسخه: "
 
 #: MainWindow.cpp:157 MainWindow.cpp:178
 msgid "Author: x-tools-author\n"
-msgstr ""
+msgstr "نویسنده: x-tools-author\n"
 
 #: MainWindow.cpp:158 MainWindow.cpp:179
 msgid "Email:"
-msgstr ""
+msgstr "ایمیل:"
 
 #: MainWindow.cpp:160 MainWindow.cpp:181
 msgid "Commit: "
-msgstr ""
+msgstr "Commit: "
 
 #: MainWindow.cpp:161 MainWindow.cpp:182
 msgid "Date: "
-msgstr ""
+msgstr "تاریخ: "
 
 #: MainWindow.cpp:162 MainWindow.cpp:183
 msgid "Build: "
-msgstr ""
+msgstr "ساخت: "
 
 #: MainWindow.cpp:164 MainWindow.cpp:185
 msgid "Copyright"
-msgstr ""
+msgstr "حق نشر"
 
 #: MainWindow.cpp:166 MainWindow.cpp:187
 msgid "All rights reserved.\n"
-msgstr ""
+msgstr "تمامی حقوق محفوظ است.\n"
 
 #: MainWindow.cpp:167 MainWindow.cpp:188
 msgid "About wxTools"
-msgstr ""
+msgstr "درباره wxTools"
 
 #: MainWindow.cpp:189 MainWindow.cpp:210
 msgid "File"
-msgstr ""
+msgstr "فایل"
 
 #: MainWindow.cpp:208 MainWindow.cpp:229
 msgid "Options"
-msgstr ""
+msgstr "گزینه‌ها"
 
 #: MainWindow.cpp:210 MainWindow.cpp:231
 msgid "Open Log Directory"
-msgstr ""
+msgstr "باز کردن پوشه لاگ"
 
 #: MainWindow.cpp:211 MainWindow.cpp:232
 msgid "Open the log directory."
-msgstr ""
+msgstr "باز کردن پوشه لاگ."
 
 #: MainWindow.cpp:215 MainWindow.cpp:236
 msgid "Open Config Directory"
-msgstr ""
+msgstr "باز کردن پوشه پیکربندی"
 
 #: MainWindow.cpp:216 MainWindow.cpp:237
 msgid "Open the config directory."
-msgstr ""
+msgstr "باز کردن پوشه پیکربندی."
 
 #: MainWindow.cpp:220 MainWindow.cpp:241
 msgid "Open App Directory"
-msgstr ""
+msgstr "باز کردن پوشه برنامه"
 
 #: MainWindow.cpp:221 MainWindow.cpp:242
 msgid "Open the app directory."
-msgstr ""
+msgstr "باز کردن پوشه برنامه."
 
 #: MainWindow.cpp:233 MainWindow.cpp:254
 msgid "Application themes"
-msgstr ""
+msgstr "تم‌های برنامه"
 
 #: MainWindow.cpp:241 MainWindow.cpp:262
 msgid "System Theme"
-msgstr ""
+msgstr "تم سیستم"
 
 #: MainWindow.cpp:242 MainWindow.cpp:263
 msgid "Light Theme"
-msgstr ""
+msgstr "تم روشن"
 
 #: MainWindow.cpp:243 MainWindow.cpp:264
 msgid "Dark Theme"
-msgstr ""
+msgstr "تم تیره"
 
 #: MainWindow.cpp:262 MainWindow.cpp:284
 msgid "Reboot the application to take effect now?"
-msgstr ""
+msgstr "برای اعمال تغییرات برنامه را راه‌اندازی مجدد کنید؟"
 
 #: MainWindow.cpp:263 MainWindow.cpp:285
 msgid "Information"
-msgstr ""
+msgstr "اطلاعات"
 
 #: MainWindow.cpp:278 MainWindow.cpp:300
 msgid "Show on Top"
-msgstr ""
+msgstr "نمایش در بالا"
 
 #: MainWindow.cpp:279 MainWindow.cpp:301
 msgid "Keep the application window on top of others."
-msgstr ""
+msgstr "نگه داشتن پنجره برنامه در بالای سایر پنجره‌ها."
 
 #: MainWindow.cpp:295 MainWindow.cpp:317
 msgid "Help"
-msgstr ""
+msgstr "راهنما"
 
 #: MainWindow.cpp:301 MainWindow.cpp:323
 msgid "About wxWidgets"
-msgstr ""
+msgstr "درباره wxWidgets"
 
 #: MainWindow.cpp:302 MainWindow.cpp:324
 msgid "Show wxWidgets library information."
-msgstr ""
+msgstr "نمایش اطلاعات کتابخانه wxWidgets."
 
 #: MainWindow.cpp:306 MainWindow.cpp:328
 msgid "Visit online documentation page."
-msgstr ""
+msgstr "بازدید از صفحه مستندات آنلاین."
 
 #: MainWindow.cpp:310 MainWindow.cpp:332
 msgid "Check for Updates"
-msgstr ""
+msgstr "بررسی برای به‌روزرسانی‌ها"
 
 #: MainWindow.cpp:311 MainWindow.cpp:333
 msgid "Check for updates online."
-msgstr ""
+msgstr "بررسی برای به‌روزرسانی‌ها به صورت آنلاین."
 
 #: MainWindow.cpp:314 MainWindow.cpp:336
 msgid "Report an Issue"
-msgstr ""
+msgstr "گزارش یک مشکل"
 
 #: MainWindow.cpp:315 MainWindow.cpp:337
 msgid "Report a Issue online."
-msgstr ""
+msgstr "گزارش یک مشکل به صورت آنلاین."
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "History"
-msgstr ""
+msgstr "تاریخچه"
 
 #: MainWindow.cpp:325 MainWindow.cpp:349
 msgid "Show the history of the application."
-msgstr ""
+msgstr "نمایش تاریخچه برنامه."
 
 #: MainWindow.cpp:330 MainWindow.cpp:354
 msgid "Visit GitHub page to get more information."
-msgstr ""
+msgstr "بازدید از صفحه GitHub برای دریافت اطلاعات بیشتر."
 
 #: MainWindow.cpp:331 MainWindow.cpp:355
 msgid "Get Source from GitHub"
-msgstr ""
+msgstr "دریافت منبع از GitHub"
 
 #: MainWindow.cpp:335 MainWindow.cpp:359
 msgid "Visit Gitee page to get more information."
-msgstr ""
+msgstr "بازدید از صفحه Gitee برای دریافت اطلاعات بیشتر."
 
 #: MainWindow.cpp:336 MainWindow.cpp:360
 msgid "Get Source from Gitee"
-msgstr ""
+msgstr "دریافت منبع از Gitee"
 
 #: MainWindow.cpp:340 MainWindow.cpp:364
 msgid "Visit GitHub home page of author."
-msgstr ""
+msgstr "بازدید از صفحه اصلی GitHub نویسنده."
 
 #: MainWindow.cpp:341 MainWindow.cpp:365
 msgid "GitHub Home Page"
-msgstr ""
+msgstr "صفحه اصلی GitHub"
 
 #: MainWindow.cpp:345 MainWindow.cpp:369
 msgid "Visit Gitee home page of author."
-msgstr ""
+msgstr "بازدید از صفحه اصلی Gitee نویسنده."
 
 #: MainWindow.cpp:346 MainWindow.cpp:370
 msgid "Gitee Home Page"
-msgstr ""
+msgstr "صفحه اصلی Gitee"
 
 #: MainWindow.cpp:353 MainWindow.cpp:377
 msgid "Visit Microsoft Store page to buy wxTools."
-msgstr ""
+msgstr "بازدید از صفحه Microsoft Store برای خرید wxTools."
 
 #: MainWindow.cpp:354 MainWindow.cpp:378
 msgid "Supporting Author"
-msgstr ""
+msgstr "پشتیبانی از نویسنده"
 
 #: MainWindow.cpp:358 MainWindow.cpp:382
 msgid "Visit Microsoft Store home page of author."
-msgstr ""
+msgstr "بازدید از صفحه اصلی Microsoft Store نویسنده."
 
 #: MainWindow.cpp:359 MainWindow.cpp:383
 msgid "Other Applications"
-msgstr ""
+msgstr "سایر برنامه‌ها"
 
 #: MainWindow.cpp:456 MainWindow.cpp:513
 msgid "History file not found!"
-msgstr ""
+msgstr "فایل تاریخچه یافت نشد!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #: MainWindow.cpp:460 MainWindow.cpp:517
 msgid "wxTools Release History"
-msgstr ""
+msgstr "تاریخچه انتشار wxTools"
 
 #: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 #: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361
 msgid "Failed to open link."
-msgstr ""
+msgstr "باز کردن پیوند ناموفق بود."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
 #: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377
 msgid "Open"
-msgstr ""
+msgstr "باز کردن"
 
 #: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394
 msgid "Link is not opened."
-msgstr ""
+msgstr "پیوند باز نیست."
 
 #: Page/PageIOInput.cpp:14
 msgid "Input"
-msgstr ""
+msgstr "ورودی"
 
 #: Page/PageIOOutput.cpp:12
 msgid "Output"
-msgstr ""
+msgstr "خروجی"
 
 #: Page/PageSettingsInput.cpp:18
 msgid "Input Settings"
-msgstr ""
+msgstr "تنظیمات ورودی"
 
 #: Page/PageSettingsInput.cpp:21 Page/PageSettingsInput.cpp:20
 msgid "Cycle"
-msgstr ""
+msgstr "چرخه"
 
 #: Page/PageSettingsInput.cpp:23 Page/PageSettingsOutput.cpp:29
 #: Page/PageSettingsOutput.cpp:30 Page/PageSettingsInput.cpp:22
 msgid "Format"
-msgstr ""
+msgstr "فرمت"
 
 #: Page/PageSettingsInput.cpp:25 Page/PageSettingsLink.cpp:32
 #: Page/PageSettingsOutput.cpp:58 Page/PageSettingsInput.cpp:24
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #: Page/PageSettingsInput.cpp:26 Page/PageSettingsInput.cpp:25
 msgid "Send"
-msgstr ""
+msgstr "ارسال"
 
 #: Page/PageSettingsInput.cpp:163 Page/PageSettingsInput.cpp:162
 msgid "Disabled"
-msgstr ""
+msgstr "غیرفعال"
 
 #: Page/PageSettingsInputPopup.cpp:24
 msgid "Prefix"
-msgstr ""
+msgstr "پیشوند"
 
 #: Page/PageSettingsInputPopup.cpp:26
 msgid "Suffix"
-msgstr ""
+msgstr "پسوند"
 
 #: Page/PageSettingsInputPopup.cpp:28
 msgid "ESC"
-msgstr ""
+msgstr "ESC"
 
 #: Page/PageSettingsInputPopup.cpp:31
 msgid "Start Index"
-msgstr ""
+msgstr "شاخص شروع"
 
 #: Page/PageSettingsInputPopup.cpp:33
 msgid "End Index"
-msgstr ""
+msgstr "شاخص پایان"
 
 #: Page/PageSettingsInputPopup.cpp:35
 msgid "Algorithm"
-msgstr ""
+msgstr "الگوریتم"
 
 #: Page/PageSettingsInputPopup.cpp:37
 msgid "Add CRC"
-msgstr ""
+msgstr "افزودن CRC"
 
 #: Page/PageSettingsInputPopup.cpp:38
 msgid "Big Endian"
-msgstr ""
+msgstr "Big Endian"
 
 #: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
 msgid "Link Settings"
-msgstr ""
+msgstr "تنظیمات پیوند"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
 msgid "Refresh"
-msgstr ""
+msgstr "تازه‌سازی"
 
 #: Page/PageSettingsOutput.cpp:17 Page/PageSettingsOutput.cpp:16
 msgid "Output Settings"
-msgstr ""
+msgstr "تنظیمات خروجی"
 
 #: Page/PageSettingsOutput.cpp:38 Page/PageSettingsOutput.cpp:47
 msgid "Rx"
-msgstr ""
+msgstr "Rx"
 
 #: Page/PageSettingsOutput.cpp:39 Page/PageSettingsOutput.cpp:48
 msgid "Tx"
-msgstr ""
+msgstr "Tx"
 
 #: Page/PageSettingsOutput.cpp:40 Page/PageSettingsOutput.cpp:49
 msgid "Flags"
-msgstr ""
+msgstr "پرچم‌ها"
 
 #: Page/PageSettingsOutput.cpp:41 Page/PageSettingsOutput.cpp:50
 msgid "Date"
-msgstr ""
+msgstr "تاریخ"
 
 #: Page/PageSettingsOutput.cpp:42 Page/PageSettingsOutput.cpp:51
 msgid "Time"
-msgstr ""
+msgstr "زمان"
 
 #: Page/PageSettingsOutput.cpp:43 Page/PageSettingsOutput.cpp:52
 msgid "MS"
-msgstr ""
+msgstr "MS"
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Auto Wrap"
-msgstr ""
+msgstr "پوشش خودکار"
 
 #: Page/PageSettingsOutput.cpp:54
 msgid "Terminal Mode"
-msgstr ""
+msgstr "حالت ترمینال"
 
 #: Page/PageSettingsOutput.cpp:59 Page/PageSettingsOutput.cpp:69
 msgid "Clear"
-msgstr ""
+msgstr "پاک کردن"
 
 #: Page/PageSettingsOutputPopup.cpp:19
 msgid "Filter"
-msgstr ""
+msgstr "فیلتر"
 
 #: Page/PageSettingsOutputPopup.cpp:26
 msgid "Hello;World"
-msgstr ""
+msgstr "سلام;دنیا"
 
 #: Utilities/DataChannelComboBox.cpp:23
 msgid "Text"
-msgstr ""
+msgstr "متن"
 
 #: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
 msgid "None"
-msgstr ""
+msgstr "هیچ‌کدام"
 
 #: Utilities/FlowBitsComboBox.cpp:22
 msgid "Hardware"
-msgstr ""
+msgstr "سخت‌افزار"
 
 #: Utilities/FlowBitsComboBox.cpp:23
 msgid "Software"
-msgstr ""
+msgstr "نرم‌افزار"
 
 #: Utilities/ParityComboBox.cpp:22
 msgid "Odd"
-msgstr ""
+msgstr "فرد"
 
 #: Utilities/ParityComboBox.cpp:23
 msgid "Even"
-msgstr ""
+msgstr "زوج"
 
 #: Utilities/ParityComboBox.cpp:24
 msgid "Mark"
-msgstr ""
+msgstr "علامت"
 
 #: Utilities/ParityComboBox.cpp:25
 msgid "Space"
-msgstr ""
+msgstr "فاصله"
 
 #: Page/Page.cpp:231 Page/Page.cpp:235
 msgid "Save Output"
-msgstr ""
+msgstr "ذخیره خروجی"
 
 #: Page/Page.cpp:244 Page/Page.cpp:248
 #, c-format
 msgid "Cannot save output to file '%s'."
-msgstr ""
+msgstr "امکان ذخیره خروجی در فایل '%s' وجود ندارد."
 
 #: Page/PageSettingsOutput.cpp:53
 msgid "Wrap"
-msgstr ""
+msgstr "پوشش"
 
 #: Page/PageSettingsOutput.cpp:67
 msgid "Save"
-msgstr ""
+msgstr "ذخیره"
 
 #: Page/PageSettingsOutput.cpp:68
 msgid "Save output text to file..."
-msgstr ""
+msgstr "ذخیره متن خروجی در فایل..."
 
 #: Page/PageSettingsOutput.cpp:85
 msgid "Filter: hello;world"
-msgstr ""
+msgstr "فیلتر: سلام;دنیا"
 
 #: MainWindow.cpp:392
 msgid "Third Party"
-msgstr ""
+msgstr "شخص ثالث"

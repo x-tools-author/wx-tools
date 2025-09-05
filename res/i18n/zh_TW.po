@@ -515,7 +515,7 @@ msgstr "0校驗"
 
 #: MainWindow.cpp:158 MainWindow.cpp:179
 msgid "Email:"
-msgstr ""
+msgstr "電子郵件："
 
 #: MainWindow.cpp:233 MainWindow.cpp:254
 msgid "Application themes"
@@ -539,7 +539,7 @@ msgstr "需要重启软件使配置生效，立即重启？"
 
 #: MainWindow.cpp:263 MainWindow.cpp:285
 msgid "Information"
-msgstr ""
+msgstr "信息"
 
 #: MainWindow.cpp:278 MainWindow.cpp:300
 msgid "Show on Top"
@@ -576,4 +576,4 @@ msgstr "过滤器：hello;world"
 
 #: MainWindow.cpp:392
 msgid "Third Party"
-msgstr ""
+msgstr "第三方"
