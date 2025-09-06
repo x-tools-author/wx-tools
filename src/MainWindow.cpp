@@ -333,9 +333,11 @@ void MainWindow::InitMenuHelp(wxMenuBar* menuBar)
     static const wxString helpUrl{"https://x-tools-author.github.io/wx-tools/"};
     Bind(wxEVT_MENU, [](wxCommandEvent&) { wxLaunchDefaultBrowser(helpUrl); }, wxID_HELP);
 
+#if !defined(__APPLE__)
     item = menuHelp->Append(wxID_ANY, _("Check for Updates"));
     item->SetHelp(_("Check for updates online."));
     Bind(wxEVT_MENU, &MainWindow::DoCheckForUpdates, this, item->GetId());
+#endif
 
     item = menuHelp->Append(wxID_ANY, _("Report an Issue"));
     item->SetHelp(_("Report a Issue online."));
@@ -359,6 +361,7 @@ void MainWindow::InitMenuHelp(wxMenuBar* menuBar)
         menuHelp->AppendSeparator();
     }
 
+#if !defined(__APPLE__)
     wxString help = _("Visit GitHub page to get more information.");
     item = menuHelp->Append(wxID_ANY, _("Get Source from GitHub"), help);
     static const wxString githubUrl{"https://github.com/x-tools-author/wx-tools"};
@@ -378,6 +381,7 @@ void MainWindow::InitMenuHelp(wxMenuBar* menuBar)
     item = menuHelp->Append(wxID_ANY, _("Gitee Home Page"), help);
     static const wxString giteeHomeUrl{"https://gitee.com/x-tools-author"};
     Bind(wxEVT_MENU, [](wxCommandEvent&) { wxLaunchDefaultBrowser(giteeHomeUrl); }, item->GetId());
+#endif
 
 #if defined(WIN32)
     menuHelp->AppendSeparator();
