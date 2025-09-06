@@ -85,11 +85,6 @@ jobs:
           find . -name "*.deb" -type f | while read file; do
             gh release upload continuous $file
           done
-          echo "---------------------------------------------------------------------------------"
-          cd ${{ github.workspace }}/build/appimage/wxTools
-          find . -name "*.AppImage" -type f | while read file; do
-            gh release upload continuous $file
-          done
   release-for-macos:
     runs-on: macos-13
     needs: update-tag
