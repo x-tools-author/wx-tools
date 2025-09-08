@@ -9,16 +9,27 @@
 #include "LuaTab.h"
 
 #include <wx/artprov.h>
+#include <wx/dir.h>
+#include <wx/file.h>
+#include <wx/filename.h>
+#include <wx/stdpaths.h>
 
 #include "Common/wxTools.h"
 #include "LuaRunner.h"
+
+IMPLEMENT_ABSTRACT_CLASS(LuaTab, wxPanel)
+BEGIN_EVENT_TABLE(LuaTab, wxPanel)
+EVT_THREAD(wxtID_LUA_RUNNER_FINISHED, LuaTab::OnThreadFinished)
+EVT_THREAD(wxtID_LUA_RUNNER_ERROR, LuaTab::OnThreadError)
+END_EVENT_TABLE()
 
 LuaTab::LuaTab(wxWindow *parent)
     : wxPanel(parent, wxID_ANY)
     , m_luaRunner(nullptr)
     , m_controllerBoxSizer(nullptr)
     , m_mainSizer(nullptr)
-    , m_textCtrl(nullptr)
+    , m_luaTextCtrl(nullptr)
+    , m_logTextCtrl(nullptr)
     , m_fileComboBox(nullptr)
     , m_newButton(nullptr)
     , m_openDirButton(nullptr)
@@ -29,6 +40,8 @@ LuaTab::LuaTab(wxWindow *parent)
     m_mainSizer = new wxGridBagSizer(0, 0);
 
     DoSetupUi();
+    DoLoadLuaFileList();
+    OnLuaFileComboBoxSelected();
 
     SetSizer(m_mainSizer);
     Layout();
@@ -52,10 +65,13 @@ void LuaTab::DoSetupUiControllers()
                                     0,
                                     nullptr,
                                     wxCB_READONLY);
+    // clang-format off
     m_controllerBoxSizer->Add(m_fileComboBox, 1, wxEXPAND | wxALL, 4);
     m_runButton = new wxBitmapButton(this, wxID_ANY, wxNullBitmap);
     m_runButton->Bind(wxEVT_BUTTON, &LuaTab::OnRunButtonClicked, this);
+    m_fileComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP, [this](wxCommandEvent &) { OnLuaFileComboBoxSelected(); }, GetId());
     DoUpdateRunButtonState();
+    // clang-format on
 
     auto newIcon = wxArtProvider::GetBitmapBundle(wxART_PLUS, wxART_BUTTON);
     m_newButton = new wxBitmapButton(this, wxID_ANY, newIcon);
@@ -82,17 +98,30 @@ void LuaTab::DoSetupUiControllers()
 
 void LuaTab::DoSetupUiTextCtrl()
 {
-    m_textCtrl = new wxTextCtrl(this,
-                                wxID_ANY,
-                                wxEmptyString,
-                                wxDefaultPosition,
-                                wxDefaultSize,
-                                wxTE_MULTILINE | wxTE_DONTWRAP);
+    auto *luaBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this, _("Lua Script"));
+    m_luaTextCtrl = new wxTextCtrl(luaBoxSizer->GetStaticBox(),
+                                   wxID_ANY,
+                                   wxEmptyString,
+                                   wxDefaultPosition,
+                                   wxDefaultSize,
+                                   wxTE_MULTILINE | wxTE_DONTWRAP);
+    luaBoxSizer->Add(m_luaTextCtrl, 1, wxEXPAND | wxALL, 0);
+
+    auto *logBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this, _("Log"));
+    m_logTextCtrl = new wxTextCtrl(logBoxSizer->GetStaticBox(),
+                                   wxID_ANY,
+                                   wxEmptyString,
+                                   wxDefaultPosition,
+                                   wxDefaultSize,
+                                   wxTE_MULTILINE | wxTE_DONTWRAP | wxTE_READONLY);
+    logBoxSizer->Add(m_logTextCtrl, 1, wxEXPAND | wxALL, 0);
 
     m_mainSizer->Add(m_controllerBoxSizer, wxGBPosition(0, 0), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
-    m_mainSizer->Add(m_textCtrl, wxGBPosition(1, 0), wxGBSpan(1, 1), wxEXPAND | wxALL, 4);
+    m_mainSizer->Add(luaBoxSizer, wxGBPosition(1, 0), wxGBSpan(1, 1), wxEXPAND | wxALL, 4);
+    m_mainSizer->Add(logBoxSizer, wxGBPosition(2, 0), wxGBSpan(1, 1), wxEXPAND | wxALL, 4);
     m_mainSizer->AddGrowableCol(0);
     m_mainSizer->AddGrowableRow(1);
+    m_mainSizer->SetItemMinSize(logBoxSizer, -1, 200);
 }
 
 void LuaTab::DoUpdateRunButtonState()
@@ -110,15 +139,171 @@ void LuaTab::DoUpdateRunButtonState()
     }
 }
 
+void LuaTab::DoLoadLuaFileList()
+{
+    DoLoadLuaFileListApp();
+#if defined(__WINDOWS__) && !defined(WXT_PORTABLE_EDITION)
+    DoLoadLuaFileListUser();
+#endif
+
+    if (m_fileComboBox->GetCount() > 0) {
+        m_fileComboBox->SetSelection(0);
+    }
+}
+
+void LuaTab::DoLoadLuaFileListApp()
+{
+    wxString appDir = wxStandardPaths::Get().GetExecutablePath();
+    wxFileName appFileName(appDir);
+    wxString appPath = appFileName.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR);
+
+    wxString luaDir = appPath + wxFileName::GetPathSeparator() + "scripts"
+                      + wxFileName::GetPathSeparator() + "lua";
+    if (!wxDirExists(luaDir)) {
+        return;
+    }
+
+    wxArrayString fileArray;
+    wxString wildcard = "*.lua";
+    wxDir::GetAllFiles(luaDir, &fileArray, wildcard, wxDIR_FILES);
+
+    for (const auto &filePath : fileArray) {
+        DoAddLuaFileToList(filePath);
+    }
+}
+
+void LuaTab::DoLoadLuaFileListUser()
+{
+    wxString luaDir = wxStandardPaths::Get().GetDocumentsDir();
+    luaDir += wxFileName::GetPathSeparator();
+    luaDir += "xTools";
+    luaDir += wxFileName::GetPathSeparator();
+    luaDir += "wxTools";
+    luaDir += wxFileName::GetPathSeparator();
+    luaDir += "scripts";
+    luaDir += wxFileName::GetPathSeparator();
+    luaDir += "lua";
+    if (!wxDirExists(luaDir)) {
+        return;
+    }
+
+    wxArrayString fileArray;
+    wxString wildcard = "*.lua";
+    wxDir::GetAllFiles(luaDir, &fileArray, wildcard, wxDIR_FILES);
+
+    for (const auto &filePath : fileArray) {
+        DoAddLuaFileToList(filePath);
+    }
+}
+
+void LuaTab::DoAddLuaFileToList(const wxString &filePath)
+{
+    wxFileName fileName(filePath);
+    wxString baseName = fileName.GetName();
+    if (m_fileComboBox->FindString(baseName) == wxNOT_FOUND) {
+        m_fileComboBox->Append(baseName, new wxString(filePath));
+    }
+}
+
+void LuaTab::DoOpenLuaRunner()
+{
+    int section = m_fileComboBox->GetSelection();
+    void *ret = m_fileComboBox->GetClientData(section);
+    if (ret == nullptr) {
+        wxMessageBox(_("Please select a Lua script file first."), wxtErrorStr, wxOK | wxICON_ERROR);
+        return;
+    }
+
+    wxString *clientData = static_cast<wxString *>(ret);
+    if (clientData == nullptr) {
+        wxMessageBox(_("Please select a Lua script file first."), wxtErrorStr, wxOK | wxICON_ERROR);
+        return;
+    }
+
+    wxString fileName = *clientData;
+    if (!wxFileExists(fileName)) {
+        wxMessageBox(_("The selected Lua script file does not exist."),
+                     wxtErrorStr,
+                     wxOK | wxICON_ERROR);
+        return;
+    }
+
+    m_luaRunner = new LuaRunner(fileName, this);
+    m_luaRunner->Run();
+}
+
+void LuaTab::DoCloseLuaRunner()
+{
+    if (m_luaRunner == nullptr) {
+        return;
+    }
+
+    m_luaRunner->CloseLuaState();
+    m_luaRunner = nullptr;
+}
+
 void LuaTab::OnRunButtonClicked(wxCommandEvent &event)
 {
     if (m_luaRunner) {
-        m_luaRunner->Delete();
-        m_luaRunner = nullptr;
+        DoCloseLuaRunner();
     } else {
-        m_luaRunner = new LuaRunner("test.lua", this);
-        m_luaRunner->Run();
+        DoOpenLuaRunner();
     }
 
     DoUpdateRunButtonState();
+}
+
+void LuaTab::OnLuaFileComboBoxSelected()
+{
+    int selection = m_fileComboBox->GetSelection();
+    if (selection == wxNOT_FOUND) {
+        wxtWarning() << "No file is selected in the combo box.";
+        return;
+    }
+
+    void *ret = m_fileComboBox->GetClientData(selection);
+    if (ret == nullptr) {
+        wxtWarning() << "Client data for the selected item is null.";
+        return;
+    }
+
+    wxString *clientData = static_cast<wxString *>(ret);
+    if (clientData == nullptr) {
+        wxtWarning() << "Failed to cast client data to wxString.";
+        return;
+    }
+
+    wxString filePath = *clientData;
+    if (!wxFileExists(filePath)) {
+        wxtWarning() << "The selected Lua script file does not exist: " << filePath;
+        return;
+    }
+
+    wxFile file(filePath);
+    if (!file.IsOpened()) {
+        wxtWarning() << "Failed to open the selected Lua script file: " << filePath;
+        return;
+    }
+
+    wxString fileContent;
+    file.ReadAll(&fileContent);
+    file.Close();
+    m_luaTextCtrl->SetValue(fileContent);
+}
+
+void LuaTab::OnThreadFinished(wxThreadEvent &event)
+{
+    m_luaRunner = nullptr;
+    DoUpdateRunButtonState();
+    wxtInfo() << "Lua script thread has finished.";
+}
+
+void LuaTab::OnThreadError(wxThreadEvent &event)
+{
+    wxString errorMsg = event.GetString();
+    wxString dt = GetDateTimeString();
+    dt += " ";
+    dt += event.GetString();
+    dt += "\n";
+    m_logTextCtrl->AppendText(dt);
 }

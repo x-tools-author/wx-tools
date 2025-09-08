@@ -23,6 +23,8 @@
 #define wxtNoneStr _("None")
 #define wxtOkStr _("Ok")
 #define wxtUnknownStr _("Unknown")
+#define wxtErrorStr _("Error")
+#define wxtWarningStr _("Warning")
 #define wxtPathSeparator wxFileName::GetPathSeparator()
 #define wxtDataDir wxStandardPaths::Get().GetDataDir()
 

@@ -161,6 +161,7 @@ endif()
 add_custom_command(TARGET wxTools POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files" "${out_root_dir}/files"
   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/icons" "${out_root_dir}/icons"
+  COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/scripts" "${out_root_dir}/scripts"
 )
 # cmake-format: on
 

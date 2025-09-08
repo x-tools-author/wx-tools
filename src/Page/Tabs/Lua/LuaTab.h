@@ -26,19 +26,35 @@ private:
 
 private:
     void DoUpdateRunButtonState();
+    void DoLoadLuaFileList();
+    void DoLoadLuaFileListApp();
+    void DoLoadLuaFileListUser();
+    void DoAddLuaFileToList(const wxString &filePath);
+
+    void DoOpenLuaRunner();
+    void DoCloseLuaRunner();
 
     void OnRunButtonClicked(wxCommandEvent &event);
+    void OnLuaFileComboBoxSelected();
+
+    void OnThreadFinished(wxThreadEvent &event);
+    void OnThreadError(wxThreadEvent &event);
 
 private:
     LuaRunner *m_luaRunner{nullptr};
     wxBoxSizer *m_controllerBoxSizer;
     wxGridBagSizer *m_mainSizer;
 
-    wxTextCtrl *m_textCtrl;
+    wxTextCtrl *m_luaTextCtrl;
+    wxTextCtrl *m_logTextCtrl;
     wxComboBox *m_fileComboBox;
     wxBitmapButton *m_runButton;
     wxBitmapButton *m_newButton;
     wxBitmapButton *m_openDirButton;
     wxBitmapButton *m_refreshButton;
     wxBitmapButton *m_helpButton;
+
+private:
+    DECLARE_DYNAMIC_CLASS(LuaTab);
+    DECLARE_EVENT_TABLE();
 };
