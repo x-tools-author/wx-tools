@@ -66,6 +66,7 @@ function(wxt_install_package package_dir_name)
 endfunction()
 
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_fmt.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_lua.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_json.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_asio.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_glog.cmake)
