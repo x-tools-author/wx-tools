@@ -156,9 +156,13 @@ void LuaTab::DoLoadLuaFileListApp()
     wxString appDir = wxStandardPaths::Get().GetExecutablePath();
     wxFileName appFileName(appDir);
     wxString appPath = appFileName.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR);
-
-    wxString luaDir = appPath + wxFileName::GetPathSeparator() + "scripts"
-                      + wxFileName::GetPathSeparator() + "lua";
+#if defined(__APPLE__)
+    appPath += wxString("..");
+    appPath += wxFileName::GetPathSeparator();
+    appPath += wxString("Resources");
+#endif
+    wxString luaDir = appPath + wxFileName::GetPathSeparator() + "scripts";
+    luaDir += wxFileName::GetPathSeparator() + "lua";
     if (!wxDirExists(luaDir)) {
         return;
     }

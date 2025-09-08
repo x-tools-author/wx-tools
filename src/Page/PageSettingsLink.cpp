@@ -40,6 +40,8 @@ PageSettingsLink::PageSettingsLink(LinkType type, wxWindow *parent)
     buttonSizer->Add(m_openButton, wxGBPosition(0, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
     buttonSizer->Add(m_extButton, wxGBPosition(1, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
     Add(buttonSizer, 0, wxEXPAND, 0);
+    buttonSizer->AddGrowableCol(0);
+    buttonSizer->AddGrowableCol(1);
 }
 
 void PageSettingsLink::DoLoad(const wxtJson &parameters)

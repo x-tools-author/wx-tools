@@ -1209,7 +1209,14 @@ std::pair<std::string, uint16_t> DoDecodeFlag(const std::string &flag)
 
 wxString GetIconPath(const wxString &iconName)
 {
-    wxString path = wxStandardPaths::Get().GetDataDir();
+    wxString path = wxStandardPaths::Get().GetExecutablePath();
+    path = wxFileName(path).GetPath();
+#if defined(__APPLE__)
+    path += wxFileName::GetPathSeparator();
+    path += wxString("..");
+    path += wxFileName::GetPathSeparator();
+    path += wxString("Resources");
+#endif
     path += wxFileName::GetPathSeparator() + wxString("icons");
     path += wxFileName::GetPathSeparator() + iconName;
     return path;
