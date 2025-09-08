@@ -19,6 +19,12 @@ class Page;
 class MainWindow : public wxFrame
 {
 public:
+    struct ParameterKeys
+    {
+        const std::string tabIndex = "tabIndex";
+    };
+
+public:
     MainWindow();
     ~MainWindow() override;
 

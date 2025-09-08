@@ -446,10 +446,11 @@ static std::string GetPageParameterFileName(LinkType type)
 
 void MainWindow::DoSave(wxString fileName)
 {
-#if !defined(__WXOSX__) // TODO: fix crash for macOS(closing...)
-    wxtConfig->Write("MainWindow/tabIndex", m_notebook->GetSelection());
-#endif
     wxtJson wxTools = wxtJson::object();
+
+    ParameterKeys keys;
+    wxTools[keys.tabIndex] = m_notebook->GetSelection();
+
     for (auto it = m_pageMap.begin(); it != m_pageMap.end(); ++it) {
         Page* page = it->second;
         wxtJson json = page->DoSave();
@@ -499,7 +500,8 @@ void MainWindow::DoLoad(wxString fileName)
         }
     }
 
-    int tabIndex = wxtConfig->Read("MainWindow/tabIndex", long(0));
+    ParameterKeys keys;
+    int tabIndex = wxtGetJsonObjValue(json, keys.tabIndex, 0);
     if (tabIndex >= 0 && tabIndex < m_notebook->GetPageCount()) {
         m_notebook->SetSelection(tabIndex);
     }
