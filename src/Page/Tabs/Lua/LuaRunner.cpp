@@ -30,6 +30,9 @@ LuaRunner::ExitCode LuaRunner::Entry()
 {
     m_lua = luaL_newstate();
     luaL_openlibs(m_lua);
+
+    //https://www.cnblogs.com/wunaozai/p/14087370.html
+
     while (!TestDestroy()) {
         int ret = luaL_dofile(m_lua, m_fileName.mb_str().data());
         if (ret != LUA_OK) {
