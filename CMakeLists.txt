@@ -153,19 +153,16 @@ wxt_generate_po(wxTools ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/res/i18n)
 wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 
 # Copy res to build directory
+set(out_root_dir "$<TARGET_FILE_DIR:wxTools>")
 if(APPLE)
-  add_custom_command(
-    TARGET wxTools
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files"
-            "$<TARGET_FILE_DIR:wxTools>/../Resources/files")
-elseif(LINUX)
-  add_custom_command(
-    TARGET wxTools
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files"
-            "$<TARGET_FILE_DIR:wxTools>/files")
+  set(out_root_dir "$<TARGET_FILE_DIR:wxTools>/../Resources")
 endif()
+# cmake-format: off
+add_custom_command(TARGET wxTools POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/files" "${out_root_dir}/files"
+  COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/res/icons" "${out_root_dir}/icons"
+)
+# cmake-format: on
 
 # --------------------------------------------------------------------------------------------------
 # Do something for Windows

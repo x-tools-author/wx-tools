@@ -1206,3 +1206,11 @@ std::pair<std::string, uint16_t> DoDecodeFlag(const std::string &flag)
     }
     return result;
 }
+
+wxString GetIconPath(const wxString &iconName)
+{
+    wxString path = wxStandardPaths::Get().GetDataDir();
+    path += wxFileName::GetPathSeparator() + wxString("icons");
+    path += wxFileName::GetPathSeparator() + iconName;
+    return path;
+}

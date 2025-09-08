@@ -8,6 +8,7 @@
  **************************************************************************************************/
 #pragma once
 
+#include <wx/event.h>
 #include <wx/thread.h>
 
 extern "C" {
@@ -22,26 +23,14 @@ public:
     enum ParameterType { ParameterTypeTable, ParameterTypeString };
 
 public:
-    explicit LuaRunner();
+    explicit LuaRunner(const wxString &fileName, wxEvtHandler *handler = nullptr);
     ~LuaRunner();
-#if 0
-    QByteArray execute(const QString &script, const QByteArray &data, int type);
-    QString error() const;
 
 protected:
-    void run() override;
+    ExitCode Entry() override;
 
 private:
-    QByteArray m_result;
-    QString m_error;
     lua_State *m_lua{nullptr};
-
-private:
-    Q_SIGNAL void invokeExecute(const QString &functionName, const QByteArray &data, int type);
-    Q_SIGNAL void executed();
-
-    void executeInThread(const QString &script, const QByteArray &data, int type);
-    void executeInThreadTable(const QString &script, const QByteArray &data);
-    void executeInThreadString(const QString &script, const QByteArray &data);
-#endif
+    wxString m_fileName;
+    wxEvtHandler *m_handler{nullptr};
 };
