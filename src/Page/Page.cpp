@@ -12,6 +12,7 @@
 #include <wx/filedlg.h>
 #include <wx/gbsizer.h>
 #include <wx/stdpaths.h>
+#include <wx/tglbtn.h>
 #include <wx/wfstream.h>
 
 #include "Common/wxTools.h"
@@ -30,6 +31,8 @@
 #include "PageSettingsLink.h"
 #include "PageSettingsOutput.h"
 
+#include "Tabs/PageTabs.h"
+
 IMPLEMENT_ABSTRACT_CLASS(Page, wxPanel)
 BEGIN_EVENT_TABLE(Page, wxPanel)
 EVT_THREAD(wxtID_LINK_RX, Page::OnBytesRx)
@@ -46,16 +49,21 @@ Page::Page(LinkType type, wxWindow *parent)
     : wxPanel(parent, wxID_ANY)
     , m_pageSettings(nullptr)
     , m_pageIO(nullptr)
+    , m_pageTabs(nullptr)
 {
     auto sizer = new wxBoxSizer(wxHORIZONTAL);
     SetSizerAndFit(sizer);
 
     m_pageSettings = new PageSettings(type, this);
     sizer->Add(m_pageSettings, 0, wxEXPAND | wxALL, 4);
-    DoSetupSettings();
+    DoSetupUi();
 
     m_pageIO = new PageIO(this);
     sizer->Add(m_pageIO, 1, wxEXPAND | wxALL, 4);
+
+    m_pageTabs = new PageTabs(this);
+    sizer->Add(m_pageTabs, 1, wxEXPAND | wxALL, 4);
+    m_pageTabs->Hide();
 
     int format = m_pageSettings->GetInputSettings()->GetTextFormat();
     bool wrap = m_pageSettings->GetOutputSettings()->GetWrap();
@@ -85,6 +93,8 @@ void Page::DoLoad(const wxtJson &json)
 
     wxString tmp = m_pageIO->GetInput()->GetLoadedText();
     m_pageIO->GetInput()->SetInputText(tmp);
+
+    DoUpdateExtPanel();
 }
 
 wxtJson Page::DoSave() const
@@ -452,6 +462,12 @@ void Page::DoWrite()
     link->Write(std::move(allBytes), tmp.size());
 }
 
+void Page::DoSetupUi()
+{
+    DoSetupSettings();
+    DoSetupTabs();
+}
+
 void Page::DoSetupSettings()
 {
     DoSetupSettingsLink();
@@ -494,4 +510,26 @@ void Page::DoSetupSettingsInput()
     wxComboBox *textFormatComboBox = inputSettings->GetTextFormatComboBox();
     textFormatComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP,
                              [this](wxCommandEvent &) { this->OnInputTextFormatChanged(); });
+}
+
+void Page::DoSetupTabs()
+{
+    auto linkSettings = m_pageSettings->GetLinkSettings();
+    wxToggleButton *extButton = linkSettings->GetExtButton();
+    extButton->Bind(wxEVT_TOGGLEBUTTON, [this](wxCommandEvent &) { this->DoUpdateExtPanel(); });
+}
+
+void Page::DoUpdateExtPanel()
+{
+    auto linkSettings = m_pageSettings->GetLinkSettings();
+    wxToggleButton *extButton = linkSettings->GetExtButton();
+    bool show = extButton->GetValue();
+    if (show) {
+        m_pageTabs->Show();
+        linkSettings->DoUpdateExtButtonText();
+    } else {
+        m_pageTabs->Hide();
+        linkSettings->DoUpdateExtButtonText();
+    }
+    Layout();
 }

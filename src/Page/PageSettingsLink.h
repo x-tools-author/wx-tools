@@ -8,6 +8,7 @@
  **************************************************************************************************/
 #pragma once
 
+#include <wx/tglbtn.h>
 #include <wx/wx.h>
 
 #include "Common/wxTools.h"
@@ -23,12 +24,16 @@ public:
 
     wxButton *GetOpenButton() const;
     wxButton *GetRefreshButton() const;
+    wxToggleButton *GetExtButton() const;
     LinkUi *GetLinkUi() const;
+
+    void DoUpdateExtButtonText();
 
 private:
     LinkUi *m_linkUi;
     wxButton *m_openButton;
     wxButton *m_refreshButton;
+    wxToggleButton *m_extButton;
 
 private:
     LinkUi *CreateLinkUi(LinkType type, wxWindow *parent);

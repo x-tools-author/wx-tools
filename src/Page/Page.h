@@ -19,6 +19,7 @@ struct PageParameterKeys
 };
 
 class PageIO;
+class PageTabs;
 class PageSettings;
 class Page : public wxPanel
 {
@@ -32,6 +33,7 @@ public:
 private:
     PageSettings *m_pageSettings;
     PageIO *m_pageIO;
+    PageTabs *m_pageTabs;
 
 private:
     void OnOpen();
@@ -56,10 +58,13 @@ private:
     void DoClearClients();
     void DoWrite();
 
+    void DoSetupUi();
     void DoSetupSettings();
     void DoSetupSettingsLink();
     void DoSetupSettingsOutput();
     void DoSetupSettingsInput();
+    void DoSetupTabs();
+    void DoUpdateExtPanel();
 
 private:
     DECLARE_DYNAMIC_CLASS(Page);
