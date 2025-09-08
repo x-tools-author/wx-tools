@@ -162,7 +162,8 @@ void LuaTab::DoLoadLuaFileListApp()
     appPath += wxString("Resources");
 #endif
     wxString luaDir = appPath + wxFileName::GetPathSeparator() + "scripts";
-    luaDir += wxFileName::GetPathSeparator() + "lua";
+    luaDir += wxFileName::GetPathSeparator();
+    luaDir += wxString("lua");
     if (!wxDirExists(luaDir)) {
         return;
     }
