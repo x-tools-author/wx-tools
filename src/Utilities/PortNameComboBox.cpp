@@ -23,6 +23,17 @@ PortNameComboBox::PortNameComboBox(wxWindow* parent)
                  wxCB_READONLY)
 {
     DoRefresh();
+
+    Bind(wxEVT_COMBOBOX_CLOSEUP, [this](wxCommandEvent& event) {
+        DoUpdateToolTip();
+        event.Skip();
+    });
+
+    // 新增：选中变化时也更新 tool tip
+    Bind(wxEVT_COMBOBOX, [this](wxCommandEvent& event) {
+        DoUpdateToolTip();
+        event.Skip();
+    });
 }
 
 wxString PortNameComboBox::GetPortName() const
@@ -65,5 +76,20 @@ void PortNameComboBox::DoRefresh()
 
     if (!infos.empty()) {
         SetSelection(0);
+    }
+
+    DoUpdateToolTip();
+}
+
+void PortNameComboBox::DoUpdateToolTip()
+{
+    if (GetSelection() != wxNOT_FOUND) {
+        wxString name = GetStringSelection();
+        auto infos = itas109::CSerialPortInfo::availablePortInfos();
+        for (auto& info : infos) {
+            if (name == info.portName) {
+                SetToolTip(info.description);
+            }
+        }
     }
 }

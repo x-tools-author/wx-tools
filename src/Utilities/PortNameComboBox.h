@@ -13,9 +13,12 @@
 class PortNameComboBox : public wxComboBox
 {
 public:
-    PortNameComboBox(wxWindow* parent = nullptr);
+    PortNameComboBox(wxWindow *parent = nullptr);
 
     wxString GetPortName() const;
     void SetPortName(const wxString &portName);
     void DoRefresh();
+
+private:
+    void DoUpdateToolTip();
 };
