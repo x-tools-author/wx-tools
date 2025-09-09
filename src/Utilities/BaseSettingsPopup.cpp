@@ -9,15 +9,7 @@
 #include "BaseSettingsPopup.h"
 
 BaseSettingsPopup::BaseSettingsPopup(wxButton *controlButton, bool showOnBottom)
-#if 1
     : wxPopupTransientWindow(controlButton, wxBORDER_THEME | wxPU_CONTAINS_CONTROLS)
-#else
-#if defined(__WXMSW__)
-    : wxPopupTransientWindow(controlButton, wxBORDER_THEME | wxPU_CONTAINS_CONTROLS)
-#else
-    : wxPopupTransientWindow(controlButton, wxBORDER_THEME)
-#endif
-#endif
     , m_settingsButton(controlButton)
     , m_showOnBottom(showOnBottom)
 {
