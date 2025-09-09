@@ -16,6 +16,13 @@
 #include <wx/textctrl.h>
 #include <wx/wx.h>
 
+#include "Common/wxTools.h"
+
+struct LuaTabParameterKeys
+{
+    std::string script{"script"};
+};
+
 class LuaRunner;
 class LuaTab : public wxPanel
 {
@@ -23,6 +30,8 @@ public:
     LuaTab(wxWindow *parent);
     ~LuaTab() override;
 
+    wxtJson DoSave() const;
+    void DoLoad(const wxtJson &parameters);
     void OnBytesRead(std::shared_ptr<char> data, int size);
 
 private:

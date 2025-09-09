@@ -16,6 +16,7 @@ struct PageParameterKeys
 {
     std::string io = {"io"};
     std::string settings = {"settings"};
+    std::string tabs = {"tabs"};
 };
 
 class PageIO;

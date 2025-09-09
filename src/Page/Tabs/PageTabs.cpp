@@ -29,6 +29,20 @@ PageTabs::PageTabs(Page *parent)
 
 PageTabs::~PageTabs() {}
 
+wxtJson PageTabs::DoSave() const
+{
+    wxtJson json;
+    PageTabsParameterKeys keys;
+    json[keys.luaTab] = m_luaTab->DoSave();
+    return json;
+}
+
+void PageTabs::DoLoad(const wxtJson &parameters)
+{
+    PageTabsParameterKeys keys;
+    m_luaTab->DoLoad(wxtGetJsonObjValue<wxtJson>(parameters, keys.luaTab, wxtJson::object()));
+}
+
 void PageTabs::OnBytesRead(std::shared_ptr<char> data, int size)
 {
     if (m_luaTab == nullptr) {

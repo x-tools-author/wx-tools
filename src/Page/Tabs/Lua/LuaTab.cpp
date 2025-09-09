@@ -51,6 +51,27 @@ LuaTab::LuaTab(wxWindow *parent)
 
 LuaTab::~LuaTab() {}
 
+wxtJson LuaTab::DoSave() const
+{
+    wxtJson json;
+    LuaTabParameterKeys keys;
+    json[keys.script] = m_fileComboBox->GetValue();
+    return json;
+}
+
+void LuaTab::DoLoad(const wxtJson &parameters)
+{
+    LuaTabParameterKeys keys;
+    wxString script = wxtGetJsonObjValue<std::string>(parameters, keys.script, std::string(""));
+    int index = m_fileComboBox->FindString(script);
+    if (index == wxNOT_FOUND) {
+        return;
+    }
+
+    m_fileComboBox->SetSelection(index);
+    OnLuaFileComboBoxSelected();
+}
+
 void LuaTab::OnBytesRead(std::shared_ptr<char> data, int size)
 {
     if (data && size > 0) {

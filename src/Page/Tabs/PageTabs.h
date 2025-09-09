@@ -13,6 +13,13 @@
 #include <wx/notebook.h>
 #include <wx/wx.h>
 
+#include "Common/wxTools.h"
+
+struct PageTabsParameterKeys
+{
+    const std::string luaTab{"luaTab"};
+};
+
 class Page;
 class LuaTab;
 class PageTabs : public wxNotebook
@@ -21,6 +28,8 @@ public:
     PageTabs(Page *parent);
     ~PageTabs() override;
 
+    wxtJson DoSave() const;
+    void DoLoad(const wxtJson &parameters);
     void OnBytesRead(std::shared_ptr<char> data, int size);
 
 private:

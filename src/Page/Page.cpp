@@ -81,11 +81,11 @@ void Page::DoLoad(const wxtJson &json)
         return;
     }
 
-    if (json.is_object()) {
-        PageParameterKeys keys;
-        m_pageSettings->DoLoad(wxtGetJsonObjValue<wxtJson>(json, keys.settings, wxtJson::object()));
-        m_pageIO->DoLoad(wxtGetJsonObjValue<wxtJson>(json, keys.io, wxtJson::object()));
-    }
+    PageParameterKeys keys;
+    wxtJson params = json.is_object() ? json : wxtJson::object();
+    m_pageSettings->DoLoad(wxtGetJsonObjValue<wxtJson>(params, keys.settings, wxtJson::object()));
+    m_pageIO->DoLoad(wxtGetJsonObjValue<wxtJson>(params, keys.io, wxtJson::object()));
+    m_pageTabs->DoLoad(wxtGetJsonObjValue<wxtJson>(params, keys.tabs, wxtJson::object()));
 
     int format = m_pageSettings->GetInputSettings()->GetTextFormat();
     bool wrap = m_pageSettings->GetOutputSettings()->GetWrap();
@@ -104,6 +104,7 @@ wxtJson Page::DoSave() const
     PageParameterKeys keys;
     json[keys.settings] = m_pageSettings->DoSave();
     json[keys.io] = m_pageIO->DoSave();
+    json[keys.tabs] = m_pageTabs->DoSave();
     return json;
 }
 
