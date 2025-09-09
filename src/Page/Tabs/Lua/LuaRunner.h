@@ -40,6 +40,7 @@ protected:
 private:
     static int DoWrite(lua_State *L);
     static int DoLuaPrint(lua_State *L);
+    static int DoSleep(lua_State *L);
     void DoOutput(const wxString &text);
 
 private:

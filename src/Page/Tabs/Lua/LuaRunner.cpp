@@ -34,6 +34,7 @@ LuaRunner::ExitCode LuaRunner::Entry()
     lua_setglobal(m_lua, "LUA_RUNNER_INSTANCE");
     lua_register(m_lua, "print", &LuaRunner::DoLuaPrint);
     lua_register(m_lua, "wxt_write", &LuaRunner::DoWrite);
+    lua_register(m_lua, "wxt_sleep", &LuaRunner::DoSleep);
 
     //https://www.cnblogs.com/wunaozai/p/14087370.html
 
@@ -55,6 +56,7 @@ LuaRunner::ExitCode LuaRunner::Entry()
     m_lua = nullptr;
 
     m_handler->QueueEvent(new wxThreadEvent(wxEVT_THREAD, wxtID_LUA_RUNNER_FINISHED));
+    wxtInfo() << "[Lua] Finished.";
     return (ExitCode) 0;
 }
 
@@ -111,6 +113,15 @@ int LuaRunner::DoLuaPrint(lua_State *L)
         wxtInfo() << "[Lua]" << output;
     }
 
+    return 0;
+}
+
+int LuaRunner::DoSleep(lua_State *L)
+{
+    int ms = (int) luaL_checkinteger(L, 1);
+    if (ms > 0) {
+        wxThread::Sleep(ms);
+    }
     return 0;
 }
 

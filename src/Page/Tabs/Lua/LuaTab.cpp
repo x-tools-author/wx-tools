@@ -267,9 +267,9 @@ void LuaTab::DoCloseLuaRunner()
         return;
     }
 
-    DoUpdateUiEnabledState(true);
     m_luaRunner->CloseLuaState();
     m_luaRunner = nullptr;
+    DoUpdateUiEnabledState(true);
 }
 
 void LuaTab::DoUpdateUiEnabledState(bool enabled)
