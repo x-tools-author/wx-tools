@@ -55,14 +55,14 @@ wxtJson LuaTab::DoSave() const
 {
     wxtJson json;
     LuaTabParameterKeys keys;
-    json[keys.script] = m_fileComboBox->GetValue();
+    json[keys.script] = m_fileComboBox->GetValue().ToStdWstring();
     return json;
 }
 
 void LuaTab::DoLoad(const wxtJson &parameters)
 {
     LuaTabParameterKeys keys;
-    wxString script = wxtGetJsonObjValue<std::string>(parameters, keys.script, std::string(""));
+    wxString script = wxtGetJsonObjValue<std::wstring>(parameters, keys.script, std::wstring(L""));
     int index = m_fileComboBox->FindString(script);
     if (index == wxNOT_FOUND) {
         return;
@@ -517,4 +517,9 @@ void LuaTab::DoSetupStyledTextCtrl(wxStyledTextCtrl *textCtrl)
     textCtrl->SetTabWidth(4);                        // 设置Tab宽度为4个空格
     textCtrl->SetUseTabs(true);                      // 使用空格代替Tab
     textCtrl->SetWrapMode(wxSTC_WRAP_NONE);          // 自动换行
+
+    // 自动补全
+    textCtrl->AutoCompSetIgnoreCase(true);   // 忽略大小写
+    textCtrl->AutoCompSetAutoHide(true);     // 自动隐藏补全列表
+    textCtrl->AutoCompSetChooseSingle(true); // 单一选择时自动补全
 }
