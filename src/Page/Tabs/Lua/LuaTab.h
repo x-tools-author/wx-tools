@@ -13,6 +13,7 @@
 #include <wx/bmpbuttn.h>
 #include <wx/gbsizer.h>
 #include <wx/sizer.h>
+#include <wx/stc/stc.h>
 #include <wx/textctrl.h>
 #include <wx/wx.h>
 
@@ -63,13 +64,14 @@ private:
     void OnThreadInvokeWrite(wxThreadEvent &event);
 
     wxString GetCurrentLuaFilePath();
+    void DoSetupStyledTextCtrl(wxStyledTextCtrl *textCtrl);
 
 private:
     LuaRunner *m_luaRunner{nullptr};
     wxBoxSizer *m_controllerBoxSizer;
     wxGridBagSizer *m_mainSizer;
 
-    wxTextCtrl *m_luaTextCtrl;
+    wxStyledTextCtrl *m_luaTextCtrl;
     wxTextCtrl *m_logTextCtrl;
     wxComboBox *m_fileComboBox;
     wxBitmapButton *m_runButton;

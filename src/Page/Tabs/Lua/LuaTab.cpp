@@ -133,12 +133,12 @@ void LuaTab::DoSetupUiControllers()
 void LuaTab::DoSetupUiTextCtrl()
 {
     auto *luaBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this, _("Lua Script"));
-    m_luaTextCtrl = new wxTextCtrl(luaBoxSizer->GetStaticBox(),
-                                   wxID_ANY,
-                                   wxEmptyString,
-                                   wxDefaultPosition,
-                                   wxDefaultSize,
-                                   wxTE_MULTILINE | wxTE_DONTWRAP);
+    m_luaTextCtrl = new wxStyledTextCtrl(luaBoxSizer->GetStaticBox(),
+                                         wxID_ANY,
+                                         wxDefaultPosition,
+                                         wxDefaultSize,
+                                         wxTE_MULTILINE | wxTE_DONTWRAP);
+    DoSetupStyledTextCtrl(m_luaTextCtrl);
     luaBoxSizer->Add(m_luaTextCtrl, 1, wxEXPAND | wxALL, 0);
     m_luaTextCtrl->Bind(wxEVT_TEXT, &LuaTab::OnLuaTextCtrlChanged, this);
 
@@ -392,13 +392,13 @@ void LuaTab::OnOpenDirButtonClicked(wxCommandEvent &)
 
 void LuaTab::OnHelpButtonClicked(wxCommandEvent &event)
 {
-    wxString url = "https://x-tools-author.github.io/wx-tools/";
+    wxString url = "https://x-tools-author.github.io/wx-tools/docs/12.lua/";
     wxLaunchDefaultBrowser(url);
 }
 
 void LuaTab::OnNewButtonClicked(wxCommandEvent &event)
 {
-    wxTextEntryDialog dlg(this,
+    wxTextEntryDialog dlg(nullptr,
                           _("Enter the name of the new Lua script file:"),
                           _("New Lua Script"),
                           "LuaScript",
@@ -492,4 +492,26 @@ wxString LuaTab::GetCurrentLuaFilePath()
     }
 
     return *clientData;
+}
+
+void LuaTab::DoSetupStyledTextCtrl(wxStyledTextCtrl *textCtrl)
+{
+    textCtrl->SetLexer(wxSTC_LEX_LUA);
+    // 显示行号
+    textCtrl->SetMarginType(0, wxSTC_MARGIN_NUMBER);
+    textCtrl->SetKeyWords(0, "function end local if then else for while do return break");
+    textCtrl->StyleSetForeground(wxSTC_LUA_DEFAULT, wxColour("#000000"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENT, wxColour("#008000"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENTLINE, wxColour("#008000"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENTDOC, wxColour("#808080"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_NUMBER, wxColour("#0000FF"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_STRING, wxColour("#A32121"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_CHARACTER, wxColour("#A32121"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_LITERALSTRING, wxColour("#A32121"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_PREPROCESSOR, wxColour("#800080"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_OPERATOR, wxColour("#000000"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_IDENTIFIER, wxColour("#000000"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_STRINGEOL, wxColour("#FF0000"));
+    textCtrl->StyleSetForeground(wxSTC_LUA_WORD, wxColour("#0000FF"));
+    textCtrl->StyleSetBold(wxSTC_LUA_WORD, true);
 }
