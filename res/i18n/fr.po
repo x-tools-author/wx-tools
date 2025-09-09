@@ -8,65 +8,65 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 10:31+0800\n"
+"POT-Creation-Date: 2025-09-09 17:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: French <LL@li.org>\n"
-"Language: fr\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
-#: Common/wxTools.cpp:541
+#: Common/wxTools.cpp:541 Common/wxTools.cpp:621
 msgid "Binary"
 msgstr "Binaire"
 
-#: Common/wxTools.cpp:533 Common/wxTools.cpp:542
+#: Common/wxTools.cpp:533 Common/wxTools.cpp:542 Common/wxTools.cpp:622
 msgid "Octal"
 msgstr "Octal"
 
-#: Common/wxTools.cpp:534 Common/wxTools.cpp:543
+#: Common/wxTools.cpp:534 Common/wxTools.cpp:543 Common/wxTools.cpp:623
 msgid "Decimal"
 msgstr "Décimal"
 
-#: Common/wxTools.cpp:535 Common/wxTools.cpp:544
+#: Common/wxTools.cpp:535 Common/wxTools.cpp:544 Common/wxTools.cpp:624
 msgid "Hexadecimal"
 msgstr "Hexadécimal"
 
-#: Common/wxTools.cpp:536 Common/wxTools.cpp:545
+#: Common/wxTools.cpp:536 Common/wxTools.cpp:545 Common/wxTools.cpp:625
 msgid "ASCII"
 msgstr "ASCII"
 
-#: Common/wxTools.cpp:537 Common/wxTools.cpp:546
+#: Common/wxTools.cpp:537 Common/wxTools.cpp:546 Common/wxTools.cpp:626
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: Common/wxTools.cpp:769 Common/wxTools.cpp:874
+#: Common/wxTools.cpp:769 Common/wxTools.cpp:874 Common/wxTools.cpp:989
 msgid "Serial Port"
 msgstr "Port Série"
 
-#: Common/wxTools.cpp:770 Common/wxTools.cpp:875
+#: Common/wxTools.cpp:770 Common/wxTools.cpp:875 Common/wxTools.cpp:990
 msgid "UDP Client"
 msgstr "Client UDP"
 
-#: Common/wxTools.cpp:771 Common/wxTools.cpp:876
+#: Common/wxTools.cpp:771 Common/wxTools.cpp:876 Common/wxTools.cpp:991
 msgid "UDP Server"
 msgstr "Serveur UDP"
 
-#: Common/wxTools.cpp:772 Common/wxTools.cpp:877
+#: Common/wxTools.cpp:772 Common/wxTools.cpp:877 Common/wxTools.cpp:992
 msgid "TCP Client"
 msgstr "Client TCP"
 
-#: Common/wxTools.cpp:773 Common/wxTools.cpp:878
+#: Common/wxTools.cpp:773 Common/wxTools.cpp:878 Common/wxTools.cpp:993
 msgid "TCP Server"
 msgstr "Serveur TCP"
 
-#: Common/wxTools.cpp:774 Common/wxTools.cpp:879
+#: Common/wxTools.cpp:774 Common/wxTools.cpp:879 Common/wxTools.cpp:994
 msgid "Web Socket Client"
 msgstr "Client Web Socket"
 
-#: Common/wxTools.cpp:775 Common/wxTools.cpp:880
+#: Common/wxTools.cpp:775 Common/wxTools.cpp:880 Common/wxTools.cpp:995
 msgid "Web Socket Server"
 msgstr "Serveur Web Socket"
 
@@ -154,241 +154,244 @@ msgstr "Informations client"
 msgid "Tx Channel"
 msgstr "Canal Tx"
 
-#: MainWindow.cpp:98 MainWindow.cpp:119
+#: MainWindow.cpp:98 MainWindow.cpp:119 MainWindow.cpp:123
 msgid "Open parameters file"
 msgstr "Ouvrir le fichier de paramètres"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
+#: MainWindow.cpp:126 MainWindow.cpp:144
 msgid "JSON files (*.json)|*.json"
 msgstr "Fichiers JSON (*.json)|*.json"
 
-#: MainWindow.cpp:116 MainWindow.cpp:137
+#: MainWindow.cpp:116 MainWindow.cpp:137 MainWindow.cpp:141
 msgid "Save parameters file"
 msgstr "Enregistrer le fichier de paramètres"
 
-#: MainWindow.cpp:134 MainWindow.cpp:155
+#: MainWindow.cpp:134 MainWindow.cpp:155 MainWindow.cpp:159
 msgid "The application will be closed!"
 msgstr "L'application va se fermer !"
 
-#: MainWindow.cpp:154 MainWindow.cpp:175
+#: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179
 msgid "wxTools - A set of tools developed with wxWidgets\n"
 msgstr "wxTools - Un ensemble d'outils développés avec wxWidgets\n"
 
-#: MainWindow.cpp:156 MainWindow.cpp:177
+#: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181
 msgid "Version: "
 msgstr "Version : "
 
-#: MainWindow.cpp:157 MainWindow.cpp:178
+#: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182
 msgid "Author: x-tools-author\n"
 msgstr "Auteur : x-tools-author\n"
 
-#: MainWindow.cpp:158 MainWindow.cpp:179
+#: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183
 msgid "Email:"
 msgstr "Email :"
 
-#: MainWindow.cpp:160 MainWindow.cpp:181
+#: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185
 msgid "Commit: "
 msgstr "Commit : "
 
-#: MainWindow.cpp:161 MainWindow.cpp:182
+#: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186
 msgid "Date: "
 msgstr "Date : "
 
-#: MainWindow.cpp:162 Mainwindow.cpp:183
+#: MainWindow.cpp:162 Mainwindow.cpp:183 MainWindow.cpp:187
 msgid "Build: "
 msgstr "Build : "
 
-#: MainWindow.cpp:164 MainWindow.cpp:185
+#: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189
 msgid "Copyright"
 msgstr "Copyright"
 
-#: MainWindow.cpp:166 MainWindow.cpp:187
+#: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191
 msgid "All rights reserved.\n"
 msgstr "Tous droits réservés.\n"
 
-#: MainWindow.cpp:167 MainWindow.cpp:188
+#: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192
 msgid "About wxTools"
 msgstr "À propos de wxTools"
 
-#: MainWindow.cpp:189 MainWindow.cpp:210
+#: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214
 msgid "File"
 msgstr "Fichier"
 
-#: MainWindow.cpp:208 MainWindow.cpp:229
+#: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233
 msgid "Options"
 msgstr "Options"
 
-#: MainWindow.cpp:210 MainWindow.cpp:231
+#: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235
 msgid "Open Log Directory"
 msgstr "Ouvrir le répertoire des logs"
 
-#: MainWindow.cpp:211 MainWindow.cpp:232
+#: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236
 msgid "Open the log directory."
 msgstr "Ouvrir le répertoire des logs."
 
-#: MainWindow.cpp:215 MainWindow.cpp:236
+#: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240
 msgid "Open Config Directory"
 msgstr "Ouvrir le répertoire de configuration"
 
-#: MainWindow.cpp:216 MainWindow.cpp:237
+#: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241
 msgid "Open the config directory."
 msgstr "Oouvrir le répertoire de configuration."
 
-#: MainWindow.cpp:220 MainWindow.cpp:241
+#: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245
 msgid "Open App Directory"
 msgstr "Ouvrir le répertoire de l'application"
 
-#: MainWindow.cpp:221 MainWindow.cpp:242
+#: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246
 msgid "Open the app directory."
 msgstr "Ouvrir le répertoire de l'application."
 
-#: MainWindow.cpp:233 MainWindow.cpp:254
+#: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258
 msgid "Application themes"
 msgstr "Thèmes de l'application"
 
-#: MainWindow.cpp:241 MainWindow.cpp:262
+#: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266
 msgid "System Theme"
 msgstr "Thème système"
 
-#: MainWindow.cpp:242 MainWindow.cpp:263
+#: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267
 msgid "Light Theme"
 msgstr "Thème clair"
 
-#: MainWindow.cpp:243 MainWindow.cpp:264
+#: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268
 msgid "Dark Theme"
 msgstr "Thème sombre"
 
-#: MainWindow.cpp:262 MainWindow.cpp:284
+#: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288
 msgid "Reboot the application to take effect now?"
 msgstr "Redémarrer l'application pour prendre effet maintenant ?"
 
-#: MainWindow.cpp:263 MainWindow.cpp:285
+#: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289
 msgid "Information"
 msgstr "Information"
 
-#: MainWindow.cpp:278 MainWindow.cpp:300
+#: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304
 msgid "Show on Top"
 msgstr "Afficher au premier plan"
 
-#: MainWindow.cpp:279 MainWindow.cpp:301
+#: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305
 msgid "Keep the application window on top of others."
 msgstr "Garder la fenêtre de l'application au-dessus des autres."
 
-#: MainWindow.cpp:295 MainWindow.cpp:317
+#: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321
 msgid "Help"
 msgstr "Aide"
 
-#: MainWindow.cpp:301 MainWindow.cpp:323
+#: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327
 msgid "About wxWidgets"
 msgstr "À propos de wxWidgets"
 
-#: MainWindow.cpp:302 MainWindow.cpp:324
+#: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328
 msgid "Show wxWidgets library information."
 msgstr "Afficher les informations de la bibliothèque wxWidgets."
 
-#: MainWindow.cpp:306 MainWindow.cpp:328
+#: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332
 msgid "Visit online documentation page."
 msgstr "Visiter la page de documentation en ligne."
 
-#: MainWindow.cpp:310 MainWindow.cpp:332
+#: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337
 msgid "Check for Updates"
 msgstr "Vérifier les mises à jour"
 
-#: MainWindow.cpp:311 MainWindow.cpp:333
+#: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338
 msgid "Check for updates online."
 msgstr "Vérifier les mises à jour en ligne."
 
-#: MainWindow.cpp:314 MainWindow.cpp:336
+#: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342
 msgid "Report an Issue"
 msgstr "Signaler un problème"
 
-#: MainWindow.cpp:315 MainWindow.cpp:337
+#: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343
 msgid "Report a Issue online."
 msgstr "Signaler un problème en ligne."
 
-#: MainWindow.cpp:325 MainWindow.cpp:349
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
 msgid "History"
 msgstr "Historique"
 
-#: MainWindow.cpp:325 MainWindow.cpp:349
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
 msgid "Show the history of the application."
 msgstr "Afficher l'historique de l'application."
 
-#: MainWindow.cpp:330 MainWindow.cpp:354
+#: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365
 msgid "Visit GitHub page to get more information."
 msgstr "Visiter la page GitHub pour plus d'informations."
 
-#: MainWindow.cpp:331 MainWindow.cpp:355
+#: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366
 msgid "Get Source from GitHub"
 msgstr "Obtenir le code source de GitHub"
 
-#: MainWindow.cpp:335 MainWindow.cpp:359
+#: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370
 msgid "Visit Gitee page to get more information."
 msgstr "Visiter la page Gitee pour plus d'informations."
 
-#: MainWindow.cpp:336 MainWindow.cpp:360
+#: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371
 msgid "Get Source from Gitee"
 msgstr "Obtenir le code source de Gitee"
 
-#: MainWindow.cpp:340 MainWindow.cpp:364
+#: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375
 msgid "Visit GitHub home page of author."
 msgstr "Visiter la page d'accueil GitHub de l'auteur."
 
-#: MainWindow.cpp:341 MainWindow.cpp:365
+#: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376
 msgid "GitHub Home Page"
 msgstr "Page d'accueil GitHub"
 
-#: MainWindow.cpp:345 MainWindow.cpp:369
+#: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380
 msgid "Visit Gitee home page of author."
 msgstr "Visiter la page d'accueil Gitee de l'auteur."
 
-#: MainWindow.cpp:346 MainWindow.cpp:370
+#: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381
 msgid "Gitee Home Page"
 msgstr "Page d'accueil Gitee"
 
-#: MainWindow.cpp:353 MainWindow.cpp:377
+#: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389
 msgid "Visit Microsoft Store page to buy wxTools."
 msgstr "Visiter la page Microsoft Store pour acheter wxTools."
 
-#: MainWindow.cpp:354 MainWindow.cpp:378
+#: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390
 msgid "Supporting Author"
 msgstr "Soutenir l'auteur"
 
-#: MainWindow.cpp:358 MainWindow.cpp:382
+#: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394
 msgid "Visit Microsoft Store home page of author."
 msgstr "Visiter la page d'accueil Microsoft Store de l'auteur."
 
-#: MainWindow.cpp:359 MainWindow.cpp:383
+#: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395
 msgid "Other Applications"
 msgstr "Autres applications"
 
-#: MainWindow.cpp:456 MainWindow.cpp:513
+#: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531
 msgid "History file not found!"
 msgstr "Fichier d'historique introuvable !"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
+#: Common/wxTools.h:26 MainWindow.cpp:531 Page/Page.cpp:407 Page/Page.cpp:440
 msgid "Error"
 msgstr "Erreur"
 
-#: MainWindow.cpp:460 MainWindow.cpp:517
+#: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535
 msgid "wxTools Release History"
 msgstr "Historique des versions de wxTools"
 
-#: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359
+#: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359 Page/Page.cpp:405
 msgid "Close"
 msgstr "Fermer"
 
-#: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361
+#: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361 Page/Page.cpp:407
 msgid "Failed to open link."
 msgstr "Échec de l'ouverture du lien."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
-#: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377
+#: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377 Page/Page.cpp:423
+#: Page/PageSettingsLink.cpp:33
 msgid "Open"
 msgstr "Ouvrir"
 
-#: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394
+#: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394 Page/Page.cpp:440
 msgid "Link is not opened."
 msgstr "Le lien n'est pas ouvert."
 
@@ -463,6 +466,7 @@ msgid "Link Settings"
 msgstr "Paramètres de lien"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
+#: Page/PageSettingsLink.cpp:32
 msgid "Refresh"
 msgstr "Actualiser"
 
@@ -519,6 +523,7 @@ msgid "Text"
 msgstr "Texte"
 
 #: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
+#: Common/wxTools.h:23
 msgid "None"
 msgstr "Aucun"
 
@@ -546,11 +551,11 @@ msgstr "Marque"
 msgid "Space"
 msgstr "Espace"
 
-#: Page/Page.cpp:231 Page/Page.cpp:235
+#: Page/Page.cpp:231 Page/Page.cpp:235 Page/Page.cpp:281
 msgid "Save Output"
 msgstr "Enregistrer la sortie"
 
-#: Page/Page.cpp:244 Page/Page.cpp:248
+#: Page/Page.cpp:244 Page/Page.cpp:248 Page/Page.cpp:294
 #, c-format
 msgid "Cannot save output to file '%s'."
 msgstr "Impossible d'enregistrer la sortie dans le fichier '%s'."
@@ -571,6 +576,90 @@ msgstr "Enregistrer le texte de sortie dans un fichier..."
 msgid "Filter: hello;world"
 msgstr "Filtre : bonjour;monde"
 
-#: MainWindow.cpp:392
+#: MainWindow.cpp:392 MainWindow.cpp:404
 msgid "Third Party"
 msgstr "Tiers"
+
+#: Common/wxTools.h:24
+msgid "Ok"
+msgstr ""
+
+#: Common/wxTools.h:25
+msgid "Unknown"
+msgstr ""
+
+#: Common/wxTools.h:27
+msgid "Warning"
+msgstr ""
+
+#: Page/Page.cpp:117
+msgid "Link is not open!"
+msgstr ""
+
+#: Page/Page.cpp:123
+msgid "Link is not available!"
+msgstr ""
+
+#: Page/PageSettingsLink.cpp:84
+msgid "Hide External Panel"
+msgstr ""
+
+#: Page/PageSettingsLink.cpp:86
+msgid "Show External Panel"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:108 Page/Tabs/Lua/LuaTab.cpp:403
+msgid "New Lua Script"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:113
+msgid "Open Lua Script Directory"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:118
+msgid "Refresh Lua Script List"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:123
+msgid "Visit Online Manual"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:135
+msgid "Lua Script"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:145
+msgid "Log"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:168
+msgid "Stop Running Lua Script"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:173
+msgid "Start Running Lua Script"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:268 Page/Tabs/Lua/LuaTab.cpp:274
+msgid "Please select a Lua script file first."
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:280
+msgid "The selected Lua script file does not exist."
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:402
+msgid "Enter the name of the new Lua script file:"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:419
+msgid "A file with the same name already exists."
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:427
+msgid "Failed to create the new Lua script file."
+msgstr ""
+
+#: Page/Tabs/PageTabs.cpp:27
+msgid "Lua"
+msgstr ""

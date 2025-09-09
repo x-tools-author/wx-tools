@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 10:31+0800\n"
+"POT-Creation-Date: 2025-09-09 17:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,55 +18,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
-#: Common/wxTools.cpp:541
+#: Common/wxTools.cpp:541 Common/wxTools.cpp:621
 msgid "Binary"
 msgstr "Binārs"
 
-#: Common/wxTools.cpp:533 Common/wxTools.cpp:542
+#: Common/wxTools.cpp:533 Common/wxTools.cpp:542 Common/wxTools.cpp:622
 msgid "Octal"
 msgstr "Oktāls"
 
-#: Common/wxTools.cpp:534 Common/wxTools.cpp:543
+#: Common/wxTools.cpp:534 Common/wxTools.cpp:543 Common/wxTools.cpp:623
 msgid "Decimal"
 msgstr "Decimāls"
 
-#: Common/wxTools.cpp:535 Common/wxTools.cpp:544
+#: Common/wxTools.cpp:535 Common/wxTools.cpp:544 Common/wxTools.cpp:624
 msgid "Hexadecimal"
 msgstr "Heksadecimāls"
 
-#: Common/wxTools.cpp:536 Common/wxTools.cpp:545
+#: Common/wxTools.cpp:536 Common/wxTools.cpp:545 Common/wxTools.cpp:625
 msgid "ASCII"
 msgstr "ASCII"
 
-#: Common/wxTools.cpp:537 Common/wxTools.cpp:546
+#: Common/wxTools.cpp:537 Common/wxTools.cpp:546 Common/wxTools.cpp:626
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: Common/wxTools.cpp:769 Common/wxTools.cpp:874
+#: Common/wxTools.cpp:769 Common/wxTools.cpp:874 Common/wxTools.cpp:989
 msgid "Serial Port"
 msgstr "Sērijas ports"
 
-#: Common/wxTools.cpp:770 Common/wxTools.cpp:875
+#: Common/wxTools.cpp:770 Common/wxTools.cpp:875 Common/wxTools.cpp:990
 msgid "UDP Client"
 msgstr "UDP klients"
 
-#: Common/wxTools.cpp:771 Common/wxTools.cpp:876
+#: Common/wxTools.cpp:771 Common/wxTools.cpp:876 Common/wxTools.cpp:991
 msgid "UDP Server"
 msgstr "UDP serveris"
 
-#: Common/wxTools.cpp:772 Common/wxTools.cpp:877
+#: Common/wxTools.cpp:772 Common/wxTools.cpp:877 Common/wxTools.cpp:992
 msgid "TCP Client"
 msgstr "TCP klients"
 
-#: Common/wxTools.cpp:773 Common/wxTools.cpp:878
+#: Common/wxTools.cpp:773 Common/wxTools.cpp:878 Common/wxTools.cpp:993
 msgid "TCP Server"
 msgstr "TCP serveris"
 
-#: Common/wxTools.cpp:774 Common/wxTools.cpp:879
+#: Common/wxTools.cpp:774 Common/wxTools.cpp:879 Common/wxTools.cpp:994
 msgid "Web Socket Client"
 msgstr "Web Socket klients"
 
-#: Common/wxTools.cpp:775 Common/wxTools.cpp:880
+#: Common/wxTools.cpp:775 Common/wxTools.cpp:880 Common/wxTools.cpp:995
 msgid "Web Socket Server"
 msgstr "Web Socket serveris"
 
@@ -154,241 +154,244 @@ msgstr "Klienta informācija"
 msgid "Tx Channel"
 msgstr "Tx kanāls"
 
-#: MainWindow.cpp:98 MainWindow.cpp:119
+#: MainWindow.cpp:98 MainWindow.cpp:119 MainWindow.cpp:123
 msgid "Open parameters file"
 msgstr "Atvērt parametru failu"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
+#: MainWindow.cpp:126 MainWindow.cpp:144
 msgid "JSON files (*.json)|*.json"
 msgstr "JSON faili (*.json)|*.json"
 
-#: MainWindow.cpp:116 MainWindow.cpp:137
+#: MainWindow.cpp:116 MainWindow.cpp:137 MainWindow.cpp:141
 msgid "Save parameters file"
 msgstr "Saglabāt parametru failu"
 
-#: MainWindow.cpp:134 MainWindow.cpp:155
+#: MainWindow.cpp:134 MainWindow.cpp:155 MainWindow.cpp:159
 msgid "The application will be closed!"
 msgstr "Lietotne tiks aizvērta!"
 
-#: MainWindow.cpp:154 MainWindow.cpp:175
+#: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179
 msgid "wxTools - A set of tools developed with wxWidgets\n"
 msgstr "wxTools - Rīku komplekts, izstrādāts ar wxWidgets\n"
 
-#: MainWindow.cpp:156 MainWindow.cpp:177
+#: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181
 msgid "Version: "
 msgstr "Versija: "
 
-#: MainWindow.cpp:157 MainWindow.cpp:178
+#: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182
 msgid "Author: x-tools-author\n"
 msgstr "Autors: x-tools-author\n"
 
-#: MainWindow.cpp:158 MainWindow.cpp:179
+#: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183
 msgid "Email:"
 msgstr "E-pasts:"
 
-#: MainWindow.cpp:160 MainWindow.cpp:181
+#: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185
 msgid "Commit: "
 msgstr "Commit: "
 
-#: MainWindow.cpp:161 MainWindow.cpp:182
+#: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186
 msgid "Date: "
 msgstr "Datums: "
 
-#: MainWindow.cpp:162 MainWindow.cpp:183
+#: MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187
 msgid "Build: "
 msgstr "Build: "
 
-#: MainWindow.cpp:164 MainWindow.cpp:185
+#: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189
 msgid "Copyright"
 msgstr "Autortiesības"
 
-#: MainWindow.cpp:166 MainWindow.cpp:187
+#: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191
 msgid "All rights reserved.\n"
 msgstr "Visas tiesības aizsargātas.\n"
 
-#: MainWindow.cpp:167 MainWindow.cpp:188
+#: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192
 msgid "About wxTools"
 msgstr "Par wxTools"
 
-#: MainWindow.cpp:189 MainWindow.cpp:210
+#: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214
 msgid "File"
 msgstr "Fails"
 
-#: MainWindow.cpp:208 MainWindow.cpp:229
+#: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233
 msgid "Options"
 msgstr "Opcijas"
 
-#: MainWindow.cpp:210 MainWindow.cpp:231
+#: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235
 msgid "Open Log Directory"
 msgstr "Atvērt žurnāla mapi"
 
-#: MainWindow.cpp:211 MainWindow.cpp:232
+#: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236
 msgid "Open the log directory."
 msgstr "Atvērt žurnāla mapi."
 
-#: MainWindow.cpp:215 MainWindow.cpp:236
+#: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240
 msgid "Open Config Directory"
 msgstr "Atvērt konfigurācijas mapi"
 
-#: MainWindow.cpp:216 MainWindow.cpp:237
+#: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241
 msgid "Open the config directory."
 msgstr "Atvērt konfigurācijas mapi."
 
-#: MainWindow.cpp:220 MainWindow.cpp:241
+#: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245
 msgid "Open App Directory"
 msgstr "Atvērt lietotnes mapi"
 
-#: MainWindow.cpp:221 MainWindow.cpp:242
+#: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246
 msgid "Open the app directory."
 msgstr "Atvērt lietotnes mapi."
 
-#: MainWindow.cpp:233 MainWindow.cpp:254
+#: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258
 msgid "Application themes"
 msgstr "Lietotnes tēmas"
 
-#: MainWindow.cpp:241 MainWindow.cpp:262
+#: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266
 msgid "System Theme"
 msgstr "Sistēmas tēma"
 
-#: MainWindow.cpp:242 MainWindow.cpp:263
+#: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267
 msgid "Light Theme"
 msgstr "Gaišā tēma"
 
-#: MainWindow.cpp:243 MainWindow.cpp:264
+#: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268
 msgid "Dark Theme"
 msgstr "Tumšā tēma"
 
-#: MainWindow.cpp:262 MainWindow.cpp:284
+#: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288
 msgid "Reboot the application to take effect now?"
 msgstr "Pārstartēt lietotni, lai izmaiņas stātos spēkā?"
 
-#: MainWindow.cpp:263 MainWindow.cpp:285
+#: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289
 msgid "Information"
 msgstr "Informācija"
 
-#: MainWindow.cpp:278 MainWindow.cpp:300
+#: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304
 msgid "Show on Top"
 msgstr "Rādīt augšpusē"
 
-#: MainWindow.cpp:279 MainWindow.cpp:301
+#: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305
 msgid "Keep the application window on top of others."
 msgstr "Turēt lietotnes logu virs citiem."
 
-#: MainWindow.cpp:295 MainWindow.cpp:317
+#: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321
 msgid "Help"
 msgstr "Palīdzība"
 
-#: MainWindow.cpp:301 MainWindow.cpp:323
+#: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327
 msgid "About wxWidgets"
 msgstr "Par wxWidgets"
 
-#: MainWindow.cpp:302 MainWindow.cpp:324
+#: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328
 msgid "Show wxWidgets library information."
 msgstr "Rādīt informāciju par wxWidgets bibliotēku."
 
-#: MainWindow.cpp:306 MainWindow.cpp:328
+#: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332
 msgid "Visit online documentation page."
 msgstr "Apmeklēt tiešsaistes dokumentācijas lapu."
 
-#: MainWindow.cpp:310 MainWindow.cpp:332
+#: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337
 msgid "Check for Updates"
 msgstr "Pārbaudīt atjauninājumus"
 
-#: MainWindow.cpp:311 MainWindow.cpp:333
+#: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338
 msgid "Check for updates online."
 msgstr "Pārbaudīt atjauninājumus tiešsaistē."
 
-#: MainWindow.cpp:314 MainWindow.cpp:336
+#: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342
 msgid "Report an Issue"
 msgstr "Ziņot par problēmu"
 
-#: MainWindow.cpp:315 MainWindow.cpp:337
+#: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343
 msgid "Report a Issue online."
 msgstr "Ziņot par problēmu vai pieprasījumu tiešsaistē."
 
-#: MainWindow.cpp:325 MainWindow.cpp:349
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
 msgid "History"
 msgstr "Vēsture"
 
-#: MainWindow.cpp:325 MainWindow.cpp:349
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
 msgid "Show the history of the application."
 msgstr "Rādīt lietotnes vēsturi."
 
-#: MainWindow.cpp:330 MainWindow.cpp:354
+#: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365
 msgid "Visit GitHub page to get more information."
 msgstr "Apmeklēt GitHub lapu, lai iegūtu vairāk informācijas."
 
-#: MainWindow.cpp:331 MainWindow.cpp:355
+#: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366
 msgid "Get Source from GitHub"
 msgstr "Iegūt avotu no GitHub"
 
-#: MainWindow.cpp:335 MainWindow.cpp:359
+#: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370
 msgid "Visit Gitee page to get more information."
 msgstr "Apmeklēt Gitee lapu, lai iegūtu vairāk informācijas."
 
-#: MainWindow.cpp:336 MainWindow.cpp:360
+#: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371
 msgid "Get Source from Gitee"
 msgstr "Iegūt avotu no Gitee"
 
-#: MainWindow.cpp:340 MainWindow.cpp:364
+#: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375
 msgid "Visit GitHub home page of author."
 msgstr "Apmeklēt autora GitHub sākumlapu."
 
-#: MainWindow.cpp:341 MainWindow.cpp:365
+#: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376
 msgid "GitHub Home Page"
 msgstr "GitHub sākumlapa"
 
-#: MainWindow.cpp:345 MainWindow.cpp:369
+#: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380
 msgid "Visit Gitee home page of author."
 msgstr "Apmeklēt autora Gitee sākumlapu."
 
-#: MainWindow.cpp:346 MainWindow.cpp:370
+#: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381
 msgid "Gitee Home Page"
 msgstr "Gitee sākumlapa"
 
-#: MainWindow.cpp:353 MainWindow.cpp:377
+#: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389
 msgid "Visit Microsoft Store page to buy wxTools."
 msgstr "Apmeklēt Microsoft Store lapu, lai iegādātos wxTools."
 
-#: MainWindow.cpp:354 MainWindow.cpp:378
+#: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390
 msgid "Supporting Author"
 msgstr "Atbalstīt autoru"
 
-#: MainWindow.cpp:358 MainWindow.cpp:382
+#: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394
 msgid "Visit Microsoft Store home page of author."
 msgstr "Apmeklēt autora Microsoft Store sākumlapu."
 
-#: MainWindow.cpp:359 MainWindow.cpp:383
+#: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395
 msgid "Other Applications"
 msgstr "Citas lietotnes"
 
-#: MainWindow.cpp:456 MainWindow.cpp:513
+#: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531
 msgid "History file not found!"
 msgstr "Vēstures fails nav atrasts!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
+#: Common/wxTools.h:26 MainWindow.cpp:531 Page/Page.cpp:407 Page/Page.cpp:440
 msgid "Error"
 msgstr "Kļūda"
 
-#: MainWindow.cpp:460 MainWindow.cpp:517
+#: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535
 msgid "wxTools Release History"
 msgstr "wxTools izlaidumu vēsture"
 
-#: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359
+#: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359 Page/Page.cpp:405
 msgid "Close"
 msgstr "Aizvērt"
 
-#: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361
+#: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361 Page/Page.cpp:407
 msgid "Failed to open link."
 msgstr "Neizdevās atvērt saiti."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
-#: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377
+#: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377 Page/Page.cpp:423
+#: Page/PageSettingsLink.cpp:33
 msgid "Open"
 msgstr "Atvērt"
 
-#: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394
+#: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394 Page/Page.cpp:440
 msgid "Link is not opened."
 msgstr "Saites nav atvērtas."
 
@@ -463,6 +466,7 @@ msgid "Link Settings"
 msgstr "Saites iestatījumi"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
+#: Page/PageSettingsLink.cpp:32
 msgid "Refresh"
 msgstr "Atjaunot ierīci"
 
@@ -519,6 +523,7 @@ msgid "Text"
 msgstr "Teksts"
 
 #: Utilities/FlowBitsComboBox.cpp:21 Utilities/ParityComboBox.cpp:21
+#: Common/wxTools.h:23
 msgid "None"
 msgstr "Nav"
 
@@ -546,11 +551,11 @@ msgstr "Atzīme"
 msgid "Space"
 msgstr "Atstarpe"
 
-#: Page/Page.cpp:231 Page/Page.cpp:235
+#: Page/Page.cpp:231 Page/Page.cpp:235 Page/Page.cpp:281
 msgid "Save Output"
 msgstr "Saglabāt izvadi"
 
-#: Page/Page.cpp:244 Page/Page.cpp:248
+#: Page/Page.cpp:244 Page/Page.cpp:248 Page/Page.cpp:294
 #, c-format
 msgid "Cannot save output to file '%s'."
 msgstr "Nevar saglabāt izvadi failā '%s'."
@@ -571,6 +576,90 @@ msgstr "Saglabāt izvades tekstu failā..."
 msgid "Filter: hello;world"
 msgstr "Filtrs: hello;world"
 
-#: MainWindow.cpp:392
+#: MainWindow.cpp:392 MainWindow.cpp:404
 msgid "Third Party"
 msgstr "Trešā puse"
+
+#: Common/wxTools.h:24
+msgid "Ok"
+msgstr ""
+
+#: Common/wxTools.h:25
+msgid "Unknown"
+msgstr ""
+
+#: Common/wxTools.h:27
+msgid "Warning"
+msgstr ""
+
+#: Page/Page.cpp:117
+msgid "Link is not open!"
+msgstr ""
+
+#: Page/Page.cpp:123
+msgid "Link is not available!"
+msgstr ""
+
+#: Page/PageSettingsLink.cpp:84
+msgid "Hide External Panel"
+msgstr ""
+
+#: Page/PageSettingsLink.cpp:86
+msgid "Show External Panel"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:108 Page/Tabs/Lua/LuaTab.cpp:403
+msgid "New Lua Script"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:113
+msgid "Open Lua Script Directory"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:118
+msgid "Refresh Lua Script List"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:123
+msgid "Visit Online Manual"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:135
+msgid "Lua Script"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:145
+msgid "Log"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:168
+msgid "Stop Running Lua Script"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:173
+msgid "Start Running Lua Script"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:268 Page/Tabs/Lua/LuaTab.cpp:274
+msgid "Please select a Lua script file first."
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:280
+msgid "The selected Lua script file does not exist."
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:402
+msgid "Enter the name of the new Lua script file:"
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:419
+msgid "A file with the same name already exists."
+msgstr ""
+
+#: Page/Tabs/Lua/LuaTab.cpp:427
+msgid "Failed to create the new Lua script file."
+msgstr ""
+
+#: Page/Tabs/PageTabs.cpp:27
+msgid "Lua"
+msgstr ""
