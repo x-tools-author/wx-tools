@@ -517,4 +517,10 @@ void LuaTab::DoSetupStyledTextCtrl(wxStyledTextCtrl *textCtrl)
     textCtrl->SetTabWidth(4);                        // 设置Tab宽度为4个空格
     textCtrl->SetUseTabs(true);                      // 使用空格代替Tab
     textCtrl->SetWrapMode(wxSTC_WRAP_NONE);          // 自动换行
+
+    // 自动提示
+    textCtrl->AutoCompSetIgnoreCase(true);   // 自动提示忽略大小写
+    textCtrl->AutoCompSetSeparator(' ');     // 自动提示分隔符
+    textCtrl->AutoCompSetAutoHide(true);     // 自动提示自动隐藏
+    textCtrl->AutoCompSetChooseSingle(true); // 自动提示单一选择时自动完成
 }
