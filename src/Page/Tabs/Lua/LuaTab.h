@@ -6,6 +6,8 @@
  * eTools is licensed according to the terms in the file LICENCE(GPL V3) in the root of the source
  * code directory.
  **************************************************************************************************/
+#pragma once
+
 #include <wx/bmpbuttn.h>
 #include <wx/gbsizer.h>
 #include <wx/sizer.h>

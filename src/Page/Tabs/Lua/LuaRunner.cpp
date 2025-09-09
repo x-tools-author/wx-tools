@@ -20,10 +20,7 @@ LuaRunner::~LuaRunner() {}
 
 void LuaRunner::CloseLuaState()
 {
-    if (m_lua) {
-        lua_close(m_lua);
-        m_lua = nullptr;
-    }
+    m_isInterruptionRequested = true;
 }
 
 LuaRunner::ExitCode LuaRunner::Entry()
@@ -35,21 +32,16 @@ LuaRunner::ExitCode LuaRunner::Entry()
     lua_register(m_lua, "print", &LuaRunner::DoLuaPrint);
     lua_register(m_lua, "wxt_write", &LuaRunner::DoWrite);
     lua_register(m_lua, "wxt_sleep", &LuaRunner::DoSleep);
+    lua_register(m_lua, "wxt_is_interruption_requested", &LuaRunner::GetIsInterruptionRequested);
 
-    //https://www.cnblogs.com/wunaozai/p/14087370.html
+    int ret = luaL_dofile(m_lua, m_fileName.mb_str().data());
+    if (ret != LUA_OK) {
+        const char *errorMsg = lua_tostring(m_lua, -1);
+        lua_pop(m_lua, 1); // Remove error message from the stack
 
-    while (!TestDestroy()) {
-        int ret = luaL_dofile(m_lua, m_fileName.mb_str().data());
-        if (ret != LUA_OK) {
-            const char *errorMsg = lua_tostring(m_lua, -1);
-            lua_pop(m_lua, 1); // Remove error message from the stack
-
-            auto *evt = new wxThreadEvent(wxEVT_THREAD, wxtID_LUA_RUNNER_ERROR);
-            evt->SetString(wxString::FromUTF8(errorMsg));
-            m_handler->QueueEvent(evt);
-        }
-
-        break; // Exit after one execution
+        auto *evt = new wxThreadEvent(wxEVT_THREAD, wxtID_LUA_RUNNER_ERROR);
+        evt->SetString(wxString::FromUTF8(errorMsg));
+        m_handler->QueueEvent(evt);
     }
 
     lua_close(m_lua);
@@ -123,6 +115,19 @@ int LuaRunner::DoSleep(lua_State *L)
         wxThread::Sleep(ms);
     }
     return 0;
+}
+
+int LuaRunner::GetIsInterruptionRequested(lua_State *L)
+{
+    lua_getglobal(L, "LUA_RUNNER_INSTANCE");
+    LuaRunner *runner = static_cast<LuaRunner *>(lua_touserdata(L, -1));
+    lua_pop(L, 1);
+
+    if (runner) {
+        return runner->m_isInterruptionRequested;
+    } else {
+        return 1;
+    }
 }
 
 void LuaRunner::DoOutput(const wxString &text)

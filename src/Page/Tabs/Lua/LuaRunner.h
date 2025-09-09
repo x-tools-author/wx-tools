@@ -8,6 +8,8 @@
  **************************************************************************************************/
 #pragma once
 
+#include <atomic>
+
 #include <wx/event.h>
 #include <wx/thread.h>
 
@@ -41,10 +43,12 @@ private:
     static int DoWrite(lua_State *L);
     static int DoLuaPrint(lua_State *L);
     static int DoSleep(lua_State *L);
+    static int GetIsInterruptionRequested(lua_State *L);
     void DoOutput(const wxString &text);
 
 private:
     lua_State *m_lua{nullptr};
     wxString m_fileName;
     wxEvtHandler *m_handler{nullptr};
+    std::atomic_bool m_isInterruptionRequested{false};
 };
