@@ -1,8 +1,9 @@
-﻿print("Start Timer demo...")
+﻿print("Start 'Timer' demo...")
 
 while true do
-    print("Timer: " .. os.date("%H:%M:%S"))
-    wxt_write("Timer: " .. os.date("%H:%M:%S") .. "\n")
+    print("Current time: " .. os.date("%H:%M:%S"))
+    wxt_write(os.date("%H:%M:%S") .. "\n")
+
     ret = wxt_is_interruption_requested()
     if ret then
         print("Script interrupted.")

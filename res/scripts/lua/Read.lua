@@ -1,7 +1,15 @@
-﻿print("Start Echo demo...")
-print("current time is:", os.date())
+﻿print("Start 'Read' demo...")
 
 function wxt_read(str)
     print("wxt_read:", str)
-    wxt_write("echo: " .. str .. "\n")
+end
+
+while true do
+    ret = wxt_is_interruption_requested()
+    if ret then
+        print("Script interrupted.")
+        break
+    end
+
+    wxt_sleep(1000) -- Sleep for 1000 milliseconds (1 second)
 end

@@ -1,15 +1,16 @@
-﻿print("Start Echo demo...")
-print("current time is:", os.date())
+﻿print("Start 'Echo' demo...")
 
 function wxt_read(str)
-    print("wxt_read:", str)
-    wxt_write("echo: " .. str .. "\n")
+    print("[Rx]:", str)
+    wxt_write(str)
 end
 
--- 使用sys.taskInit()新建一个任务，每秒打印一次hello world
-sys.taskInit(function()
-    while true do
-        sys.wait(1000)
-        print("hello world")
+while true do
+    ret = wxt_is_interruption_requested()
+    if ret then
+        print("Script interrupted.")
+        break
     end
-end)
+
+    wxt_sleep(1000) -- Sleep for 1000 milliseconds (1 second)
+end
