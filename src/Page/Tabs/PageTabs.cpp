@@ -29,6 +29,15 @@ PageTabs::PageTabs(Page *parent)
 
 PageTabs::~PageTabs() {}
 
+void PageTabs::OnBytesRead(std::shared_ptr<char> data, int size)
+{
+    if (m_luaTab == nullptr) {
+        return;
+    }
+
+    m_luaTab->OnBytesRead(data, size);
+}
+
 void PageTabs::OnInvokeWrite(wxThreadEvent &event)
 {
     wxString str = event.GetString();

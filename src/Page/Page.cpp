@@ -155,6 +155,8 @@ void Page::OnBytesRx(wxThreadEvent &e)
 {
     wxtDataItem item = e.GetPayload<wxtDataItem>();
     DoOutputText(item.data, item.len, item.flag, true);
+
+    m_pageTabs->OnBytesRead(item.data, item.len);
 }
 
 void Page::OnBytesTx(wxThreadEvent &e)

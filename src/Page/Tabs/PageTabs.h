@@ -8,6 +8,8 @@
  **************************************************************************************************/
 #pragma once
 
+#include <memory>
+
 #include <wx/notebook.h>
 #include <wx/wx.h>
 
@@ -18,6 +20,8 @@ class PageTabs : public wxNotebook
 public:
     PageTabs(Page *parent);
     ~PageTabs() override;
+
+    void OnBytesRead(std::shared_ptr<char> data, int size);
 
 private:
     void OnInvokeWrite(wxThreadEvent &event);

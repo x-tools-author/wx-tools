@@ -8,6 +8,8 @@
  **************************************************************************************************/
 #pragma once
 
+#include <memory>
+
 #include <wx/bmpbuttn.h>
 #include <wx/gbsizer.h>
 #include <wx/sizer.h>
@@ -20,6 +22,8 @@ class LuaTab : public wxPanel
 public:
     LuaTab(wxWindow *parent);
     ~LuaTab() override;
+
+    void OnBytesRead(std::shared_ptr<char> data, int size);
 
 private:
     void DoSetupUi();

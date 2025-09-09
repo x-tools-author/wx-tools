@@ -23,6 +23,28 @@ void LuaRunner::CloseLuaState()
     m_isInterruptionRequested = true;
 }
 
+void LuaRunner::OnBytesRead(std::shared_ptr<char> data, int size)
+{
+    if (!(data && size > 0)) {
+        return;
+    }
+
+    if (m_lua == nullptr) {
+        return;
+    }
+
+    lua_getglobal(m_lua, "wxt_read");
+    if (lua_isfunction(m_lua, -1)) {
+        lua_pushlstring(m_lua, data.get(), size);
+        if (lua_pcall(m_lua, 1, 0, 0) != LUA_OK) {
+            const char *errorMsg = lua_tostring(m_lua, -1);
+            lua_pop(m_lua, 1); // Remove error message from the stack
+        }
+    } else {
+        lua_pop(m_lua, 1); // Remove non-function value from the stack
+    }
+}
+
 LuaRunner::ExitCode LuaRunner::Entry()
 {
     m_lua = luaL_newstate();

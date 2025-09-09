@@ -51,6 +51,13 @@ LuaTab::LuaTab(wxWindow *parent)
 
 LuaTab::~LuaTab() {}
 
+void LuaTab::OnBytesRead(std::shared_ptr<char> data, int size)
+{
+    if (data && size > 0) {
+        m_luaRunner->OnBytesRead(data, size);
+    }
+}
+
 void LuaTab::DoSetupUi()
 {
     DoSetupUiControllers();

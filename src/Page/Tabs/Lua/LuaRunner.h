@@ -9,6 +9,7 @@
 #pragma once
 
 #include <atomic>
+#include <memory>
 
 #include <wx/event.h>
 #include <wx/thread.h>
@@ -35,6 +36,7 @@ public:
     ~LuaRunner();
 
     void CloseLuaState();
+    void OnBytesRead(std::shared_ptr<char> data, int size);
 
 protected:
     ExitCode Entry() override;
