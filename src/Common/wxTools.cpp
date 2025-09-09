@@ -23,7 +23,7 @@
 #include "iconv.h"
 #endif
 
-wxString wxtMsAppLocalDataPath()
+wxString wxtMsAppLocalDataPath(const wxString &dirName)
 {
     // The path is: C:\Users\<User>\AppData\Local\wxTools
     wxString path = wxStandardPaths::Get().GetUserLocalDataDir();
@@ -36,6 +36,30 @@ wxString wxtMsAppLocalDataPath()
     const wxString appFlag = wxString("50263Qsaker2018.wxTools_83fbcck3baqe6");
     path += wxString(wxFileName::GetPathSeparator()) + wxString("Packages");
     path += wxString(wxFileName::GetPathSeparator()) + appFlag;
+
+    if (!dirName.IsEmpty()) {
+        path += wxString(wxFileName::GetPathSeparator()) + dirName;
+    }
+
+    /*
+    ├─AC
+    │  └─Temp
+    ├─AppData
+    ├─LocalCache
+    │  ├─Local
+    │  │  └─Microsoft
+    │  └─Roaming
+    │      └─Microsoft
+    │          └─Windows
+    │              └─Start Menu
+    │                  └─Programs
+    ├─LocalState
+    ├─RoamingState
+    ├─Settings
+    ├─SystemAppData
+    │  └─Helium
+    └─TempState
+    */
 
     return path;
 }

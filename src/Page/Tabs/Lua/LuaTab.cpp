@@ -25,6 +25,45 @@ EVT_THREAD(wxtID_LUA_RUNNER_ERROR, LuaTab::OnThreadError)
 EVT_THREAD(wxtID_LUA_RUNNER_INVOKE_WRITE, LuaTab::OnThreadInvokeWrite)
 END_EVENT_TABLE()
 
+wxString GetMsStoreLuaDir()
+{
+    wxString dir = wxtMsAppLocalDataPath("LocalState");
+#if 0
+    dir += wxString(wxFileName::GetPathSeparator()) + wxString("scripts");
+    dir += wxString(wxFileName::GetPathSeparator()) + wxString("lua");
+#endif
+    wxtInfo() << "GetMsStoreLuaDir: " << dir;
+    if (!wxDirExists(dir)) {
+#if defined(WIN32)
+        wxMkDir(dir);
+#else
+        wxMkDir(dir, 777);
+#endif
+    }
+
+    return dir;
+}
+
+wxString GetAppLuaDir()
+{
+    wxString appDir = wxStandardPaths::Get().GetExecutablePath();
+    wxFileName appFileName(appDir);
+    wxString appPath = appFileName.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR);
+#if defined(__APPLE__)
+    appPath += wxString("..");
+    appPath += wxFileName::GetPathSeparator();
+    appPath += wxString("Resources");
+#endif
+    wxString luaDir = appPath + wxString("scripts");
+    luaDir += wxFileName::GetPathSeparator();
+    luaDir += wxString("lua");
+    if (!wxDirExists(luaDir)) {
+        wxMkdir(luaDir, wxS_DIR_DEFAULT);
+    }
+
+    return luaDir;
+}
+
 LuaTab::LuaTab(wxWindow *parent)
     : wxPanel(parent, wxID_ANY)
     , m_luaRunner(nullptr)
@@ -194,7 +233,7 @@ void LuaTab::DoLoadLuaFileList()
 
     DoLoadLuaFileListApp();
 #if defined(__WINDOWS__) && !defined(WXT_PORTABLE_EDITION)
-    DoLoadLuaFileListUser();
+    DoLoadLuaFileListStore();
 #endif
     if (m_fileComboBox->GetCount() > 0) {
         m_fileComboBox->SetSelection(0);
@@ -203,45 +242,26 @@ void LuaTab::DoLoadLuaFileList()
 
 void LuaTab::DoLoadLuaFileListApp()
 {
-    wxString appDir = wxStandardPaths::Get().GetExecutablePath();
-    wxFileName appFileName(appDir);
-    wxString appPath = appFileName.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR);
-#if defined(__APPLE__)
-    appPath += wxString("..");
-    appPath += wxFileName::GetPathSeparator();
-    appPath += wxString("Resources");
-#endif
-    wxString luaDir = appPath + wxString("scripts");
-    luaDir += wxFileName::GetPathSeparator();
-    luaDir += wxString("lua");
+    wxString luaDir = GetAppLuaDir();
     if (!wxDirExists(luaDir)) {
         return;
     }
 
-    wxArrayString fileArray;
-    wxString wildcard = "*.lua";
-    wxDir::GetAllFiles(luaDir, &fileArray, wildcard, wxDIR_FILES);
-
-    for (const auto &filePath : fileArray) {
-        DoAddLuaFileToList(filePath);
-    }
+    DoLoadLuaFileList(luaDir);
 }
 
-void LuaTab::DoLoadLuaFileListUser()
+void LuaTab::DoLoadLuaFileListStore()
 {
-    wxString luaDir = wxStandardPaths::Get().GetDocumentsDir();
-    luaDir += wxFileName::GetPathSeparator();
-    luaDir += "xTools";
-    luaDir += wxFileName::GetPathSeparator();
-    luaDir += "wxTools";
-    luaDir += wxFileName::GetPathSeparator();
-    luaDir += "scripts";
-    luaDir += wxFileName::GetPathSeparator();
-    luaDir += "lua";
+    wxString luaDir = GetMsStoreLuaDir();
     if (!wxDirExists(luaDir)) {
         return;
     }
 
+    DoLoadLuaFileList(luaDir);
+}
+
+void LuaTab::DoLoadLuaFileList(const wxString &luaDir)
+{
     wxArrayString fileArray;
     wxString wildcard = "*.lua";
     wxDir::GetAllFiles(luaDir, &fileArray, wildcard, wxDIR_FILES);
@@ -377,16 +397,15 @@ void LuaTab::OnLuaTextCtrlChanged(wxCommandEvent &)
 
 void LuaTab::OnOpenDirButtonClicked(wxCommandEvent &)
 {
+#if defined(__WINDOWS__) && !defined(WXT_PORTABLE_EDITION)
+    wxString dirPath = GetMsStoreLuaDir();
+#else
     wxFileName fileName(GetCurrentLuaFilePath());
-    wxString dirPath = fileName.GetPath();
-    if (dirPath.IsEmpty()) {
-        return;
-    }
-
+    wxString dirPath = GetAppLuaDir();
     if (!wxDirExists(dirPath)) {
         return;
     }
-
+#endif
     wxLaunchDefaultApplication(dirPath);
 }
 
@@ -407,9 +426,12 @@ void LuaTab::OnNewButtonClicked(wxCommandEvent &event)
         return;
     }
 
-    wxString newFileName = dlg.GetValue();
-    wxString filePath = GetCurrentLuaFilePath();
-    wxString dirPath = wxFileName(filePath).GetPath();
+    wxString newFileName = dlg.GetValue().Trim(true).Trim(false);
+#if defined(__WINDOWS__) && !defined(WXT_PORTABLE_EDITION)
+    wxString dirPath = GetMsStoreLuaDir();
+#else
+    wxString dirPath = GetAppLuaDir();
+#endif
     wxString newFilePath = dirPath + wxFileName::GetPathSeparator() + newFileName;
     if (!newFileName.EndsWith(".lua")) {
         newFilePath += ".lua";

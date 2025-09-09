@@ -28,6 +28,8 @@
 #define wxtPathSeparator wxFileName::GetPathSeparator()
 #define wxtDataDir wxStandardPaths::Get().GetDataDir()
 
+wxString wxtMsAppLocalDataPath(const wxString &dirName = wxEmptyString);
+
 //--------------------------------------------------------------------------------------------------
 // Data structure
 struct wxtDataItem

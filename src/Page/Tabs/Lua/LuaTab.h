@@ -44,7 +44,8 @@ private:
     void DoUpdateRunButtonState();
     void DoLoadLuaFileList();
     void DoLoadLuaFileListApp();
-    void DoLoadLuaFileListUser();
+    void DoLoadLuaFileListStore();
+    void DoLoadLuaFileList(const wxString &luaDir);
     void DoAddLuaFileToList(const wxString &filePath);
 
     void DoOpenLuaRunner();
