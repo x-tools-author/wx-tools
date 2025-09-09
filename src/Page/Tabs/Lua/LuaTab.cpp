@@ -13,6 +13,7 @@
 #include <wx/file.h>
 #include <wx/filename.h>
 #include <wx/stdpaths.h>
+#include <wx/textdlg.h>
 
 #include "Common/wxTools.h"
 #include "LuaRunner.h"
@@ -367,7 +368,50 @@ void LuaTab::OnHelpButtonClicked(wxCommandEvent &event)
     wxLaunchDefaultBrowser(url);
 }
 
-void LuaTab::OnNewButtonClicked(wxCommandEvent &event) {}
+void LuaTab::OnNewButtonClicked(wxCommandEvent &event)
+{
+    wxTextEntryDialog dlg(this,
+                          _("Enter the name of the new Lua script file:"),
+                          _("New Lua Script"),
+                          "LuaScript",
+                          wxOK | wxCANCEL);
+    if (dlg.ShowModal() != wxID_OK) {
+        return;
+    }
+
+    wxString newFileName = dlg.GetValue();
+    wxString filePath = GetCurrentLuaFilePath();
+    wxString dirPath = wxFileName(filePath).GetPath();
+    wxString newFilePath = dirPath + wxFileName::GetPathSeparator() + newFileName;
+    if (!newFileName.EndsWith(".lua")) {
+        newFilePath += ".lua";
+    }
+
+    if (wxFileExists(newFilePath)) {
+        wxMessageBox(_("A file with the same name already exists."),
+                     wxtErrorStr,
+                     wxOK | wxICON_ERROR);
+        return;
+    }
+
+    wxFile newFile(newFilePath, wxFile::write);
+    if (!newFile.IsOpened()) {
+        wxMessageBox(_("Failed to create the new Lua script file."),
+                     wxtErrorStr,
+                     wxOK | wxICON_ERROR);
+        return;
+    }
+
+    newFile.Write("-- New Lua script file\n");
+    newFile.Close();
+
+    DoAddLuaFileToList(newFilePath);
+    int index = m_fileComboBox->FindString(newFileName);
+    if (index != wxNOT_FOUND) {
+        m_fileComboBox->SetSelection(index);
+        OnLuaFileComboBoxSelected();
+    }
+}
 
 void LuaTab::OnRefreshButtonClicked(wxCommandEvent &event)
 {
