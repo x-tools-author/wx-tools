@@ -23,7 +23,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>${WXT_VERSION}</string>
 	<key>CFBundleSignature</key>
-	<string>????</string>
+	<string>WXTL</string>
 	<key>CFBundleVersion</key>
 	<string>${WXT_VERSION}</string>
 	<key>CSResourcesFileMapped</key>
