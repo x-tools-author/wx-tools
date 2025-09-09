@@ -77,18 +77,22 @@ void LuaTab::DoSetupUiControllers()
     auto newIcon = wxArtProvider::GetBitmapBundle(wxART_PLUS, wxART_BUTTON);
     m_newButton = new wxBitmapButton(this, wxID_ANY, newIcon);
     m_newButton->SetToolTip(_("New Lua Script"));
+    m_newButton->Bind(wxEVT_BUTTON, &LuaTab::OnNewButtonClicked, this);
 
     auto openDirIcon = wxArtProvider::GetBitmapBundle(wxART_FOLDER_OPEN, wxART_BUTTON);
     m_openDirButton = new wxBitmapButton(this, wxID_ANY, openDirIcon);
     m_openDirButton->SetToolTip(_("Open Lua Script Directory"));
+    m_openDirButton->Bind(wxEVT_BUTTON, &LuaTab::OnOpenDirButtonClicked, this);
 
     auto refreshIcon = wxArtProvider::GetBitmapBundle(wxART_REFRESH, wxART_BUTTON);
     m_refreshButton = new wxBitmapButton(this, wxID_ANY, refreshIcon);
     m_refreshButton->SetToolTip(_("Refresh Lua Script List"));
+    m_refreshButton->Bind(wxEVT_BUTTON, &LuaTab::OnRefreshButtonClicked, this);
 
     auto helpIcon = wxArtProvider::GetBitmapBundle(wxART_HELP, wxART_BUTTON);
     m_helpButton = new wxBitmapButton(this, wxID_ANY, helpIcon);
     m_helpButton->SetToolTip(_("Visit Online Manual"));
+    m_helpButton->Bind(wxEVT_BUTTON, &LuaTab::OnHelpButtonClicked, this);
 
     m_controllerBoxSizer->Add(m_runButton, 0, wxEXPAND | wxALL, 4);
     m_controllerBoxSizer->Add(m_newButton, 0, wxEXPAND | wxALL, 4);
@@ -107,6 +111,7 @@ void LuaTab::DoSetupUiTextCtrl()
                                    wxDefaultSize,
                                    wxTE_MULTILINE | wxTE_DONTWRAP);
     luaBoxSizer->Add(m_luaTextCtrl, 1, wxEXPAND | wxALL, 0);
+    m_luaTextCtrl->Bind(wxEVT_TEXT, &LuaTab::OnLuaTextCtrlChanged, this);
 
     auto *logBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this, _("Log"));
     m_logTextCtrl = new wxTextCtrl(logBoxSizer->GetStaticBox(),
@@ -142,11 +147,26 @@ void LuaTab::DoUpdateRunButtonState()
 
 void LuaTab::DoLoadLuaFileList()
 {
+    int count = m_fileComboBox->GetCount();
+    for (int i = count - 1; i >= 0; --i) {
+        void *ret = m_fileComboBox->GetClientData(i);
+        if (ret) {
+            wxString *clientData = static_cast<wxString *>(ret);
+            delete clientData;
+        }
+
+        m_fileComboBox->Delete(i);
+    }
+
+    m_fileComboBox->Clear();
+    if (m_fileComboBox->GetCount() > 0) {
+        m_fileComboBox->SetSelection(0);
+    }
+
     DoLoadLuaFileListApp();
 #if defined(__WINDOWS__) && !defined(WXT_PORTABLE_EDITION)
     DoLoadLuaFileListUser();
 #endif
-
     if (m_fileComboBox->GetCount() > 0) {
         m_fileComboBox->SetSelection(0);
     }
@@ -308,6 +328,52 @@ void LuaTab::OnLuaFileComboBoxSelected()
     m_luaTextCtrl->SetValue(fileContent);
 }
 
+void LuaTab::OnLuaTextCtrlChanged(wxCommandEvent &)
+{
+    wxString fileName = GetCurrentLuaFilePath();
+    if (fileName.IsEmpty()) {
+        return;
+    }
+
+    wxFile file(fileName, wxFile::write);
+    if (!file.IsOpened()) {
+        wxtWarning() << "Failed to open the Lua script file for writing: " << fileName;
+        return;
+    }
+
+    wxString fileContent = m_luaTextCtrl->GetValue();
+    file.Write(fileContent);
+    file.Close();
+}
+
+void LuaTab::OnOpenDirButtonClicked(wxCommandEvent &)
+{
+    wxFileName fileName(GetCurrentLuaFilePath());
+    wxString dirPath = fileName.GetPath();
+    if (dirPath.IsEmpty()) {
+        return;
+    }
+
+    if (!wxDirExists(dirPath)) {
+        return;
+    }
+
+    wxLaunchDefaultApplication(dirPath);
+}
+
+void LuaTab::OnHelpButtonClicked(wxCommandEvent &event)
+{
+    wxString url = "https://x-tools-author.github.io/wx-tools/";
+    wxLaunchDefaultBrowser(url);
+}
+
+void LuaTab::OnNewButtonClicked(wxCommandEvent &event) {}
+
+void LuaTab::OnRefreshButtonClicked(wxCommandEvent &event)
+{
+    DoLoadLuaFileList();
+}
+
 void LuaTab::OnThreadFinished(wxThreadEvent &event)
 {
     m_luaRunner = nullptr;
@@ -334,4 +400,24 @@ void LuaTab::OnThreadInvokeWrite(wxThreadEvent &event)
 
     auto evtHandler = parent->GetEventHandler();
     evtHandler->QueueEvent(event.Clone());
+}
+
+wxString LuaTab::GetCurrentLuaFilePath()
+{
+    int section = m_fileComboBox->GetSelection();
+    if (section == wxNOT_FOUND) {
+        return wxEmptyString;
+    }
+
+    void *ret = m_fileComboBox->GetClientData(section);
+    if (ret == nullptr) {
+        return wxEmptyString;
+    }
+
+    wxString *clientData = static_cast<wxString *>(ret);
+    if (clientData == nullptr) {
+        return wxEmptyString;
+    }
+
+    return *clientData;
 }

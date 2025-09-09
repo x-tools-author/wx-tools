@@ -37,10 +37,17 @@ private:
 
     void OnRunButtonClicked(wxCommandEvent &event);
     void OnLuaFileComboBoxSelected();
+    void OnLuaTextCtrlChanged(wxCommandEvent &);
+    void OnOpenDirButtonClicked(wxCommandEvent &);
+    void OnHelpButtonClicked(wxCommandEvent &event);
+    void OnNewButtonClicked(wxCommandEvent &event);
+    void OnRefreshButtonClicked(wxCommandEvent &event);
 
     void OnThreadFinished(wxThreadEvent &event);
     void OnThreadError(wxThreadEvent &event);
     void OnThreadInvokeWrite(wxThreadEvent &event);
+
+    wxString GetCurrentLuaFilePath();
 
 private:
     LuaRunner *m_luaRunner{nullptr};
