@@ -234,6 +234,8 @@ void LuaTab::DoOpenLuaRunner()
         return;
     }
 
+    m_logTextCtrl->Clear();
+    DoUpdateUiEnabledState(false);
     m_luaRunner = new LuaRunner(fileName, this);
     m_luaRunner->Run();
 }
@@ -244,8 +246,17 @@ void LuaTab::DoCloseLuaRunner()
         return;
     }
 
+    DoUpdateUiEnabledState(true);
     m_luaRunner->CloseLuaState();
     m_luaRunner = nullptr;
+}
+
+void LuaTab::DoUpdateUiEnabledState(bool enabled)
+{
+    m_fileComboBox->Enable(enabled);
+    m_newButton->Enable(enabled);
+    m_refreshButton->Enable(enabled);
+    m_luaTextCtrl->Enable(enabled);
 }
 
 void LuaTab::OnRunButtonClicked(wxCommandEvent &event)
@@ -301,6 +312,7 @@ void LuaTab::OnThreadFinished(wxThreadEvent &event)
 {
     m_luaRunner = nullptr;
     DoUpdateRunButtonState();
+    DoUpdateUiEnabledState(true);
 }
 
 void LuaTab::OnThreadError(wxThreadEvent &event)

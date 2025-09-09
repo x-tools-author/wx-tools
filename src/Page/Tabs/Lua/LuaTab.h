@@ -33,6 +33,7 @@ private:
 
     void DoOpenLuaRunner();
     void DoCloseLuaRunner();
+    void DoUpdateUiEnabledState(bool enabled);
 
     void OnRunButtonClicked(wxCommandEvent &event);
     void OnLuaFileComboBoxSelected();
