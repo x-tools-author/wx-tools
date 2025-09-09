@@ -497,21 +497,24 @@ wxString LuaTab::GetCurrentLuaFilePath()
 void LuaTab::DoSetupStyledTextCtrl(wxStyledTextCtrl *textCtrl)
 {
     textCtrl->SetLexer(wxSTC_LEX_LUA);
-    // 显示行号
-    textCtrl->SetMarginType(0, wxSTC_MARGIN_NUMBER);
     textCtrl->SetKeyWords(0, "function end local if then else for while do return break");
-    textCtrl->StyleSetForeground(wxSTC_LUA_DEFAULT, wxColour("#000000"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENT, wxColour("#008000"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENTLINE, wxColour("#008000"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENTDOC, wxColour("#808080"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_NUMBER, wxColour("#0000FF"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_STRING, wxColour("#A32121"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_CHARACTER, wxColour("#A32121"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_LITERALSTRING, wxColour("#A32121"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_PREPROCESSOR, wxColour("#800080"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_OPERATOR, wxColour("#000000"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_IDENTIFIER, wxColour("#000000"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_STRINGEOL, wxColour("#FF0000"));
-    textCtrl->StyleSetForeground(wxSTC_LUA_WORD, wxColour("#0000FF"));
-    textCtrl->StyleSetBold(wxSTC_LUA_WORD, true);
+    textCtrl->StyleSetForeground(wxSTC_LUA_DEFAULT, wxColor("#000000"));       // 默认文本颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENT, wxColor("#737773ff"));     // 注释颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENTLINE, wxColor("#737773ff")); // 注释颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_COMMENTDOC, wxColor("#737773ff"));  // 注释颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_NUMBER, wxColor("#0000FF"));        // 数字颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_WORD, wxColor("#0000FF"));          // 关键字颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_STRING, wxColor("#A31515"));        // 字符串颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_CHARACTER, wxColor("#A31515"));     // 字符颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_LITERALSTRING, wxColor("#A31515")); // 字符串颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_PREPROCESSOR, wxColor("#FF00FF"));  // 预处理器颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_OPERATOR, wxColor("#000000"));      // 操作符颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_IDENTIFIER, wxColor("#000000"));    // 标识符颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_STRINGEOL, wxColor("#FF0000"));     // 字符串未闭合颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_LABEL, wxColor("#A31515"));         // 标签颜色
+    textCtrl->SetMarginType(0, wxSTC_MARGIN_NUMBER); // 设置行号栏类型为数字
+    textCtrl->SetMarginWidth(0, 40);                 // 设置行号栏宽度
+    textCtrl->SetTabWidth(4);                        // 设置Tab宽度为4个空格
+    textCtrl->SetUseTabs(true);                      // 使用空格代替Tab
+    textCtrl->SetWrapMode(wxSTC_WRAP_NONE);          // 自动换行
 }
