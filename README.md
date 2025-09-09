@@ -8,9 +8,11 @@
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/wx-tools.svg)](https://repology.org/project/wx-tools/versions)
 
-wxTools is a user-friendly, open-source, cross-platform debugging tool-set based on wxWidgets (wxWidgets 3.2.x is recommended). It offers extensive support for SerialPort, UDP, TCP and Web Socket debugging functionalities.
+wxTools is a user-friendly, open-source, cross-platform and expandable(using lua script) debugging tool-set based on wxWidgets (wxWidgets 3.3.x is required). It offers extensive support for SerialPort, UDP, TCP and Web Socket debugging functionalities.
 
 > **You can get *wxTools* form [Micorsoft App Store(Sponsor)](https://www.microsoft.com/store/apps/9NX1D0CCV9T7)** or [Apple App Store(Sponsor)](https://apps.apple.com/cn/app/wxtools/id6751503985?mt=12) or from [Github Release(Community)](https://github.com/x-tools-author/wx-tools/releases).
+>
+> There are no differences functions between the store edition and the community edition. But the store edition is more convenient to install and update.
 
 ## Build
 
@@ -21,6 +23,27 @@ Arch Linux can install wx-tools via the [AUR](https://aur.archlinux.org/packages
 ```bash
 yay -Syu wx-tools
 ```
+
+### VS Code
+
+You can use Visual Studio Code to build and debug the project. Just open project directory in VS Code. Please make sure you have installed the following software:
+
+- CMake
+- Ninja
+- GCC or Visual Studio
+
+### Ubuntu
+
+cd to the root directory of the project, then run the following commands to build under Ubuntu 20.04 or later.
+
+```bash
+chmod +x ./scripts/install-dependencies.sh
+sudo ./scripts/install-dependencies.sh
+chmod +x ./scripts/ci-build-ubuntu-20.04.sh
+./scripts/ci-build-ubuntu-20.04.sh
+```
+
+> The archive is output to the `./build/assets` directory. The deb file is output to the `./build/deb` directory.
 
 ## About the Project
 
