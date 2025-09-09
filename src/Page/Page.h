@@ -30,6 +30,8 @@ public:
     void DoLoad(const wxtJson &json);
     wxtJson DoSave() const;
 
+    bool DoWrite(const wxString &text);
+
 private:
     PageSettings *m_pageSettings;
     PageIO *m_pageIO;

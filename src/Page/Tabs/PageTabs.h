@@ -9,13 +9,22 @@
 #include <wx/notebook.h>
 #include <wx/wx.h>
 
+class Page;
 class LuaTab;
 class PageTabs : public wxNotebook
 {
 public:
-    PageTabs(wxWindow *parent);
+    PageTabs(Page *parent);
     ~PageTabs() override;
 
 private:
+    void OnInvokeWrite(wxThreadEvent &event);
+
+private:
     LuaTab *m_luaTab;
+    Page *m_page;
+
+private:
+    DECLARE_DYNAMIC_CLASS(PageTabs);
+    DECLARE_EVENT_TABLE();
 };

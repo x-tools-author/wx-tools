@@ -39,6 +39,7 @@ private:
 
     void OnThreadFinished(wxThreadEvent &event);
     void OnThreadError(wxThreadEvent &event);
+    void OnThreadInvokeWrite(wxThreadEvent &event);
 
 private:
     LuaRunner *m_luaRunner{nullptr};

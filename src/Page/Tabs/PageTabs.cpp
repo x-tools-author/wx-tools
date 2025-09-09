@@ -8,14 +8,37 @@
  **************************************************************************************************/
 #include "PageTabs.h"
 
+#include "Common/wxTools.h"
+#include "Lua/LuaRunner.h"
 #include "Lua/LuaTab.h"
+#include "Page/Page.h"
 
-PageTabs::PageTabs(wxWindow* parent)
+IMPLEMENT_ABSTRACT_CLASS(PageTabs, wxNotebook)
+BEGIN_EVENT_TABLE(PageTabs, wxNotebook)
+EVT_THREAD(wxtID_LUA_RUNNER_INVOKE_WRITE, PageTabs::OnInvokeWrite)
+END_EVENT_TABLE()
+
+PageTabs::PageTabs(Page *parent)
     : wxNotebook(parent, wxID_ANY)
     , m_luaTab(nullptr)
+    , m_page(parent)
 {
     m_luaTab = new LuaTab(this);
     AddPage(m_luaTab, _("Lua"));
 }
 
 PageTabs::~PageTabs() {}
+
+void PageTabs::OnInvokeWrite(wxThreadEvent &event)
+{
+    wxString str = event.GetString();
+    if (str.IsEmpty()) {
+        return;
+    }
+
+    if (m_page == nullptr) {
+        return;
+    }
+
+    m_page->DoWrite(str);
+}

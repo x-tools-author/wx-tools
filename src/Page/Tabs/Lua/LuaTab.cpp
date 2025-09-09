@@ -21,6 +21,7 @@ IMPLEMENT_ABSTRACT_CLASS(LuaTab, wxPanel)
 BEGIN_EVENT_TABLE(LuaTab, wxPanel)
 EVT_THREAD(wxtID_LUA_RUNNER_FINISHED, LuaTab::OnThreadFinished)
 EVT_THREAD(wxtID_LUA_RUNNER_ERROR, LuaTab::OnThreadError)
+EVT_THREAD(wxtID_LUA_RUNNER_INVOKE_WRITE, LuaTab::OnThreadInvokeWrite)
 END_EVENT_TABLE()
 
 LuaTab::LuaTab(wxWindow *parent)
@@ -69,7 +70,7 @@ void LuaTab::DoSetupUiControllers()
     m_controllerBoxSizer->Add(m_fileComboBox, 1, wxEXPAND | wxALL, 4);
     m_runButton = new wxBitmapButton(this, wxID_ANY, wxNullBitmap);
     m_runButton->Bind(wxEVT_BUTTON, &LuaTab::OnRunButtonClicked, this);
-    m_fileComboBox->Bind(wxEVT_COMBOBOX_CLOSEUP, [this](wxCommandEvent &) { OnLuaFileComboBoxSelected(); }, GetId());
+    m_fileComboBox->Bind(wxEVT_COMBOBOX, [this](wxCommandEvent &) { OnLuaFileComboBoxSelected(); });
     DoUpdateRunButtonState();
     // clang-format on
 
@@ -161,7 +162,7 @@ void LuaTab::DoLoadLuaFileListApp()
     appPath += wxFileName::GetPathSeparator();
     appPath += wxString("Resources");
 #endif
-    wxString luaDir = appPath + wxFileName::GetPathSeparator() + "scripts";
+    wxString luaDir = appPath + wxString("scripts");
     luaDir += wxFileName::GetPathSeparator();
     luaDir += wxString("lua");
     if (!wxDirExists(luaDir)) {
@@ -300,7 +301,6 @@ void LuaTab::OnThreadFinished(wxThreadEvent &event)
 {
     m_luaRunner = nullptr;
     DoUpdateRunButtonState();
-    wxtInfo() << "Lua script thread has finished.";
 }
 
 void LuaTab::OnThreadError(wxThreadEvent &event)
@@ -311,4 +311,15 @@ void LuaTab::OnThreadError(wxThreadEvent &event)
     dt += event.GetString();
     dt += "\n";
     m_logTextCtrl->AppendText(dt);
+}
+
+void LuaTab::OnThreadInvokeWrite(wxThreadEvent &event)
+{
+    auto parent = GetParent();
+    if (parent == nullptr) {
+        return;
+    }
+
+    auto evtHandler = parent->GetEventHandler();
+    evtHandler->QueueEvent(event.Clone());
 }

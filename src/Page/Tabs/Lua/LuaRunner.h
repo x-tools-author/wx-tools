@@ -17,7 +17,11 @@ extern "C" {
 #include "lualib.h"
 }
 
-enum wxtLuaRunnerID { wxtID_LUA_RUNNER_FINISHED = wxID_HIGHEST + 1, wxtID_LUA_RUNNER_ERROR };
+enum wxtLuaRunnerID {
+    wxtID_LUA_RUNNER_FINISHED = wxID_HIGHEST + 1,
+    wxtID_LUA_RUNNER_ERROR,
+    wxtID_LUA_RUNNER_INVOKE_WRITE
+};
 
 class LuaRunner : public wxThread
 {
@@ -32,6 +36,11 @@ public:
 
 protected:
     ExitCode Entry() override;
+
+private:
+    static int DoWrite(lua_State *L);
+    static int DoLuaPrint(lua_State *L);
+    void DoOutput(const wxString &text);
 
 private:
     lua_State *m_lua{nullptr};

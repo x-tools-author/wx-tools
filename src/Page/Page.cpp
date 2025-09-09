@@ -31,6 +31,7 @@
 #include "PageSettingsLink.h"
 #include "PageSettingsOutput.h"
 
+#include "Tabs/Lua/LuaTab.h"
 #include "Tabs/PageTabs.h"
 
 IMPLEMENT_ABSTRACT_CLASS(Page, wxPanel)
@@ -104,6 +105,28 @@ wxtJson Page::DoSave() const
     json[keys.settings] = m_pageSettings->DoSave();
     json[keys.io] = m_pageIO->DoSave();
     return json;
+}
+
+bool Page::DoWrite(const wxString &text)
+{
+    PageSettingsLink *linkSettings = m_pageSettings->GetLinkSettings();
+    LinkUi *linkUi = linkSettings->GetLinkUi();
+    auto output = m_pageIO->GetOutput();
+    if (!linkUi->IsOpen()) {
+        output->AppendText(_("Link is not open!"), true);
+        return false;
+    }
+
+    Link *link = linkUi->GetLink();
+    if (!link) {
+        output->AppendText(_("Link is not available!"), true);
+        return false;
+    }
+
+    auto bytes = std::shared_ptr<char>(new char[text.length()], std::default_delete<char[]>());
+    memcpy(bytes.get(), text.c_str(), text.length());
+    link->Write(bytes, static_cast<int>(text.length()));
+    return true;
 }
 
 void Page::OnOpen()
