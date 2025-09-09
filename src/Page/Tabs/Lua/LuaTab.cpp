@@ -53,6 +53,7 @@ wxString GetAppLuaDir()
     appPath += wxString("..");
     appPath += wxFileName::GetPathSeparator();
     appPath += wxString("Resources");
+    appPath += wxFileName::GetPathSeparator();
 #endif
     wxString luaDir = appPath + wxString("scripts");
     luaDir += wxFileName::GetPathSeparator();
