@@ -273,14 +273,16 @@ if(APPLE)
   # cmake-format: on
   add_dependencies(wxTools_pkg_dmg wxTools)
 
-  # Create pak file
-  include(cmake/MacOS/MacOS.cmake)
-  # cmake-format: off
-  set(WXTOOLS_DEV_ID_APP "xxx_id_developer" CACHE STRING "The app's developer ID")
-  set(WXTOOLS_DEV_ID_INSTALLER "xxx_id_installer" CACHE STRING "The installer's developer ID")
-  wxt_make_pkg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
-  wxt_make_dmg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
-  # cmake-format: on
+  if(FALSE)
+    # Create pak file
+    include(cmake/MacOS/MacOS.cmake)
+    # cmake-format: off
+    set(WXTOOLS_DEV_ID_APP "xxx_id_developer" CACHE STRING "The app's developer ID")
+    set(WXTOOLS_DEV_ID_INSTALLER "xxx_id_installer" CACHE STRING "The installer's developer ID")
+    wxt_make_pkg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
+    wxt_make_dmg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
+    # cmake-format: on
+  endif()
 endif()
 
 # --------------------------------------------------------------------------------------------------
