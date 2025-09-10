@@ -4,7 +4,7 @@ if(NOT ${CMAKE_VERSION} VERSION_LESS "4.0.0")
   set(CMAKE_POLICY_VERSION_MINIMUM "3.16" CACHE STRING "CMake policy version" FORCE)
 endif()
 cmake_minimum_required(VERSION 3.16)
-project(wxToolsProject VERSION 1.0 LANGUAGES C CXX DESCRIPTION "A set of tools developed with wxWidgets")
+project(wxTools VERSION 1.0 LANGUAGES C CXX DESCRIPTION "A set of tools developed with wxWidgets")
 # cmake-format: on
 
 if(IOS OR ANDROID)
