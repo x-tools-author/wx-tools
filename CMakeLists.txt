@@ -214,10 +214,12 @@ if(APPLE)
   set(WX_TOOLS_BUNDLE_VERSION ${WXT_VERSION})
   set(WXT_SHORT_VERSION "${short_ver}")
 
-  string(TIMESTAMP CURRENT_YEAR "%Y")
-  message(STATUS "Current year: ${CURRENT_YEAR}")
+  string(TIMESTAMP WXT_CURRENT_YEAR "%Y")
+  message(STATUS "Current year: ${WXT_CURRENT_YEAR}")
+  string(TIMESTAMP WXT_BUNDLE_VERSION "%Y%m%d%H%M")
+  message(STATUS "[wxTools] WXT_BUNDLE_VERSION: ${WXT_BUNDLE_VERSION}")
   # cmake-format: off
-  set(WX_TOOLS_YYYY "${CURRENT_YEAR}" CACHE STRING "The current year")
+  set(WX_TOOLS_YYYY "${WXT_CURRENT_YEAR}" CACHE STRING "The current year")
   # cmake-format: on
   set(wxt_entitlements "${CMAKE_SOURCE_DIR}/res/apple/macos/wxTools.entitlements")
 
@@ -234,6 +236,9 @@ if(APPLE)
     # * set(CMAKE_XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION
     set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
     # cmake-format: on
+  else()
+    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
+                                             "${wxt_entitlements}")
   endif()
 
   # cmake-format: off
@@ -259,7 +264,7 @@ if(APPLE)
   # *   MACOSX_BUNDLE_LONG_VERSION_STRING "${WXT_VERSION}"
   # *   MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
   # *   MACOSX_BUNDLE_INFO_STRING "${CMAKE_PROJECT_DESCRIPTION}"
-  # *   MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2024-${CURRENT_YEAR} x-tools@outlook.com. All rights reserved."
+  # *   MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2024-${WXT_CURRENT_YEAR} x-tools@outlook.com. All rights reserved."
   # * )
   # cmake-format: on
 
@@ -273,15 +278,25 @@ if(APPLE)
   # cmake-format: on
   add_dependencies(wxTools_pkg_dmg wxTools)
 
-  if(FALSE)
-    # Create pak file
+  if(TRUE)
+
+    if(EXISTS "${CMAKE_SOURCE_DIR}/private.cmake")
+      include(${CMAKE_SOURCE_DIR}/private.cmake)
+      message(STATUS "[wxTools-apple] WX_TOOLS_DEV_ID_APP: ${WX_TOOLS_DEV_ID_APP}")
+      message(STATUS "[wxTools-apple] WX_TOOLS_DEV_ID_INSTALLER: ${WX_TOOLS_DEV_ID_INSTALLER}")
+    endif()
+
+    if(NOT DEFINED WX_TOOLS_DEV_ID_APP OR NOT DEFINED WX_TOOLS_DEV_ID_INSTALLER)
+      # cmake-format: off
+      set(WX_TOOLS_DEV_ID_APP "xxx_id_developer" CACHE STRING "The app's developer ID")
+      set(WX_TOOLS_DEV_ID_INSTALLER "xxx_id_installer" CACHE STRING "The installer's developer ID")
+      # cmake-format: on
+    endif()
+
     include(cmake/MacOS/MacOS.cmake)
-    # cmake-format: off
-    set(WXTOOLS_DEV_ID_APP "xxx_id_developer" CACHE STRING "The app's developer ID")
-    set(WXTOOLS_DEV_ID_INSTALLER "xxx_id_installer" CACHE STRING "The installer's developer ID")
-    wxt_make_pkg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
-    wxt_make_dmg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
-    # cmake-format: on
+    wxt_make_pkg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
+    wxt_make_dmg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
+
   endif()
 endif()
 

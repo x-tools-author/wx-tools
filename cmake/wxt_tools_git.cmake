@@ -10,12 +10,12 @@ function(wxt_git_get_latest_tag working_dir prefix)
 
   # date_version: such as 2025.04.27
   # cmake-format: off
-  string(TIMESTAMP current_year "%Y")
+  string(TIMESTAMP WXT_CURRENT_YEAR "%Y")
   string(TIMESTAMP current_month "%m")
   string(TIMESTAMP current_day "%d")
   math(EXPR current_month "${current_month} + 0")
   math(EXPR current_day "${current_day} + 0")
-  set(date_version "${current_year}.${current_month}.${current_day}")
+  set(date_version "${WXT_CURRENT_YEAR}.${current_month}.${current_day}")
   set(${prefix}_GIT_TAG "${date_version}" CACHE STRING "Latest git tag" FORCE)
   # cmake-format: on
 

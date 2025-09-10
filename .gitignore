@@ -93,3 +93,4 @@ libs
 
 ThirdParty
 .VSCodeCounter
+private.cmake
