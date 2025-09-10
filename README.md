@@ -4,7 +4,7 @@
 [![build-ubuntu](https://github.com/x-tools-author/wx-tools/actions/workflows/build-ubuntu.yml/badge.svg)](https://github.com/x-tools-author/wx-tools/actions/workflows/build-ubuntu.yml)
 [![build-macos](https://github.com/x-tools-author/wx-tools/actions/workflows/build-macos.yml/badge.svg)](https://github.com/x-tools-author/wx-tools/actions/workflows/build-macos.yml)
 [![build-daily](https://github.com/x-tools-author/wx-tools/actions/workflows/build-daily.yml/badge.svg)](https://github.com/x-tools-author/wx-tools/actions/workflows/build-daily.yml)
-[![build-release](https://github.com/x-tools-author/wx-tools/actions/workflows/build-release.yml/badge.svg)](https://github.com/x-tools-author/wx-tools/actions/workflows/build-release.yml)
+[![build-test](https://github.com/x-tools-author/wx-tools/actions/workflows/build-test.yml/badge.svg)](https://github.com/x-tools-author/wx-tools/actions/workflows/build-test.yml)
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/wx-tools.svg)](https://repology.org/project/wx-tools/versions)
 
