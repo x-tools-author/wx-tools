@@ -1,18 +1,23 @@
 ﻿name: build-test
 on:
+  schedule:
+    - cron: '0 23 * * *'
   workflow_dispatch:
 
 jobs:
   build-test:
     name: Units Test
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-2022, windows-2025]
+    runs-on: windows-2025
     steps:
       - name: Pull code
         uses: actions/checkout@v4
+      - name: Check Recent Commits
+        uses: ./.github/actions/commit-checker
+        id: recent
+        with:
+          since_hours: 24
       - name: ctest
+        if: ${{ steps.recent.outputs.commits_found == 'true' }}
         shell: cmd
         run: |
           mkdir build
