@@ -147,8 +147,9 @@ list(APPEND PROJECT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
 if(MSVC)
   list(APPEND PROJECT_LIBS Dwmapi)
 endif()
-target_link_libraries(wxTools PRIVATE ${wxWidgets_LIBRARIES} ${PROJECT_LIBS})
-message(STATUS "[wxTools] Libraries of wxTools: ${wxWidgets_LIBRARIES} ${PROJECT_LIBS}")
+list(APPEND PROJECT_LIBS ${wxWidgets_LIBRARIES})
+target_link_libraries(wxTools PRIVATE ${PROJECT_LIBS})
+message(STATUS "[wxTools] Libraries of wxTools: ${PROJECT_LIBS}")
 wxt_generate_po(wxTools ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/res/i18n)
 wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 
@@ -281,3 +282,7 @@ if(APPLE)
   wxt_make_dmg(wxTools ${WXTOOLS_DEV_ID_APP} ${WXTOOLS_DEV_ID_INSTALLER})
   # cmake-format: on
 endif()
+
+# --------------------------------------------------------------------------------------------------
+# Utilities
+include(test/wxToolsTest.cmake)
