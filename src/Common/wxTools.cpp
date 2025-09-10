@@ -606,6 +606,7 @@ std::vector<int> GetSuportedFormats()
     formats.push_back(static_cast<int>(TextFormat::Oct));
     formats.push_back(static_cast<int>(TextFormat::Dec));
     formats.push_back(static_cast<int>(TextFormat::Hex));
+    formats.push_back(static_cast<int>(TextFormat::HexWithoutSpace));
     formats.push_back(static_cast<int>(TextFormat::Ascii));
     formats.push_back(static_cast<int>(TextFormat::Utf8));
 #if defined(WXT_ENABLE_ICONV)
@@ -625,6 +626,7 @@ std::vector<wxString> GetSuportedTextFormats()
         formats.push_back(GetTextFormatName(TextFormat::Oct));
         formats.push_back(GetTextFormatName(TextFormat::Dec));
         formats.push_back(GetTextFormatName(TextFormat::Hex));
+        formats.push_back(GetTextFormatName(TextFormat::HexWithoutSpace));
         formats.push_back(GetTextFormatName(TextFormat::Ascii));
         formats.push_back(GetTextFormatName(TextFormat::Utf8));
 #if defined(WXT_ENABLE_ICONV)
@@ -646,6 +648,7 @@ wxString GetTextFormatName(TextFormat format)
         formatMap[TextFormat::Oct] = _("Octal");
         formatMap[TextFormat::Dec] = _("Decimal");
         formatMap[TextFormat::Hex] = _("Hexadecimal");
+        formatMap[TextFormat::HexWithoutSpace] = _("Hex (No Space)");
         formatMap[TextFormat::Ascii] = _("ASCII");
         formatMap[TextFormat::Utf8] = _("UTF-8");
 #if defined(WXT_ENABLE_ICONV)
@@ -671,7 +674,7 @@ std::string GetString(TextFormat format, uint8_t value)
         return GetOctString(value);
     } else if (format == TextFormat::Dec) {
         return GetDecString(value);
-    } else if (format == TextFormat::Hex) {
+    } else if (format == TextFormat::Hex || format == TextFormat::HexWithoutSpace) {
         return GetHexString(value);
     }
 
@@ -739,16 +742,11 @@ std::string DoDecodeBytesWithIconv(const std::shared_ptr<char> &bytes, int &len,
 
 std::string DoDecodeBytes(const std::shared_ptr<char> &bytes, int &len, int format)
 {
-    wxString str = GetTextFormatName(static_cast<TextFormat>(format));
-    if (isSupportedIconvEncodings(str.ToStdString())) {
-        return DoDecodeBytesWithIconv(bytes, len, format);
-    }
-
-    auto getString = [](const char *data, size_t size, int format) -> std::string {
+    static auto getString = [](const char *data, size_t size, int format) -> std::string {
         std::ostringstream stringStream;
         for (std::size_t i = 0; i < size; ++i) {
             stringStream << GetString(static_cast<TextFormat>(format), data[i]);
-            if (i < size - 1) {
+            if (i < size - 1 && format != static_cast<int>(TextFormat::HexWithoutSpace)) {
                 stringStream << " ";
             }
         }
@@ -760,12 +758,18 @@ std::string DoDecodeBytes(const std::shared_ptr<char> &bytes, int &len, int form
     case static_cast<int>(TextFormat::Oct):
     case static_cast<int>(TextFormat::Dec):
     case static_cast<int>(TextFormat::Hex):
+    case static_cast<int>(TextFormat::HexWithoutSpace):
         return getString(bytes.get(), len, format);
     case static_cast<int>(TextFormat::Ascii):
         return wxString::FromAscii(bytes.get(), len).ToStdString();
-    default:
-        return wxString::FromUTF8(bytes.get(), len).ToStdString();
     }
+
+    wxString str = GetTextFormatName(static_cast<TextFormat>(format));
+    if (isSupportedIconvEncodings(str.ToStdString())) {
+        return DoDecodeBytesWithIconv(bytes, len, format);
+    }
+
+    return getString(bytes.get(), len, static_cast<int>(TextFormat::Hex));
 }
 
 std::shared_ptr<char> DoEncodeBytesWithIconv(const std::string &text, int &len, int format)
@@ -783,13 +787,6 @@ std::shared_ptr<char> DoEncodeBytesWithIconv(const std::string &text, int &len, 
 
 std::shared_ptr<char> DoEncodeBytes(const std::string &text, int &len, int format)
 {
-#if defined(WXT_ENABLE_ICONV)
-    wxString str = GetTextFormatName(static_cast<TextFormat>(format));
-    if (isSupportedIconvEncodings(str.ToStdString())) {
-        return DoEncodeBytesWithIconv(text, len, format);
-    }
-#endif
-
     if (format == static_cast<int>(TextFormat::Ascii)
         || format == static_cast<int>(TextFormat::Utf8)) {
         len = text.size();
@@ -798,12 +795,35 @@ std::shared_ptr<char> DoEncodeBytes(const std::string &text, int &len, int forma
         return bytes;
     }
 
+#if defined(WXT_ENABLE_ICONV)
+    wxString str = GetTextFormatName(static_cast<TextFormat>(format));
+    if (isSupportedIconvEncodings(str.ToStdString())) {
+        return DoEncodeBytesWithIconv(text, len, format);
+    }
+#endif
+
+    if (text.empty()) {
+        len = 0;
+        return nullptr;
+    }
+
     // Split the string by space
     std::vector<std::string> tokens;
     std::istringstream iss(text);
     std::copy(std::istream_iterator<std::string>(iss),
               std::istream_iterator<std::string>(),
               std::back_inserter(tokens));
+
+    if (format == static_cast<int>(TextFormat::HexWithoutSpace)) {
+        tokens.clear();
+        for (size_t i = 0; i < text.size(); i += 2) {
+            if (i + 1 < text.size()) {
+                tokens.push_back(text.substr(i, 2));
+            } else {
+                tokens.push_back(text.substr(i, 1));
+            }
+        }
+    }
 
     len = tokens.size();
     std::shared_ptr<char> bytes(new char[len], [](char *p) { delete[] p; });
@@ -816,6 +836,12 @@ std::shared_ptr<char> DoEncodeBytes(const std::string &text, int &len, int forma
             bytes.get()[i] = static_cast<char>(std::stoi(tokens[i], nullptr, 10));
         } else if (format == static_cast<int>(TextFormat::Hex)) {
             bytes.get()[i] = static_cast<char>(std::stoi(tokens[i], nullptr, 16));
+        } else if (format == static_cast<int>(TextFormat::HexWithoutSpace)) {
+            bytes.get()[i] = static_cast<char>(std::stoi(tokens[i], nullptr, 16));
+        } else {
+            // Unsupported format
+            len = 0;
+            return nullptr;
         }
     }
 

@@ -25,7 +25,8 @@ void LineEdit::SetTextFormat(TextFormat format)
         = {{TextFormat::Bin, "00101000 01101110 01110101 01101100 01101100 00101001"},
            {TextFormat::Oct, "050 156 165 154 154 051"},
            {TextFormat::Dec, "40 110 117 108 108 41"},
-           {TextFormat::Hex, "28 6E 75 6C 6C 29"}};
+           {TextFormat::Hex, "28 6E 75 6C 6C 29"},
+           {TextFormat::HexWithoutSpace, "286E756C6C29"}};
 
     if (hintMap.find(format) != hintMap.end()) {
         SetHint(hintMap[format]);
@@ -71,6 +72,9 @@ bool LineEdit::Matches()
         return regEx.Matches(GetValue());
     } else if (m_format == static_cast<int>(TextFormat::Hex)) {
         static wxRegEx regEx("^([0-9a-fA-F]{1,2}( [0-9a-fA-F]{1,2})* ?)$");
+        return regEx.Matches(GetValue());
+    } else if (m_format == static_cast<int>(TextFormat::HexWithoutSpace)) {
+        static wxRegEx regEx("^([0-9a-fA-F]{1,2})*$");
         return regEx.Matches(GetValue());
     } else {
         return true;

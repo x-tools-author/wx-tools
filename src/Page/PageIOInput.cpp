@@ -28,7 +28,9 @@ void PageIOInput::Load(const wxtJson &parameters)
     if (parameters.contains(keys.inputText)) {
         wxString txt = parameters[keys.inputText].get<std::wstring>();
         m_loadedText = txt;
+#if 0
         m_lineEdit->SetValue(txt);
+#endif
     }
 }
 

@@ -34,5 +34,12 @@ TextFormatComboBox::TextFormatComboBox(wxWindow* parent)
 TextFormat TextFormatComboBox::GetSelectedFormat() const
 {
     int selection = GetCurrentSelection();
-    return static_cast<TextFormat>(selection);
+    if (selection != wxNOT_FOUND) {
+        int* data = static_cast<int*>(GetClientData(selection));
+        if (data) {
+            return static_cast<TextFormat>(*data);
+        }
+    }
+
+    return TextFormat::Unknown;
 }

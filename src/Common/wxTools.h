@@ -111,6 +111,7 @@ enum class TextFormat {
     CSGB2312,
     GBK,
     GB18030,
+    HexWithoutSpace,
     Unknown = -1
 };
 std::vector<int> GetSuportedFormats();
