@@ -18,4 +18,8 @@ jobs:
           mkdir build
           cd build
           cmake -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
+          cmake --build . --target test_crc
+          cmake --build . --target test_decode
+          cmake --build . --target test_encode
+          cmake --build . --target test_table
           ctest
