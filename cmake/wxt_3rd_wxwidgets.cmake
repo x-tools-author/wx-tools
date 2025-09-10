@@ -14,7 +14,9 @@ if(NOT EXISTS ${WXT_3RD_DIR}/${file_name})
 endif()
 
 if(LINUX AND NOT APPLE)
-set(wxUSE_LIBICONV OFF CACHE BOOL "Use libiconv for wxWidgets")
+  set(wxUSE_LIBICONV
+      OFF
+      CACHE BOOL "Use libiconv for wxWidgets")
 endif()
 
 set(WXT_WX_LOCAL_DIR "${WXT_3RD_DIR}/${file_name}/locale")
@@ -28,6 +30,6 @@ if(EXISTS ${wxWidgets_ROOT_DIR})
 else()
   include_directories(${WXT_3RD_DIR}/${file_name}/include)
   add_subdirectory(${WXT_3RD_DIR}/${file_name})
-  set(wxWidgets_LIBRARIES wx::base wx::aui)
+  set(wxWidgets_LIBRARIES wx::base wx::aui wx::stc)
   wxt_install_package(${file_name})
 endif()
