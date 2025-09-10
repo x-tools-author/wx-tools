@@ -3,34 +3,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    outputs:
-      commits_found: ${{ steps.recent.outputs.commits_found }}
-      commits_count: ${{ steps.recent.outputs.commits_count }}
+  build-test:
+    name: Units Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-2022, windows-2025]
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/commit-checker
-        id: recent
-        with:
-          since_hours: 24
-      - name: Use output
+      - name: Pull code
+        uses: actions/checkout@v4
+      - name: ctest
+        shell: cmd
         run: |
-          echo "Found? ${{ steps.recent.outputs.commits_found }}"
-          echo "Count:  ${{ steps.recent.outputs.commits_count }}"
-  test-found:
-    runs-on: ubuntu-latest
-    needs: check
-    if: ${{ needs.check.outputs.commits_found == 'true' }}
-    steps:
-      - name: Recent Commits Found
-        run: echo "There are recent commits, proceeding with tests."
-  test-not-found:
-    runs-on: ubuntu-latest
-    needs: check
-    if: ${{ needs.check.outputs.commits_found == 'false' }}
-    steps:
-      - name: No Recent Commits Found
-        run: echo "No recent commits found, skipping tests."
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
+          ctest
