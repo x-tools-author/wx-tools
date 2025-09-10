@@ -29,6 +29,10 @@
 #define wxtDataDir wxStandardPaths::Get().GetDataDir()
 
 wxString wxtMsAppLocalDataPath(const wxString &dirName = wxEmptyString);
+std::string GetBinString(uint8_t value);
+std::string GetOctString(uint8_t value);
+std::string GetDecString(uint8_t value);
+std::string GetHexString(uint8_t value);
 
 //--------------------------------------------------------------------------------------------------
 // Data structure

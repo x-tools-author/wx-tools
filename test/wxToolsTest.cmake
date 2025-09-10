@@ -22,3 +22,8 @@ add_executable(test_encode ${test_src_dir}/test_encode.cpp ${common_files})
 target_link_libraries(test_encode ${TEST_LIBS})
 set_target_properties(test_encode PROPERTIES FOLDER "Tests")
 add_test(NAME test_encode COMMAND test_encode)
+
+add_executable(test_table ${test_src_dir}/test_table.cpp ${common_files})
+target_link_libraries(test_table ${TEST_LIBS})
+set_target_properties(test_table PROPERTIES FOLDER "Tests")
+add_test(NAME test_table COMMAND test_table)
