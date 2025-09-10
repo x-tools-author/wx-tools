@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-09 17:09+0800\n"
+"POT-Creation-Date: 2025-09-10 11:39+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,55 +18,67 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: Common/wxTools.cpp:532 Utilities/DataChannelComboBox.cpp:24
-#: Common/wxTools.cpp:541 Common/wxTools.cpp:621
+#: Common/wxTools.cpp:541 Common/wxTools.cpp:621 Common/wxTools.cpp:647
 msgid "Binary"
 msgstr "Binarno"
 
 #: Common/wxTools.cpp:533 Common/wxTools.cpp:542 Common/wxTools.cpp:622
+#: Common/wxTools.cpp:648
 msgid "Octal"
 msgstr "Oktalno"
 
 #: Common/wxTools.cpp:534 Common/wxTools.cpp:543 Common/wxTools.cpp:623
+#: Common/wxTools.cpp:649
 msgid "Decimal"
 msgstr "Decimalno"
 
 #: Common/wxTools.cpp:535 Common/wxTools.cpp:544 Common/wxTools.cpp:624
+#: Common/wxTools.cpp:650
 msgid "Hexadecimal"
 msgstr "Heksadecimalno"
 
 #: Common/wxTools.cpp:536 Common/wxTools.cpp:545 Common/wxTools.cpp:625
+#: Common/wxTools.cpp:652
 msgid "ASCII"
 msgstr "ASCII"
 
 #: Common/wxTools.cpp:537 Common/wxTools.cpp:546 Common/wxTools.cpp:626
+#: Common/wxTools.cpp:653
 msgid "UTF-8"
 msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874 Common/wxTools.cpp:989
+#: Common/wxTools.cpp:1039
 msgid "Serial Port"
 msgstr "Serijski priključek"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875 Common/wxTools.cpp:990
+#: Common/wxTools.cpp:1040
 msgid "UDP Client"
 msgstr "UDP odjemalec"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876 Common/wxTools.cpp:991
+#: Common/wxTools.cpp:1041
 msgid "UDP Server"
 msgstr "UDP strežnik"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877 Common/wxTools.cpp:992
+#: Common/wxTools.cpp:1042
 msgid "TCP Client"
 msgstr "TCP odjemalec"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878 Common/wxTools.cpp:993
+#: Common/wxTools.cpp:1043
 msgid "TCP Server"
 msgstr "TCP strežnik"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879 Common/wxTools.cpp:994
+#: Common/wxTools.cpp:1044
 msgid "Web Socket Client"
 msgstr "Web Socket odjemalec"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880 Common/wxTools.cpp:995
+#: Common/wxTools.cpp:1045
 msgid "Web Socket Server"
 msgstr "Web Socket strežnik"
 
@@ -609,57 +621,63 @@ msgid "Show External Panel"
 msgstr ""
 
 #: Page/Tabs/Lua/LuaTab.cpp:108 Page/Tabs/Lua/LuaTab.cpp:403
+#: Page/Tabs/Lua/LuaTab.cpp:148 Page/Tabs/Lua/LuaTab.cpp:423
 msgid "New Lua Script"
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:113
+#: Page/Tabs/Lua/LuaTab.cpp:113 Page/Tabs/Lua/LuaTab.cpp:153
 msgid "Open Lua Script Directory"
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:118
+#: Page/Tabs/Lua/LuaTab.cpp:118 Page/Tabs/Lua/LuaTab.cpp:158
 msgid "Refresh Lua Script List"
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:123
+#: Page/Tabs/Lua/LuaTab.cpp:123 Page/Tabs/Lua/LuaTab.cpp:163
 msgid "Visit Online Manual"
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:135
+#: Page/Tabs/Lua/LuaTab.cpp:135 Page/Tabs/Lua/LuaTab.cpp:175
 msgid "Lua Script"
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:145
+#: Page/Tabs/Lua/LuaTab.cpp:145 Page/Tabs/Lua/LuaTab.cpp:185
 msgid "Log"
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:168
+#: Page/Tabs/Lua/LuaTab.cpp:168 Page/Tabs/Lua/LuaTab.cpp:208
 msgid "Stop Running Lua Script"
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:173
+#: Page/Tabs/Lua/LuaTab.cpp:173 Page/Tabs/Lua/LuaTab.cpp:213
 msgid "Start Running Lua Script"
 msgstr ""
 
 #: Page/Tabs/Lua/LuaTab.cpp:268 Page/Tabs/Lua/LuaTab.cpp:274
+#: Page/Tabs/Lua/LuaTab.cpp:289 Page/Tabs/Lua/LuaTab.cpp:295
 msgid "Please select a Lua script file first."
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:280
+#: Page/Tabs/Lua/LuaTab.cpp:280 Page/Tabs/Lua/LuaTab.cpp:301
 msgid "The selected Lua script file does not exist."
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:402
+#: Page/Tabs/Lua/LuaTab.cpp:402 Page/Tabs/Lua/LuaTab.cpp:422
 msgid "Enter the name of the new Lua script file:"
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:419
+#: Page/Tabs/Lua/LuaTab.cpp:419 Page/Tabs/Lua/LuaTab.cpp:442
 msgid "A file with the same name already exists."
 msgstr ""
 
-#: Page/Tabs/Lua/LuaTab.cpp:427
+#: Page/Tabs/Lua/LuaTab.cpp:427 Page/Tabs/Lua/LuaTab.cpp:450
 msgid "Failed to create the new Lua script file."
 msgstr ""
 
 #: Page/Tabs/PageTabs.cpp:27
 msgid "Lua"
+msgstr ""
+
+#: Common/wxTools.cpp:651
+msgid "Hex (No Space)"
 msgstr ""
