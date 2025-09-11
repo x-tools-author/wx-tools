@@ -9,7 +9,7 @@ permalink: /
 {: .note-title }
 > wxTools
 >
-> 大道至简，实用为王，wxTools始于2024...
+> wxTools始于2024，支持Lua扩展，实现无限可能...
 
 `wxTools`是一款基于wxWidgets开发的多功能、开源、免费、跨平台、的开发调试工具集，支持串口，UDP客户端，UDP服务端，TCP客户端，TCP服务器，WebSocket客户端和WebSocket服务器数据收发调试。支持Windows（x86/x64/arm64），Linux(amd64)和MacOS(arm64)等操作系统。
 
