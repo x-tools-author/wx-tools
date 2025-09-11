@@ -175,6 +175,10 @@ add_custom_command(TARGET wxTools POST_BUILD
 # cmake-format: on
 
 # --------------------------------------------------------------------------------------------------
+# Utilities
+include(test/wxToolsTest.cmake)
+
+# --------------------------------------------------------------------------------------------------
 # Do something for Windows
 if(WIN32)
   option(WXT_USE_VS_CODE "Use Visual Studio Code" OFF)
@@ -238,7 +242,7 @@ if(APPLE)
   string(TIMESTAMP WXT_BUNDLE_VERSION "%Y%m%d%H%M")
   message(STATUS "[wxTools] WXT_BUNDLE_VERSION: ${WXT_BUNDLE_VERSION}")
   set(WXT_PLIST "${CMAKE_BINARY_DIR}/wxTools.plist")
-  set(wxt_entitlements "${CMAKE_SOURCE_DIR}/res/apple/macos/wxTools.entitlements")
+  set(WXT_ENTITLEMENTS "${CMAKE_SOURCE_DIR}/res/apple/macos/wxTools.entitlements")
   configure_file(res/apple/macos/wxTools.plist.in ${WXT_PLIST})
 
   set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE TRUE)
@@ -258,12 +262,12 @@ if(APPLE)
     # * set(CMAKE_XCODE_ATTRIBUTE_LD_ENTRY_POINT
     # * set(CMAKE_XCODE_ATTRIBUTE_MARKETING_VERSION
     # * set(CMAKE_XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION
-    set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
+    set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${WXT_ENTITLEMENTS}")
   else()
-    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
+    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${WXT_ENTITLEMENTS}")
     set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_INSTALL_PATH "/Applications")
     set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_STYLE "Automatic")
-    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
+    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${WXT_ENTITLEMENTS}")
   endif()
   # cmake-format: on
 
@@ -295,8 +299,21 @@ if(APPLE)
   include(cmake/MacOS/MacOS.cmake)
   wxt_make_pkg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
   wxt_make_dmg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
-endif()
 
-# --------------------------------------------------------------------------------------------------
-# Utilities
-include(test/wxToolsTest.cmake)
+  # Generate pkg with cpack
+  set(CPACK_GENERATOR "DragNDrop;Package")
+  set(CPACK_PACKAGE_FILE_NAME ${WXT_ASSETS_NAME})
+  set(CPACK_PACKAGE_NAME "wxTools")
+  set(CPACK_PACKAGE_VENDOR "xTools")
+  set(CPACK_BUNDLE_NAME "wxTools")
+  set(CPACK_BUNDLE_PLIST ${WXT_PLIST})
+  set(CPACK_BUNDLE_ICON "${CMAKE_SOURCE_DIR}/wxTools.icns")
+  set(CPACK_BUNDLE_APPLE_CERT_APP "${WX_TOOLS_DEV_ID_APP}")
+  set(CPACK_BUNDLE_APPLE_ENTITLEMENTS "${WXT_ENTITLEMENTS}")
+  set(CPACK_BUNDLE_APPLE_CODESIGN_PARAMETER "--deep -o runtime")
+  include(CPack)
+  add_custom_target(
+    wxTools_cpack_pkg_dmg
+    COMMAND ${CPACK_COMMAND} .
+    DEPENDS wxTools)
+endif()
