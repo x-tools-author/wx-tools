@@ -314,6 +314,6 @@ if(APPLE)
   include(CPack)
   add_custom_target(
     wxTools_cpack_pkg_dmg
-    COMMAND ${CPACK_COMMAND} .
+    COMMAND ${CPACK_COMMAND} ${CMAKE_BINARY_DIR}
     DEPENDS wxTools)
 endif()
