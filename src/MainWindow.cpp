@@ -417,6 +417,7 @@ void MainWindow::InitMenuHelp3rdParty(wxMenu* menuHelp)
     infos.push_back(ThirdPartyInfo{wxString("json"), "https://github.com/nlohmann/json"});
     infos.push_back(ThirdPartyInfo{wxString("libiconv"), "https://www.gnu.org/software/libiconv/"});
     infos.push_back(ThirdPartyInfo{wxString("mongoose"), "https://github.com/cesanta/mongoose"});
+    infos.push_back(ThirdPartyInfo{wxString("googletest"), "https://github.com/google/googletest"});
     // clang-format on
     for (auto it = infos.begin(); it != infos.end(); ++it) {
         wxMenuItem* item = thirdPartyMenu->Append(wxID_ANY, it->name);
