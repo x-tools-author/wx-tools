@@ -1,4 +1,4 @@
-if exist build-arm64 rd /s /q build-arm64
+if exist build rd /s /q build
 mkdir build
 cd build
 
