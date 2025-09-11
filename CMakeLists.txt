@@ -273,7 +273,6 @@ if(APPLE)
 
   # Set the bundle properties Make pkg and dmg
   # cmake-format: off
-  productbuild --component ${target}.app /Applications --product ${target}.app/Contents/Info.plist ${target}.pkg
   add_custom_target(wxTools_pkg_dmg VERBATIM COMMENT "Making pkg and dmg..."
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/assets/wxTools
     COMMAND productbuild --component wxTools.app /Applications --product wxTools.app/Contents/Info.plist ${WXT_ASSETS_NAME}.pkg
