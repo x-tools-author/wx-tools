@@ -205,26 +205,28 @@ if(APPLE)
   set_source_files_properties(${wxTools_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
   target_sources(wxTools PRIVATE ${wxTools_ICON})
 
+  # Set the resource files for the macOS bundle
   set(RESOURCE_FILES "${CMAKE_SOURCE_DIR}/res/apple/macos/Assets.xcassets")
   set_source_files_properties(${RESOURCE_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
   target_sources(wxTools PRIVATE ${RESOURCE_FILES})
 
-  # Remove the last section from WXT_VERSION, such "1.0.0" -> "1.0"
-  string(REGEX REPLACE "\\.[0-9]+$" "" short_ver ${WXT_VERSION})
-  set(WX_TOOLS_BUNDLE_VERSION ${WXT_VERSION})
-  set(WXT_SHORT_VERSION "${short_ver}")
-
+  # Configure the Info.plist file for the macOS bundle
   string(TIMESTAMP WXT_CURRENT_YEAR "%Y")
   message(STATUS "Current year: ${WXT_CURRENT_YEAR}")
   string(TIMESTAMP WXT_BUNDLE_VERSION "%Y%m%d%H%M")
   message(STATUS "[wxTools] WXT_BUNDLE_VERSION: ${WXT_BUNDLE_VERSION}")
-  # cmake-format: off
-  set(WX_TOOLS_YYYY "${WXT_CURRENT_YEAR}" CACHE STRING "The current year")
-  # cmake-format: on
+  set(WXT_PLIST "${CMAKE_BINARY_DIR}/wxTools.plist")
   set(wxt_entitlements "${CMAKE_SOURCE_DIR}/res/apple/macos/wxTools.entitlements")
+  configure_file(res/apple/macos/wxTools.plist.in ${WXT_PLIST})
 
+  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE TRUE)
+  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${WXT_PLIST})
+  if(DEFINED BUNDLE_ID_OPTION)
+    set_target_properties(wxTools PROPERTIES ${BUNDLE_ID_OPTION})
+  endif()
+
+  # cmake-format: off
   if(CMAKE_GENERATOR STREQUAL "Xcode")
-    # cmake-format: off
     # set(CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "<Your Team ID>")
     set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_STYLE "Automatic")
     set(CMAKE_XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${WXT_APP_ID}")
@@ -235,69 +237,42 @@ if(APPLE)
     # * set(CMAKE_XCODE_ATTRIBUTE_MARKETING_VERSION
     # * set(CMAKE_XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION
     set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
-    # cmake-format: on
   else()
-    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS
-                                             "${wxt_entitlements}")
+    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
+    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_INSTALL_PATH "/Applications")
+    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_STYLE "Automatic")
+    set_target_properties(wxTools PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
   endif()
-
-  # cmake-format: off
-  configure_file(res/apple/macos/wxTools.plist.in ${CMAKE_BINARY_DIR}/wxTools.plist)
-  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_BINARY_DIR}/wxTools.plist)
-  set_target_properties(wxTools PROPERTIES CMAKE_XCODE_ATTRIBUTE_INSTALL_PATH "/Applications")
-  set_target_properties(wxTools PROPERTIES CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_STYLE "Automatic")
-  set_target_properties(wxTools PROPERTIES CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${wxt_entitlements}")
-  # cmake-format: on
-  set_target_properties(wxTools PROPERTIES MACOSX_BUNDLE TRUE)
-  # Set the bundle properties
-  # cmake-format: off
-  if(BUNDLE_ID_OPTION)
-    set_target_properties(wxTools PROPERTIES ${BUNDLE_ID_OPTION})
-  endif()
-
-  # * set_target_properties(wxTools PROPERTIES
-  # *   MACOSX_BUNDLE TRUE
-  # *   MACOSX_BUNDLE_BUNDLE_NAME "wxTools"
-  # *   MACOSX_BUNDLE_GUI_IDENTIFIER "${WXT_APP_ID}"
-  # *   MACOSX_BUNDLE_BUNDLE_VERSION "${WXT_VERSION}"
-  # *   MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
-  # *   MACOSX_BUNDLE_LONG_VERSION_STRING "${WXT_VERSION}"
-  # *   MACOSX_BUNDLE_SHORT_VERSION_STRING "${WXT_SHORT_VERSION}"
-  # *   MACOSX_BUNDLE_INFO_STRING "${CMAKE_PROJECT_DESCRIPTION}"
-  # *   MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2024-${WXT_CURRENT_YEAR} x-tools@outlook.com. All rights reserved."
-  # * )
   # cmake-format: on
 
-  # Make pkg and dmg
+  # Set the bundle properties Make pkg and dmg
   # cmake-format: off
   add_custom_target(wxTools_pkg_dmg VERBATIM COMMENT "Making pkg and dmg..."
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/assets/wxTools
     COMMAND pkgbuild --root wxTools.app --identifier ${WXT_APP_ID} --version ${WXT_VERSION} --install-location /Applications/wxTools.app ${WXT_ASSETS_NAME}.pkg
     COMMAND hdiutil create -volname "wxTools" -srcfolder "wxTools.app" -ov -format UDZO "${WXT_ASSETS_NAME}.dmg"
   )
-  # cmake-format: on
   add_dependencies(wxTools_pkg_dmg wxTools)
+  # cmake-format: on
 
-  if(TRUE)
+  # You can set WX_TOOLS_DEV_ID_APP and WX_TOOLS_DEV_ID_INSTALLER in private.cmake to avoid exposing
+  # your Apple Developer ID in a public repository.
+  if(EXISTS "${CMAKE_SOURCE_DIR}/private.cmake")
+    include(${CMAKE_SOURCE_DIR}/private.cmake)
+    message(STATUS "[wxTools-apple] WX_TOOLS_DEV_ID_APP: ${WX_TOOLS_DEV_ID_APP}")
+    message(STATUS "[wxTools-apple] WX_TOOLS_DEV_ID_INSTALLER: ${WX_TOOLS_DEV_ID_INSTALLER}")
+  endif()
 
-    if(EXISTS "${CMAKE_SOURCE_DIR}/private.cmake")
-      include(${CMAKE_SOURCE_DIR}/private.cmake)
-      message(STATUS "[wxTools-apple] WX_TOOLS_DEV_ID_APP: ${WX_TOOLS_DEV_ID_APP}")
-      message(STATUS "[wxTools-apple] WX_TOOLS_DEV_ID_INSTALLER: ${WX_TOOLS_DEV_ID_INSTALLER}")
-    endif()
-
-    if(NOT DEFINED WX_TOOLS_DEV_ID_APP OR NOT DEFINED WX_TOOLS_DEV_ID_INSTALLER)
-      # cmake-format: off
+  if(NOT DEFINED WX_TOOLS_DEV_ID_APP OR NOT DEFINED WX_TOOLS_DEV_ID_INSTALLER)
+    # cmake-format: off
       set(WX_TOOLS_DEV_ID_APP "xxx_id_developer" CACHE STRING "The app's developer ID")
       set(WX_TOOLS_DEV_ID_INSTALLER "xxx_id_installer" CACHE STRING "The installer's developer ID")
       # cmake-format: on
-    endif()
-
-    include(cmake/MacOS/MacOS.cmake)
-    wxt_make_pkg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
-    wxt_make_dmg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
-
   endif()
+
+  include(cmake/MacOS/MacOS.cmake)
+  wxt_make_pkg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
+  wxt_make_dmg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
 endif()
 
 # --------------------------------------------------------------------------------------------------
