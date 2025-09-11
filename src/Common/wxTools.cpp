@@ -722,7 +722,8 @@ std::shared_ptr<char> convertEncoding(const std::shared_ptr<char> &input,
 
 std::string DoDecodeBytesWithIconv(const std::shared_ptr<char> &bytes, int &len, int format)
 {
-    const char *from = GetTextFormatName(static_cast<TextFormat>(format)).c_str();
+    wxString tmp = GetTextFormatName(static_cast<TextFormat>(format));
+    const char *from = tmp.c_str();
     const char *to = "UTF-8";
 
     if (from && to) {
@@ -775,12 +776,17 @@ std::string DoDecodeBytes(const std::shared_ptr<char> &bytes, int &len, int form
 std::shared_ptr<char> DoEncodeBytesWithIconv(const std::string &text, int &len, int format)
 {
     const char *from = "UTF-8";
-    const char *to = GetTextFormatName(static_cast<TextFormat>(format)).c_str();
+    wxString tmp = GetTextFormatName(static_cast<TextFormat>(format));
+    const char *to = tmp.c_str();
     len = text.size();
     std::shared_ptr<char> bytes(new char[len + 1], [](char *p) { delete[] p; });
     memcpy(bytes.get(), text.c_str(), len);
     bytes.get()[len] = '\0';
     auto converted = convertEncoding(bytes, from, to);
+    if (!converted) {
+        len = 0;
+        return nullptr;
+    }   
     len = strlen(converted.get());
     return converted;
 }
