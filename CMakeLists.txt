@@ -299,22 +299,4 @@ if(APPLE)
   include(cmake/MacOS/MacOS.cmake)
   wxt_make_pkg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
   wxt_make_dmg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
-
-  # Generate pkg with cpack
-  install(TARGETS wxTools BUNDLE DESTINATION /Applications)
-  set(CPACK_GENERATOR "productbuild")
-  set(CPACK_PACKAGE_FILE_NAME ${WXT_ASSETS_NAME})
-  set(CPACK_PACKAGE_NAME "wxTools")
-  set(CPACK_PACKAGE_VENDOR "xTools")
-  set(CPACK_BUNDLE_NAME "wxTools")
-  set(CPACK_BUNDLE_PLIST ${WXT_PLIST})
-  set(CPACK_BUNDLE_ICON "${CMAKE_SOURCE_DIR}/wxTools.icns")
-  set(CPACK_BUNDLE_APPLE_CERT_APP "${WX_TOOLS_DEV_ID_APP}")
-  set(CPACK_BUNDLE_APPLE_ENTITLEMENTS "${WXT_ENTITLEMENTS}")
-  set(CPACK_BUNDLE_APPLE_CODESIGN_PARAMETER "--deep -o runtime")
-  include(CPack)
-  add_custom_target(
-    wxTools_cpack_pkg_dmg
-    COMMAND ${CPACK_COMMAND} ${CMAKE_BINARY_DIR}
-    DEPENDS wxTools)
 endif()
