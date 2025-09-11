@@ -30,8 +30,16 @@ endif()
 # * 查看排除路径（管理员）：Get-MpPreference | Select-Object -ExpandProperty ExclusionPath
 # * 移除排除路径（管理员）：Remove-MpPreference -ExclusionPath "C:\Users\user\Project"
 if(MSVC)
-  set(WXT_TARGET_ARCH ${CMAKE_EXE_LINKER_FLAGS})
-  string(REPLACE "/machine:" "" WXT_TARGET_ARCH ${WXT_TARGET_ARCH})
+  if(DEFINED CMAKE_EXE_LINKER_FLAGS)
+    set(WXT_TARGET_ARCH ${CMAKE_EXE_LINKER_FLAGS})
+    string(REPLACE "/machine:" "" WXT_TARGET_ARCH ${WXT_TARGET_ARCH})
+  else()
+    if(CMAKE_SIZEOF_VOID_P EQUAL 4)
+      set(WXT_TARGET_ARCH "32")
+    else()
+      set(WXT_TARGET_ARCH "64")
+    endif()
+  endif()
 else()
   if(APPLE)
     # * set(CMAKE_OSX_ARCHITECTURES
@@ -181,12 +189,26 @@ if(WIN32)
     wxt_make_zip(wxTools)
   endif()
 
-  wxt_build_for_store(wxTools)
+  # MSIX package(for Microsoft Store)
   option(WXT_GENERATE_MSIX "Generate MSIX" ON)
-  if(${CMAKE_BUILD_TYPE} STREQUAL "Release" AND WXT_GENERATE_MSIX)
+  if(WXT_GENERATE_MSIX)
     include(cmake/Msix/Msix.cmake)
     wxt_generate_msix(wxTools "wxTools" "wxTools" ${WXT_VERSION} OFF)
   endif()
+
+  # For AMD64
+  add_custom_target(
+    wxTools-store
+    COMMAND ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix.bat wxTools
+    SOURCES ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix.bat
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/scripts/msix)
+
+  # For ARM64
+  add_custom_target(
+    wxTools-store-arm64
+    COMMAND ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix-arm64.bat wxTools
+    SOURCES ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix-arm64.bat
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/scripts/msix)
 endif()
 
 # --------------------------------------------------------------------------------------------------

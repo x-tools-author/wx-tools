@@ -1,4 +1,8 @@
 ﻿# https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
+option(WXT_BUILD_TESTS "Build wxTools tests" ON)
+if(NOT WXT_BUILD_TESTS)
+  return()
+endif()
 
 set(google_test_version
     1.17.0

@@ -1,4 +1,12 @@
 ﻿function(wxt_generate_msix target packet_name display_name packet_version rename_target)
+  if(NOT ${CMAKE_BUILD_TYPE} STREQUAL "Release")
+    add_custom_target(
+      ${target}-msix
+      COMMAND ${CMAKE_COMMAND} -E echo "Skip making MSIX in ${CMAKE_BUILD_TYPE} mode"
+      VERBATIM)
+    return()
+  endif()
+
   # Remove 'v' and 'V' from version string
   string(REGEX REPLACE "v" "" packet_version ${packet_version})
   string(REGEX REPLACE "V" "" packet_version ${packet_version})
@@ -18,7 +26,7 @@
   list(APPEND msix_source ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/Msix.cmake)
   list(APPEND msix_source ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/MsixScript.cmake)
   add_custom_target(
-    ${target}_msix
+    ${target}-msix
     COMMAND ${CMAKE_COMMAND} ${args} -P ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/MsixScript.cmake
     SOURCES ${msix_source}
     DEPENDS ${target}

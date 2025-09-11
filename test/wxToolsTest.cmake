@@ -1,4 +1,8 @@
-﻿enable_testing()
+﻿if(NOT WXT_BUILD_TESTS)
+  return()
+endif()
+
+enable_testing()
 include_directories(${CMAKE_SOURCE_DIR}/src/Common)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
 set(TEST_LIBS ${PROJECT_LIBS} GTest::gtest GTest::gtest_main)
