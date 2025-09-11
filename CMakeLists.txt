@@ -301,7 +301,7 @@ if(APPLE)
   wxt_make_dmg(wxTools ${WX_TOOLS_DEV_ID_APP} ${WX_TOOLS_DEV_ID_INSTALLER})
 
   # Generate pkg with cpack
-  set(CPACK_GENERATOR "DragNDrop;Bundle")
+  set(CPACK_GENERATOR "productbuild")
   set(CPACK_PACKAGE_FILE_NAME ${WXT_ASSETS_NAME})
   set(CPACK_PACKAGE_NAME "wxTools")
   set(CPACK_PACKAGE_VENDOR "xTools")
