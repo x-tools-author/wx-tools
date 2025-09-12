@@ -32,6 +32,7 @@ public:
     wxtJson DoSave() const;
 
     bool DoWrite(const wxString &text);
+    void DoCloseLink();
 
 private:
     PageSettings *m_pageSettings;

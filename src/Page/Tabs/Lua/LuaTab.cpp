@@ -114,7 +114,7 @@ void LuaTab::DoLoad(const wxtJson &parameters)
 
 void LuaTab::OnBytesRead(std::shared_ptr<char> data, int size)
 {
-    if (data && size > 0) {
+    if (data && size > 0 && m_luaRunner) {
         m_luaRunner->OnBytesRead(data, size);
     }
 }

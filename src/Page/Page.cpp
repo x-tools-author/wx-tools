@@ -130,6 +130,11 @@ bool Page::DoWrite(const wxString &text)
     return true;
 }
 
+void Page::DoCloseLink()
+{
+    DoClose(true);
+}
+
 void Page::OnOpen()
 {
     PageSettingsLink *linkSettings = m_pageSettings->GetLinkSettings();

@@ -162,6 +162,14 @@ void MainWindow::OnExit(wxCommandEvent&)
 
 void MainWindow::OnClose(wxCloseEvent& evt)
 {
+    int count = m_notebook->GetPageCount();
+    for (int i = 0; i < count; i++) {
+        Page* page = dynamic_cast<Page*>(m_notebook->GetPage(i));
+        if (page) {
+            page->DoCloseLink();
+        }
+    }
+
     DoSave();
     evt.Skip();
 }
