@@ -17,7 +17,7 @@ jobs:
         with:
           since_hours: 24
       - name: ctest
-        if: ${{ steps.recent.outputs.commits_found == 'true' }}
+        #if: ${{ steps.recent.outputs.commits_found == 'true' }}
         shell: cmd
         run: |
           mkdir build
