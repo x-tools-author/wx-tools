@@ -22,7 +22,8 @@ Application::~Application()
 
 bool Application::OnInit()
 {
-    int appAppearance = wxtConfig->Read("Application/Theme", long(0));
+    long theme = long(static_cast<int>(wxAppBase::Appearance::System));
+    int appAppearance = wxtConfig->Read("Application/Theme", theme);
     SetAppearance(static_cast<wxAppBase::Appearance>(appAppearance));
 
     SetAppName("wxTools");
