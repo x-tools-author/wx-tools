@@ -233,7 +233,7 @@ if(APPLE)
 
   # Set the resource files for the macOS bundle
   set(tmp "Resources/Assets.xcassets")
-  file(GLOB_RECURSE RESOURCE_FILES "${CMAKE_SOURCE_DIR}/res/apple/macos/Assets.xcassets/*")
+  set(RESOURCE_FILES "${CMAKE_SOURCE_DIR}/res/apple/macos/Assets.xcassets")
   set_source_files_properties(${RESOURCE_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${tmp})
   target_sources(wxTools PRIVATE ${RESOURCE_FILES})
 
