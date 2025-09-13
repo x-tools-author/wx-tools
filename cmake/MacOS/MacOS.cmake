@@ -7,8 +7,7 @@ function(wxt_make_pkg target dev_id_app dev_id_installer)
     COMMAND ${CMAKE_COMMAND} -E echo "Developer ID Application: ${dev_id_app}"
     COMMAND ${CMAKE_COMMAND} -E echo "Developer ID Installer: ${dev_id_installer}"
     COMMAND codesign -f -o runtime -s "${dev_id_app}" -v --deep --entitlements ${WXT_ENTITLEMENTS} ${target}.app
-    COMMAND productbuild --component ${target}.app /Applications --product ${target}.app/Contents/Info.plist ${target}.pkg
-    COMMAND productsign --sign "${dev_id_installer}" ${target}.pkg ${target}-${WXT_VERSION}-${WXT_BUNDLE_VERSION}-signed.pkg
+    COMMAND productbuild --sign "${dev_id_installer}" --product ${target}.app/Contents/Info.plist --component ${target}.app /Applications ${target}-${WXT_VERSION}-${WXT_BUNDLE_VERSION}.pkg
   )
   # cmake-format: on
 endfunction()
