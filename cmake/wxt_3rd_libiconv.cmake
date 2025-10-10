@@ -35,7 +35,8 @@ if(WIN32)
     return()
   endif()
 
-  set(file_name "v1.17-p1")
+  set(version_string "1.18")
+  set(file_name "v${version_string}")
   set(file_suffix "zip")
   set(file_url
       "https://github.com/kiyolee/libiconv-win-build/archive/refs/tags/${file_name}.${file_suffix}")
@@ -63,7 +64,7 @@ if(NOT EXISTS ${CMAKE_SOURCE_DIR}/3rd/${file_name} AND NOT APPLE)
   execute_process(COMMAND ${CMAKE_COMMAND} -E tar xzf ${file_name}.${file_suffix}
                   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/3rd)
   if(WIN32)
-    set(tmp_dir libiconv-win-build-1.17-p1)
+    set(tmp_dir libiconv-win-build-${version_string})
     execute_process(COMMAND ${CMAKE_COMMAND} -E rename ${tmp_dir} ${file_name}
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/3rd)
   endif()
