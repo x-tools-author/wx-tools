@@ -1,6 +1,6 @@
 # https://github.com/itas109/CSerialPort
 set(CSerialPort_version
-    4.3.2
+    4.3.3
     CACHE STRING "CSerialPort version")
 set(file_name "CSerialPort-${CSerialPort_version}")
 set(file_url "https://github.com/itas109/CSerialPort/archive/refs/tags/v${CSerialPort_version}.zip")
