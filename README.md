@@ -69,3 +69,13 @@ chmod +x ./scripts/ci-build-ubuntu-20.04.sh
 ![en_US](docs/assets/en_US.png)
 
 ![zh_CN](docs/assets/zh_CN.png)
+
+## How to make building faster
+
+1. Build `ALL`
+2. Build `xxx_auto_install` manually
+3. Reconfigure CMake Cache (do not delete cache)
+
+```warning
+If you want to deploy gtest to libs, you must generate gmoc gmoc_main gtest gtest_main manually before build `gtest_auto_install`
+```
