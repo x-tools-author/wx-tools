@@ -262,6 +262,7 @@ void MainWindow::InitMenuOptions(wxMenuBar* menuBar)
 
 void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
 {
+#if wxCHECK_VERSION(3, 3, 0)
     wxMenu* themeMenu = new wxMenu;
     optionMenu->Append(wxID_ANY, _("Application themes"), themeMenu);
     struct ThemeInfo
@@ -305,6 +306,9 @@ void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
             },
             item->GetId());
     }
+#else
+    wxUnusedVar(optionMenu);
+#endif
 }
 
 void MainWindow::InitMenuOptionsShowOnTop(wxMenu* optionMenu)

@@ -22,9 +22,11 @@ Application::~Application()
 
 bool Application::OnInit()
 {
+#if wxCHECK_VERSION(3, 3, 0)
     long theme = long(static_cast<int>(wxAppBase::Appearance::System));
     int appAppearance = wxtConfig->Read("Application/Theme", theme);
     SetAppearance(static_cast<wxAppBase::Appearance>(appAppearance));
+#endif
 
     SetAppName("wxTools");
     SetVendorName("xTools");
