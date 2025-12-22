@@ -83,7 +83,7 @@ jobs:
             gh release upload continuous $file
           done
   release-for-macos:
-    runs-on: macos-13
+    runs-on: macos-14
     needs: update-tag
     #if:  ${{ needs.update-tag.outputs.commits_found == 'true' }}
     steps:
