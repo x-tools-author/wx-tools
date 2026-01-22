@@ -64,7 +64,7 @@ wxString wxtMsAppLocalDataPath(const wxString &dirName)
     return path;
 }
 
-void FailureWriter(const char *data, size_t size)
+static void FailureWriter(const char *data, size_t size)
 {
     // Remove the settings file
     wxString settingsFile = GetSettingsFileName();
@@ -183,7 +183,7 @@ wxString GetCrcName(CRCType type)
     }
 }
 
-uint32_t GetCRCPoly(CRCType CRCType)
+static uint32_t GetCRCPoly(CRCType CRCType)
 {
     uint32_t poly = 0;
 
@@ -222,7 +222,7 @@ uint32_t GetCRCPoly(CRCType CRCType)
     return poly;
 }
 
-uint32_t GetXorValue(CRCType CRCType)
+static uint32_t GetXorValue(CRCType CRCType)
 {
     uint32_t value = 0;
 
@@ -261,7 +261,7 @@ uint32_t GetXorValue(CRCType CRCType)
     return value;
 }
 
-uint32_t GetCRCInitialValue(CRCType CRCType)
+static uint32_t GetCRCInitialValue(CRCType CRCType)
 {
     uint32_t init = 0;
 
@@ -298,7 +298,7 @@ uint32_t GetCRCInitialValue(CRCType CRCType)
     return init;
 }
 
-bool GetCRCIsInputReversal(CRCType CRCType)
+static bool GetCRCIsInputReversal(CRCType CRCType)
 {
     bool reversal = true;
 
@@ -329,7 +329,7 @@ bool GetCRCIsInputReversal(CRCType CRCType)
     return reversal;
 }
 
-bool GetCRCIsOutputReversal(CRCType CRCType)
+static bool GetCRCIsOutputReversal(CRCType CRCType)
 {
     bool reversal = true;
 
@@ -360,7 +360,7 @@ bool GetCRCIsOutputReversal(CRCType CRCType)
     return reversal;
 }
 
-int GetCRCBitsWidth(CRCType CRCType)
+static int GetCRCBitsWidth(CRCType CRCType)
 {
     int ret = -1;
     switch (CRCType) {
@@ -391,7 +391,7 @@ int GetCRCBitsWidth(CRCType CRCType)
     return ret;
 }
 
-std::string GetCRCFriendlyPoly(CRCType CRCType)
+static std::string GetCRCFriendlyPoly(CRCType CRCType)
 {
     std::string fp = std::string("Error: Formula not found");
 
@@ -666,7 +666,7 @@ wxString GetTextFormatName(TextFormat format)
     }
 }
 
-std::string GetString(TextFormat format, uint8_t value)
+static std::string GetString(TextFormat format, uint8_t value)
 {
     if (format == TextFormat::Bin) {
         return GetBinString(value);
@@ -681,7 +681,7 @@ std::string GetString(TextFormat format, uint8_t value)
     return GetHexString(value);
 }
 
-std::shared_ptr<char> convertEncoding(const std::shared_ptr<char> &input,
+static std::shared_ptr<char> convertEncoding(const std::shared_ptr<char> &input,
                                       const char *fromCharset,
                                       const char *toCharset)
 {
@@ -720,7 +720,7 @@ std::shared_ptr<char> convertEncoding(const std::shared_ptr<char> &input,
 #endif
 }
 
-std::string DoDecodeBytesWithIconv(const std::shared_ptr<char> &bytes, int &len, int format)
+static std::string DoDecodeBytesWithIconv(const std::shared_ptr<char> &bytes, int &len, int format)
 {
     wxString tmp = GetTextFormatName(static_cast<TextFormat>(format));
     const char *from = tmp.c_str();
@@ -773,7 +773,7 @@ std::string DoDecodeBytes(const std::shared_ptr<char> &bytes, int &len, int form
     return getString(bytes.get(), len, static_cast<int>(TextFormat::Hex));
 }
 
-std::shared_ptr<char> DoEncodeBytesWithIconv(const std::string &text, int &len, int format)
+static std::shared_ptr<char> DoEncodeBytesWithIconv(const std::string &text, int &len, int format)
 {
     const char *from = "UTF-8";
     wxString tmp = GetTextFormatName(static_cast<TextFormat>(format));
@@ -981,7 +981,7 @@ std::string GetHexString(uint8_t value)
     return list[value];
 }
 
-int printEncoding(unsigned int namescount, const char *const *names, void *data)
+static int printEncoding(unsigned int namescount, const char *const *names, void *data)
 {
     for (unsigned int i = 0; i < namescount; ++i) {
         wxtInfo() << names[i];
