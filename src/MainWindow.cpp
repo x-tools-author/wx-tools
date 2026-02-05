@@ -93,7 +93,10 @@ MainWindow::MainWindow()
 #if defined(__WXOSX__)
     SetSize(wxSize(1280, 800));
 #else
-    SetSize(wxSize(1024, 600));
+#if 0
+    SetClientSize(FromDIP(wxSize(400, 300)));
+#endif
+    SetSize(wxSize(1280, 600));
 #endif
     Centre();
 
