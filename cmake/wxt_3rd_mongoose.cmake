@@ -2,9 +2,7 @@
 # For mongoose, the default value is 32, I think it is too small.
 add_compile_definitions(MG_DATA_SIZE=10240)
 
-set(mongoose_version
-    7.19
-    CACHE STRING "mongoose version")
+set(mongoose_version 7.20)
 set(file_name "mongoose-${mongoose_version}")
 set(file_url "https://github.com/cesanta/mongoose/archive/refs/tags/${mongoose_version}.zip")
 
