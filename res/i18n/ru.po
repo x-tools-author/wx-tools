@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-10 11:39+0800\n"
+"POT-Creation-Date: 2026-02-05 18:19+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,37 +48,37 @@ msgid "UTF-8"
 msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874 Common/wxTools.cpp:989
-#: Common/wxTools.cpp:1039
+#: Common/wxTools.cpp:1039 Common/wxTools.cpp:1049
 msgid "Serial Port"
 msgstr "Последовательный порт"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875 Common/wxTools.cpp:990
-#: Common/wxTools.cpp:1040
+#: Common/wxTools.cpp:1040 Common/wxTools.cpp:1050
 msgid "UDP Client"
 msgstr "UDP-клиент"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876 Common/wxTools.cpp:991
-#: Common/wxTools.cpp:1041
+#: Common/wxTools.cpp:1041 Common/wxTools.cpp:1051
 msgid "UDP Server"
 msgstr "UDP-сервер"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877 Common/wxTools.cpp:992
-#: Common/wxTools.cpp:1042
+#: Common/wxTools.cpp:1042 Common/wxTools.cpp:1052
 msgid "TCP Client"
 msgstr "TCP-клиент"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878 Common/wxTools.cpp:993
-#: Common/wxTools.cpp:1043
+#: Common/wxTools.cpp:1043 Common/wxTools.cpp:1053
 msgid "TCP Server"
 msgstr "TCP-сервер"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879 Common/wxTools.cpp:994
-#: Common/wxTools.cpp:1044
+#: Common/wxTools.cpp:1044 Common/wxTools.cpp:1054
 msgid "Web Socket Client"
 msgstr "Web Socket клиент"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880 Common/wxTools.cpp:995
-#: Common/wxTools.cpp:1045
+#: Common/wxTools.cpp:1045 Common/wxTools.cpp:1055
 msgid "Web Socket Server"
 msgstr "Web Socket сервер"
 
@@ -86,7 +86,7 @@ msgstr "Web Socket сервер"
 msgid "wxTools.json"
 msgstr "wxTools.json"
 
-#: Links/SerialPort_p.h:75
+#: Links/SerialPort_p.h:75 Links/BLECenter_p.h:75 Links/BLEPeripheral_p.h:75
 msgid "Write data failed."
 msgstr "Ошибка записи данных."
 
@@ -118,27 +118,33 @@ msgstr "Ошибка записи байтов клиентом."
 msgid "WS server send bytes error."
 msgstr "Ошибка отправки байтов Web Socket клиентом."
 
-#: LinksUi/SerialPortUi.cpp:39
+#: LinksUi/SerialPortUi.cpp:39 LinksUi/BLECenterUi.cpp:39
+#: LinksUi/BLEPeripheralUi.cpp:39
 msgid "Port name"
 msgstr "Имя порта"
 
-#: LinksUi/SerialPortUi.cpp:40
+#: LinksUi/SerialPortUi.cpp:40 LinksUi/BLECenterUi.cpp:40
+#: LinksUi/BLEPeripheralUi.cpp:40
 msgid "Baud rate"
 msgstr "Скорость передачи"
 
-#: LinksUi/SerialPortUi.cpp:41
+#: LinksUi/SerialPortUi.cpp:41 LinksUi/BLECenterUi.cpp:41
+#: LinksUi/BLEPeripheralUi.cpp:41
 msgid "Data bits"
 msgstr "Биты данных"
 
-#: LinksUi/SerialPortUi.cpp:42
+#: LinksUi/SerialPortUi.cpp:42 LinksUi/BLECenterUi.cpp:42
+#: LinksUi/BLEPeripheralUi.cpp:42
 msgid "Stop bits"
 msgstr "Стоп-биты"
 
-#: LinksUi/SerialPortUi.cpp:43
+#: LinksUi/SerialPortUi.cpp:43 LinksUi/BLECenterUi.cpp:43
+#: LinksUi/BLEPeripheralUi.cpp:43
 msgid "Parity"
 msgstr "Четность"
 
-#: LinksUi/SerialPortUi.cpp:44
+#: LinksUi/SerialPortUi.cpp:44 LinksUi/BLECenterUi.cpp:44
+#: LinksUi/BLEPeripheralUi.cpp:44
 msgid "Flow bits"
 msgstr "Биты управления потоком"
 
@@ -166,244 +172,248 @@ msgstr "Информация о клиенте"
 msgid "Tx Channel"
 msgstr "Канал передачи"
 
-#: MainWindow.cpp:98 MainWindow.cpp:119 MainWindow.cpp:123
+#: MainWindow.cpp:98 MainWindow.cpp:119 MainWindow.cpp:123 MainWindow.cpp:126
 msgid "Open parameters file"
 msgstr "Открыть файл параметров"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
-#: MainWindow.cpp:126 MainWindow.cpp:144
+#: MainWindow.cpp:126 MainWindow.cpp:144 MainWindow.cpp:129 MainWindow.cpp:147
 msgid "JSON files (*.json)|*.json"
 msgstr "Файлы JSON (*.json)|*.json"
 
-#: MainWindow.cpp:116 MainWindow.cpp:137 MainWindow.cpp:141
+#: MainWindow.cpp:116 MainWindow.cpp:137 MainWindow.cpp:141 MainWindow.cpp:144
 msgid "Save parameters file"
 msgstr "Сохранить файл параметров"
 
-#: MainWindow.cpp:134 MainWindow.cpp:155 MainWindow.cpp:159
+#: MainWindow.cpp:134 MainWindow.cpp:155 MainWindow.cpp:159 MainWindow.cpp:162
 msgid "The application will be closed!"
 msgstr "Приложение будет закрыто!"
 
-#: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179
+#: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179 MainWindow.cpp:190
 msgid "wxTools - A set of tools developed with wxWidgets\n"
 msgstr "wxTools - Набор инструментов, разработанных с wxWidgets\n"
 
-#: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181
+#: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181 MainWindow.cpp:192
 msgid "Version: "
 msgstr "Версия: "
 
-#: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182
+#: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182 MainWindow.cpp:193
 msgid "Author: x-tools-author\n"
 msgstr "Автор: x-tools-author\n"
 
-#: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183
+#: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183 MainWindow.cpp:194
 msgid "Email:"
 msgstr "Электронная почта:"
 
-#: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185
+#: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185 MainWindow.cpp:196
 msgid "Commit: "
 msgstr "Коммит: "
 
-#: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186
+#: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186 MainWindow.cpp:197
 msgid "Date: "
 msgstr "Дата: "
 
-#: MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187
+#: MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187 MainWindow.cpp:198
 msgid "Build: "
 msgstr "Сборка: "
 
-#: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189
+#: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189 MainWindow.cpp:200
 msgid "Copyright"
 msgstr "Авторское право"
 
-#: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191
+#: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191 MainWindow.cpp:202
 msgid "All rights reserved.\n"
 msgstr "Все права защищены.\n"
 
-#: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192
+#: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192 MainWindow.cpp:203
 msgid "About wxTools"
 msgstr "О wxTools"
 
-#: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214
+#: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214 MainWindow.cpp:225
 msgid "File"
 msgstr "Файл"
 
-#: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233
+#: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233 MainWindow.cpp:244
 msgid "Options"
 msgstr "Параметры"
 
-#: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235
+#: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235 MainWindow.cpp:246
 msgid "Open Log Directory"
 msgstr "Открыть папку логов"
 
-#: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236
+#: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236 MainWindow.cpp:247
 msgid "Open the log directory."
 msgstr "Открыть папку логов."
 
-#: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240
+#: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240 MainWindow.cpp:251
 msgid "Open Config Directory"
 msgstr "Открыть папку конфигурации"
 
-#: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241
+#: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241 MainWindow.cpp:252
 msgid "Open the config directory."
 msgstr "Открыть папку конфигурации."
 
-#: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245
+#: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245 MainWindow.cpp:256
 msgid "Open App Directory"
 msgstr "Открыть папку приложения"
 
-#: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246
+#: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246 MainWindow.cpp:257
 msgid "Open the app directory."
 msgstr "Открыть папку приложения."
 
-#: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258
+#: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258 MainWindow.cpp:270
 msgid "Application themes"
 msgstr "Темы приложения"
 
-#: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266
+#: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266 MainWindow.cpp:278
 msgid "System Theme"
 msgstr "Системная тема"
 
-#: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267
+#: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267 MainWindow.cpp:279
 msgid "Light Theme"
 msgstr "Светлая тема"
 
-#: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268
+#: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268 MainWindow.cpp:280
 msgid "Dark Theme"
 msgstr "Темная тема"
 
-#: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288
+#: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288 MainWindow.cpp:300
 msgid "Reboot the application to take effect now?"
 msgstr "Перезапустить приложение для применения изменений?"
 
-#: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289
+#: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289 MainWindow.cpp:301
 msgid "Information"
 msgstr "Информация"
 
-#: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304
+#: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304 MainWindow.cpp:319
 msgid "Show on Top"
 msgstr "Показать поверх других"
 
-#: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305
+#: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305 MainWindow.cpp:320
 msgid "Keep the application window on top of others."
 msgstr "Держать окно приложения поверх других."
 
-#: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321
+#: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321 MainWindow.cpp:336
 msgid "Help"
 msgstr "Справка"
 
-#: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327
+#: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327 MainWindow.cpp:342
 msgid "About wxWidgets"
 msgstr "О wxWidgets"
 
-#: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328
+#: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328 MainWindow.cpp:343
 msgid "Show wxWidgets library information."
 msgstr "Показать информацию о библиотеке wxWidgets."
 
-#: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332
+#: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332 MainWindow.cpp:347
 msgid "Visit online documentation page."
 msgstr "Посетить страницу онлайн-документации."
 
-#: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337
+#: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337 MainWindow.cpp:352
 msgid "Check for Updates"
 msgstr "Проверить обновления"
 
-#: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338
+#: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338 MainWindow.cpp:353
 msgid "Check for updates online."
 msgstr "Проверить обновления онлайн."
 
-#: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342
+#: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342 MainWindow.cpp:357
 msgid "Report an Issue"
 msgstr "Сообщить о проблеме"
 
-#: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343
+#: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343 MainWindow.cpp:358
 msgid "Report a Issue online."
 msgstr "Сообщить о проблеме или пожелании онлайн."
 
-#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359 MainWindow.cpp:374
 msgid "History"
 msgstr "История"
 
-#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359 MainWindow.cpp:374
 msgid "Show the history of the application."
 msgstr "Показать историю приложения."
 
-#: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365
+#: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365 MainWindow.cpp:380
 msgid "Visit GitHub page to get more information."
 msgstr "Посетить страницу GitHub для получения дополнительной информации."
 
-#: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366
+#: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366 MainWindow.cpp:381
 msgid "Get Source from GitHub"
 msgstr "Получить исходный код с GitHub"
 
-#: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370
+#: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370 MainWindow.cpp:385
 msgid "Visit Gitee page to get more information."
 msgstr "Посетить страницу Gitee для получения дополнительной информации."
 
-#: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371
+#: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371 MainWindow.cpp:386
 msgid "Get Source from Gitee"
 msgstr "Получить исходный код с Gitee"
 
-#: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375
+#: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375 MainWindow.cpp:390
 msgid "Visit GitHub home page of author."
 msgstr "Посетить домашнюю страницу автора на GitHub."
 
-#: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376
+#: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376 MainWindow.cpp:391
 msgid "GitHub Home Page"
 msgstr "Домашняя страница GitHub"
 
-#: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380
+#: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380 MainWindow.cpp:395
 msgid "Visit Gitee home page of author."
 msgstr "Посетить домашнюю страницу автора на Gitee."
 
-#: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381
+#: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381 MainWindow.cpp:396
 msgid "Gitee Home Page"
 msgstr "Домашняя страница Gitee"
 
-#: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389
+#: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389 MainWindow.cpp:404
 msgid "Visit Microsoft Store page to buy wxTools."
 msgstr "Посетить страницу Microsoft Store для покупки wxTools."
 
-#: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390
+#: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390 MainWindow.cpp:405
 msgid "Supporting Author"
 msgstr "Поддержать автора"
 
-#: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394
+#: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394 MainWindow.cpp:409
 msgid "Visit Microsoft Store home page of author."
 msgstr "Посетить домашнюю страницу автора в Microsoft Store."
 
-#: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395
+#: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395 MainWindow.cpp:410
 msgid "Other Applications"
 msgstr "Другие приложения"
 
-#: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531
+#: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531 MainWindow.cpp:550
 msgid "History file not found!"
 msgstr "Файл истории не найден!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 #: Common/wxTools.h:26 MainWindow.cpp:531 Page/Page.cpp:407 Page/Page.cpp:440
+#: MainWindow.cpp:550 Page/Page.cpp:412 Page/Page.cpp:445
 msgid "Error"
 msgstr "Ошибка"
 
-#: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535
+#: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535 MainWindow.cpp:554
 msgid "wxTools Release History"
 msgstr "История релизов wxTools"
 
 #: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359 Page/Page.cpp:405
+#: Page/Page.cpp:410
 msgid "Close"
 msgstr "Закрыть"
 
 #: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361 Page/Page.cpp:407
+#: Page/Page.cpp:412
 msgid "Failed to open link."
 msgstr "Не удалось открыть ссылку."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
 #: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377 Page/Page.cpp:423
-#: Page/PageSettingsLink.cpp:33
+#: Page/PageSettingsLink.cpp:33 Page/Page.cpp:428 Page/PageSettingsLink.cpp:37
 msgid "Open"
 msgstr "Открыть"
 
 #: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394 Page/Page.cpp:440
+#: Page/Page.cpp:445
 msgid "Link is not opened."
 msgstr "Ссылка не открыта."
 
@@ -474,11 +484,12 @@ msgid "Big Endian"
 msgstr "Big Endian"
 
 #: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
+#: Page/PageSettingsLink.cpp:25
 msgid "Link Settings"
 msgstr "Настройки ссылки"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
-#: Page/PageSettingsLink.cpp:32
+#: Page/PageSettingsLink.cpp:32 Page/PageSettingsLink.cpp:36
 msgid "Refresh"
 msgstr "Обновить устройство"
 
@@ -563,11 +574,11 @@ msgstr "Метка"
 msgid "Space"
 msgstr "Пробел"
 
-#: Page/Page.cpp:231 Page/Page.cpp:235 Page/Page.cpp:281
+#: Page/Page.cpp:231 Page/Page.cpp:235 Page/Page.cpp:281 Page/Page.cpp:286
 msgid "Save Output"
 msgstr "Сохранить вывод"
 
-#: Page/Page.cpp:244 Page/Page.cpp:248 Page/Page.cpp:294
+#: Page/Page.cpp:244 Page/Page.cpp:248 Page/Page.cpp:294 Page/Page.cpp:299
 #, c-format
 msgid "Cannot save output to file '%s'."
 msgstr "Не удалось сохранить вывод в файл '%s'."
@@ -588,7 +599,7 @@ msgstr "Сохранить текст вывода в файл..."
 msgid "Filter: hello;world"
 msgstr "Фильтр: hello;world"
 
-#: MainWindow.cpp:392 MainWindow.cpp:404
+#: MainWindow.cpp:392 MainWindow.cpp:404 MainWindow.cpp:419
 msgid "Third Party"
 msgstr "Сторонний"
 
@@ -612,11 +623,11 @@ msgstr ""
 msgid "Link is not available!"
 msgstr ""
 
-#: Page/PageSettingsLink.cpp:84
+#: Page/PageSettingsLink.cpp:84 Page/PageSettingsLink.cpp:88
 msgid "Hide External Panel"
 msgstr ""
 
-#: Page/PageSettingsLink.cpp:86
+#: Page/PageSettingsLink.cpp:86 Page/PageSettingsLink.cpp:90
 msgid "Show External Panel"
 msgstr ""
 
@@ -680,4 +691,12 @@ msgstr ""
 
 #: Common/wxTools.cpp:651
 msgid "Hex (No Space)"
+msgstr ""
+
+#: Common/wxTools.cpp:1056
+msgid "BLE Center"
+msgstr ""
+
+#: Common/wxTools.cpp:1057
+msgid "BLE Peripheral"
 msgstr ""

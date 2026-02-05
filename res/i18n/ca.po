@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-10 11:39+0800\n"
+"POT-Creation-Date: 2026-02-05 18:19+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,37 +48,37 @@ msgid "UTF-8"
 msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874 Common/wxTools.cpp:989
-#: Common/wxTools.cpp:1039
+#: Common/wxTools.cpp:1039 Common/wxTools.cpp:1049
 msgid "Serial Port"
 msgstr "Port Sèrie"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875 Common/wxTools.cpp:990
-#: Common/wxTools.cpp:1040
+#: Common/wxTools.cpp:1040 Common/wxTools.cpp:1050
 msgid "UDP Client"
 msgstr "Client UDP"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876 Common/wxTools.cpp:991
-#: Common/wxTools.cpp:1041
+#: Common/wxTools.cpp:1041 Common/wxTools.cpp:1051
 msgid "UDP Server"
 msgstr "Servidor UDP"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877 Common/wxTools.cpp:992
-#: Common/wxTools.cpp:1042
+#: Common/wxTools.cpp:1042 Common/wxTools.cpp:1052
 msgid "TCP Client"
 msgstr "Client TCP"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878 Common/wxTools.cpp:993
-#: Common/wxTools.cpp:1043
+#: Common/wxTools.cpp:1043 Common/wxTools.cpp:1053
 msgid "TCP Server"
 msgstr "Servidor TCP"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879 Common/wxTools.cpp:994
-#: Common/wxTools.cpp:1044
+#: Common/wxTools.cpp:1044 Common/wxTools.cpp:1054
 msgid "Web Socket Client"
 msgstr "Client Web Socket"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880 Common/wxTools.cpp:995
-#: Common/wxTools.cpp:1045
+#: Common/wxTools.cpp:1045 Common/wxTools.cpp:1055
 msgid "Web Socket Server"
 msgstr "Servidor Web Socket"
 
@@ -86,7 +86,7 @@ msgstr "Servidor Web Socket"
 msgid "wxTools.json"
 msgstr "wxTools.json"
 
-#: Links/SerialPort_p.h:75
+#: Links/SerialPort_p.h:75 Links/BLECenter_p.h:75 Links/BLEPeripheral_p.h:75
 msgid "Write data failed."
 msgstr "Error en escriure les dades."
 
@@ -119,27 +119,33 @@ msgstr "Error en escriure bytes del client."
 msgid "WS server send bytes error."
 msgstr "Error en enviar bytes del servidor WS."
 
-#: LinksUi/SerialPortUi.cpp:39
+#: LinksUi/SerialPortUi.cpp:39 LinksUi/BLECenterUi.cpp:39
+#: LinksUi/BLEPeripheralUi.cpp:39
 msgid "Port name"
 msgstr "Nom del port"
 
-#: LinksUi/SerialPortUi.cpp:40
+#: LinksUi/SerialPortUi.cpp:40 LinksUi/BLECenterUi.cpp:40
+#: LinksUi/BLEPeripheralUi.cpp:40
 msgid "Baud rate"
 msgstr "Velocitat de transmissió"
 
-#: LinksUi/SerialPortUi.cpp:41
+#: LinksUi/SerialPortUi.cpp:41 LinksUi/BLECenterUi.cpp:41
+#: LinksUi/BLEPeripheralUi.cpp:41
 msgid "Data bits"
 msgstr "Bits de dades"
 
-#: LinksUi/SerialPortUi.cpp:42
+#: LinksUi/SerialPortUi.cpp:42 LinksUi/BLECenterUi.cpp:42
+#: LinksUi/BLEPeripheralUi.cpp:42
 msgid "Stop bits"
 msgstr "Bits de parada"
 
-#: LinksUi/SerialPortUi.cpp:43
+#: LinksUi/SerialPortUi.cpp:43 LinksUi/BLECenterUi.cpp:43
+#: LinksUi/BLEPeripheralUi.cpp:43
 msgid "Parity"
 msgstr "Paritat"
 
-#: LinksUi/SerialPortUi.cpp:44
+#: LinksUi/SerialPortUi.cpp:44 LinksUi/BLECenterUi.cpp:44
+#: LinksUi/BLEPeripheralUi.cpp:44
 msgid "Flow bits"
 msgstr "Bits de flux"
 
@@ -167,244 +173,248 @@ msgstr "Informació del client"
 msgid "Tx Channel"
 msgstr "Canal Tx"
 
-#: MainWindow.cpp:98 MainWindow.cpp:119 MainWindow.cpp:123
+#: MainWindow.cpp:98 MainWindow.cpp:119 MainWindow.cpp:123 MainWindow.cpp:126
 msgid "Open parameters file"
 msgstr "Obrir fitxer de paràmetres"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
-#: MainWindow.cpp:126 MainWindow.cpp:144
+#: MainWindow.cpp:126 MainWindow.cpp:144 MainWindow.cpp:129 MainWindow.cpp:147
 msgid "JSON files (*.json)|*.json"
 msgstr "Fitxers JSON (*.json)|*.json"
 
-#: MainWindow.cpp:116 MainWindow.cpp:137 MainWindow.cpp:141
+#: MainWindow.cpp:116 MainWindow.cpp:137 MainWindow.cpp:141 MainWindow.cpp:144
 msgid "Save parameters file"
 msgstr "Desar fitxer de paràmetres"
 
-#: MainWindow.cpp:134 MainWindow.cpp:155 MainWindow.cpp:159
+#: MainWindow.cpp:134 MainWindow.cpp:155 MainWindow.cpp:159 MainWindow.cpp:162
 msgid "The application will be closed!"
 msgstr "L'aplicació es tancarà!"
 
-#: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179
+#: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179 MainWindow.cpp:190
 msgid "wxTools - A set of tools developed with wxWidgets\n"
 msgstr "wxTools - Un conjunt d'eines desenvolupades amb wxWidgets\n"
 
-#: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181
+#: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181 MainWindow.cpp:192
 msgid "Version: "
 msgstr "Versió: "
 
-#: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182
+#: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182 MainWindow.cpp:193
 msgid "Author: x-tools-author\n"
 msgstr "Autor: x-tools-author\n"
 
-#: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183
+#: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183 MainWindow.cpp:194
 msgid "Email:"
 msgstr "Correu electrònic:"
 
-#: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185
+#: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185 MainWindow.cpp:196
 msgid "Commit: "
 msgstr "Comissió: "
 
-#: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186
+#: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186 MainWindow.cpp:197
 msgid "Date: "
 msgstr "Data: "
 
-#: MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187
+#: MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187 MainWindow.cpp:198
 msgid "Build: "
 msgstr "Compilació: "
 
-#: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189
+#: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189 MainWindow.cpp:200
 msgid "Copyright"
 msgstr "Copyright"
 
-#: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191
+#: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191 MainWindow.cpp:202
 msgid "All rights reserved.\n"
 msgstr "Tots els drets reservats.\n"
 
-#: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192
+#: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192 MainWindow.cpp:203
 msgid "About wxTools"
 msgstr "Quant a wxTools"
 
-#: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214
+#: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214 MainWindow.cpp:225
 msgid "File"
 msgstr "Fitxer"
 
-#: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233
+#: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233 MainWindow.cpp:244
 msgid "Options"
 msgstr "Opcions"
 
-#: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235
+#: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235 MainWindow.cpp:246
 msgid "Open Log Directory"
 msgstr "Obrir directori de registres"
 
-#: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236
+#: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236 MainWindow.cpp:247
 msgid "Open the log directory."
 msgstr "Obrir el directori de registres."
 
-#: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240
+#: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240 MainWindow.cpp:251
 msgid "Open Config Directory"
 msgstr "Obrir directori de configuració"
 
-#: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241
+#: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241 MainWindow.cpp:252
 msgid "Open the config directory."
 msgstr "Obrir el directori de configuració."
 
-#: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245
+#: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245 MainWindow.cpp:256
 msgid "Open App Directory"
 msgstr "Obrir directori de l'aplicació"
 
-#: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246
+#: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246 MainWindow.cpp:257
 msgid "Open the app directory."
 msgstr "Obrir el directori de l'aplicació."
 
-#: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258
+#: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258 MainWindow.cpp:270
 msgid "Application themes"
 msgstr "Temes de l'aplicació"
 
-#: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266
+#: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266 MainWindow.cpp:278
 msgid "System Theme"
 msgstr "Tema del sistema"
 
-#: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267
+#: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267 MainWindow.cpp:279
 msgid "Light Theme"
 msgstr "Tema clar"
 
-#: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268
+#: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268 MainWindow.cpp:280
 msgid "Dark Theme"
 msgstr "Tema fosc"
 
-#: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288
+#: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288 MainWindow.cpp:300
 msgid "Reboot the application to take effect now?"
 msgstr "Reiniciar l'aplicació per aplicar els canvis ara?"
 
-#: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289
+#: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289 MainWindow.cpp:301
 msgid "Information"
 msgstr "Informació"
 
-#: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304
+#: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304 MainWindow.cpp:319
 msgid "Show on Top"
 msgstr "Mostrar a sobre"
 
-#: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305
+#: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305 MainWindow.cpp:320
 msgid "Keep the application window on top of others."
 msgstr "Mantenir la finestra de l'aplicació per sobre de les altres."
 
-#: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321
+#: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321 MainWindow.cpp:336
 msgid "Help"
 msgstr "Ajuda"
 
-#: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327
+#: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327 MainWindow.cpp:342
 msgid "About wxWidgets"
 msgstr "Quant a wxWidgets"
 
-#: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328
+#: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328 MainWindow.cpp:343
 msgid "Show wxWidgets library information."
 msgstr "Mostrar informació de la llibreria wxWidgets."
 
-#: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332
+#: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332 MainWindow.cpp:347
 msgid "Visit online documentation page."
 msgstr "Visitar la pàgina de documentació en línia."
 
-#: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337
+#: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337 MainWindow.cpp:352
 msgid "Check for Updates"
 msgstr "Comprovar actualitzacions"
 
-#: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338
+#: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338 MainWindow.cpp:353
 msgid "Check for updates online."
 msgstr "Comprovar actualitzacions en línia."
 
-#: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342
+#: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342 MainWindow.cpp:357
 msgid "Report an Issue"
 msgstr "Informar d'un problema"
 
-#: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343
+#: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343 MainWindow.cpp:358
 msgid "Report a Issue online."
 msgstr "Informar d'un problema en línia."
 
-#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359 MainWindow.cpp:374
 msgid "History"
 msgstr "Historial"
 
-#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359 MainWindow.cpp:374
 msgid "Show the history of the application."
 msgstr "Mostrar l'historial de l'aplicació."
 
-#: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365
+#: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365 MainWindow.cpp:380
 msgid "Visit GitHub page to get more information."
 msgstr "Visitar la pàgina de GitHub per obtenir més informació."
 
-#: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366
+#: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366 MainWindow.cpp:381
 msgid "Get Source from GitHub"
 msgstr "Obtenir codi font de GitHub"
 
-#: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370
+#: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370 MainWindow.cpp:385
 msgid "Visit Gitee page to get more information."
 msgstr "Visitar la pàgina de Gitee per obtenir més informació."
 
-#: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371
+#: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371 MainWindow.cpp:386
 msgid "Get Source from Gitee"
 msgstr "Obtenir codi font de Gitee"
 
-#: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375
+#: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375 MainWindow.cpp:390
 msgid "Visit GitHub home page of author."
 msgstr "Visitar la pàgina principal de GitHub de l'autor."
 
-#: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376
+#: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376 MainWindow.cpp:391
 msgid "GitHub Home Page"
 msgstr "Pàgina principal de GitHub"
 
-#: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380
+#: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380 MainWindow.cpp:395
 msgid "Visit Gitee home page of author."
 msgstr "Visitar la pàgina principal de Gitee de l'autor."
 
-#: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381
+#: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381 MainWindow.cpp:396
 msgid "Gitee Home Page"
 msgstr "Pàgina principal de Gitee"
 
-#: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389
+#: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389 MainWindow.cpp:404
 msgid "Visit Microsoft Store page to buy wxTools."
 msgstr "Visitar la pàgina de Microsoft Store per comprar wxTools."
 
-#: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390
+#: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390 MainWindow.cpp:405
 msgid "Supporting Author"
 msgstr "Donar suport a l'autor"
 
-#: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394
+#: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394 MainWindow.cpp:409
 msgid "Visit Microsoft Store home page of author."
 msgstr "Visitar la pàgina principal de Microsoft Store de l'autor."
 
-#: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395
+#: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395 MainWindow.cpp:410
 msgid "Other Applications"
 msgstr "Altres aplicacions"
 
-#: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531
+#: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531 MainWindow.cpp:550
 msgid "History file not found!"
 msgstr "No s'ha trobat el fitxer d'historial!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 #: Common/wxTools.h:26 MainWindow.cpp:531 Page/Page.cpp:407 Page/Page.cpp:440
+#: MainWindow.cpp:550 Page/Page.cpp:412 Page/Page.cpp:445
 msgid "Error"
 msgstr "Error"
 
-#: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535
+#: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535 MainWindow.cpp:554
 msgid "wxTools Release History"
 msgstr "Historial de versions de wxTools"
 
 #: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359 Page/Page.cpp:405
+#: Page/Page.cpp:410
 msgid "Close"
 msgstr "Tancar"
 
 #: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361 Page/Page.cpp:407
+#: Page/Page.cpp:412
 msgid "Failed to open link."
 msgstr "Error en obrir l'enllaç."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
 #: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377 Page/Page.cpp:423
-#: Page/PageSettingsLink.cpp:33
+#: Page/PageSettingsLink.cpp:33 Page/Page.cpp:428 Page/PageSettingsLink.cpp:37
 msgid "Open"
 msgstr "Obrir"
 
 #: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394 Page/Page.cpp:440
+#: Page/Page.cpp:445
 msgid "Link is not opened."
 msgstr "L'enllaç no està obert."
 
@@ -475,11 +485,12 @@ msgid "Big Endian"
 msgstr "Big Endian"
 
 #: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
+#: Page/PageSettingsLink.cpp:25
 msgid "Link Settings"
 msgstr "Configuració d'enllaç"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
-#: Page/PageSettingsLink.cpp:32
+#: Page/PageSettingsLink.cpp:32 Page/PageSettingsLink.cpp:36
 msgid "Refresh"
 msgstr "Actualitzar"
 
@@ -564,11 +575,11 @@ msgstr "Marca"
 msgid "Space"
 msgstr "Espai"
 
-#: Page/Page.cpp:231 Page/Page.cpp:235 Page/Page.cpp:281
+#: Page/Page.cpp:231 Page/Page.cpp:235 Page/Page.cpp:281 Page/Page.cpp:286
 msgid "Save Output"
 msgstr "Desar sortida"
 
-#: Page/Page.cpp:244 Page/Page.cpp:248 Page/Page.cpp:294
+#: Page/Page.cpp:244 Page/Page.cpp:248 Page/Page.cpp:294 Page/Page.cpp:299
 #, c-format
 msgid "Cannot save output to file '%s'."
 msgstr "No es pot desar la sortida al fitxer '%s'."
@@ -589,7 +600,7 @@ msgstr "Desar text de sortida al fitxer..."
 msgid "Filter: hello;world"
 msgstr "Filtre: hola;món"
 
-#: MainWindow.cpp:392 MainWindow.cpp:404
+#: MainWindow.cpp:392 MainWindow.cpp:404 MainWindow.cpp:419
 msgid "Third Party"
 msgstr "Tercers"
 
@@ -613,11 +624,11 @@ msgstr ""
 msgid "Link is not available!"
 msgstr ""
 
-#: Page/PageSettingsLink.cpp:84
+#: Page/PageSettingsLink.cpp:84 Page/PageSettingsLink.cpp:88
 msgid "Hide External Panel"
 msgstr ""
 
-#: Page/PageSettingsLink.cpp:86
+#: Page/PageSettingsLink.cpp:86 Page/PageSettingsLink.cpp:90
 msgid "Show External Panel"
 msgstr ""
 
@@ -681,4 +692,12 @@ msgstr ""
 
 #: Common/wxTools.cpp:651
 msgid "Hex (No Space)"
+msgstr ""
+
+#: Common/wxTools.cpp:1056
+msgid "BLE Center"
+msgstr ""
+
+#: Common/wxTools.cpp:1057
+msgid "BLE Peripheral"
 msgstr ""

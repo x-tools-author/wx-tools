@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-10 11:39+0800\n"
+"POT-Creation-Date: 2026-02-05 18:19+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,37 +48,37 @@ msgid "UTF-8"
 msgstr "UTF-8"
 
 #: Common/wxTools.cpp:769 Common/wxTools.cpp:874 Common/wxTools.cpp:989
-#: Common/wxTools.cpp:1039
+#: Common/wxTools.cpp:1039 Common/wxTools.cpp:1049
 msgid "Serial Port"
 msgstr "Cổng nối tiếp"
 
 #: Common/wxTools.cpp:770 Common/wxTools.cpp:875 Common/wxTools.cpp:990
-#: Common/wxTools.cpp:1040
+#: Common/wxTools.cpp:1040 Common/wxTools.cpp:1050
 msgid "UDP Client"
 msgstr "Máy khách UDP"
 
 #: Common/wxTools.cpp:771 Common/wxTools.cpp:876 Common/wxTools.cpp:991
-#: Common/wxTools.cpp:1041
+#: Common/wxTools.cpp:1041 Common/wxTools.cpp:1051
 msgid "UDP Server"
 msgstr "Máy chủ UDP"
 
 #: Common/wxTools.cpp:772 Common/wxTools.cpp:877 Common/wxTools.cpp:992
-#: Common/wxTools.cpp:1042
+#: Common/wxTools.cpp:1042 Common/wxTools.cpp:1052
 msgid "TCP Client"
 msgstr "Máy khách TCP"
 
 #: Common/wxTools.cpp:773 Common/wxTools.cpp:878 Common/wxTools.cpp:993
-#: Common/wxTools.cpp:1043
+#: Common/wxTools.cpp:1043 Common/wxTools.cpp:1053
 msgid "TCP Server"
 msgstr "Máy chủ TCP"
 
 #: Common/wxTools.cpp:774 Common/wxTools.cpp:879 Common/wxTools.cpp:994
-#: Common/wxTools.cpp:1044
+#: Common/wxTools.cpp:1044 Common/wxTools.cpp:1054
 msgid "Web Socket Client"
 msgstr "Máy khách Web Socket"
 
 #: Common/wxTools.cpp:775 Common/wxTools.cpp:880 Common/wxTools.cpp:995
-#: Common/wxTools.cpp:1045
+#: Common/wxTools.cpp:1045 Common/wxTools.cpp:1055
 msgid "Web Socket Server"
 msgstr "Máy chủ Web Socket"
 
@@ -86,7 +86,7 @@ msgstr "Máy chủ Web Socket"
 msgid "wxTools.json"
 msgstr "wxTools.json"
 
-#: Links/SerialPort_p.h:75
+#: Links/SerialPort_p.h:75 Links/BLECenter_p.h:75 Links/BLEPeripheral_p.h:75
 msgid "Write data failed."
 msgstr "Ghi dữ liệu thất bại."
 
@@ -118,27 +118,33 @@ msgstr "Máy khách ghi byte thất bại."
 msgid "WS server send bytes error."
 msgstr "Lỗi gửi byte từ máy chủ WS."
 
-#: LinksUi/SerialPortUi.cpp:39
+#: LinksUi/SerialPortUi.cpp:39 LinksUi/BLECenterUi.cpp:39
+#: LinksUi/BLEPeripheralUi.cpp:39
 msgid "Port name"
 msgstr "Tên cổng"
 
-#: LinksUi/SerialPortUi.cpp:40
+#: LinksUi/SerialPortUi.cpp:40 LinksUi/BLECenterUi.cpp:40
+#: LinksUi/BLEPeripheralUi.cpp:40
 msgid "Baud rate"
 msgstr "Tốc độ baud"
 
-#: LinksUi/SerialPortUi.cpp:41
+#: LinksUi/SerialPortUi.cpp:41 LinksUi/BLECenterUi.cpp:41
+#: LinksUi/BLEPeripheralUi.cpp:41
 msgid "Data bits"
 msgstr "Bit dữ liệu"
 
-#: LinksUi/SerialPortUi.cpp:42
+#: LinksUi/SerialPortUi.cpp:42 LinksUi/BLECenterUi.cpp:42
+#: LinksUi/BLEPeripheralUi.cpp:42
 msgid "Stop bits"
 msgstr "Bit dừng"
 
-#: LinksUi/SerialPortUi.cpp:43
+#: LinksUi/SerialPortUi.cpp:43 LinksUi/BLECenterUi.cpp:43
+#: LinksUi/BLEPeripheralUi.cpp:43
 msgid "Parity"
 msgstr "Bit chẵn lẻ"
 
-#: LinksUi/SerialPortUi.cpp:44
+#: LinksUi/SerialPortUi.cpp:44 LinksUi/BLECenterUi.cpp:44
+#: LinksUi/BLEPeripheralUi.cpp:44
 msgid "Flow bits"
 msgstr "Bit điều khiển luồng"
 
@@ -166,244 +172,248 @@ msgstr "Thông tin Máy khách"
 msgid "Tx Channel"
 msgstr "Kênh Tx"
 
-#: MainWindow.cpp:98 MainWindow.cpp:119 MainWindow.cpp:123
+#: MainWindow.cpp:98 MainWindow.cpp:119 MainWindow.cpp:123 MainWindow.cpp:126
 msgid "Open parameters file"
 msgstr "Mở tệp tham số"
 
 #: MainWindow.cpp:101 MainWindow.cpp:119 MainWindow.cpp:122 MainWindow.cpp:140
-#: MainWindow.cpp:126 MainWindow.cpp:144
+#: MainWindow.cpp:126 MainWindow.cpp:144 MainWindow.cpp:129 MainWindow.cpp:147
 msgid "JSON files (*.json)|*.json"
 msgstr "Tệp JSON (*.json)|*.json"
 
-#: MainWindow.cpp:116 MainWindow.cpp:137 MainWindow.cpp:141
+#: MainWindow.cpp:116 MainWindow.cpp:137 MainWindow.cpp:141 MainWindow.cpp:144
 msgid "Save parameters file"
 msgstr "Lưu tệp tham số"
 
-#: MainWindow.cpp:134 MainWindow.cpp:155 MainWindow.cpp:159
+#: MainWindow.cpp:134 MainWindow.cpp:155 MainWindow.cpp:159 MainWindow.cpp:162
 msgid "The application will be closed!"
 msgstr "Ứng dụng sẽ được đóng!"
 
-#: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179
+#: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179 MainWindow.cpp:190
 msgid "wxTools - A set of tools developed with wxWidgets\n"
 msgstr "wxTools - Một bộ công cụ được phát triển với wxWidgets\n"
 
-#: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181
+#: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181 MainWindow.cpp:192
 msgid "Version: "
 msgstr "Phiên bản: "
 
-#: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182
+#: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182 MainWindow.cpp:193
 msgid "Author: x-tools-author\n"
 msgstr "Tác giả: x-tools-author\n"
 
-#: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183
+#: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183 MainWindow.cpp:194
 msgid "Email:"
 msgstr "Email:"
 
-#: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185
+#: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185 MainWindow.cpp:196
 msgid "Commit: "
 msgstr "Commit: "
 
-#: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186
+#: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186 MainWindow.cpp:197
 msgid "Date: "
 msgstr "Ngày: "
 
-#: MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187
+#: MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187 MainWindow.cpp:198
 msgid "Build: "
 msgstr "Bản dựng: "
 
-#: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189
+#: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189 MainWindow.cpp:200
 msgid "Copyright"
 msgstr "Bản quyền"
 
-#: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191
+#: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191 MainWindow.cpp:202
 msgid "All rights reserved.\n"
 msgstr "Đã đăng ký Bản quyền.\n"
 
-#: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192
+#: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192 MainWindow.cpp:203
 msgid "About wxTools"
 msgstr "Giới thiệu về wxTools"
 
-#: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214
+#: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214 MainWindow.cpp:225
 msgid "File"
 msgstr "Tệp"
 
-#: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233
+#: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233 MainWindow.cpp:244
 msgid "Options"
 msgstr "Tùy chọn"
 
-#: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235
+#: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235 MainWindow.cpp:246
 msgid "Open Log Directory"
 msgstr "Mở Thư mục Nhật ký"
 
-#: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236
+#: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236 MainWindow.cpp:247
 msgid "Open the log directory."
 msgstr "Mở thư mục nhật ký."
 
-#: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240
+#: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240 MainWindow.cpp:251
 msgid "Open Config Directory"
 msgstr "Mở Thư mục Cấu hình"
 
-#: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241
+#: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241 MainWindow.cpp:252
 msgid "Open the config directory."
 msgstr "Mở thư mục cấu hình."
 
-#: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245
+#: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245 MainWindow.cpp:256
 msgid "Open App Directory"
 msgstr "Mở Thư mục Ứng dụng"
 
-#: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246
+#: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246 MainWindow.cpp:257
 msgid "Open the app directory."
 msgstr "Mở thư mục ứng dụng."
 
-#: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258
+#: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258 MainWindow.cpp:270
 msgid "Application themes"
 msgstr "Chủ đề ứng dụng"
 
-#: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266
+#: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266 MainWindow.cpp:278
 msgid "System Theme"
 msgstr "Chủ đề Hệ thống"
 
-#: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267
+#: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267 MainWindow.cpp:279
 msgid "Light Theme"
 msgstr "Chủ đề Sáng"
 
-#: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268
+#: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268 MainWindow.cpp:280
 msgid "Dark Theme"
 msgstr "Chủ đề Tối"
 
-#: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288
+#: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288 MainWindow.cpp:300
 msgid "Reboot the application to take effect now?"
 msgstr "Khởi động lại ứng dụng để có hiệu lực ngay bây giờ?"
 
-#: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289
+#: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289 MainWindow.cpp:301
 msgid "Information"
 msgstr "Thông tin"
 
-#: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304
+#: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304 MainWindow.cpp:319
 msgid "Show on Top"
 msgstr "Hiện trên cùng"
 
-#: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305
+#: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305 MainWindow.cpp:320
 msgid "Keep the application window on top of others."
 msgstr "Giữ cửa sổ ứng dụng trên cùng các cửa sổ khác."
 
-#: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321
+#: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321 MainWindow.cpp:336
 msgid "Help"
 msgstr "Trợ giúp"
 
-#: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327
+#: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327 MainWindow.cpp:342
 msgid "About wxWidgets"
 msgstr "Giới thiệu về wxWidgets"
 
-#: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328
+#: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328 MainWindow.cpp:343
 msgid "Show wxWidgets library information."
 msgstr "Hiển thị thông tin thư viện wxWidgets."
 
-#: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332
+#: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332 MainWindow.cpp:347
 msgid "Visit online documentation page."
 msgstr "Truy cập trang tài liệu trực tuyến."
 
-#: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337
+#: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337 MainWindow.cpp:352
 msgid "Check for Updates"
 msgstr "Kiểm tra Cập nhật"
 
-#: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338
+#: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338 MainWindow.cpp:353
 msgid "Check for updates online."
 msgstr "Kiểm tra cập nhật trực tuyến."
 
-#: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342
+#: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342 MainWindow.cpp:357
 msgid "Report an Issue"
 msgstr "Báo cáo Lỗi"
 
-#: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343
+#: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343 MainWindow.cpp:358
 msgid "Report a Issue online."
 msgstr "Báo cáo lỗi trực tuyến."
 
-#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359 MainWindow.cpp:374
 msgid "History"
 msgstr "Lịch sử"
 
-#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
+#: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359 MainWindow.cpp:374
 msgid "Show the history of the application."
 msgstr "Hiển thị lịch sử của ứng dụng."
 
-#: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365
+#: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365 MainWindow.cpp:380
 msgid "Visit GitHub page to get more information."
 msgstr "Truy cập trang GitHub để biết thêm thông tin."
 
-#: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366
+#: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366 MainWindow.cpp:381
 msgid "Get Source from GitHub"
 msgstr "Lấy Mã nguồn từ GitHub"
 
-#: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370
+#: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370 MainWindow.cpp:385
 msgid "Visit Gitee page to get more information."
 msgstr "Truy cập trang Gitee để biết thêm thông tin."
 
-#: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371
+#: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371 MainWindow.cpp:386
 msgid "Get Source from Gitee"
 msgstr "Lấy Mã nguồn từ Gitee"
 
-#: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375
+#: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375 MainWindow.cpp:390
 msgid "Visit GitHub home page of author."
 msgstr "Truy cập trang chủ GitHub của tác giả."
 
-#: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376
+#: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376 MainWindow.cpp:391
 msgid "GitHub Home Page"
 msgstr "Trang chủ GitHub"
 
-#: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380
+#: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380 MainWindow.cpp:395
 msgid "Visit Gitee home page of author."
 msgstr "Truy cập trang chủ Gitee của tác giả."
 
-#: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381
+#: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381 MainWindow.cpp:396
 msgid "Gitee Home Page"
 msgstr "Trang chủ Gitee"
 
-#: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389
+#: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389 MainWindow.cpp:404
 msgid "Visit Microsoft Store page to buy wxTools."
 msgstr "Truy cập trang Microsoft Store để mua wxTools."
 
-#: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390
+#: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390 MainWindow.cpp:405
 msgid "Supporting Author"
 msgstr "Hỗ trợ Tác giả"
 
-#: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394
+#: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394 MainWindow.cpp:409
 msgid "Visit Microsoft Store home page of author."
 msgstr "Truy cập trang chủ Microsoft Store của tác giả."
 
-#: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395
+#: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395 MainWindow.cpp:410
 msgid "Other Applications"
 msgstr "Ứng dụng Khác"
 
-#: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531
+#: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531 MainWindow.cpp:550
 msgid "History file not found!"
 msgstr "Không tìm thấy tệp lịch sử!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 #: Common/wxTools.h:26 MainWindow.cpp:531 Page/Page.cpp:407 Page/Page.cpp:440
+#: MainWindow.cpp:550 Page/Page.cpp:412 Page/Page.cpp:445
 msgid "Error"
 msgstr "Lỗi"
 
-#: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535
+#: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535 MainWindow.cpp:554
 msgid "wxTools Release History"
 msgstr "Lịch sử Phát hành wxTools"
 
 #: Page/Page.cpp:334 Page/Page.cpp:355 Page/Page.cpp:359 Page/Page.cpp:405
+#: Page/Page.cpp:410
 msgid "Close"
 msgstr "Đóng"
 
 #: Page/Page.cpp:336 Page/Page.cpp:357 Page/Page.cpp:361 Page/Page.cpp:407
+#: Page/Page.cpp:412
 msgid "Failed to open link."
 msgstr "Mở liên kết thất bại."
 
 #: Page/Page.cpp:352 Page/PageSettingsLink.cpp:34 Page/Page.cpp:373
 #: Page/PageSettingsLink.cpp:32 Page/Page.cpp:377 Page/Page.cpp:423
-#: Page/PageSettingsLink.cpp:33
+#: Page/PageSettingsLink.cpp:33 Page/Page.cpp:428 Page/PageSettingsLink.cpp:37
 msgid "Open"
 msgstr "Mở"
 
 #: Page/Page.cpp:369 Page/Page.cpp:390 Page/Page.cpp:394 Page/Page.cpp:440
+#: Page/Page.cpp:445
 msgid "Link is not opened."
 msgstr "Liên kết chưa được mở."
 
@@ -474,11 +484,12 @@ msgid "Big Endian"
 msgstr "Big Endian"
 
 #: Page/PageSettingsLink.cpp:22 Page/PageSettingsLink.cpp:21
+#: Page/PageSettingsLink.cpp:25
 msgid "Link Settings"
 msgstr "Cài đặt Liên kết"
 
 #: Page/PageSettingsLinkPopup.cpp:21 Page/PageSettingsLink.cpp:31
-#: Page/PageSettingsLink.cpp:32
+#: Page/PageSettingsLink.cpp:32 Page/PageSettingsLink.cpp:36
 msgid "Refresh"
 msgstr "Làm mới"
 
@@ -563,11 +574,11 @@ msgstr "Đánh dấu"
 msgid "Space"
 msgstr "Khoảng trống"
 
-#: Page/Page.cpp:231 Page/Page.cpp:235 Page/Page.cpp:281
+#: Page/Page.cpp:231 Page/Page.cpp:235 Page/Page.cpp:281 Page/Page.cpp:286
 msgid "Save Output"
 msgstr "Lưu Đầu ra"
 
-#: Page/Page.cpp:244 Page/Page.cpp:248 Page/Page.cpp:294
+#: Page/Page.cpp:244 Page/Page.cpp:248 Page/Page.cpp:294 Page/Page.cpp:299
 #, c-format
 msgid "Cannot save output to file '%s'."
 msgstr "Không thể lưu đầu ra vào tệp '%s'."
@@ -588,7 +599,7 @@ msgstr "Lưu văn bản đầu ra vào tệp..."
 msgid "Filter: hello;world"
 msgstr "Bộ lọc: xin chào;thế giới"
 
-#: MainWindow.cpp:392 MainWindow.cpp:404
+#: MainWindow.cpp:392 MainWindow.cpp:404 MainWindow.cpp:419
 msgid "Third Party"
 msgstr "Bên Thứ ba"
 
@@ -612,11 +623,11 @@ msgstr ""
 msgid "Link is not available!"
 msgstr ""
 
-#: Page/PageSettingsLink.cpp:84
+#: Page/PageSettingsLink.cpp:84 Page/PageSettingsLink.cpp:88
 msgid "Hide External Panel"
 msgstr ""
 
-#: Page/PageSettingsLink.cpp:86
+#: Page/PageSettingsLink.cpp:86 Page/PageSettingsLink.cpp:90
 msgid "Show External Panel"
 msgstr ""
 
@@ -680,4 +691,12 @@ msgstr ""
 
 #: Common/wxTools.cpp:651
 msgid "Hex (No Space)"
+msgstr ""
+
+#: Common/wxTools.cpp:1056
+msgid "BLE Center"
+msgstr ""
+
+#: Common/wxTools.cpp:1057
+msgid "BLE Peripheral"
 msgstr ""
