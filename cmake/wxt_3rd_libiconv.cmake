@@ -9,20 +9,6 @@ if(MINGW)
   return()
 endif()
 
-if(MSVC)
-  if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.30")
-    set(WXT_VS "VS2022")
-  elseif(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.20")
-    set(WXT_VS "VS2019")
-  elseif(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.10")
-    set(WXT_VS "VS2017")
-  elseif(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.00")
-    set(WXT_VS "VS2015")
-  else()
-    set(WXT_VS "VS2013")
-  endif()
-endif()
-
 if(ANDROID
    OR IOS
    OR MACOS)
@@ -35,11 +21,11 @@ if(WIN32)
     return()
   endif()
 
-  set(version_string "1.18")
+  set(version_string "1.18-p1")
   set(file_name "v${version_string}")
   set(file_suffix "zip")
-  set(file_url
-      "https://github.com/kiyolee/libiconv-win-build/archive/refs/tags/${file_name}.${file_suffix}")
+  set(file_url "https://github.com/kiyolee/libiconv-win-build/archive/refs/tags")
+  set(file_url "${file_url}/${file_name}.${file_suffix}")
 else()
   set(file_name "libiconv-1.18")
   set(file_suffix "tar.gz")
@@ -89,6 +75,40 @@ if(WIN32)
 
   message(STATUS "[wxTools-libiconv] Library directory: ${lib_dir}")
   if(NOT EXISTS ${lib_dir}/libiconv-static.lib)
+
+    if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.50")
+      if(NOT EXISTS ${CMAKE_SOURCE_DIR}/3rd/${file_name}/build-VS2026)
+        set(src_dir ${CMAKE_SOURCE_DIR}/3rd/${file_name}/build-VS2022)
+        set(dst_dir ${CMAKE_SOURCE_DIR}/3rd/${file_name}/build-VS2026)
+        if(NOT EXISTS ${dst_dir})
+          execute_process(COMMAND ${CMAKE_COMMAND} -E copy_directory ${src_dir} ${dst_dir})
+          file(GLOB_RECURSE pro_files "${dst_dir}/*.vcxproj")
+          foreach(pro_file IN LISTS pro_files)
+            # Replace all occurrences of "v143" with "v145"
+            set(old_text "v143")
+            set(new_text "v145")
+            execute_process(
+              COMMAND
+                powershell -Command
+                "(Get-Content ${pro_file}) -replace '${old_text}', '${new_text}' | Set-Content ${pro_file}"
+            )
+          endforeach()
+        endif()
+      endif()
+
+      set(WXT_VS "VS2026")
+    elseif(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.30")
+      set(WXT_VS "VS2022")
+    elseif(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.20")
+      set(WXT_VS "VS2019")
+    elseif(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.10")
+      set(WXT_VS "VS2017")
+    elseif(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19.00")
+      set(WXT_VS "VS2015")
+    else()
+      set(WXT_VS "VS2013")
+    endif()
+
     cmake_path(GET CMAKE_CXX_COMPILER PARENT_PATH COMPILER_PATH)
     set(devenv ${COMPILER_PATH}/../../../../../../../Common7/IDE/devenv.exe)
     message(STATUS "[wxTools-libiconv] ${devenv}")
