@@ -140,6 +140,8 @@ enum class LinkType {
     TCPServer,
     WSClient,
     WSServer,
+    BLECenter,
+    BLEPeripheral,
     Unknown = -1
 };
 std::vector<LinkType> GetSuportedLinkTypes();

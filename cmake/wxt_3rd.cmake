@@ -75,6 +75,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_glog.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_gtest.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_mongoose.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_libiconv.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_simpleble.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/wxt_3rd_cserialport.cmake)
 
 add_compile_definitions(_UNICODE)

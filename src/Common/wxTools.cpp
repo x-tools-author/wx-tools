@@ -682,8 +682,8 @@ static std::string GetString(TextFormat format, uint8_t value)
 }
 
 static std::shared_ptr<char> convertEncoding(const std::shared_ptr<char> &input,
-                                      const char *fromCharset,
-                                      const char *toCharset)
+                                             const char *fromCharset,
+                                             const char *toCharset)
 {
 #if defined(WXT_ENABLE_ICONV)
     iconv_t cd = iconv_open(toCharset, fromCharset);
@@ -1033,6 +1033,10 @@ std::vector<LinkType> GetSuportedLinkTypes()
         types.push_back(LinkType::TCPServer);
         types.push_back(LinkType::WSClient);
         types.push_back(LinkType::WSServer);
+#if WXT_ENABLE_BLE
+        types.push_back(LinkType::BLECenter);
+        types.push_back(LinkType::BLEPeripheral);
+#endif
     }
 
     return types;
@@ -1049,6 +1053,8 @@ wxString GetLinkName(LinkType type)
         typeMap[LinkType::TCPServer] = _("TCP Server");
         typeMap[LinkType::WSClient] = _("Web Socket Client");
         typeMap[LinkType::WSServer] = _("Web Socket Server");
+        typeMap[LinkType::BLECenter] = _("BLE Center");
+        typeMap[LinkType::BLEPeripheral] = _("BLE Peripheral");
     }
 
     if (typeMap.find(type) == typeMap.end()) {
@@ -1069,6 +1075,8 @@ wxString GetLinkRawName(LinkType type)
         typeMap[LinkType::TCPServer] = wxString("TCP Server");
         typeMap[LinkType::WSClient] = wxString("Web Socket Client");
         typeMap[LinkType::WSServer] = wxString("Web Socket Server");
+        typeMap[LinkType::BLECenter] = wxString("BLE Center");
+        typeMap[LinkType::BLEPeripheral] = wxString("BLE Peripheral");
     }
 
     if (typeMap.find(type) == typeMap.end()) {

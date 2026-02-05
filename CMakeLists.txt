@@ -114,7 +114,7 @@ set(WXT_ASSETS_NAME wxtools-${CMAKE_HOST_SYSTEM_NAME}-${WXT_GIT_TAG}-${WXT_TARGE
 string(TOLOWER ${WXT_ASSETS_NAME} WXT_ASSETS_NAME)
 set(WX_TOOLS_BINARY_DIR ${CMAKE_BINARY_DIR}/assets)
 set(WXT_APP_ID "com.xtools.wxtools")
-set(PROJECT_LIBS)
+set(WXT_LIBS)
 
 # Do change WXT_MAGIC unless you know what you are doing...
 option(WXT_MAGIC "The magic option..." OFF)
@@ -136,9 +136,11 @@ if(NOT WXT_AUTO_DEPLOY_3RD)
                           "${WXT_LIBS_DIR}/${CMAKE_BUILD_TYPE}" || true)
 endif()
 
+file(GLOB_RECURSE WXT_SOURCES src/*.*)
 # --------------------------------------------------------------------------------------------------
 # CMake modules
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake;${CMAKE_MODULE_PATH}")
+include(FetchContent)
 include(wxt)
 include(wxt_3rd)
 include(wxt_tools)
@@ -146,18 +148,17 @@ include(wxt_tools)
 # --------------------------------------------------------------------------------------------------
 # wxTools applications
 include_directories(src)
-file(GLOB_RECURSE WX_TOOLS_SOURCE src/*.*)
-list(APPEND WX_TOOLS_SOURCE wxTools.rc)
+list(APPEND WXT_SOURCES wxTools.rc)
 set(WXT_OUTPUT_DIR "${WX_TOOLS_BINARY_DIR}/wxTools")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${WXT_OUTPUT_DIR})
-add_executable(wxTools ${WX_TOOLS_SOURCE})
-list(APPEND PROJECT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
+add_executable(wxTools ${WXT_SOURCES})
+list(APPEND WXT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
 if(MSVC)
-  list(APPEND PROJECT_LIBS Dwmapi)
+  list(APPEND WXT_LIBS Dwmapi)
 endif()
-list(APPEND PROJECT_LIBS ${wxWidgets_LIBRARIES})
-target_link_libraries(wxTools PRIVATE ${PROJECT_LIBS})
-message(STATUS "[wxTools] Libraries of wxTools: ${PROJECT_LIBS}")
+list(APPEND WXT_LIBS ${wxWidgets_LIBRARIES})
+target_link_libraries(wxTools PRIVATE ${WXT_LIBS})
+message(STATUS "[wxTools] Libraries of wxTools: ${WXT_LIBS}")
 wxt_generate_po(wxTools ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/res/i18n)
 wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 

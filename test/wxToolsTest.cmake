@@ -5,7 +5,7 @@ endif()
 enable_testing()
 include_directories(${CMAKE_SOURCE_DIR}/src/Common)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
-set(TEST_LIBS ${PROJECT_LIBS} GTest::gtest GTest::gtest_main)
+set(TEST_LIBS ${WXT_LIBS} GTest::gtest GTest::gtest_main)
 message(STATUS "[wxTools] Test Libraries: ${TEST_LIBS}")
 
 set(test_src_dir ${CMAKE_CURRENT_LIST_DIR})

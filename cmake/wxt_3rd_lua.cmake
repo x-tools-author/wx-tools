@@ -64,7 +64,7 @@ else()
 endif()
 
 add_compile_definitions(WXT_ENABLE_LUA)
-list(APPEND PROJECT_LIBS ${lua_target})
+list(APPEND WXT_LIBS ${lua_target})
 
 option(WXT_ENABLE_LUA_APP "Enable Lua support" OFF)
 if(MSVC AND WXT_ENABLE_LUA_APP)

@@ -16,6 +16,10 @@
 #include "LinksUi/UDPServerUi.h"
 #include "LinksUi/WSClientUi.h"
 #include "LinksUi/WSServerUi.h"
+#if WXT_ENABLE_BLE
+#include "LinksUi/BLECenterUi.h"
+#include "LinksUi/BLEPeripheralUi.h"
+#endif
 
 PageSettingsLink::PageSettingsLink(LinkType type, wxWindow *parent)
     : wxStaticBoxSizer(wxVERTICAL, parent, _("Link Settings"))
@@ -104,6 +108,12 @@ LinkUi *PageSettingsLink::CreateLinkUi(LinkType type, wxWindow *parent)
     } else if (type == LinkType::WSServer) {
         return new WSServerUi(parent);
     }
-
+#if WXT_ENABLE_BLE
+    else if (type == LinkType::BLECenter) {
+        return new BLECenterUi(parent);
+    } else if (type == LinkType::BLEPeripheral) {
+        return new BLEPeripheralUi(parent);
+    }
+#endif
     return nullptr;
 }
