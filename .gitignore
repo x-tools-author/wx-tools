@@ -95,3 +95,4 @@ ThirdParty
 .VSCodeCounter
 private.cmake
 build-*
+CMakePresets.json
