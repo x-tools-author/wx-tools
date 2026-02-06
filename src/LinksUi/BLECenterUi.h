@@ -16,6 +16,7 @@ class FlowBitsComboBox;
 class ParityComboBox;
 class PortNameComboBox;
 class StopBitsComboBox;
+class BLEPeripheralComboBox;
 class BLECenterUi : public LinkUi
 {
 public:
@@ -35,6 +36,7 @@ private:
     void SetupComboBox(wxComboBox *cb, const wxString &label, int row, wxWindow *parent);
 
 private:
+    BLEPeripheralComboBox *m_blePeripheralComboBox;
     PortNameComboBox *m_portNameComboBox;
     BaudRateComboBox *m_baudRateComboBox;
     DataBitsComboBox *m_dataBitsComboBox;
