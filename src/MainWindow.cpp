@@ -286,7 +286,7 @@ void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
         int id = it->id;
         Bind(
             wxEVT_MENU,
-            [=, this](wxCommandEvent& evt) {
+            [=](wxCommandEvent& evt) {
                 wxApp* app = dynamic_cast<wxApp*>(wxApp::GetInstance());
                 if (app) {
                     app->SetAppearance(static_cast<wxAppBase::Appearance>(id));
@@ -437,10 +437,7 @@ void MainWindow::InitMenuHelp3rdParty(wxMenu* menuHelp)
     for (auto it = infos.begin(); it != infos.end(); ++it) {
         wxMenuItem* item = thirdPartyMenu->Append(wxID_ANY, it->name);
         wxString url = it->url;
-        Bind(
-            wxEVT_MENU,
-            [=, this](wxCommandEvent& evt) { wxLaunchDefaultBrowser(url); },
-            item->GetId());
+        Bind(wxEVT_MENU, [=](wxCommandEvent& evt) { wxLaunchDefaultBrowser(url); }, item->GetId());
     }
 }
 

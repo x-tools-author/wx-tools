@@ -30,11 +30,11 @@ PageSettingsOutput::PageSettingsOutput(wxWindow *parent)
     auto formatText = new wxStaticText(GetStaticBox(), wxID_ANY, _("Format"));
     m_textFormatComboBox = new TextFormatComboBox(GetStaticBox());
     auto optionsSizer = new wxGridBagSizer(4, 4);
-    auto AddCheckBox = [=, this](const wxString &label,
-                                 int row,
-                                 int col,
-                                 int rowSpan = 1,
-                                 int colSpan = 1) -> wxCheckBox * {
+    auto AddCheckBox = [=](const wxString &label,
+                           int row,
+                           int col,
+                           int rowSpan = 1,
+                           int colSpan = 1) -> wxCheckBox * {
         auto cb = new wxCheckBox(GetStaticBox(), wxID_ANY, label);
         optionsSizer->Add(cb,
                           wxGBPosition(row, col),
