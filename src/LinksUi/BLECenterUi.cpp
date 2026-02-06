@@ -11,7 +11,7 @@
 #include <wx/gbsizer.h>
 #include <wx/string.h>
 
-#include "Utilities/BLEPeripheralComboBox.h"
+#include "Utilities/BLEScanner.h"
 #include "Utilities/BaudRateComboBox.h"
 #include "Utilities/DataBitsComboBox.h"
 #include "Utilities/FlowBitsComboBox.h"
@@ -30,10 +30,8 @@ BLECenterUi::BLECenterUi(wxWindow *parent)
     , m_parityComboBox(nullptr)
     , m_flowBitsComboBox(nullptr)
 {
-    auto text = new wxStaticText(parent, wxID_ANY, _("Peripheral"));
-    Add(text, wxGBPosition(0, 0), wxGBSpan(1, 2), wxALIGN_CENTER_VERTICAL | wxALL, 0);
-    m_blePeripheralComboBox = new BLEPeripheralComboBox(parent);
-    Add(m_blePeripheralComboBox, wxGBPosition(1, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
+    m_bleScanner = new BLEScanner(parent);
+    Add(m_bleScanner, wxGBPosition(0, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
 
     m_portNameComboBox = new PortNameComboBox(parent);
     m_baudRateComboBox = new BaudRateComboBox(parent);
@@ -42,12 +40,12 @@ BLECenterUi::BLECenterUi(wxWindow *parent)
     m_flowBitsComboBox = new FlowBitsComboBox(parent);
     m_parityComboBox = new ParityComboBox(parent);
 
-    SetupComboBox(m_portNameComboBox, _("Port name"), 2, parent);
-    SetupComboBox(m_baudRateComboBox, _("Baud rate"), 3, parent);
-    SetupComboBox(m_dataBitsComboBox, _("Data bits"), 4, parent);
-    SetupComboBox(m_stopBitsComboBox, _("Stop bits"), 5, parent);
-    SetupComboBox(m_parityComboBox, _("Parity"), 6, parent);
-    SetupComboBox(m_flowBitsComboBox, _("Flow bits"), 7, parent);
+    SetupComboBox(m_portNameComboBox, _("Port name"), 1, parent);
+    SetupComboBox(m_baudRateComboBox, _("Baud rate"), 2, parent);
+    SetupComboBox(m_dataBitsComboBox, _("Data bits"), 3, parent);
+    SetupComboBox(m_stopBitsComboBox, _("Stop bits"), 4, parent);
+    SetupComboBox(m_parityComboBox, _("Parity"), 5, parent);
+    SetupComboBox(m_flowBitsComboBox, _("Flow bits"), 6, parent);
 
     AddGrowableCol(1);
 }
