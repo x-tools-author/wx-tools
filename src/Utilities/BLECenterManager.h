@@ -23,14 +23,14 @@ struct wxtBlePeripheralItem
     int rssi;
 };
 
-class BLEScannerPrivate;
-class BLEScanner : public wxPanel
+class BLECenterManagerPrivate;
+class BLECenterManager : public wxPanel
 {
-    BLEScannerPrivate *d{nullptr};
+    BLECenterManagerPrivate *d{nullptr};
 
 public:
-    BLEScanner(wxWindow *parent);
-    ~BLEScanner() override;
+    BLECenterManager(wxWindow *parent);
+    ~BLECenterManager() override;
 
     void onScanStart(wxThreadEvent &e);
     void onScanFound(wxThreadEvent &e);
@@ -38,6 +38,6 @@ public:
     void onScanStop(wxThreadEvent &e);
 
 private:
-    DECLARE_DYNAMIC_CLASS(BLEScanner);
+    DECLARE_DYNAMIC_CLASS(BLECenterManager);
     DECLARE_EVENT_TABLE();
 };

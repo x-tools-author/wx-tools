@@ -6,7 +6,7 @@
  * wxTools is licensed according to the terms in the file LICENCE(GPL V3) in the root of the source
  * code directory.
  **************************************************************************************************/
-#include "BLEScanner.h"
+#include "BLECenterManager.h"
 
 #include <wx/artprov.h>
 #include <wx/bmpbuttn.h>
@@ -19,18 +19,18 @@
 
 #include "Common/wxTools.h"
 
-IMPLEMENT_ABSTRACT_CLASS(BLEScanner, wxPanel)
-BEGIN_EVENT_TABLE(BLEScanner, wxPanel)
-EVT_THREAD(wxtID_SCAN_START, BLEScanner::onScanStart)
-EVT_THREAD(wxtID_SCAN_FOUND, BLEScanner::onScanFound)
-EVT_THREAD(wxtID_SCAN_UPDATED, BLEScanner::onScanUpdated)
-EVT_THREAD(wxtID_SCAN_STOP, BLEScanner::onScanStop)
+IMPLEMENT_ABSTRACT_CLASS(BLECenterManager, wxPanel)
+BEGIN_EVENT_TABLE(BLECenterManager, wxPanel)
+EVT_THREAD(wxtID_SCAN_START, BLECenterManager::onScanStart)
+EVT_THREAD(wxtID_SCAN_FOUND, BLECenterManager::onScanFound)
+EVT_THREAD(wxtID_SCAN_UPDATED, BLECenterManager::onScanUpdated)
+EVT_THREAD(wxtID_SCAN_STOP, BLECenterManager::onScanStop)
 END_EVENT_TABLE()
 
-class BLEScannerThread : public wxThread
+class BLECenterManagerThread : public wxThread
 {
 public:
-    BLEScannerThread(wxPanel *panel)
+    BLECenterManagerThread(wxPanel *panel)
         : wxThread(wxTHREAD_JOINABLE)
         , m_panel(panel)
     {}
@@ -70,7 +70,7 @@ public:
 protected:
     ExitCode Entry() override
     {
-        SimpleBLE::Adapter adapter = BLEScannerThread::getAdapter();
+        SimpleBLE::Adapter adapter = BLECenterManagerThread::getAdapter();
         if (!adapter.initialized()) {
             wxtWarning() << "No BLE adapter found, scanning thread will exit.";
             return nullptr;
@@ -183,23 +183,25 @@ private:
     wxPanel *m_panel{nullptr};
 };
 
-class BLEScannerPrivate
+class BLECenterManagerPrivate
 {
 public:
-    BLEScannerPrivate(BLEScanner *q_ptr)
+    BLECenterManagerPrivate(BLECenterManager *q_ptr)
         : q(q_ptr)
     {}
-    ~BLEScannerPrivate() = default;
+    ~BLECenterManagerPrivate() = default;
 
 public:
     wxComboBox *m_blePeripheralComboBox{nullptr};
-    wxBitmapButton *m_refreshButton{nullptr};
-    BLEScannerThread *m_thread{nullptr};
+    wxComboBox *m_bleServiceComboBox{nullptr};
+    wxComboBox *m_bleCharacteristicComboBox{nullptr};
+    wxComboBox *m_bleDescriptorComboBox{nullptr};
+    BLECenterManagerThread *m_thread{nullptr};
 
 public:
     void DoRefreshDevice()
     {
-        SimpleBLE::Adapter adapter = BLEScannerThread::getAdapter();
+        SimpleBLE::Adapter adapter = BLECenterManagerThread::getAdapter();
         if (!adapter.initialized()) {
             //wxMessageBox(_("No BLE adapter found."), _("Error"), wxOK | wxICON_ERROR);
             return;
@@ -211,59 +213,71 @@ public:
             return;
         }
 
-        m_thread = new BLEScannerThread(q);
+        m_thread = new BLECenterManagerThread(q);
         m_thread->Create();
         m_thread->Run();
     }
 
+    void DoAddComboBox(wxGridBagSizer *sizer, const wxString &label, wxComboBox *control)
+    {
+        auto text = new wxStaticText(q, wxID_ANY, label);
+        sizer->Add(text,
+                   wxGBPosition(m_rowCount, 0),
+                   wxGBSpan(1, 1),
+                   wxALIGN_CENTER_VERTICAL | wxALL,
+                   0);
+        m_rowCount++;
+        sizer->Add(control, wxGBPosition(m_rowCount, 0), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
+        m_rowCount++;
+    }
+
 private:
-    BLEScanner *q{nullptr};
+    BLECenterManager *q{nullptr};
+    int m_rowCount{0};
 };
 
-BLEScanner::BLEScanner(wxWindow *parent)
+#define BLEComboBox \
+    wxComboBox(this, \
+               wxID_ANY, \
+               wxEmptyString, \
+               wxDefaultPosition, \
+               wxDefaultSize, \
+               0, \
+               nullptr, \
+               wxCB_READONLY)
+
+BLECenterManager::BLECenterManager(wxWindow *parent)
     : wxPanel(parent)
 {
     wxGridBagSizer *sizer = new wxGridBagSizer(0, 0);
     SetSizer(sizer);
 
-    d = new BLEScannerPrivate(this);
-    auto text = new wxStaticText(this, wxID_ANY, _("Peripheral"));
-    sizer->Add(text, wxGBPosition(0, 0), wxGBSpan(1, 1), wxALIGN_CENTER_VERTICAL | wxALL, 0);
+    d = new BLECenterManagerPrivate(this);
+    d->m_blePeripheralComboBox = new BLEComboBox;
+    d->m_bleServiceComboBox = new BLEComboBox;
+    d->m_bleCharacteristicComboBox = new BLEComboBox;
+    d->m_bleDescriptorComboBox = new BLEComboBox;
 
-    wxBitmapBundle refreshIcon = wxArtProvider::GetBitmapBundle(wxART_REFRESH, wxART_BUTTON);
-    d->m_refreshButton = new wxBitmapButton(this, wxID_ANY, refreshIcon);
-    d->m_refreshButton->SetToolTip(_("Refresh BLE device list"));
-    d->m_refreshButton->Bind(wxEVT_BUTTON, [this](wxCommandEvent &event) { d->DoRefreshDevice(); });
-    d->m_refreshButton->Hide();
-    auto refreshSizer = new wxBoxSizer(wxHORIZONTAL);
-    refreshSizer->AddStretchSpacer();
-    refreshSizer->Add(d->m_refreshButton, 0, wxALIGN_CENTER_VERTICAL | wxALL, 0);
-    sizer->Add(refreshSizer, wxGBPosition(0, 1), wxGBSpan(1, 1), wxEXPAND | wxALL, 0);
+    d->DoAddComboBox(sizer, _("Peripheral"), d->m_blePeripheralComboBox);
+    d->DoAddComboBox(sizer, _("Service"), d->m_bleServiceComboBox);
+    d->DoAddComboBox(sizer, _("Characteristic"), d->m_bleCharacteristicComboBox);
+    d->DoAddComboBox(sizer, _("Descriptor"), d->m_bleDescriptorComboBox);
 
-    d->m_blePeripheralComboBox = new wxComboBox(this,
-                                                wxID_ANY,
-                                                wxEmptyString,
-                                                wxDefaultPosition,
-                                                wxDefaultSize,
-                                                0,
-                                                nullptr,
-                                                wxCB_READONLY);
-    sizer->Add(d->m_blePeripheralComboBox, wxGBPosition(1, 0), wxGBSpan(1, 2), wxEXPAND | wxALL, 0);
-    sizer->AddGrowableCol(1);
+    sizer->AddGrowableCol(0);
     d->DoRefreshDevice();
 }
 
-BLEScanner::~BLEScanner()
+BLECenterManager::~BLECenterManager()
 {
     // Nothing to do yet...
 }
 
-void BLEScanner::onScanStart(wxThreadEvent &e)
+void BLECenterManager::onScanStart(wxThreadEvent &e)
 {
     wxtInfo() << "Scan started.";
 }
 
-void BLEScanner::onScanFound(wxThreadEvent &e)
+void BLECenterManager::onScanFound(wxThreadEvent &e)
 {
     wxtBlePeripheralItem item = e.GetPayload<wxtBlePeripheralItem>();
     if (item.identifier.IsEmpty()) {
@@ -279,7 +293,7 @@ void BLEScanner::onScanFound(wxThreadEvent &e)
     }
 }
 
-void BLEScanner::onScanUpdated(wxThreadEvent &e)
+void BLECenterManager::onScanUpdated(wxThreadEvent &e)
 {
     // Update existing item
     wxtBlePeripheralItem item = e.GetPayload<wxtBlePeripheralItem>();
@@ -300,7 +314,7 @@ void BLEScanner::onScanUpdated(wxThreadEvent &e)
     onScanFound(e);
 }
 
-void BLEScanner::onScanStop(wxThreadEvent &e)
+void BLECenterManager::onScanStop(wxThreadEvent &e)
 {
     wxtInfo() << "Scan stopped.";
 }

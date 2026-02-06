@@ -10,15 +10,11 @@
 
 #include "LinkUi.h"
 
-class BLEScanner;
-class BaudRateComboBox;
-class DataBitsComboBox;
-class FlowBitsComboBox;
-class ParityComboBox;
-class PortNameComboBox;
-class StopBitsComboBox;
+class BLECenterUiPrivate;
 class BLECenterUi : public LinkUi
 {
+    BLECenterUiPrivate *d{nullptr};
+
 public:
     BLECenterUi(wxWindow *parent = nullptr);
     ~BLECenterUi();
@@ -31,16 +27,4 @@ public:
 
 protected:
     Link *NewLink() override;
-
-private:
-    void SetupComboBox(wxComboBox *cb, const wxString &label, int row, wxWindow *parent);
-
-private:
-    BLEScanner *m_bleScanner;
-    PortNameComboBox *m_portNameComboBox;
-    BaudRateComboBox *m_baudRateComboBox;
-    DataBitsComboBox *m_dataBitsComboBox;
-    StopBitsComboBox *m_stopBitsComboBox;
-    FlowBitsComboBox *m_flowBitsComboBox;
-    ParityComboBox *m_parityComboBox;
 };
