@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 18:19+0800\n"
+"POT-Creation-Date: 2026-07-10 09:34+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,32 +119,32 @@ msgid "WS server send bytes error."
 msgstr "Web Socket क्लाइन्टले बाइट पठाउन त्रुटि।"
 
 #: LinksUi/SerialPortUi.cpp:39 LinksUi/BLECenterUi.cpp:39
-#: LinksUi/BLEPeripheralUi.cpp:39
+#: LinksUi/BLEPeripheralUi.cpp:39 LinksUi/BLECenterUi.cpp:54
 msgid "Port name"
 msgstr "पोर्ट नाम"
 
 #: LinksUi/SerialPortUi.cpp:40 LinksUi/BLECenterUi.cpp:40
-#: LinksUi/BLEPeripheralUi.cpp:40
+#: LinksUi/BLEPeripheralUi.cpp:40 LinksUi/BLECenterUi.cpp:55
 msgid "Baud rate"
 msgstr "बाउड दर"
 
 #: LinksUi/SerialPortUi.cpp:41 LinksUi/BLECenterUi.cpp:41
-#: LinksUi/BLEPeripheralUi.cpp:41
+#: LinksUi/BLEPeripheralUi.cpp:41 LinksUi/BLECenterUi.cpp:56
 msgid "Data bits"
 msgstr "डाटा बिट्स"
 
 #: LinksUi/SerialPortUi.cpp:42 LinksUi/BLECenterUi.cpp:42
-#: LinksUi/BLEPeripheralUi.cpp:42
+#: LinksUi/BLEPeripheralUi.cpp:42 LinksUi/BLECenterUi.cpp:57
 msgid "Stop bits"
 msgstr "स्टप बिट्स"
 
 #: LinksUi/SerialPortUi.cpp:43 LinksUi/BLECenterUi.cpp:43
-#: LinksUi/BLEPeripheralUi.cpp:43
+#: LinksUi/BLEPeripheralUi.cpp:43 LinksUi/BLECenterUi.cpp:58
 msgid "Parity"
 msgstr "प्यारिटी"
 
 #: LinksUi/SerialPortUi.cpp:44 LinksUi/BLECenterUi.cpp:44
-#: LinksUi/BLEPeripheralUi.cpp:44
+#: LinksUi/BLEPeripheralUi.cpp:44 LinksUi/BLECenterUi.cpp:59
 msgid "Flow bits"
 msgstr "फ्लो बिट्स"
 
@@ -190,209 +190,259 @@ msgid "The application will be closed!"
 msgstr "अनुप्रयोग बन्द हुनेछ!"
 
 #: MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179 MainWindow.cpp:190
+#: MainWindow.cpp:187
 msgid "wxTools - A set of tools developed with wxWidgets\n"
 msgstr "wxTools - wxWidgets द्वारा विकास गरिएको उपकरणहरूको सेट\n"
 
 #: MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181 MainWindow.cpp:192
+#: MainWindow.cpp:189
 msgid "Version: "
 msgstr "संस्करण: "
 
 #: MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182 MainWindow.cpp:193
+#: MainWindow.cpp:190
 msgid "Author: x-tools-author\n"
 msgstr "लेखक: x-tools-author\n"
 
 #: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183 MainWindow.cpp:194
+#: MainWindow.cpp:191
 msgid "Email:"
 msgstr "इमेल:"
 
 #: MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185 MainWindow.cpp:196
+#: MainWindow.cpp:193
 msgid "Commit: "
 msgstr "कमिट: "
 
 #: MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186 MainWindow.cpp:197
+#: MainWindow.cpp:194
 msgid "Date: "
 msgstr "मिति: "
 
 #: MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187 MainWindow.cpp:198
+#: MainWindow.cpp:195
 msgid "Build: "
 msgstr "बिल्ड: "
 
 #: MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189 MainWindow.cpp:200
+#: MainWindow.cpp:197
 msgid "Copyright"
 msgstr "प्रतिलिपि अधिकार"
 
 #: MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191 MainWindow.cpp:202
+#: MainWindow.cpp:199
 msgid "All rights reserved.\n"
 msgstr "सबै अधिकार सुरक्षित छन्।\n"
 
 #: MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192 MainWindow.cpp:203
+#: MainWindow.cpp:200
 msgid "About wxTools"
 msgstr "wxTools को बारेमा"
 
 #: MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214 MainWindow.cpp:225
+#: MainWindow.cpp:222
 msgid "File"
 msgstr "फाइल"
 
 #: MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233 MainWindow.cpp:244
+#: MainWindow.cpp:241
 msgid "Options"
 msgstr "विकल्पहरू"
 
 #: MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235 MainWindow.cpp:246
+#: MainWindow.cpp:243
 msgid "Open Log Directory"
 msgstr "लग डाइरेक्टरी खोल्नुहोस्"
 
 #: MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236 MainWindow.cpp:247
+#: MainWindow.cpp:244
 msgid "Open the log directory."
 msgstr "लग डाइरेक्टरी खोल्नुहोस्।"
 
 #: MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240 MainWindow.cpp:251
+#: MainWindow.cpp:248
 msgid "Open Config Directory"
 msgstr "कन्फिग डाइरेक्टरी खोल्नुहोस्"
 
 #: MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241 MainWindow.cpp:252
+#: MainWindow.cpp:249
 msgid "Open the config directory."
 msgstr "कन्फिग डाइरेक्टरी खोल्नुहोस्।"
 
 #: MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245 MainWindow.cpp:256
+#: MainWindow.cpp:253
 msgid "Open App Directory"
 msgstr "एप डाइरेक्टरी खोल्नुहोस्"
 
 #: MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246 MainWindow.cpp:257
+#: MainWindow.cpp:254
 msgid "Open the app directory."
 msgstr "एप डाइरेक्टरी खोल्नुहोस्।"
 
 #: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258 MainWindow.cpp:270
+#: MainWindow.cpp:267
 msgid "Application themes"
 msgstr "अनुप्रयोग थीमहरू"
 
 #: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266 MainWindow.cpp:278
+#: MainWindow.cpp:275
 msgid "System Theme"
 msgstr "सिस्टम थीम"
 
 #: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267 MainWindow.cpp:279
+#: MainWindow.cpp:276
 msgid "Light Theme"
 msgstr "हल्का थीम"
 
 #: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268 MainWindow.cpp:280
+#: MainWindow.cpp:277
 msgid "Dark Theme"
 msgstr "गाढा थीम"
 
 #: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288 MainWindow.cpp:300
+#: MainWindow.cpp:297
 msgid "Reboot the application to take effect now?"
 msgstr "परिवर्तन लागू गर्न अनुप्रयोग पुनः सुरु गर्नुहोस्?"
 
 #: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289 MainWindow.cpp:301
+#: MainWindow.cpp:298
 msgid "Information"
 msgstr "जानकारी"
 
 #: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304 MainWindow.cpp:319
+#: MainWindow.cpp:316
 msgid "Show on Top"
 msgstr "माथि देखाउनुहोस्"
 
 #: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305 MainWindow.cpp:320
+#: MainWindow.cpp:317
 msgid "Keep the application window on top of others."
 msgstr "अनुप्रयोग विन्डो अन्यको माथि राख्नुहोस्।"
 
 #: MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321 MainWindow.cpp:336
+#: MainWindow.cpp:333
 msgid "Help"
 msgstr "मद्दत"
 
 #: MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327 MainWindow.cpp:342
+#: MainWindow.cpp:339
 msgid "About wxWidgets"
 msgstr "wxWidgets को बारेमा"
 
 #: MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328 MainWindow.cpp:343
+#: MainWindow.cpp:340
 msgid "Show wxWidgets library information."
 msgstr "wxWidgets लाइब्रेरी जानकारी देखाउनुहोस्।"
 
 #: MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332 MainWindow.cpp:347
+#: MainWindow.cpp:344
 msgid "Visit online documentation page."
 msgstr "अनलाइन दस्तावेज पृष्ठ भ्रमण गर्नुहोस्।"
 
 #: MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337 MainWindow.cpp:352
+#: MainWindow.cpp:349
 msgid "Check for Updates"
 msgstr "अपडेटहरू जाँच गर्नुहोस्"
 
 #: MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338 MainWindow.cpp:353
+#: MainWindow.cpp:350
 msgid "Check for updates online."
 msgstr "अनलाइन अपडेटहरू जाँच गर्नुहोस्।"
 
 #: MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342 MainWindow.cpp:357
+#: MainWindow.cpp:354
 msgid "Report an Issue"
 msgstr "समस्या रिपोर्ट गर्नुहोस्"
 
 #: MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343 MainWindow.cpp:358
+#: MainWindow.cpp:355
 msgid "Report a Issue online."
 msgstr "अनलाइन समस्या वा अनुरोध रिपोर्ट गर्नुहोस्।"
 
 #: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359 MainWindow.cpp:374
+#: MainWindow.cpp:371
 msgid "History"
 msgstr "इतिहास"
 
 #: MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359 MainWindow.cpp:374
+#: MainWindow.cpp:371
 msgid "Show the history of the application."
 msgstr "अनुप्रयोगको इतिहास देखाउनुहोस्।"
 
 #: MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365 MainWindow.cpp:380
+#: MainWindow.cpp:377
 msgid "Visit GitHub page to get more information."
 msgstr "थप जानकारीको लागि GitHub पृष्ठ भ्रमण गर्नुहोस्।"
 
 #: MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366 MainWindow.cpp:381
+#: MainWindow.cpp:378
 msgid "Get Source from GitHub"
 msgstr "GitHub बाट स्रोत प्राप्त गर्नुहोस्"
 
 #: MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370 MainWindow.cpp:385
+#: MainWindow.cpp:382
 msgid "Visit Gitee page to get more information."
 msgstr "थप जानकारीको लागि Gitee पृष्ठ भ्रमण गर्नुहोस्।"
 
 #: MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371 MainWindow.cpp:386
+#: MainWindow.cpp:383
 msgid "Get Source from Gitee"
 msgstr "Gitee बाट स्रोत प्राप्त गर्नुहोस्"
 
 #: MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375 MainWindow.cpp:390
+#: MainWindow.cpp:387
 msgid "Visit GitHub home page of author."
 msgstr "लेखकको GitHub गृहपृष्ठ भ्रमण गर्नुहोस्।"
 
 #: MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376 MainWindow.cpp:391
+#: MainWindow.cpp:388
 msgid "GitHub Home Page"
 msgstr "GitHub गृहपृष्ठ"
 
 #: MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380 MainWindow.cpp:395
+#: MainWindow.cpp:392
 msgid "Visit Gitee home page of author."
 msgstr "लेखकको Gitee गृहपृष्ठ भ्रमण गर्नुहोस्।"
 
 #: MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381 MainWindow.cpp:396
+#: MainWindow.cpp:393
 msgid "Gitee Home Page"
 msgstr "Gitee गृहपृष्ठ"
 
 #: MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389 MainWindow.cpp:404
+#: MainWindow.cpp:401
 msgid "Visit Microsoft Store page to buy wxTools."
 msgstr "wxTools किन्न Microsoft Store पृष्ठ भ्रमण गर्नुहोस्।"
 
 #: MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390 MainWindow.cpp:405
+#: MainWindow.cpp:402
 msgid "Supporting Author"
 msgstr "लेखकलाई समर्थन गर्नुहोस्"
 
 #: MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394 MainWindow.cpp:409
+#: MainWindow.cpp:406
 msgid "Visit Microsoft Store home page of author."
 msgstr "लेखकको Microsoft Store गृहपृष्ठ भ्रमण गर्नुहोस्।"
 
 #: MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395 MainWindow.cpp:410
+#: MainWindow.cpp:407
 msgid "Other Applications"
 msgstr "अन्य अनुप्रयोगहरू"
 
 #: MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531 MainWindow.cpp:550
+#: MainWindow.cpp:544
 msgid "History file not found!"
 msgstr "इतिहास फाइल फेला परेन!"
 
 #: MainWindow.cpp:456 Page/Page.cpp:336 Page/Page.cpp:369 Page/Page.cpp:357
 #: Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361 Page/Page.cpp:394
 #: Common/wxTools.h:26 MainWindow.cpp:531 Page/Page.cpp:407 Page/Page.cpp:440
-#: MainWindow.cpp:550 Page/Page.cpp:412 Page/Page.cpp:445
+#: MainWindow.cpp:550 Page/Page.cpp:412 Page/Page.cpp:445 MainWindow.cpp:544
 msgid "Error"
 msgstr "त्रुटि"
 
 #: MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535 MainWindow.cpp:554
+#: MainWindow.cpp:548
 msgid "wxTools Release History"
 msgstr "wxTools विमोचन इतिहास"
 
@@ -599,7 +649,7 @@ msgstr "आउटपुट पाठ फाइलमा बचत गर्न�
 msgid "Filter: hello;world"
 msgstr "फिल्टर: hello;world"
 
-#: MainWindow.cpp:392 MainWindow.cpp:404 MainWindow.cpp:419
+#: MainWindow.cpp:392 MainWindow.cpp:404 MainWindow.cpp:419 MainWindow.cpp:416
 msgid "Third Party"
 msgstr "तेस्रो पक्ष"
 
@@ -699,4 +749,20 @@ msgstr ""
 
 #: Common/wxTools.cpp:1057
 msgid "BLE Peripheral"
+msgstr ""
+
+#: Utilities/BLECenterManager.cpp:261
+msgid "Peripheral"
+msgstr ""
+
+#: Utilities/BLECenterManager.cpp:262
+msgid "Service"
+msgstr ""
+
+#: Utilities/BLECenterManager.cpp:263
+msgid "Characteristic"
+msgstr ""
+
+#: Utilities/BLECenterManager.cpp:264
+msgid "Descriptor"
 msgstr ""

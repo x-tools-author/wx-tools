@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 18:19+0800\n"
+"POT-Creation-Date: 2026-07-10 09:34+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,32 +119,32 @@ msgid "WS server send bytes error."
 msgstr "Web Socket客戶端發送失敗。"
 
 #: LinksUi/SerialPortUi.cpp:39 LinksUi/BLECenterUi.cpp:39
-#: LinksUi/BLEPeripheralUi.cpp:39
+#: LinksUi/BLEPeripheralUi.cpp:39 LinksUi/BLECenterUi.cpp:54
 msgid "Port name"
 msgstr "端口號"
 
 #: LinksUi/SerialPortUi.cpp:40 LinksUi/BLECenterUi.cpp:40
-#: LinksUi/BLEPeripheralUi.cpp:40
+#: LinksUi/BLEPeripheralUi.cpp:40 LinksUi/BLECenterUi.cpp:55
 msgid "Baud rate"
 msgstr "波特率"
 
 #: LinksUi/SerialPortUi.cpp:41 LinksUi/BLECenterUi.cpp:41
-#: LinksUi/BLEPeripheralUi.cpp:41
+#: LinksUi/BLEPeripheralUi.cpp:41 LinksUi/BLECenterUi.cpp:56
 msgid "Data bits"
 msgstr "數據位"
 
 #: LinksUi/SerialPortUi.cpp:42 LinksUi/BLECenterUi.cpp:42
-#: LinksUi/BLEPeripheralUi.cpp:42
+#: LinksUi/BLEPeripheralUi.cpp:42 LinksUi/BLECenterUi.cpp:57
 msgid "Stop bits"
 msgstr "停止位"
 
 #: LinksUi/SerialPortUi.cpp:43 LinksUi/BLECenterUi.cpp:43
-#: LinksUi/BLEPeripheralUi.cpp:43
+#: LinksUi/BLEPeripheralUi.cpp:43 LinksUi/BLECenterUi.cpp:58
 msgid "Parity"
 msgstr "校驗位"
 
 #: LinksUi/SerialPortUi.cpp:44 LinksUi/BLECenterUi.cpp:44
-#: LinksUi/BLEPeripheralUi.cpp:44
+#: LinksUi/BLEPeripheralUi.cpp:44 LinksUi/BLECenterUi.cpp:59
 msgid "Flow bits"
 msgstr "流控位"
 
@@ -194,202 +194,202 @@ msgid "The application will be closed!"
 msgstr "軟件即將關閉！"
 
 #: MainWindow.cpp:144 MainWindow.cpp:154 MainWindow.cpp:175 MainWindow.cpp:179
-#: MainWindow.cpp:190
+#: MainWindow.cpp:190 MainWindow.cpp:187
 msgid "wxTools - A set of tools developed with wxWidgets\n"
 msgstr "wxTools - 基於wxWidgets開發的工具集\n"
 
 #: MainWindow.cpp:146 MainWindow.cpp:156 MainWindow.cpp:177 MainWindow.cpp:181
-#: MainWindow.cpp:192
+#: MainWindow.cpp:192 MainWindow.cpp:189
 msgid "Version: "
 msgstr "版本: "
 
 #: MainWindow.cpp:147 MainWindow.cpp:157 MainWindow.cpp:178 MainWindow.cpp:182
-#: MainWindow.cpp:193
+#: MainWindow.cpp:193 MainWindow.cpp:190
 msgid "Author: x-tools-author\n"
 msgstr "作者: x-tools-author\n"
 
 #: MainWindow.cpp:150 MainWindow.cpp:160 MainWindow.cpp:181 MainWindow.cpp:185
-#: MainWindow.cpp:196
+#: MainWindow.cpp:196 MainWindow.cpp:193
 msgid "Commit: "
 msgstr "提交: "
 
 #: MainWindow.cpp:151 MainWindow.cpp:161 MainWindow.cpp:182 MainWindow.cpp:186
-#: MainWindow.cpp:197
+#: MainWindow.cpp:197 MainWindow.cpp:194
 msgid "Date: "
 msgstr "日期: "
 
 #: MainWindow.cpp:152 MainWindow.cpp:162 MainWindow.cpp:183 MainWindow.cpp:187
-#: MainWindow.cpp:198
+#: MainWindow.cpp:198 MainWindow.cpp:195
 msgid "Build: "
 msgstr "構建: "
 
 #: MainWindow.cpp:154 MainWindow.cpp:164 MainWindow.cpp:185 MainWindow.cpp:189
-#: MainWindow.cpp:200
+#: MainWindow.cpp:200 MainWindow.cpp:197
 msgid "Copyright"
 msgstr "版權聲明"
 
 #: MainWindow.cpp:156 MainWindow.cpp:166 MainWindow.cpp:187 MainWindow.cpp:191
-#: MainWindow.cpp:202
+#: MainWindow.cpp:202 MainWindow.cpp:199
 msgid "All rights reserved.\n"
 msgstr "保留所有版權。\n"
 
 #: MainWindow.cpp:157 MainWindow.cpp:167 MainWindow.cpp:188 MainWindow.cpp:192
-#: MainWindow.cpp:203
+#: MainWindow.cpp:203 MainWindow.cpp:200
 msgid "About wxTools"
 msgstr "關於wxTools"
 
 #: MainWindow.cpp:179 MainWindow.cpp:189 MainWindow.cpp:210 MainWindow.cpp:214
-#: MainWindow.cpp:225
+#: MainWindow.cpp:225 MainWindow.cpp:222
 msgid "File"
 msgstr "文件"
 
 #: MainWindow.cpp:198 MainWindow.cpp:208 MainWindow.cpp:229 MainWindow.cpp:233
-#: MainWindow.cpp:244
+#: MainWindow.cpp:244 MainWindow.cpp:241
 msgid "Options"
 msgstr "選項"
 
 #: MainWindow.cpp:200 MainWindow.cpp:210 MainWindow.cpp:231 MainWindow.cpp:235
-#: MainWindow.cpp:246
+#: MainWindow.cpp:246 MainWindow.cpp:243
 msgid "Open Log Directory"
 msgstr "打開日誌目錄"
 
 #: MainWindow.cpp:201 MainWindow.cpp:211 MainWindow.cpp:232 MainWindow.cpp:236
-#: MainWindow.cpp:247
+#: MainWindow.cpp:247 MainWindow.cpp:244
 msgid "Open the log directory."
 msgstr "打開日誌目錄。"
 
 #: MainWindow.cpp:205 MainWindow.cpp:215 MainWindow.cpp:236 MainWindow.cpp:240
-#: MainWindow.cpp:251
+#: MainWindow.cpp:251 MainWindow.cpp:248
 msgid "Open Config Directory"
 msgstr "打開配置目錄"
 
 #: MainWindow.cpp:206 MainWindow.cpp:216 MainWindow.cpp:237 MainWindow.cpp:241
-#: MainWindow.cpp:252
+#: MainWindow.cpp:252 MainWindow.cpp:249
 msgid "Open the config directory."
 msgstr "打開配置目錄。"
 
 #: MainWindow.cpp:210 MainWindow.cpp:220 MainWindow.cpp:241 MainWindow.cpp:245
-#: MainWindow.cpp:256
+#: MainWindow.cpp:256 MainWindow.cpp:253
 msgid "Open App Directory"
 msgstr "打開應用目錄"
 
 #: MainWindow.cpp:211 MainWindow.cpp:221 MainWindow.cpp:242 MainWindow.cpp:246
-#: MainWindow.cpp:257
+#: MainWindow.cpp:257 MainWindow.cpp:254
 msgid "Open the app directory."
 msgstr "打開應用目錄。"
 
 #: MainWindow.cpp:218 MainWindow.cpp:295 MainWindow.cpp:317 MainWindow.cpp:321
-#: MainWindow.cpp:336
+#: MainWindow.cpp:336 MainWindow.cpp:333
 msgid "Help"
 msgstr "幫助"
 
 #: MainWindow.cpp:224 MainWindow.cpp:301 MainWindow.cpp:323 MainWindow.cpp:327
-#: MainWindow.cpp:342
+#: MainWindow.cpp:342 MainWindow.cpp:339
 msgid "About wxWidgets"
 msgstr "關於wxWidgets"
 
 #: MainWindow.cpp:225 MainWindow.cpp:302 MainWindow.cpp:324 MainWindow.cpp:328
-#: MainWindow.cpp:343
+#: MainWindow.cpp:343 MainWindow.cpp:340
 msgid "Show wxWidgets library information."
 msgstr "顯示wxWidgets庫信息。"
 
 #: MainWindow.cpp:229 MainWindow.cpp:306 MainWindow.cpp:328 MainWindow.cpp:332
-#: MainWindow.cpp:347
+#: MainWindow.cpp:347 MainWindow.cpp:344
 msgid "Visit online documentation page."
 msgstr "訪問在線文檔。"
 
 #: MainWindow.cpp:233 MainWindow.cpp:310 MainWindow.cpp:332 MainWindow.cpp:337
-#: MainWindow.cpp:352
+#: MainWindow.cpp:352 MainWindow.cpp:349
 msgid "Check for Updates"
 msgstr "檢查更新"
 
 #: MainWindow.cpp:234 MainWindow.cpp:311 MainWindow.cpp:333 MainWindow.cpp:338
-#: MainWindow.cpp:353
+#: MainWindow.cpp:353 MainWindow.cpp:350
 msgid "Check for updates online."
 msgstr "在線檢查更新。"
 
 #: MainWindow.cpp:237 MainWindow.cpp:314 MainWindow.cpp:336 MainWindow.cpp:342
-#: MainWindow.cpp:357
+#: MainWindow.cpp:357 MainWindow.cpp:354
 msgid "Report an Issue"
 msgstr "向作者反饋"
 
 #: MainWindow.cpp:238 MainWindow.cpp:315 MainWindow.cpp:337 MainWindow.cpp:343
-#: MainWindow.cpp:358
+#: MainWindow.cpp:358 MainWindow.cpp:355
 msgid "Report a Issue online."
 msgstr "向作者反饋bug或者提出需求。"
 
 #: MainWindow.cpp:248 MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
-#: MainWindow.cpp:374
+#: MainWindow.cpp:374 MainWindow.cpp:371
 msgid "History"
 msgstr "發佈記錄"
 
 #: MainWindow.cpp:248 MainWindow.cpp:325 MainWindow.cpp:349 MainWindow.cpp:359
-#: MainWindow.cpp:374
+#: MainWindow.cpp:374 MainWindow.cpp:371
 msgid "Show the history of the application."
 msgstr "顯示應用發佈歷史信息。"
 
 #: MainWindow.cpp:253 MainWindow.cpp:330 MainWindow.cpp:354 MainWindow.cpp:365
-#: MainWindow.cpp:380
+#: MainWindow.cpp:380 MainWindow.cpp:377
 msgid "Visit GitHub page to get more information."
 msgstr "訪問GitHub頁面查看更多信息。"
 
 #: MainWindow.cpp:254 MainWindow.cpp:331 MainWindow.cpp:355 MainWindow.cpp:366
-#: MainWindow.cpp:381
+#: MainWindow.cpp:381 MainWindow.cpp:378
 msgid "Get Source from GitHub"
 msgstr "從GitHub獲取源碼"
 
 #: MainWindow.cpp:258 MainWindow.cpp:335 MainWindow.cpp:359 MainWindow.cpp:370
-#: MainWindow.cpp:385
+#: MainWindow.cpp:385 MainWindow.cpp:382
 msgid "Visit Gitee page to get more information."
 msgstr "訪問Gitee頁面查看更多信息。"
 
 #: MainWindow.cpp:259 MainWindow.cpp:336 MainWindow.cpp:360 MainWindow.cpp:371
-#: MainWindow.cpp:386
+#: MainWindow.cpp:386 MainWindow.cpp:383
 msgid "Get Source from Gitee"
 msgstr "從Gitee獲取源碼"
 
 #: MainWindow.cpp:263 MainWindow.cpp:340 MainWindow.cpp:364 MainWindow.cpp:375
-#: MainWindow.cpp:390
+#: MainWindow.cpp:390 MainWindow.cpp:387
 msgid "Visit GitHub home page of author."
 msgstr "訪問作者GitHub主頁。"
 
 #: MainWindow.cpp:264 MainWindow.cpp:341 MainWindow.cpp:365 MainWindow.cpp:376
-#: MainWindow.cpp:391
+#: MainWindow.cpp:391 MainWindow.cpp:388
 msgid "GitHub Home Page"
 msgstr "GitHub主頁"
 
 #: MainWindow.cpp:268 MainWindow.cpp:345 MainWindow.cpp:369 MainWindow.cpp:380
-#: MainWindow.cpp:395
+#: MainWindow.cpp:395 MainWindow.cpp:392
 msgid "Visit Gitee home page of author."
 msgstr "訪問作者Gitee主頁。"
 
 #: MainWindow.cpp:269 MainWindow.cpp:346 MainWindow.cpp:370 MainWindow.cpp:381
-#: MainWindow.cpp:396
+#: MainWindow.cpp:396 MainWindow.cpp:393
 msgid "Gitee Home Page"
 msgstr "Gitee主頁"
 
 #: MainWindow.cpp:276 MainWindow.cpp:353 MainWindow.cpp:377 MainWindow.cpp:389
-#: MainWindow.cpp:404
+#: MainWindow.cpp:404 MainWindow.cpp:401
 msgid "Visit Microsoft Store page to buy wxTools."
 msgstr "訪問應用商店。"
 
 #: MainWindow.cpp:277 MainWindow.cpp:354 MainWindow.cpp:378 MainWindow.cpp:390
-#: MainWindow.cpp:405
+#: MainWindow.cpp:405 MainWindow.cpp:402
 msgid "Supporting Author"
 msgstr "支持作者"
 
 #: MainWindow.cpp:281 MainWindow.cpp:358 MainWindow.cpp:382 MainWindow.cpp:394
-#: MainWindow.cpp:409
+#: MainWindow.cpp:409 MainWindow.cpp:406
 msgid "Visit Microsoft Store home page of author."
 msgstr "訪問作者作品主頁。"
 
 #: MainWindow.cpp:282 MainWindow.cpp:359 MainWindow.cpp:383 MainWindow.cpp:395
-#: MainWindow.cpp:410
+#: MainWindow.cpp:410 MainWindow.cpp:407
 msgid "Other Applications"
 msgstr "其他應用"
 
 #: MainWindow.cpp:378 MainWindow.cpp:456 MainWindow.cpp:513 MainWindow.cpp:531
-#: MainWindow.cpp:550
+#: MainWindow.cpp:550 MainWindow.cpp:544
 msgid "History file not found!"
 msgstr "無法找到歷史記錄文件！"
 
@@ -397,11 +397,12 @@ msgstr "無法找到歷史記錄文件！"
 #: Page/Page.cpp:357 Page/Page.cpp:390 MainWindow.cpp:513 Page/Page.cpp:361
 #: Page/Page.cpp:394 Common/wxTools.h:26 MainWindow.cpp:531 Page/Page.cpp:407
 #: Page/Page.cpp:440 MainWindow.cpp:550 Page/Page.cpp:412 Page/Page.cpp:445
+#: MainWindow.cpp:544
 msgid "Error"
 msgstr "錯誤"
 
 #: MainWindow.cpp:382 MainWindow.cpp:460 MainWindow.cpp:517 MainWindow.cpp:535
-#: MainWindow.cpp:554
+#: MainWindow.cpp:554 MainWindow.cpp:548
 msgid "wxTools Release History"
 msgstr "wxWidgets發佈記錄"
 
@@ -585,38 +586,47 @@ msgid "Space"
 msgstr "0校驗"
 
 #: MainWindow.cpp:158 MainWindow.cpp:179 MainWindow.cpp:183 MainWindow.cpp:194
+#: MainWindow.cpp:191
 msgid "Email:"
 msgstr "電子郵件："
 
 #: MainWindow.cpp:233 MainWindow.cpp:254 MainWindow.cpp:258 MainWindow.cpp:270
+#: MainWindow.cpp:267
 msgid "Application themes"
 msgstr "应用主题"
 
 #: MainWindow.cpp:241 MainWindow.cpp:262 MainWindow.cpp:266 MainWindow.cpp:278
+#: MainWindow.cpp:275
 msgid "System Theme"
 msgstr "系统主题"
 
 #: MainWindow.cpp:242 MainWindow.cpp:263 MainWindow.cpp:267 MainWindow.cpp:279
+#: MainWindow.cpp:276
 msgid "Light Theme"
 msgstr "亮色主题"
 
 #: MainWindow.cpp:243 MainWindow.cpp:264 MainWindow.cpp:268 MainWindow.cpp:280
+#: MainWindow.cpp:277
 msgid "Dark Theme"
 msgstr "暗色主题"
 
 #: MainWindow.cpp:262 MainWindow.cpp:284 MainWindow.cpp:288 MainWindow.cpp:300
+#: MainWindow.cpp:297
 msgid "Reboot the application to take effect now?"
 msgstr "需要重启软件使配置生效，立即重启？"
 
 #: MainWindow.cpp:263 MainWindow.cpp:285 MainWindow.cpp:289 MainWindow.cpp:301
+#: MainWindow.cpp:298
 msgid "Information"
 msgstr "信息"
 
 #: MainWindow.cpp:278 MainWindow.cpp:300 MainWindow.cpp:304 MainWindow.cpp:319
+#: MainWindow.cpp:316
 msgid "Show on Top"
 msgstr "置顶显示"
 
 #: MainWindow.cpp:279 MainWindow.cpp:301 MainWindow.cpp:305 MainWindow.cpp:320
+#: MainWindow.cpp:317
 msgid "Keep the application window on top of others."
 msgstr "保持软件窗口在其他窗口前面。"
 
@@ -645,7 +655,7 @@ msgstr "保存输出文本至文件..."
 msgid "Filter: hello;world"
 msgstr "过滤器：hello;world"
 
-#: MainWindow.cpp:392 MainWindow.cpp:404 MainWindow.cpp:419
+#: MainWindow.cpp:392 MainWindow.cpp:404 MainWindow.cpp:419 MainWindow.cpp:416
 msgid "Third Party"
 msgstr "第三方"
 
@@ -745,4 +755,20 @@ msgstr ""
 
 #: Common/wxTools.cpp:1057
 msgid "BLE Peripheral"
+msgstr ""
+
+#: Utilities/BLECenterManager.cpp:261
+msgid "Peripheral"
+msgstr ""
+
+#: Utilities/BLECenterManager.cpp:262
+msgid "Service"
+msgstr ""
+
+#: Utilities/BLECenterManager.cpp:263
+msgid "Characteristic"
+msgstr ""
+
+#: Utilities/BLECenterManager.cpp:264
+msgid "Descriptor"
 msgstr ""
