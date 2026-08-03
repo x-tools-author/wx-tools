@@ -153,14 +153,31 @@ set(WXT_OUTPUT_DIR "${WX_TOOLS_BINARY_DIR}/wxTools")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${WXT_OUTPUT_DIR})
 add_executable(wxTools ${WXT_SOURCES})
 list(APPEND WXT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
-if(MSVC)
-  list(APPEND WXT_LIBS Dwmapi)
-endif()
 list(APPEND WXT_LIBS ${wxWidgets_LIBRARIES})
 target_link_libraries(wxTools PRIVATE ${WXT_LIBS})
 message(STATUS "[wxTools] Libraries of wxTools: ${WXT_LIBS}")
 wxt_generate_po(wxTools ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/res/i18n)
 wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
+
+# --------------------------------------------------------------------------------------------------
+# Do something for Windows XP compatibility
+option(WXT_TARGET_WIN_XP "Build for Windows XP compatibility" OFF)
+if(MSVC AND NOT WXT_TARGET_WIN_XP)
+  list(APPEND WXT_LIBS Dwmapi)
+endif()
+if(MSVC AND WXT_TARGET_WIN_XP)
+  # cmake-format: off
+  target_compile_definitions(wxTools PRIVATE WINVER=0x0501 _WIN32_WINNT=0x0501 NTDDI_VERSION=0x05010000 _WIN32_IE=0x0600)
+  target_compile_options(wxTools PRIVATE "/DWINVER=0x0501" "/D_WIN32_WINNT=0x0501" "/DNTDDI_VERSION=0x05010000" "/D_WIN32_IE=0x0600")
+  target_link_options(wxTools PRIVATE "/SUBSYSTEM:WINDOWS,5.01")
+  message(STATUS "[wxTools] Windows XP compatibility mode enabled; please use an x86/Win32 build and an XP-capable MSVC toolset if available.")
+  # cmake-format: on
+endif()
+if(MSVC AND WXT_TARGET_WIN_XP)
+  add_compile_definitions(WXT_TARGET_WIN_XP=1)
+else()
+  add_compile_definitions(WXT_TARGET_WIN_XP=0)
+endif()
 
 # Copy res to build directory
 set(out_root_dir "$<TARGET_FILE_DIR:wxTools>")

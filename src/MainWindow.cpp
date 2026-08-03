@@ -9,7 +9,9 @@
 #include "MainWindow.h"
 
 #if defined(_MSC_VER)
+#if !WXT_TARGET_WIN_XP
 #include <dwmapi.h>
+#endif
 #endif
 
 #include <fmt/format.h>
@@ -105,6 +107,7 @@ MainWindow::~MainWindow() {}
 void MainWindow::DoUpdateWindowFrameWork()
 {
 #if defined(_MSC_VER) && defined(WIN32)
+#if !WXT_TARGET_WIN_XP
     // Set the window caption color using Windows API
     HWND hwnd = GetHWND();
     if (hwnd) {
@@ -114,6 +117,7 @@ void MainWindow::DoUpdateWindowFrameWork()
         // DWMWA_CAPTION_COLOR is available on Windows 11 and later
         DwmSetWindowAttribute(hwnd, DWMWA_CAPTION_COLOR, &colorref, sizeof(colorref));
     }
+#endif
 #endif
 }
 
