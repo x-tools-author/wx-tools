@@ -112,7 +112,7 @@ set(cxx_compiler_flag "${CMAKE_CXX_COMPILER_ID}${CMAKE_CXX_COMPILER_VERSION}")
 set(WXT_BUILD_FLAG "${CMAKE_BUILD_TYPE}/${WXT_TARGET_ARCH}/${cxx_compiler_flag}")
 set(WXT_ASSETS_NAME wxtools-${CMAKE_HOST_SYSTEM_NAME}-${WXT_GIT_TAG}-${WXT_TARGET_ARCH})
 string(TOLOWER ${WXT_ASSETS_NAME} WXT_ASSETS_NAME)
-set(WX_TOOLS_BINARY_DIR ${CMAKE_BINARY_DIR}/assets)
+set(WXT_BINARY_DIR ${CMAKE_BINARY_DIR}/assets)
 set(WXT_APP_ID "com.xtools.wxtools")
 set(WXT_LIBS)
 
@@ -149,7 +149,7 @@ include(wxt_tools)
 # wxTools applications
 include_directories(src)
 list(APPEND WXT_SOURCES wxTools.rc)
-set(WXT_OUTPUT_DIR "${WX_TOOLS_BINARY_DIR}/wxTools")
+set(WXT_OUTPUT_DIR "${WXT_BINARY_DIR}/wxTools")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${WXT_OUTPUT_DIR})
 add_executable(wxTools ${WXT_SOURCES})
 list(APPEND WXT_LIBS glog::glog fmt::fmt ${wxtSerialPortLib} mongoose)
@@ -161,7 +161,6 @@ wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 
 # --------------------------------------------------------------------------------------------------
 # Do something for Windows XP compatibility
-option(WXT_TARGET_WIN_XP "Build for Windows XP compatibility" OFF)
 if(MSVC AND NOT WXT_TARGET_WIN_XP)
   list(APPEND WXT_LIBS Dwmapi)
 endif()

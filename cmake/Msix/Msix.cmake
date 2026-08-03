@@ -11,7 +11,7 @@
   string(REGEX REPLACE "v" "" packet_version ${packet_version})
   string(REGEX REPLACE "V" "" packet_version ${packet_version})
 
-  set(root_dir ${WX_TOOLS_BINARY_DIR})
+  set(root_dir ${WXT_BINARY_DIR})
   set(template ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/MsixTemplate.xml)
   set(args -DargTarget=${target})
   list(APPEND args -DargRoot=${root_dir})

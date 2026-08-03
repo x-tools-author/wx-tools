@@ -1,6 +1,13 @@
-﻿set(wxWidgets_version
-    3.3.3
-    CACHE STRING "wxWidgets version")
+﻿option(WXT_TARGET_WIN_XP "Build for Windows XP compatibility" OFF)
+if(MSVC AND WXT_TARGET_WIN_XP)
+  set(wxWidgets_version
+      3.2.11
+      CACHE STRING "wxWidgets version")
+else()
+  set(wxWidgets_version
+      3.3.3
+      CACHE STRING "wxWidgets version")
+endif()
 set(file_name "wxWidgets-${wxWidgets_version}")
 set(base_url "https://github.com/wxWidgets/wxWidgets/releases/download")
 set(file_url "${base_url}/v${wxWidgets_version}/wxWidgets-${wxWidgets_version}.zip")
