@@ -162,7 +162,7 @@ wxt_generate_mo(wxTools ${WXT_WX_LOCAL_DIR})
 # --------------------------------------------------------------------------------------------------
 # Do something for Windows XP compatibility
 if(MSVC AND NOT WXT_TARGET_WIN_XP)
-  list(APPEND WXT_LIBS Dwmapi)
+  target_link_libraries(wxTools PRIVATE Dwmapi)
 endif()
 if(MSVC AND WXT_TARGET_WIN_XP)
   # cmake-format: off
