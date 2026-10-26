@@ -217,19 +217,25 @@ if(WIN32)
     wxt_generate_msix(wxTools "wxTools" "wxTools" ${WXT_VERSION} OFF)
   endif()
 
-  # For AMD64
-  add_custom_target(
-    wxTools-store
-    COMMAND ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix.bat
-    SOURCES ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix.bat
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/scripts/msix)
+  if(NOT DEFINED CMAKE_CXX_COMPILER_ARCHITECTURE_ID)
+    return()
+  endif()
 
-  # For ARM64
-  add_custom_target(
-    wxTools-store-arm64
-    COMMAND ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix-arm64.bat
-    SOURCES ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix-arm64.bat
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/scripts/msix)
+  if(${CMAKE_CXX_COMPILER_ARCHITECTURE_ID} STREQUAL "x64")
+    # For AMD64
+    add_custom_target(
+      wxTools-store
+      COMMAND ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix.bat
+      SOURCES ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix.bat
+      WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/scripts/msix)
+  elseif(${CMAKE_CXX_COMPILER_ARCHITECTURE_ID} STREQUAL "ARM64")
+    # For ARM64
+    add_custom_target(
+      wxTools-store-arm64
+      COMMAND ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix-arm64.bat
+      SOURCES ${CMAKE_SOURCE_DIR}/scripts/msix/make-msix-arm64.bat
+      WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/scripts/msix)
+  endif()
 endif()
 
 # --------------------------------------------------------------------------------------------------
