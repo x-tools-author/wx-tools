@@ -1,11 +1,11 @@
 ﻿option(WXT_TARGET_WIN_XP "Build for Windows XP compatibility" OFF)
 if(MSVC AND WXT_TARGET_WIN_XP)
   set(wxWidgets_version
-      3.2.11
+      3.2.12
       CACHE STRING "wxWidgets version")
 else()
   set(wxWidgets_version
-      3.3.3
+      3.3.4
       CACHE STRING "wxWidgets version")
 endif()
 set(file_name "wxWidgets-${wxWidgets_version}")
