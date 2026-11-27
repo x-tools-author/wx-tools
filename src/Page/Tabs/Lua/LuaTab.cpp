@@ -521,18 +521,23 @@ void LuaTab::DoSetupStyledTextCtrl(wxStyledTextCtrl *textCtrl)
 {
     textCtrl->SetLexer(wxSTC_LEX_LUA);
     textCtrl->SetKeyWords(0, "function end local if then else for while do return break");
-    textCtrl->StyleSetForeground(wxSTC_LUA_DEFAULT, wxColor("#000000"));       // 默认文本颜色
+    const wxColour textColor = wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOWTEXT);
+    const wxColor windowColor = wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW);
+    textCtrl->StyleSetForeground(wxSTC_STYLE_DEFAULT, textColor);
+    textCtrl->StyleSetBackground(wxSTC_STYLE_DEFAULT, windowColor);
+    textCtrl->StyleClearAll();
+    textCtrl->StyleSetForeground(wxSTC_LUA_DEFAULT, textColor);                // 默认文本颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_COMMENT, wxColor("#737773ff"));     // 注释颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_COMMENTLINE, wxColor("#737773ff")); // 注释颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_COMMENTDOC, wxColor("#737773ff"));  // 注释颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_NUMBER, wxColor("#0000FF"));        // 数字颜色
-    textCtrl->StyleSetForeground(wxSTC_LUA_WORD, wxColor("#0000FF"));          // 关键字颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_WORD, wxColor("#74129b"));          // 关键字颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_STRING, wxColor("#A31515"));        // 字符串颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_CHARACTER, wxColor("#A31515"));     // 字符颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_LITERALSTRING, wxColor("#A31515")); // 字符串颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_PREPROCESSOR, wxColor("#FF00FF"));  // 预处理器颜色
-    textCtrl->StyleSetForeground(wxSTC_LUA_OPERATOR, wxColor("#000000"));      // 操作符颜色
-    textCtrl->StyleSetForeground(wxSTC_LUA_IDENTIFIER, wxColor("#000000"));    // 标识符颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_OPERATOR, textColor);               // 操作符颜色
+    textCtrl->StyleSetForeground(wxSTC_LUA_IDENTIFIER, textColor);             // 标识符颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_STRINGEOL, wxColor("#FF0000"));     // 字符串未闭合颜色
     textCtrl->StyleSetForeground(wxSTC_LUA_LABEL, wxColor("#A31515"));         // 标签颜色
     textCtrl->SetMarginType(0, wxSTC_MARGIN_NUMBER); // 设置行号栏类型为数字
