@@ -2,7 +2,7 @@ name: build-release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -12,14 +12,14 @@ jobs:
   update-release:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Delete Release
-      run: |
-        gh release delete ${{ github.ref_name }} -y || true
-    - name: Create Release
-      run: |
-        gh release create ${{ github.ref_name }} --title "Release ${{ github.ref_name }}" --notes "The version is ready. You can see the changed log: https://github.com/x-tools-author/wx-tools/blob/master/res/files/history.txt"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Delete Release
+        run: |
+          gh release delete ${{ github.ref_name }} -y || true
+      - name: Create Release
+        run: |
+          gh release create ${{ github.ref_name }} --title "Release ${{ github.ref_name }}" --notes "The version is ready. You can see the changed log: https://github.com/x-tools-author/wx-tools/blob/master/res/files/history.txt"
   release-for-windows:
     runs-on: windows-2022
     needs: update-release
@@ -27,22 +27,22 @@ jobs:
       matrix:
         arch: [x86, x64, x86_arm64]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Build for Windows
-      shell: cmd
-      run: |
-        git fetch --tags
-        mkdir build
-        cd build
-        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.arch }}
-        cmake -DWXT_MAKE_ZIP:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
-        cmake --build . --target wxTools
-        dir && dir .\assets && dir .\assets\wxTools
-    - name: Upload Release Asset for Windows
-      shell: cmd
-      run: |
-        for %%f in (build\assets\*.zip) do gh release upload ${{ github.ref_name }} "%%f"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build for Windows
+        shell: cmd
+        run: |
+          git fetch --tags
+          mkdir build
+          cd build
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.arch }}
+          cmake -DWXT_MAKE_ZIP:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
+          cmake --build . --target wxTools
+          dir && dir .\assets && dir .\assets\wxTools
+      - name: Upload Release Asset for Windows
+        shell: cmd
+        run: |
+          for %%f in (build\assets\*.zip) do gh release upload ${{ github.ref_name }} "%%f"
   release-for-linux:
     runs-on: ubuntu-22.04
     needs: update-release
@@ -60,4 +60,21 @@ jobs:
           cd ${{ github.workspace }}/build
           find . -name "*.deb" -type f | while read file; do
             gh release upload ${{ github.ref_name }} "$file"
+          done
+  release-for-macos:
+    runs-on: macos-15
+    needs: update-release
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build for macos
+        run: |
+          git fetch --tags
+          cmake --version
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release -DWXT_DAILY_BUILD:BOOL=OFF -DWXT_GENERATE_MSIX:BOOL=OFF ../
+          cmake --build . --target wxTools_pkg_dmg
+          find . -name "*.pkg" -type f | while read file; do
+            gh release upload continuous $file
           done
