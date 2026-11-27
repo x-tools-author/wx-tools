@@ -1,7 +1,7 @@
 name: build-daily
 on:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
   workflow_dispatch: # Enables manually
 # on:
 #  push:
@@ -19,26 +19,26 @@ jobs:
       commits_found: ${{ steps.recent.outputs.commits_found }}
       commits_count: ${{ steps.recent.outputs.commits_count }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - name: Check Recent Commits
-      uses: ./.github/actions/commit-checker
-      id: recent
-      with:
-        since_hours: 24
-    - name: Update continuous tag
-      #if: ${{ steps.recent.outputs.commits_found == 'true' }}
-      run: |
-        git config --global user.email "x-tools@outlook.com"
-        git config --global user.name "x-tools-author"
-        git tag -d continuous || true
-        git push origin :refs/tags/continuous
-        git tag continuous
-        git push origin continuous -f
-        gh release delete continuous -y || true
-        gh release create continuous --title "Continuous Build" --notes "Daily build of wxTools..."
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check Recent Commits
+        uses: ./.github/actions/commit-checker
+        id: recent
+        with:
+          since_hours: 24
+      - name: Update continuous tag
+        #if: ${{ steps.recent.outputs.commits_found == 'true' }}
+        run: |
+          git config --global user.email "x-tools@outlook.com"
+          git config --global user.name "x-tools-author"
+          git tag -d continuous || true
+          git push origin :refs/tags/continuous
+          git tag continuous
+          git push origin continuous -f
+          gh release delete continuous -y || true
+          gh release create continuous --title "Continuous Build" --notes "Daily build of wxTools..."
   release-for-windows:
     runs-on: windows-2022
     needs: update-tag
@@ -47,22 +47,22 @@ jobs:
       matrix:
         arch: [x86, x64, x86_arm64]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Build for Windows
-      shell: cmd
-      run: |
-        git fetch --tags
-        mkdir build
-        cd build
-        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.arch }}
-        cmake -DWXT_MAKE_ZIP:BOOL=ON -DWXT_DAILY_BUILD:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
-        cmake --build . --target wxTools
-        dir && dir .\assets && dir .\assets\wxTools
-    - name: Upload Release Asset for Windows
-      shell: cmd
-      run: |
-        for %%f in (build\assets\*.zip) do gh release upload continuous "%%f"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build for Windows
+        shell: cmd
+        run: |
+          git fetch --tags
+          mkdir build
+          cd build
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.arch }}
+          cmake -DWXT_MAKE_ZIP:BOOL=ON -DWXT_DAILY_BUILD:BOOL=ON -DCMAKE_BUILD_TYPE=Release -DWXT_GENERATE_MSIX:BOOL=OFF -G "Ninja" ../
+          cmake --build . --target wxTools
+          dir && dir .\assets && dir .\assets\wxTools
+      - name: Upload Release Asset for Windows
+        shell: cmd
+        run: |
+          for %%f in (build\assets\*.zip) do gh release upload continuous "%%f"
   release-for-linux:
     runs-on: ubuntu-22.04
     needs: update-tag
@@ -83,7 +83,7 @@ jobs:
             gh release upload continuous $file
           done
   release-for-macos:
-    runs-on: macos-14
+    runs-on: macos-15
     needs: update-tag
     #if:  ${{ needs.update-tag.outputs.commits_found == 'true' }}
     steps:
