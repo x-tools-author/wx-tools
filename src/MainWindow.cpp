@@ -280,7 +280,8 @@ void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
     infos.push_back(ThemeInfo{_("Light Theme"), static_cast<int>(wxAppBase::Appearance::Light)});
     infos.push_back(ThemeInfo{_("Dark Theme"), static_cast<int>(wxAppBase::Appearance::Dark)});
 
-    int appAppearance = wxtConfig->Read("Application/Theme", long(0));
+    const wxString themeKey{"Application/Theme"};
+    int appAppearance = wxtConfig->Read(themeKey, long(0));
     for (auto it = infos.begin(); it != infos.end(); ++it) {
         wxMenuItem* item = themeMenu->AppendRadioItem(wxID_ANY, it->name);
         if (it->id == appAppearance) {
@@ -291,22 +292,25 @@ void MainWindow::InitMenuOptionsThemes(wxMenu* optionMenu)
         Bind(
             wxEVT_MENU,
             [=](wxCommandEvent& evt) {
+                wxUnusedVar(evt);
                 wxApp* app = dynamic_cast<wxApp*>(wxApp::GetInstance());
-                if (app) {
-                    app->SetAppearance(static_cast<wxAppBase::Appearance>(id));
-                    DoUpdateWindowFrameWork();
-#if defined(__WINDOWS__)
-                    wxtConfig->Write("Application/Theme", id);
-                    wxtConfig->Flush();
-                    int ret = wxMessageBox(_("Reboot the application to take effect now?"),
-                                           _("Information"),
-                                           wxYES | wxNO | wxICON_QUESTION);
-                    if (ret == wxYES) {
-                        wxExecute(wxStandardPaths::Get().GetExecutablePath());
-                        wxTheApp->ExitMainLoop();
-                    }
-#endif
+                if (!app) {
+                    return;
                 }
+
+                app->SetAppearance(static_cast<wxAppBase::Appearance>(id));
+                DoUpdateWindowFrameWork();
+#if defined(__WINDOWS__)
+                wxtConfig->Write(themeKey, id);
+                wxtConfig->Flush();
+                int ret = wxMessageBox(_("Reboot the application to take effect now?"),
+                                       _("Information"),
+                                       wxYES | wxNO | wxICON_QUESTION);
+                if (ret == wxYES) {
+                    wxExecute(wxStandardPaths::Get().GetExecutablePath());
+                    wxTheApp->ExitMainLoop();
+                }
+#endif
             },
             item->GetId());
     }
