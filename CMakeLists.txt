@@ -221,6 +221,13 @@ if(WIN32)
     return()
   endif()
 
+  set(tmp "${CMAKE_CXX_COMPILER_ARCHITECTURE_ID}")
+  if("${tmp}" STREQUAL "")
+    return()
+  endif()
+
+  message(STATUS "CMAKE_CXX_COMPILER_ARCHITECTURE_ID: ${CMAKE_CXX_COMPILER_ARCHITECTURE_ID}")
+
   if(${CMAKE_CXX_COMPILER_ARCHITECTURE_ID} STREQUAL "x64")
     # For AMD64
     add_custom_target(
